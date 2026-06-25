@@ -59,6 +59,7 @@
       "title": "Your Healthy Life, Manifested as a Farm",
       "subtitle": "TendFarm is a healthy-life manifestation farm: it turns your Activity, sleep, HRV, and long-term daily rhythm into farm growth speed, harvest abundance, fuel efficiency, and level progression."
     },
+    "principlesTitle": "Design Principles",
     "principles": [
       { "title": "Health data doesn't give coins directly", "desc": "Activity affects growth speed, sleep affects harvest abundance, HRV affects fuel efficiency. Health data influences output through efficiency, not direct exchange." },
       { "title": "Casual users need no planning", "desc": "The system auto-configures default crops. Power users can enter the field-planning screen to optimize output around their own rhythm." },

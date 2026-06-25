@@ -17,7 +17,7 @@ export default function PhilosophyPage() {
       <h1 className="mb-4 text-4xl font-bold text-[#e8dcc8]">{t('hero.title')}</h1>
       <p className="mb-16 text-lg text-[#8a9a7a] leading-relaxed">{t('hero.subtitle')}</p>
 
-      <h2 className="mb-6 text-xl font-semibold text-[#f0a832]">设计原则</h2>
+      <h2 className="mb-6 text-xl font-semibold text-[#f0a832]">{t('principlesTitle')}</h2>
       <div className="mb-16 grid gap-4 md:grid-cols-2">
         {principles.map((p, i) => (
           <div key={i} className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] p-5">

@@ -52,8 +52,8 @@ export default function GameplayPage() {
       <section className="mb-16">
         <h2 className="mb-6 text-xl font-semibold text-[#f0a832]">{t('week.title')}</h2>
         <div className="space-y-3">
-          {days.map((d) => (
-            <div key={d.day} className="flex gap-4 rounded-lg border border-[#2d3d2d] bg-[#1a2e1a] p-4">
+          {days.map((d, i) => (
+            <div key={i} className="flex gap-4 rounded-lg border border-[#2d3d2d] bg-[#1a2e1a] p-4">
               <span className="min-w-[60px] text-sm font-semibold text-[#f0a832]">{d.day}</span>
               <span className="text-sm text-[#8a9a7a]">{d.exp}</span>
             </div>
