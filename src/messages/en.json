@@ -1,0 +1,64 @@
+{
+  "home": {
+    "hero": {
+      "title": "Your healthy life, growing here",
+      "subtitle": "Sleep well, harvest more. Move more, crops ripen early. TendFarm turns your real-life rhythm into a self-growing farm.",
+      "cta": "Join the waitlist"
+    },
+    "concepts": {
+      "title": "Health data drives your farm",
+      "activity": { "title": "Activity → Sunlight", "desc": "When you're active, crops in that time slot grow faster." },
+      "vitals": { "title": "Sleep → Morning Dew", "desc": "A good night's sleep means a more abundant harvest." },
+      "rhythm": { "title": "Life Rhythm → Efficiency", "desc": "A stable daily rhythm boosts your farm's health data conversion by up to 12%." }
+    },
+    "guidesTeaser": {
+      "title": "Do you play these games?",
+      "cta": "Visit the guides center"
+    },
+    "waitlist": {
+      "title": "Join the waitlist",
+      "subtitle": "Get first access to the TestFlight beta",
+      "placeholder": "your@email.com",
+      "button": "Join now",
+      "success": "You're in! We'll notify you when the beta opens.",
+      "duplicate": "You're already on the waitlist.",
+      "error": "Submission failed, please try again."
+    }
+  },
+  "nav": {
+    "philosophy": "Philosophy",
+    "lifestyle": "Healthy Living",
+    "gameplay": "Gameplay",
+    "tools": "Tools",
+    "guides": "Game Guides"
+  },
+  "footer": {
+    "tagline": "Your healthy life, growing here",
+    "privacy": "Privacy Policy",
+    "contact": "Contact"
+  },
+  "waitlist": {
+    "title": "Join the waitlist",
+    "subtitle": "Get first access to the TestFlight beta",
+    "placeholder": "your@email.com",
+    "button": "Join now",
+    "success": "You're in! We'll notify you when the beta opens.",
+    "duplicate": "You're already on the waitlist.",
+    "error": "Submission failed, please try again."
+  },
+  "guides": {
+    "title": "Farm Game Guides",
+    "subtitle": "From beginner to veteran farmer",
+    "readMore": "Read guide →",
+    "games": {
+      "hay-day": { "name": "Hay Day", "desc": "The most popular mobile farm game" },
+      "stardew-valley": { "name": "Stardew Valley", "desc": "The iconic indie farm RPG" },
+      "animal-crossing": { "name": "Animal Crossing: New Horizons", "desc": "Nintendo's cozy island life game" }
+    },
+    "tendfarmHook": {
+      "title": "Did you know?",
+      "body": "There's a farm game driven by your real steps, sleep, and HRV. The more consistent your daily rhythm, the more abundant your harvest.",
+      "cta": "Learn about TendFarm →"
+    }
+  }
+}

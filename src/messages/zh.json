@@ -1,0 +1,64 @@
+{
+  "home": {
+    "hero": {
+      "title": "你的健康生活，在这里生长",
+      "subtitle": "睡得好，作物更充盈。动得多，农场提前丰收。TendFarm 把你的真实节律变成一座会自动生长的农场。",
+      "cta": "加入候补名单"
+    },
+    "concepts": {
+      "title": "健康数据，驱动农场",
+      "activity": { "title": "活动 → 阳光", "desc": "你的活动发生在哪个时间片，作物就在那时长得更快。" },
+      "vitals": { "title": "睡眠 → 晨露", "desc": "昨晚恢复良好，今天收成更充盈。" },
+      "rhythm": { "title": "生活节律 → 转化率", "desc": "稳定的生活节律让健康数据的农场效果最多提升 12%。" }
+    },
+    "guidesTeaser": {
+      "title": "你玩这些游戏吗？",
+      "cta": "进入攻略中心"
+    },
+    "waitlist": {
+      "title": "加入候补名单",
+      "subtitle": "第一批 TestFlight 内测资格",
+      "placeholder": "your@email.com",
+      "button": "立即加入",
+      "success": "已收到！我们会在内测开始时第一时间通知你。",
+      "duplicate": "你已经在候补名单中了。",
+      "error": "提交失败，请重试。"
+    }
+  },
+  "nav": {
+    "philosophy": "产品理念",
+    "lifestyle": "健康生活",
+    "gameplay": "玩法体验",
+    "tools": "工具集",
+    "guides": "游戏攻略"
+  },
+  "footer": {
+    "tagline": "你的健康生活，在这里生长",
+    "privacy": "隐私政策",
+    "contact": "联系我们"
+  },
+  "waitlist": {
+    "title": "加入候补名单",
+    "subtitle": "第一批 TestFlight 内测资格",
+    "placeholder": "your@email.com",
+    "button": "立即加入",
+    "success": "已收到！我们会在内测开始时第一时间通知你。",
+    "duplicate": "你已经在候补名单中了。",
+    "error": "提交失败，请重试。"
+  },
+  "guides": {
+    "title": "农场游戏攻略中心",
+    "subtitle": "从新手到老农，找到你需要的攻略",
+    "readMore": "阅读攻略 →",
+    "games": {
+      "hay-day": { "name": "Hay Day", "desc": "最受欢迎的移动端农场手游" },
+      "stardew-valley": { "name": "星露谷物语", "desc": "独立农场 RPG 游戏神作" },
+      "animal-crossing": { "name": "动物森友会", "desc": "任天堂治愈系岛屿经营游戏" }
+    },
+    "tendfarmHook": {
+      "title": "你知道吗？",
+      "body": "有一款农场游戏是用你真实的步数、睡眠和 HRV 来驱动的。你的生活节律越规律，农场收成越充盈。",
+      "cta": "了解 TendFarm →"
+    }
+  }
+}
