@@ -42,6 +42,7 @@ describe('POST /api/waitlist', () => {
     const { supabase } = await import('@/lib/supabase')
     vi.mocked(supabase.from).mockReturnValueOnce({
       insert: vi.fn().mockResolvedValue({ error: { code: '23505', message: 'duplicate key' } }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any)
 
     const req = new Request('http://localhost/api/waitlist', {

@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 
-const client = new Resend(process.env.RESEND_API_KEY)
+// Use placeholder at module load time; real key is required at runtime.
+const client = new Resend(process.env.RESEND_API_KEY ?? 're_placeholder')
 
 export async function sendConfirmationEmail(email: string, locale: string) {
   const subject = locale === 'zh' ? 'TendFarm 候补名单确认' : 'TendFarm Waitlist Confirmation'
