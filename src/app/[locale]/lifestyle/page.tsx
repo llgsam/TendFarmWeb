@@ -11,10 +11,12 @@ export async function generateMetadata({
   const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
-    title: isZh ? '健康生活如何驱动 TendFarm 农场' : 'How Your Health Lifestyle Powers TendFarm',
+    title: isZh
+      ? 'TendFarm 如何把健康生活转化为农场能量'
+      : 'How TendFarm Turns Your Health Life into Farm Energy',
     description: isZh
-      ? '了解睡眠、步数和 HRV 如何在 TendFarm 里转化为作物收成、农场生长和燃料效率。'
-      : 'See how sleep, steps, and HRV become crop yields, farm growth, and fuel efficiency in TendFarm.',
+      ? '阳光来自活动，晨露来自睡眠，空气来自恢复与心情，生活节律放大转化效率——了解 TendFarm 的五大健康驱动力。'
+      : 'Sunlight from activity, dew from sleep, air from recovery and mood, rhythm as the amplifier — the five health drivers behind TendFarm.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/lifestyle`,
       languages: {
@@ -25,62 +27,70 @@ export async function generateMetadata({
   }
 }
 
-const HOW_IT_WORKS = [
+const FARM_DATA = [
   {
-    icon: '😴',
-    inputZh: '睡眠质量',
-    inputEn: 'Sleep Quality',
-    arrowZh: '前一晚的深睡和 REM',
-    arrowEn: 'Prior night\'s deep sleep & REM',
-    outputZh: '当天收成更充盈，最多 +20%',
-    outputEn: 'Richer harvest that day, up to +20%',
-    detailZh: '睡得好，农场会在清晨凝结出「晨露」，让当天的收成更饱满。这是对你昨晚好好休息的直接回报。',
-    detailEn: 'Good sleep generates "morning dew" at dawn, swelling that day\'s harvest. A direct reward for last night\'s rest.',
+    farmIcon: '☀️',
+    farmNameZh: '阳光',
+    farmNameEn: 'Sunlight',
+    sourceZh: '活动：步数、运动、训练',
+    sourceEn: 'Activity: steps, workouts, exercise',
+    effectZh: '作物生长速度',
+    effectEn: 'Crop growth speed',
+    detailZh: '你在哪个时间段活动，那个时间段的作物生长速度就会提升。早晨跑步 → 早晨的田地更有活力；下午散步 → 下午的作物提前成熟。阳光不是金币，它是生长的驱动力。',
+    detailEn: 'Crops grow faster during the hours you are active. Morning run → morning fields thrive. Afternoon walk → afternoon crops ripen early. Sunlight is not currency — it drives growth.',
   },
   {
-    icon: '🚶',
-    inputZh: '每日步数 / 活动',
-    inputEn: 'Daily Steps / Activity',
-    arrowZh: '活动时间段的阳光强度',
-    arrowEn: 'Sunlight intensity during active hours',
-    outputZh: '活动时间片的作物提前成熟',
-    outputEn: 'Crops in active time slots ripen faster',
-    detailZh: '你在哪个时间段活动，那个时间段的作物就长得更快。早晨跑步 → 早晨的作物提前成熟。',
-    detailEn: 'Crops grow faster during the hours you\'re active. Morning run → morning crops ripen early.',
+    farmIcon: '🌿',
+    farmNameZh: '晨露',
+    farmNameEn: 'Morning Dew',
+    sourceZh: 'Vitals / 睡眠：睡眠分阶、静息心率、恢复评分',
+    sourceEn: 'Vitals / Sleep: sleep stages, resting HR, recovery score',
+    effectZh: '收成充盈度（最多 +20%）',
+    effectEn: 'Harvest richness (up to +20%)',
+    detailZh: '前一晚的睡眠质量会在清晨凝结为晨露，影响当天所有收成的充盈程度。睡得越好，收成越饱满。晨露不改变基础产量，而是让每一次收成都更值。',
+    detailEn: 'Last night\'s sleep condenses into morning dew at dawn, enriching every harvest that day. Better sleep means fuller yields. Dew does not change base output — it makes each harvest count more.',
   },
   {
-    icon: '💓',
-    inputZh: 'HRV 心率变异性',
-    inputEn: 'Heart Rate Variability',
-    arrowZh: '自主神经恢复状态',
-    arrowEn: 'Autonomic recovery state',
-    outputZh: '自动收割机燃料利用率更高',
-    outputEn: 'Auto-harvester uses fuel more efficiently',
-    detailZh: 'HRV 越高代表身体恢复越好。在农场里，这体现为收割机每次运作消耗更少燃料，你的资源用得更久。',
-    detailEn: 'Higher HRV means your body is more recovered. In the farm, your harvester runs more fuel-efficiently.',
+    farmIcon: '🌬️',
+    farmNameZh: '空气',
+    farmNameEn: 'Air',
+    sourceZh: 'Mood / HRV / 冥想 / 心情记录',
+    sourceEn: 'Mood / HRV / meditation / mood logs',
+    effectZh: '自动收割机燃料利用率',
+    effectEn: 'Auto-harvester fuel efficiency',
+    detailZh: '心率变异性、冥想时长和心情记录共同构成空气质量。空气越清新，自动收割机每次运作消耗的燃料越少——让你的农场自动化运转得更久。',
+    detailEn: 'HRV, meditation duration, and mood logs together shape air quality. Cleaner air means your auto-harvester burns less fuel per run — your farm automation runs longer.',
   },
   {
-    icon: '🔄',
-    inputZh: '生活节律规律性',
-    inputEn: 'Lifestyle Regularity',
-    arrowZh: '健康数据的转化率系数',
-    arrowEn: 'Health data conversion multiplier',
-    outputZh: '所有效果提升 ×1.00 ~ 1.12',
-    outputEn: 'All effects boosted ×1.00 – 1.12',
-    detailZh: '固定的起床、运动、睡眠时间让你的农场进入「共振状态」，所有健康数据的转化效率整体提升。',
-    detailEn: 'Consistent wake, move, and sleep times put your farm in a "resonance state," boosting all health-to-farm conversions.',
+    farmIcon: '🔄',
+    farmNameZh: '生活节律',
+    farmNameEn: 'Lifestyle Rhythm',
+    sourceZh: '睡眠规律性、活动规律性、恢复趋势稳定性、数据连续性',
+    sourceEn: 'Sleep regularity, activity regularity, recovery stability, data consistency',
+    effectZh: '健康数据转化率 ×1.00 ~ ×1.12',
+    effectEn: 'Health data conversion rate ×1.00 – ×1.12',
+    detailZh: '生活节律是阳光、晨露、空气和 LifeExp 所有效果的放大器。作息越规律，转化率越高：未成形 1.00x → 初醒 1.03x → 稳定 1.06x → 共振 1.09x → 身心合一 1.12x。',
+    detailEn: 'Lifestyle rhythm amplifies all health data conversions — sunlight, dew, air, and LifeExp alike. More regularity, higher multiplier: forming 1.00× → awakening 1.03× → steady 1.06× → resonance 1.09× → harmony 1.12×.',
   },
   {
-    icon: '📈',
-    inputZh: '长期健康积累',
-    inputEn: 'Long-Term Health Trends',
-    arrowZh: 'LifeExp 生命值累积',
-    arrowEn: 'LifeExp accumulation',
-    outputZh: '农场等级提升，解锁新区域和作物',
-    outputEn: 'Farm level up, unlock new regions and crops',
-    detailZh: '数周、数月的健康数据累积形成 LifeExp，推动农场等级成长，解锁新的世界和作物种类。',
-    detailEn: 'Weeks and months of health data accumulate into LifeExp, leveling up your farm and unlocking new worlds.',
+    farmIcon: '📈',
+    farmNameZh: 'LifeExp',
+    farmNameEn: 'LifeExp',
+    sourceZh: '长期健康数据积累',
+    sourceEn: 'Long-term health data accumulation',
+    effectZh: '农场等级 → 解锁新作物、区域、风格',
+    effectEn: 'Farm level → unlock new crops, regions, styles',
+    detailZh: '数周、数月的健康数据沉淀形成 LifeExp——生活沉淀为经验。LifeExp 推动农场等级成长，解锁新的作物种类、区域和农场风格建筑。',
+    detailEn: 'Weeks and months of health data accumulate into LifeExp — life becomes experience. LifeExp levels up your farm and unlocks new crop varieties, regions, and style buildings.',
   },
+]
+
+const RHYTHM_LEVELS = [
+  { levelZh: '未成形', levelEn: 'Forming', score: '0 – 39', rate: '1.00×' },
+  { levelZh: '初醒', levelEn: 'Awakening', score: '40 – 59', rate: '1.03×' },
+  { levelZh: '稳定', levelEn: 'Steady', score: '60 – 74', rate: '1.06×' },
+  { levelZh: '共振', levelEn: 'Resonance', score: '75 – 89', rate: '1.09×' },
+  { levelZh: '身心合一', levelEn: 'Harmony', score: '90 – 100', rate: '1.12×' },
 ]
 
 export default async function LifestylePage({
@@ -95,75 +105,83 @@ export default async function LifestylePage({
     <div className="mx-auto max-w-3xl px-4 py-16">
       {/* Hero */}
       <h1 className="mb-4 text-4xl font-bold text-[#e8dcc8]">
-        {isZh ? '你的每一天，都在滋养你的农场' : 'Every Day of Your Life Feeds Your Farm'}
+        {isZh ? '你的生活，就是农场的动力' : 'Your Life Is Your Farm\'s Engine'}
       </h1>
       <p className="mb-16 text-lg leading-relaxed text-[#8a9a7a]">
         {isZh
-          ? 'TendFarm 不要求你改变生活方式，它只是把你已经在做的事情——睡觉、走路、保持规律——转化为农场里看得见的生长。'
-          : 'TendFarm doesn\'t ask you to change your life. It just turns what you already do — sleeping, walking, staying regular — into visible farm growth.'}
+          ? 'TendFarm 把你的健康数据分为五种农场能量。每种能量影响不同的农场机制，不直接变金币，而是让农场运转得更好、长得更快、更持久。'
+          : 'TendFarm maps your health data into five types of farm energy. Each shapes a different farm mechanic — not converting directly to coins, but making your farm run better, grow faster, and last longer.'}
       </p>
 
-      {/* How it works */}
+      {/* FarmData list */}
       <h2 className="mb-6 text-xl font-semibold text-[#f0a832]">
-        {isZh ? '健康数据 → 农场效果' : 'Health Data → Farm Effects'}
+        {isZh ? '五种农场能量' : 'Five Farm Energies'}
       </h2>
       <div className="mb-16 space-y-4">
-        {HOW_IT_WORKS.map((item) => (
-          <div key={item.inputEn} className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] p-5">
-            <div className="mb-3 flex items-start gap-3">
-              <span className="mt-0.5 text-2xl">{item.icon}</span>
-              <div className="flex-1">
-                <div className="mb-1 flex flex-wrap items-center gap-2 text-sm">
-                  <span className="font-semibold text-[#e8dcc8]">
-                    {isZh ? item.inputZh : item.inputEn}
-                  </span>
-                  <span className="text-[#8a9a7a]">→</span>
-                  <span className="font-semibold text-[#f0a832]">
-                    {isZh ? item.outputZh : item.outputEn}
-                  </span>
-                </div>
-                <p className="text-sm leading-relaxed text-[#8a9a7a]">
-                  {isZh ? item.detailZh : item.detailEn}
-                </p>
-              </div>
+        {FARM_DATA.map((item) => (
+          <div key={item.farmNameEn} className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] p-5">
+            <div className="mb-3 flex flex-wrap items-center gap-2">
+              <span className="text-2xl">{item.farmIcon}</span>
+              <span className="font-bold text-[#e8dcc8]">
+                {isZh ? item.farmNameZh : item.farmNameEn}
+              </span>
+              <span className="text-[#8a9a7a]">←</span>
+              <span className="text-sm text-[#8a9a7a]">
+                {isZh ? item.sourceZh : item.sourceEn}
+              </span>
             </div>
+            <p className="mb-2 text-sm font-medium text-[#f0a832]">
+              {isZh ? `→ ${item.effectZh}` : `→ ${item.effectEn}`}
+            </p>
+            <p className="text-sm leading-relaxed text-[#8a9a7a]">
+              {isZh ? item.detailZh : item.detailEn}
+            </p>
           </div>
         ))}
       </div>
 
-      {/* Coming soon */}
-      <div className="mb-16 rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-6">
-        <h2 className="mb-3 text-lg font-semibold text-[#e8dcc8]">
-          {isZh ? '🌾 更多功能正在规划中' : '🌾 More Features in the Works'}
-        </h2>
-        <ul className="space-y-2 text-sm text-[#8a9a7a]">
-          {isZh ? (
-            <>
-              <li>• 田地规划界面：按你的生活时间表优化作物配置</li>
-              <li>• 季节系统：随现实季节变化调整游戏内农场节律</li>
-              <li>• 朋友农场：查看好友今天的农场状态</li>
-              <li>• Apple Watch 表盘小组件：腕上直接看今日收成</li>
-            </>
-          ) : (
-            <>
-              <li>• Field planner: optimize your crop layout around your personal schedule</li>
-              <li>• Season system: real-world seasons shift your farm&apos;s rhythm</li>
-              <li>• Friends&apos; farms: see how your friends&apos; farms are doing today</li>
-              <li>• Apple Watch complication: today&apos;s harvest at a glance on your wrist</li>
-            </>
-          )}
-        </ul>
+      {/* Rhythm levels table */}
+      <h2 className="mb-4 text-xl font-semibold text-[#f0a832]">
+        {isZh ? '生活节律等级' : 'Lifestyle Rhythm Levels'}
+      </h2>
+      <div className="mb-16 overflow-x-auto rounded-xl border border-[#2d3d2d]">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="border-b border-[#2d3d2d] bg-[#1a2e1a]">
+              <th className="px-4 py-3 text-left text-[#8a9a7a]">
+                {isZh ? '状态' : 'State'}
+              </th>
+              <th className="px-4 py-3 text-left text-[#8a9a7a]">
+                {isZh ? '分数' : 'Score'}
+              </th>
+              <th className="px-4 py-3 text-left text-[#8a9a7a]">
+                {isZh ? '健康数据转化率' : 'Conversion Rate'}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {RHYTHM_LEVELS.map((row) => (
+              <tr key={row.levelEn} className="border-b border-[#2d3d2d] last:border-0">
+                <td className="px-4 py-3 font-medium text-[#e8dcc8]">
+                  {isZh ? row.levelZh : row.levelEn}
+                </td>
+                <td className="px-4 py-3 text-[#8a9a7a]">{row.score}</td>
+                <td className="px-4 py-3 font-semibold text-[#f0a832]">{row.rate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      {/* Feedback & follow */}
+      {/* Feedback */}
       <div className="mb-16 rounded-xl border border-[#f0a832]/20 bg-[#f0a832]/5 p-6">
         <h2 className="mb-3 text-xl font-semibold text-[#e8dcc8]">
           {isZh ? '欢迎关注，也欢迎来聊' : 'Follow Along — We\'d Love to Hear from You'}
         </h2>
         <p className="mb-5 leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? 'TendFarm 还在早期，产品方向很大程度上会被真实用户的反馈塑造。你有任何功能想法、对健康游戏化的看法，或者只是觉得这个方向很有意思——都欢迎直接联系我们。每一条反馈都会被认真读到。'
-            : 'TendFarm is early-stage, and real user feedback will shape where it goes. If you have feature ideas, thoughts on gamified health, or just think this direction is interesting — reach out. Every message gets read.'}
+            ? 'TendFarm 还在早期，产品方向很大程度上会被真实用户的反馈塑造。你有任何功能想法、对健康游戏化的看法，或者只是觉得这个方向很有意思——都欢迎直接联系我们。'
+            : 'TendFarm is early-stage and user feedback will shape where it goes. Feature ideas, thoughts on gamified health, or just think this direction is interesting — reach out anytime.'}
         </p>
         <div className="flex flex-wrap gap-3">
           <a

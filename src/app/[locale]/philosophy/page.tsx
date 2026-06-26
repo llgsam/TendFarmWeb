@@ -11,10 +11,12 @@ export async function generateMetadata({
   const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
-    title: isZh ? 'TendFarm — 让健康生活长出一座农场' : 'TendFarm — Grow a Farm from Your Healthy Life',
+    title: isZh
+      ? 'TendFarm — 你去生活，农场替你生长'
+      : 'TendFarm — You Live, Your Farm Grows',
     description: isZh
-      ? 'TendFarm 是一款 Apple Watch 健康农场 App：睡眠、步数和 HRV 自动转化为农场生长动力。'
-      : 'TendFarm is an Apple Watch farming app where your sleep, steps, and HRV power real farm growth.',
+      ? 'TendFarm 是由真实健康数据驱动的放置建造农场。活动、睡眠、恢复和生活节律，转化为农场里的阳光、晨露、空气和 Aura。'
+      : 'TendFarm is an idle farming game powered by your real health data. Activity, sleep, recovery, and lifestyle rhythm become sunlight, dew, air, and Aura.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/philosophy`,
       languages: {
@@ -27,46 +29,46 @@ export async function generateMetadata({
 
 const FEATURES = [
   {
-    icon: '🌱',
-    titleZh: '健康数据驱动农场生长',
-    titleEn: 'Health Data Powers Your Farm',
-    descZh: '睡眠质量、每日步数、HRV 自动转化为农场的收成和生长速度，不需要手动输入任何数字。',
-    descEn: 'Sleep quality, daily steps, and HRV automatically drive your farm\'s harvest and growth rate — zero manual input.',
+    icon: '☀️',
+    titleZh: '活动 → 阳光 → 作物生长',
+    titleEn: 'Activity → Sunlight → Crop Growth',
+    descZh: '你走路、运动的时间段，那一段时间片的作物长得更快。晨跑让早晨的田地更有活力。',
+    descEn: 'The hours you walk or work out, crops in those time slots grow faster. Your morning run energizes the morning fields.',
   },
   {
-    icon: '⌚',
-    titleZh: 'Apple Watch 原生接入',
-    titleEn: 'Native Apple Watch Integration',
-    descZh: '直接读取 HealthKit 全套数据，包括睡眠分阶、活动环、静息心率和心率变异性。',
-    descEn: 'Reads HealthKit natively — sleep stages, activity rings, resting heart rate, and HRV all included.',
+    icon: '🌿',
+    titleZh: '睡眠 → 晨露 → 收成充盈',
+    titleEn: 'Sleep → Morning Dew → Richer Harvest',
+    descZh: '睡眠质量和 Vitals 形成晨露，决定当天收成的充盈程度。睡得好，农场的每一次收成都更饱满。',
+    descEn: 'Sleep quality and vitals form morning dew, which determines how rich each harvest is. Better sleep means fuller yields.',
   },
   {
-    icon: '🏡',
-    titleZh: '离线也在运转',
-    titleEn: 'Grows While You Live',
-    descZh: '不需要盯着 App，农场在后台持续生长。打开时看到的是你这段时间健康生活积累的真实成果。',
-    descEn: 'No need to tend it all day. Your farm grows in the background, and what you see when you open it reflects your real health habits.',
+    icon: '🌬️',
+    titleZh: 'Mood / HRV / 冥想 → 空气 → 燃料效率',
+    titleEn: 'Mood / HRV / Meditation → Air → Fuel Efficiency',
+    descZh: '心率变异性、冥想记录和心情状态形成空气质量，空气越好，自动收割机燃料消耗越少。',
+    descEn: 'HRV, meditation, and mood logs shape air quality. Better air means your auto-harvester burns less fuel.',
   },
   {
-    icon: '🧘',
-    titleZh: '无焦虑设计',
-    titleEn: 'Stress-Free by Design',
-    descZh: '没有断签惩罚，没有红色警告。生活越规律，收益越稳定——但偶尔的波动不会让你失去进度。',
-    descEn: 'No streak punishments, no red alerts. Better rhythms mean better yields — but missing a day won\'t set you back.',
+    icon: '🔄',
+    titleZh: '生活节律 = 健康数据转化率',
+    titleEn: 'Lifestyle Rhythm = Health Conversion Rate',
+    descZh: '作息越规律，健康数据转化为农场效果的效率越高，最多可以放大 1.12 倍。节律是阳光、晨露、空气和 LifeExp 的放大器。',
+    descEn: 'The more consistent your routine, the more efficiently health data converts to farm effects — up to 1.12× amplification. Rhythm multiplies everything.',
   },
   {
-    icon: '🎮',
-    titleZh: '玩农场游戏，养成健康习惯',
-    titleEn: 'Farm Game Meets Health Habit',
-    descZh: '灵感来自 Hay Day、星露谷等农场游戏的治愈感，但农场的生长动力来自你真实的身体状态。',
-    descEn: 'Inspired by the cozy loop of Hay Day and Stardew Valley, but your real body powers the farm.',
+    icon: '✨',
+    titleZh: 'Aura — 农场越来越像你',
+    titleEn: 'Aura — Your Farm Becomes You',
+    descZh: '生活节律为基础，叠加农场风格、作物配置和装饰，形成独特的可视化表现力。不是生产倍率，而是你的农场的生命感。',
+    descEn: 'Built on your lifestyle rhythm, blended with farm style, crops, and décor. Not a production multiplier — the living presence of your farm.',
   },
   {
-    icon: '📱',
-    titleZh: 'iOS + Apple Watch 首发',
-    titleEn: 'iOS + Apple Watch First',
-    descZh: '为 iPhone 和 Apple Watch 深度优化，支持手表端独立查看今日农场状态。',
-    descEn: 'Deeply optimized for iPhone and Apple Watch. Check today\'s farm status right from your wrist.',
+    icon: '📈',
+    titleZh: 'LifeExp — 生活沉淀为成长',
+    titleEn: 'LifeExp — Life Becomes Progress',
+    descZh: '长期健康数据积累为 LifeExp，推动农场等级成长，解锁新的作物、区域和农场风格。',
+    descEn: 'Long-term health data accumulates into LifeExp, leveling up your farm and unlocking new crops, regions, and styles.',
   },
 ]
 
@@ -83,18 +85,27 @@ export default async function PhilosophyPage({
       {/* Hero */}
       <div className="mb-16">
         <h1 className="mb-4 text-4xl font-bold text-[#e8dcc8]">
-          {isZh ? '让健康生活，长出一座农场' : 'Grow a Farm from Your Healthy Life'}
+          {isZh ? '你去生活，农场替你生长' : 'You Live. Your Farm Grows.'}
         </h1>
         <p className="max-w-2xl text-lg leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? 'TendFarm 是一款专为 Apple Watch 用户设计的健康农场 App。你睡得好，农场收成就更丰盛；你每天散步，作物就提前成熟。健康习惯不再是冷冰冰的数字指标，而是看得见、摸得着的农场生长。'
-            : 'TendFarm is a health farming app built for Apple Watch users. Sleep well and your harvest grows richer. Walk daily and your crops ripen faster. Healthy habits become something you can actually see and feel.'}
+            ? 'TendFarm 是一个由真实健康数据驱动的放置建造农场。你在现实中的活动形成阳光，睡眠形成晨露，心情和恢复状态形成空气，长期生活节律放大一切转化效率。你去生活，农场替你生长；你的生活越有节律，农场越懂得把健康数据转化为生产力。'
+            : 'TendFarm is an idle farming game powered by your real health data. Your daily activity becomes sunlight. Sleep becomes morning dew. Mood and recovery become air quality. And your lifestyle rhythm amplifies it all. You live — your farm grows.'}
         </p>
       </div>
 
-      {/* Features */}
+      {/* Core concept callout */}
+      <div className="mb-12 rounded-xl border border-[#f0a832]/30 bg-[#f0a832]/5 px-6 py-5">
+        <p className="font-medium leading-relaxed text-[#e8dcc8]">
+          {isZh
+            ? '健康数据不直接变金币，而是影响农场的运行效率——阳光加快生长，晨露让收成更饱满，空气让机器更省燃料。田地、水池、仓库决定基础产能；健康数据决定转化效率和长期成长。'
+            : 'Health data never converts directly to coins. It shapes how efficiently your farm runs — sunlight speeds growth, dew enriches harvests, air cuts fuel costs. Infrastructure sets the base; your health data amplifies the results.'}
+        </p>
+      </div>
+
+      {/* FarmData mapping */}
       <h2 className="mb-6 text-xl font-semibold text-[#f0a832]">
-        {isZh ? '产品特色' : 'What Makes TendFarm Different'}
+        {isZh ? '健康数据 → 农场能量' : 'Health Data → Farm Energy'}
       </h2>
       <div className="mb-16 grid gap-4 md:grid-cols-2">
         {FEATURES.map((f) => (
@@ -117,8 +128,8 @@ export default async function PhilosophyPage({
         </h2>
         <p className="leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? '市面上的健康 App 很多，但大多数都是数据仪表盘——你看了数字，关掉 App，然后忘了。我们想换一种方式：把健康数据变成你每天打开会期待的东西。农场游戏天然有「想看看今天长出什么」的驱动力，和健康数据的每日反馈节奏完美契合。TendFarm 不是要你完美，而是让健康的生活方式自然地成为你日常的一部分。'
-            : 'Most health apps are dashboards — you check the numbers, close the app, and forget. We wanted something different: health data that becomes something you actually want to open every day. Farming games have a natural "I wonder what grew today" pull that matches perfectly with daily health feedback. TendFarm isn\'t about being perfect. It\'s about making a healthy lifestyle feel like a natural part of your day.'}
+            ? '大多数健康 App 是数据仪表盘——你看了数字，关掉，然后忘了。农场游戏有一种天然的"想看看今天长出什么"的驱动力，和健康数据的每日反馈节奏完美契合。TendFarm 不是要你完美，而是让健康的生活方式自然地成为你每天期待打开 App 的理由。'
+            : 'Most health apps are dashboards — you check the numbers, close the app, and forget. Farming games have a natural "I wonder what grew today" pull that matches daily health feedback perfectly. TendFarm is not about being perfect. It turns healthy living into something you actually want to open every day.'}
         </p>
       </div>
 
@@ -130,7 +141,7 @@ export default async function PhilosophyPage({
         <p className="text-sm leading-relaxed text-[#8a9a7a]">
           {isZh
             ? 'TendFarm 正在积极开发中，预计 2026 年底在 App Store 上线（iOS + Apple Watch）。加入候补名单，第一批用户可以优先体验 Beta 版本，并直接影响产品功能方向。'
-            : 'TendFarm is in active development, targeting an App Store launch in late 2026 for iOS and Apple Watch. Join the waitlist to get early Beta access and help shape the product.'}
+            : 'TendFarm is in active development, targeting an App Store launch in late 2026 for iOS and Apple Watch. Join the waitlist for early Beta access and a direct line to shape the product.'}
         </p>
       </div>
 
@@ -142,7 +153,7 @@ export default async function PhilosophyPage({
         <p className="mb-4 leading-relaxed text-[#8a9a7a]">
           {isZh
             ? 'TendFarm 还在早期阶段，每一条用户反馈都会被认真对待。你有功能想法、设计建议，或者只是想聊聊对健康游戏化的看法，都欢迎联系我们。'
-            : 'TendFarm is still early, and every piece of feedback is taken seriously. Got a feature idea, a design suggestion, or just want to talk about gamified health? We\'d love to hear from you.'}
+            : 'TendFarm is early-stage and every piece of feedback gets read. Got a feature idea, a design thought, or just want to talk about gamified health? We would love to hear from you.'}
         </p>
         <a
           href="mailto:jsamgogo@gmail.com"
