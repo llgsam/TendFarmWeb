@@ -3,27 +3,27 @@
     {
       "source": "/guides/:path*",
       "destination": "/zh/guides/:path*",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/philosophy",
       "destination": "/zh/philosophy",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/lifestyle",
       "destination": "/zh/lifestyle",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/gameplay",
       "destination": "/zh/gameplay",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/tools",
       "destination": "/zh/tools",
-      "permanent": false
+      "permanent": true
     }
   ]
 }

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
+import { articleSchema, breadcrumbSchema } from '@/lib/structured-data'
 
 export async function generateStaticParams() {
   const slugs = await getAllGuideSlugs()
@@ -47,9 +48,29 @@ export default async function GuideArticlePage({
   if (!post) notFound()
 
   const gameLabel = game.split('-').map((w: string) => w[0].toUpperCase() + w.slice(1)).join(' ')
+  const isZh = locale === 'zh'
+
+  const article = articleSchema(
+    { title: post.title, description: post.description, publishedAt: post.publishedAt, slug, game },
+    locale
+  )
+  const breadcrumb = breadcrumbSchema([
+    { name: isZh ? '首页' : 'Home', url: `${BASE_URL}/${locale}` },
+    { name: isZh ? '攻略' : 'Guides', url: `${BASE_URL}/${locale}/guides` },
+    { name: gameLabel, url: `${BASE_URL}/${locale}/guides/${game}` },
+    { name: post.title, url: `${BASE_URL}/${locale}/guides/${game}/${slug}` },
+  ])
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Link
         href={`/${locale}/guides/${game}`}
         className="mb-6 inline-block text-sm text-[#8a9a7a] transition-colors hover:text-[#f0a832]"

@@ -1,0 +1,130 @@
+import { BASE_URL } from './config'
+
+export function websiteSchema(locale: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Farm Game Hub',
+    url: `${BASE_URL}/${locale}`,
+    description:
+      locale === 'zh'
+        ? '农场游戏爱好者集结地——攻略、工具和游戏推荐'
+        : 'The farming game community — guides, tools, and game recommendations',
+    inLanguage: locale === 'zh' ? 'zh-CN' : 'en-US',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/${locale}/games?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  }
+}
+
+export function organizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Farm Game Hub',
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo.png`,
+    sameAs: [],
+  }
+}
+
+export function breadcrumbSchema(
+  items: { name: string; url: string }[]
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+}
+
+export function videoGameSchema(game: {
+  slug: string
+  nameEn: string
+  nameZh: string
+  descEn: string
+  descZh: string
+  developerEn: string
+  developerZh: string
+  year: number
+  platforms: string[]
+}, locale: string) {
+  const isZh = locale === 'zh'
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoGame',
+    name: isZh ? game.nameZh : game.nameEn,
+    description: isZh ? game.descZh : game.descEn,
+    author: {
+      '@type': 'Organization',
+      name: isZh ? game.developerZh : game.developerEn,
+    },
+    datePublished: String(game.year),
+    url: `${BASE_URL}/${locale}/games/${game.slug}`,
+    gamePlatform: game.platforms,
+    genre: 'Farming Simulation',
+    inLanguage: isZh ? 'zh-CN' : 'en-US',
+  }
+}
+
+export function articleSchema(post: {
+  title: string
+  description: string
+  publishedAt?: string
+  slug: string
+  game: string
+}, locale: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishedAt ?? '',
+    dateModified: post.publishedAt ?? '',
+    url: `${BASE_URL}/${locale}/guides/${post.game}/${post.slug}`,
+    author: {
+      '@type': 'Organization',
+      name: 'Farm Game Hub',
+      url: BASE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Farm Game Hub',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/logo.png`,
+      },
+    },
+    inLanguage: locale === 'zh' ? 'zh-CN' : 'en-US',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/${locale}/guides/${post.game}/${post.slug}`,
+    },
+  }
+}
+
+export function faqSchema(faqs: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}
