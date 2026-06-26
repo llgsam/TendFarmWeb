@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/guides/:path*",
+      "destination": "/zh/guides/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/philosophy",
+      "destination": "/zh/philosophy",
+      "permanent": false
+    },
+    {
+      "source": "/lifestyle",
+      "destination": "/zh/lifestyle",
+      "permanent": false
+    },
+    {
+      "source": "/gameplay",
+      "destination": "/zh/gameplay",
+      "permanent": false
+    },
+    {
+      "source": "/tools",
+      "destination": "/zh/tools",
+      "permanent": false
+    }
+  ]
+}
