@@ -30,11 +30,11 @@
     }
   },
   "nav": {
-    "philosophy": "About",
+    "tools": "Game Tools",
+    "guides": "Game Guides",
+    "philosophy": "TendFarm App",
     "lifestyle": "Health System",
-    "gameplay": "Gameplay",
-    "tools": "Tools",
-    "guides": "Game Guides"
+    "gameplay": "Gameplay"
   },
   "footer": {
     "tagline": "Your healthy life, growing here",

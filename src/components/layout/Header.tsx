@@ -32,7 +32,14 @@ export function Header() {
 
         {/* Nav links */}
         <nav className="hidden gap-5 text-sm md:flex">
-          <Link href={`${base}/philosophy`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
+          <Link href={`${base}/tools`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
+            {t('tools')}
+          </Link>
+          <Link href={`${base}/guides`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
+            {t('guides')}
+          </Link>
+          <span className="text-[#2d3d2d]">|</span>
+          <Link href={`${base}/philosophy`} className="text-[#f0a832]/80 hover:text-[#f0a832] transition-colors">
             {t('philosophy')}
           </Link>
           <Link href={`${base}/lifestyle`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
@@ -40,12 +47,6 @@ export function Header() {
           </Link>
           <Link href={`${base}/gameplay`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {t('gameplay')}
-          </Link>
-          <Link href={`${base}/tools`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
-            {t('tools')}
-          </Link>
-          <Link href={`${base}/guides`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
-            {t('guides')}
           </Link>
         </nav>
 
