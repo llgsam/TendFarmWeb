@@ -1,4 +1,5 @@
 import { CozyGamerQuiz } from '@/components/tools/CozyGamerQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -122,6 +123,8 @@ export default async function CozyGamerPage({
             ? '没有对错之分——每种游戏风格都有它的乐趣所在。'
             : "No right or wrong answer — every gaming style has its own kind of magic."}
         </p>
+
+        <RelatedQuizzes currentSlug="cozy-gamer" locale={locale} />
 
         {/* FAQ Section for SEO/GEO */}
         <div className="mt-16">

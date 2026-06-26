@@ -1,4 +1,5 @@
 import { StardewSeasonQuiz } from '@/components/tools/StardewSeasonQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -129,6 +130,8 @@ export default async function StardewSeasonPage({
             ? '每个季节都有它独特的魔力——你的季节，就是你此刻最真实的状态。'
             : "Every season has its own magic — your season is your most authentic self right now."}
         </p>
+
+        <RelatedQuizzes currentSlug="stardew-season" locale={locale} />
 
         {/* FAQ Section for SEO/GEO */}
         <div className="mt-16">

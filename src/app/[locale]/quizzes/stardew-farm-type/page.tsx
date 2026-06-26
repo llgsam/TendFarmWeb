@@ -1,4 +1,5 @@
 import { StardewFarmTypeQuiz } from '@/components/tools/StardewFarmTypeQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -131,6 +132,8 @@ export default async function StardewFarmTypePage({
             ? '没有最好的农场，只有最适合你的农场——每种类型都有通往百万金币的路。'
             : "There is no best farm — only the one that fits your playstyle. Every type can reach millions of gold."}
         </p>
+
+        <RelatedQuizzes currentSlug="stardew-farm-type" locale={locale} />
 
         {/* FAQ Section for SEO/GEO */}
         <div className="mt-16">

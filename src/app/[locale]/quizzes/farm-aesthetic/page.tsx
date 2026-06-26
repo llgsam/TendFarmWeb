@@ -1,4 +1,5 @@
 import { FarmAestheticQuiz } from '@/components/tools/FarmAestheticQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -131,6 +132,8 @@ export default async function FarmAestheticPage({
             ? '没有好坏之分，只有最适合你的那种美——你的农场，你的审美宇宙。'
             : "No aesthetic is better — yours is the one that feels most like home."}
         </p>
+
+        <RelatedQuizzes currentSlug="farm-aesthetic" locale={locale} />
 
         {/* FAQ Section for SEO/GEO */}
         <div className="mt-16">

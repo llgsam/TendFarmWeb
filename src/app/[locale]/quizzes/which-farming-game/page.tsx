@@ -1,4 +1,5 @@
 import { WhichFarmingGameQuiz } from '@/components/tools/WhichFarmingGameQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -122,6 +123,8 @@ export default async function WhichFarmingGamePage({
             ? '结果仅供参考，帮助你缩小选择范围。每款游戏都值得亲自试一试。'
             : 'Results are a starting point. Every game here is worth trying — most have free demos or refund policies.'}
         </p>
+
+        <RelatedQuizzes currentSlug="which-farming-game" locale={locale} />
 
         {/* FAQ Section — SEO/GEO value */}
         <div className="mt-16">

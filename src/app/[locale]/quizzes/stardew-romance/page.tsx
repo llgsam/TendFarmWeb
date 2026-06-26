@@ -1,4 +1,5 @@
 import { StardewRomanceQuiz } from '@/components/tools/StardewRomanceQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -128,6 +129,8 @@ export default async function StardewRomancePage({
             ? '每位村民都有独特的魅力——没有对错，只有适不适合。'
             : "Every villager has their own magic — there's no right or wrong, only what fits."}
         </p>
+
+        <RelatedQuizzes currentSlug="stardew-romance" locale={locale} />
 
         {/* FAQ Section for SEO/GEO */}
         <div className="mt-16">

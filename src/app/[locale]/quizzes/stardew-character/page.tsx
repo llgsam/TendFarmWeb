@@ -1,4 +1,5 @@
 import { StardewCharacterQuiz } from '@/components/tools/StardewCharacterQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -128,6 +129,8 @@ export default async function StardewCharacterPage({
             ? '每位村民都有自己的光芒——无论你测出哪位，都没有对错之分。'
             : 'Every villager shines in their own way — no result is better than another.'}
         </p>
+
+        <RelatedQuizzes currentSlug="stardew-character" locale={locale} />
 
         {/* FAQ Section for SEO/GEO */}
         <div className="mt-16">

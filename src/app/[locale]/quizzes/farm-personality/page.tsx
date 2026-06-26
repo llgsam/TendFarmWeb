@@ -1,4 +1,5 @@
 import { FarmPersonalityQuiz } from '@/components/tools/FarmPersonalityQuiz'
+import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
 import Link from 'next/link'
@@ -57,6 +58,8 @@ export default async function FarmPersonalityPage({
           ? '你的选择完全匿名，帮助我们了解农场玩家的偏好。'
           : 'Your answers are anonymous and help us understand what farmers want.'}
       </p>
+
+      <RelatedQuizzes currentSlug="farm-personality" locale={locale} />
     </div>
   )
 }
