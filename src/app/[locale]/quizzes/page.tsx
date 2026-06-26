@@ -18,8 +18,8 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试']
-      : ['farming game quiz', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play'],
+      ? ['农场游戏测评', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场']
+      : ['farming game quiz', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -31,6 +31,19 @@ export async function generateMetadata({
 }
 
 const QUIZZES = [
+  {
+    slug: 'farm-aesthetic',
+    emoji: '🌿',
+    titleZh: '你的农场美学是什么风格？',
+    titleEn: "What's Your Farm Aesthetic?",
+    descZh: '6 个关于美感的问题，测出你的农场灵魂属于哪种美学——Cottagecore 田园梦、暗调神秘、彩虹缤纷、禅意极简还是 Cozy Rustic？',
+    descEn: '6 sensory questions to reveal your farm aesthetic — Cottagecore, Dark & Moody, Bright Cheerful, Zen Minimal, or Cozy Rustic? Share your result.',
+    tagZh: '美学测试',
+    tagEn: 'Aesthetic',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
   {
     slug: 'stardew-character',
     emoji: '🌾',
@@ -119,6 +132,10 @@ const FAQ_EN = [
     q: 'What farming game is best for relaxation?',
     a: 'Animal Crossing: New Horizons and Cozy Grove are the most relaxing farming games — no fail states, no time pressure, gentle pacing. Palia is also extremely cozy for those who prefer online multiplayer.',
   },
+  {
+    q: 'What is a cottagecore farm aesthetic?',
+    a: "Cottagecore farm aesthetic is a romantic, pastoral style inspired by rural life — wildflowers, honey jars, handmade candles, linen textures, and stone walls. In farming games like Stardew Valley, it means natural, slightly overgrown farm designs in cream, sage green, and blush palettes. It celebrates slow living and closeness to nature. Take the Farm Aesthetic Quiz above to find your exact aesthetic type.",
+  },
 ]
 
 const FAQ_ZH = [
@@ -141,6 +158,10 @@ const FAQ_ZH = [
   {
     q: '哪款农场游戏最适合放松减压？',
     a: '动物森友会和 Cozy Grove 是最适合放松的农场游戏——没有失败机制、没有时间压力、节奏极其温和。喜欢多人联机的话，Palia 也是极其治愈的选择。',
+  },
+  {
+    q: '什么是 Cottagecore 农场美学？',
+    a: 'Cottagecore 农场美学是一种浪漫的田园风格，灵感来自乡村生活——野花、蜂蜜罐、手工蜡烛、麻布质感和石砌墙壁。在星露谷物语等农场游戏中，它意味着自然、略微凌乱的农场设计，配色以米白、鼠尾草绿和淡玫瑰为主，颂扬慢生活和亲近自然的生活方式。做上面的「农场美学测试」，找到属于你的精确美学类型。',
   },
 ]
 
