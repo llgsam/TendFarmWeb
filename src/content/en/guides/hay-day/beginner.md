@@ -5,6 +5,17 @@ game: "hay-day"
 slug: "beginner"
 publishedAt: "2026-06-27"
 tags: ["beginner", "guide", "tips"]
+faqs:
+  - q: "What should I upgrade first in Hay Day?"
+    a: "Upgrade your Silo first to at least 75–100 capacity. A full Silo stops all production because crops have nowhere to go. After that, upgrade your Barn to match, then invest in production machines like the Bakery and Dairy."
+  - q: "How do I make money fast in Hay Day as a beginner?"
+    a: "Keep your production machines running constantly — never let them idle. Fill truck orders for steady coin income, and save boat order rewards (diamonds) for permanent upgrades like extra machine slots rather than spending them on speed-ups."
+  - q: "Should I spend diamonds on speeding up production in Hay Day?"
+    a: "No. Diamonds are extremely rare without real money. Save them exclusively for permanent upgrades: extra machine queue slots (which multiply output forever) and land expansion vouchers. Never spend them on one-time speed-ups."
+  - q: "What crops should beginners plant in Hay Day?"
+    a: "Focus on wheat (2-minute grow time) as your primary crop — it feeds the Bakery and dozens of recipes. Corn (5-minute) is second for animals and machine inputs. Plant carrots or soybeans (2-hour) overnight so they're ready when you return."
+  - q: "How often should I play Hay Day?"
+    a: "Hay Day is designed for 5–10 minute sessions, two to three times a day: morning, midday, and evening. This rhythm lets you cycle fast crops (wheat, corn) during the day and plant slow crops (carrot, soybean) overnight for maximum efficiency."
 ---
 
 ## What Makes Hay Day Different

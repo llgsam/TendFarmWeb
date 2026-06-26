@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
-import { articleSchema, breadcrumbSchema } from '@/lib/structured-data'
+import { articleSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 
 export async function generateStaticParams() {
   const slugs = await getAllGuideSlugs()
@@ -61,8 +61,14 @@ export default async function GuideArticlePage({
     { name: post.title, url: `${BASE_URL}/${locale}/guides/${game}/${slug}` },
   ])
 
+  const hasFaqs = post.faqs.length > 0
+  const faq = hasFaqs
+    ? faqSchema(post.faqs.map((f) => ({ question: f.q, answer: f.a })))
+    : null
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
+      {/* Structured data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
@@ -71,18 +77,30 @@ export default async function GuideArticlePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
+      {faq && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
+        />
+      )}
+
+      {/* Back link */}
       <Link
         href={`/${locale}/guides/${game}`}
         className="mb-6 inline-block text-sm text-[#8a9a7a] transition-colors hover:text-[#f0a832]"
       >
         ← {gameLabel}
       </Link>
-      <h1 className="mb-3 text-3xl font-bold text-[#e8dcc8]">{post.title}</h1>
-      {post.publishedAt && (
-        <p className="mb-4 text-sm text-[#8a9a7a]">{post.publishedAt}</p>
-      )}
+
+      {/* Article header */}
+      <h1 className="mb-3 text-3xl font-bold leading-tight text-[#e8dcc8]">{post.title}</h1>
+      <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-[#8a9a7a]">
+        {post.publishedAt && <span>{post.publishedAt}</span>}
+        <span>·</span>
+        <span>{post.readingTime} {isZh ? '分钟阅读' : 'min read'}</span>
+      </div>
       {post.tags.length > 0 && (
-        <div className="mb-10 flex flex-wrap gap-2">
+        <div className="mb-8 flex flex-wrap gap-2">
           {post.tags.map((tag) => (
             <span
               key={tag}
@@ -93,8 +111,38 @@ export default async function GuideArticlePage({
           ))}
         </div>
       )}
+
+      {/* Table of Contents */}
+      {post.toc.length > 2 && (
+        <nav
+          aria-label={isZh ? '目录' : 'Table of contents'}
+          className="mb-10 rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] px-5 py-4"
+        >
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#8a9a7a]">
+            {isZh ? '本文目录' : 'On this page'}
+          </p>
+          <ol className="space-y-1.5">
+            {post.toc.map((h) => (
+              <li
+                key={h.id}
+                className={h.level === 3 ? 'ml-4' : ''}
+              >
+                <a
+                  href={`#${h.id}`}
+                  className="text-sm text-[#8a9a7a] transition-colors hover:text-[#f0a832]"
+                >
+                  {h.level === 2 ? '· ' : '○ '}
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+
+      {/* Article content */}
       <article
-        className="prose prose-invert prose-p:text-[#8a9a7a] prose-headings:text-[#e8dcc8] prose-a:text-[#f0a832] prose-strong:text-[#e8dcc8] prose-li:text-[#8a9a7a] max-w-none"
+        className="guide-prose prose prose-invert prose-p:text-[#c8bca8] prose-headings:text-[#e8dcc8] prose-a:text-[#f0a832] prose-strong:text-[#e8dcc8] prose-li:text-[#c8bca8] max-w-none"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
 
@@ -103,16 +151,33 @@ export default async function GuideArticlePage({
         <div className="mt-12 flex items-center justify-between rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] px-5 py-4">
           <p className="text-sm text-[#8a9a7a]">
             {game === 'hay-day'
-              ? (locale === 'zh' ? '用计算器验证文中的作物效益数据' : 'Verify crop profit data with our calculator')
-              : (locale === 'zh' ? '用计算器算出本季最优种植方案' : 'Calculate the best crops for your season')}
+              ? (isZh ? '用计算器验证文中的作物效益数据' : 'Verify crop profit data with our calculator')
+              : (isZh ? '用计算器算出本季最优种植方案' : 'Calculate the best crops for your season')}
           </p>
           <Link
             href={`/${locale}/tools/${game === 'hay-day' ? 'hay-day' : 'stardew'}`}
-            className="ml-4 shrink-0 rounded-lg bg-[#f0a832]/10 px-4 py-1.5 text-sm font-semibold text-[#f0a832] hover:bg-[#f0a832]/20 transition-colors"
+            className="ml-4 shrink-0 rounded-lg bg-[#f0a832]/10 px-4 py-1.5 text-sm font-semibold text-[#f0a832] transition-colors hover:bg-[#f0a832]/20"
           >
-            {locale === 'zh' ? '打开计算器 →' : 'Open Calculator →'}
+            {isZh ? '打开计算器 →' : 'Open Calculator →'}
           </Link>
         </div>
+      )}
+
+      {/* FAQ section */}
+      {hasFaqs && (
+        <section className="mt-12">
+          <h2 className="mb-6 text-xl font-bold text-[#e8dcc8]">
+            {isZh ? '常见问题' : 'Frequently Asked Questions'}
+          </h2>
+          <div className="space-y-4">
+            {post.faqs.map((faq, i) => (
+              <div key={i} className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] px-5 py-4">
+                <p className="mb-2 font-semibold text-[#e8dcc8]">{faq.q}</p>
+                <p className="text-sm text-[#8a9a7a]">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   )

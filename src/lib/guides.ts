@@ -3,8 +3,20 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import remarkHtml from 'remark-html'
+import remarkGfm from 'remark-gfm'
 
 const contentDir = path.join(process.cwd(), 'src', 'content')
+
+export interface TocHeading {
+  level: 2 | 3
+  text: string
+  id: string
+}
+
+export interface FaqItem {
+  q: string
+  a: string
+}
 
 export interface GuideMeta {
   slug: string
@@ -18,6 +30,47 @@ export interface GuideMeta {
 
 export interface GuidePost extends GuideMeta {
   contentHtml: string
+  toc: TocHeading[]
+  readingTime: number
+  faqs: FaqItem[]
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w一-鿿\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+}
+
+function extractToc(markdown: string): TocHeading[] {
+  const headings: TocHeading[] = []
+  for (const line of markdown.split('\n')) {
+    const m2 = line.match(/^## (.+)/)
+    if (m2) headings.push({ level: 2, text: m2[1].trim(), id: slugify(m2[1].trim()) })
+    const m3 = line.match(/^### (.+)/)
+    if (m3) headings.push({ level: 3, text: m3[1].trim(), id: slugify(m3[1].trim()) })
+  }
+  return headings
+}
+
+function addHeadingIds(html: string, toc: TocHeading[]): string {
+  let result = html
+  for (const h of toc) {
+    const tag = `h${h.level}`
+    const escaped = h.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    result = result.replace(
+      new RegExp(`<${tag}>(\\s*${escaped}\\s*)</${tag}>`, 'i'),
+      `<${tag} id="${h.id}">$1</${tag}>`
+    )
+  }
+  return result
+}
+
+function calcReadingTime(content: string): number {
+  const words = content.trim().split(/\s+/).length
+  return Math.max(1, Math.ceil(words / 200))
 }
 
 export async function getGuides(locale: string, game: string): Promise<GuideMeta[]> {
@@ -53,8 +106,9 @@ export async function getGuideBySlug(
 
   const raw = fs.readFileSync(filePath, 'utf-8')
   const { data, content } = matter(raw)
-  const processed = await remark().use(remarkHtml).process(content)
-  const contentHtml = processed.toString()
+  const toc = extractToc(content)
+  const processed = await remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).process(content)
+  const contentHtml = addHeadingIds(processed.toString(), toc)
 
   return {
     slug,
@@ -65,6 +119,9 @@ export async function getGuideBySlug(
     publishedAt: data.publishedAt ?? '',
     tags: data.tags ?? [],
     contentHtml,
+    toc,
+    readingTime: calcReadingTime(content),
+    faqs: data.faqs ?? [],
   }
 }
 
