@@ -25,7 +25,7 @@ export function Header() {
           <div className="flex flex-col leading-none">
             <span className="text-base font-bold text-[#f0a832]">TendFarm</span>
             <span className="text-[10px] text-[#8a9a7a] tracking-wide">
-              {isZh ? '健康农场 App' : 'Health Farming App'}
+              {isZh ? '农场游戏集结地' : 'Farming Game Hub'}
             </span>
           </div>
         </Link>
@@ -38,25 +38,18 @@ export function Header() {
           <Link href={`${base}/guides`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {t('guides')}
           </Link>
-          <span className="text-[#2d3d2d]">|</span>
-          <Link href={`${base}/philosophy`} className="text-[#f0a832]/80 hover:text-[#f0a832] transition-colors">
+          <Link href={`${base}/philosophy`} className="rounded border border-[#f0a832]/30 px-2 py-0.5 text-[#f0a832]/70 hover:text-[#f0a832] hover:border-[#f0a832]/60 transition-colors">
             {t('philosophy')}
-          </Link>
-          <Link href={`${base}/lifestyle`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
-            {t('lifestyle')}
-          </Link>
-          <Link href={`${base}/gameplay`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
-            {t('gameplay')}
           </Link>
         </nav>
 
         {/* Right side: CTA + language */}
         <div className="flex items-center gap-3">
           <Link
-            href={`${base}/#waitlist`}
-            className="hidden rounded-lg bg-[#f0a832] px-3.5 py-1.5 text-xs font-semibold text-[#0f1a0f] transition-opacity hover:opacity-90 sm:block"
+            href={`${base}/tools`}
+            className="hidden rounded-lg bg-[#2d3d2d] px-3.5 py-1.5 text-xs font-semibold text-[#e8dcc8] transition-colors hover:bg-[#3d4d3d] sm:block"
           >
-            {isZh ? '加入候补' : 'Join Waitlist'}
+            {isZh ? '🌾 游戏工具' : '🌾 Tools'}
           </Link>
           <LanguageSwitcher />
         </div>
