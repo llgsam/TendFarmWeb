@@ -1,5 +1,3 @@
-import Link from 'next/link'
-import { getTranslations } from 'next-intl/server'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'

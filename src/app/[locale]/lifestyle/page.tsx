@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
@@ -148,9 +147,9 @@ export default async function LifestylePage({
           ) : (
             <>
               <li>• Field planner: optimize your crop layout around your personal schedule</li>
-              <li>• Season system: real-world seasons shift your farm's rhythm</li>
-              <li>• Friends' farms: see how your friends' farms are doing today</li>
-              <li>• Apple Watch complication: today's harvest at a glance on your wrist</li>
+              <li>• Season system: real-world seasons shift your farm&apos;s rhythm</li>
+              <li>• Friends&apos; farms: see how your friends&apos; farms are doing today</li>
+              <li>• Apple Watch complication: today&apos;s harvest at a glance on your wrist</li>
             </>
           )}
         </ul>
