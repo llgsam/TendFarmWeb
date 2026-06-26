@@ -18,8 +18,8 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '农场人格测试', '你是哪位星露谷村民', '哪款农场游戏适合我', 'cozy gamer 测试']
-      : ['farming game quiz', 'which stardew valley character are you', 'which farming game should i play', 'cozy gamer quiz', 'farming game personality test'],
+      ? ['农场游戏测评', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试']
+      : ['farming game quiz', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -40,6 +40,19 @@ const QUIZZES = [
     descEn: '6 questions to find your Stardew Valley match — Abigail, Leah, Penny, Sebastian, or Elliott? Each result tells you exactly why you match.',
     tagZh: '角色测试',
     tagEn: 'Character Quiz',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: false,
+  },
+  {
+    slug: 'stardew-romance',
+    emoji: '💌',
+    titleZh: '你在星露谷里应该和谁在一起？',
+    titleEn: 'Which Stardew Valley Character Should You Romance?',
+    descZh: '6 个关于感情的问题，测出你最适合和哪位星露谷村民在一起——艾比盖尔、莉亚、潘妮、艾米莉、塞巴斯蒂安还是哈维？',
+    descEn: '6 questions about what you want in a relationship to find your perfect Stardew Valley romance match — results include exactly why you fit.',
+    tagZh: '配对测验',
+    tagEn: 'Romance Match',
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
     isNew: true,
@@ -91,6 +104,10 @@ const FAQ_EN = [
     a: 'Abigail, Leah, and Sebastian consistently rank as the most popular Stardew Valley villagers in fan polls. Abigail wins for her adventurous personality and relatable non-conformism; Leah is beloved for her artist backstory; Sebastian resonates with introverts. Penny and Elliott have dedicated fanbases for their warmth and depth respectively.',
   },
   {
+    q: 'Who is the best character to marry in Stardew Valley?',
+    a: "There's no single best marriage choice — it depends on your playstyle and personality. Abigail and Leah are most popular for their depth and uniqueness. Harvey is loved for his thoughtfulness, Sebastian for his authenticity, and Penny for her warmth. Take the Stardew Valley Romance Quiz above to find your personal best match.",
+  },
+  {
     q: 'What are the best farming games right now?',
     a: "The top farming games in 2025 are Stardew Valley (PC/Switch/Mobile), Animal Crossing: New Horizons (Switch), Palia (PC/Switch, free), Hay Day (Mobile), and Farming Simulator 25 (PC/Console). Each excels in a different category.",
   },
@@ -108,6 +125,10 @@ const FAQ_ZH = [
   {
     q: '星露谷物语最受欢迎的村民是谁？',
     a: '根据粉丝票选，艾比盖尔、莉亚和塞巴斯蒂安始终是最受欢迎的星露谷村民。艾比盖尔以冒险个性和真实感著称；莉亚凭借艺术家背景故事获得大量喜爱；塞巴斯蒂安则在内向型玩家中高度共鸣。潘妮和艾略特也分别以温柔与深度吸引了忠实粉丝群体。',
+  },
+  {
+    q: '星露谷物语最值得结婚的角色是谁？',
+    a: '没有唯一正确答案——最适合结婚的角色取决于你的性格和游戏风格。艾比盖尔和莉亚以深度和个性著称最受欢迎，哈维以体贴、塞巴斯蒂安以真实、潘妮以温暖各有拥趸。做上面的「星露谷配对测验」，找到最适合你的那位。',
   },
   {
     q: '2025 年最好玩的农场游戏有哪些？',

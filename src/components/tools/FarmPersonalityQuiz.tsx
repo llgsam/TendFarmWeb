@@ -3,6 +3,51 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
+interface ShareButtonProps {
+  archetypeLabel: string
+  locale: string
+  isZh: boolean
+}
+
+function ShareButton({ archetypeLabel, locale, isZh }: ShareButtonProps) {
+  const [copied, setCopied] = useState(false)
+  const url = `https://www.farmgamehub.com/${locale}/quizzes/farm-personality`
+  const text = isZh
+    ? `我的农场人格是「${archetypeLabel}」！来测测你是哪种农场玩家：${url}`
+    : `My farming personality is "${archetypeLabel}"! Find yours: ${url}`
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank')
+    }
+  }
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+
+  return (
+    <div className="mb-6 flex gap-3 flex-wrap">
+      <button
+        onClick={handleCopy}
+        className="flex items-center gap-2 rounded-lg border border-[#2d3d2d] bg-[#1a2e1a]/50 px-4 py-2 text-sm text-[#e8dcc8] transition-colors hover:border-[#f0a832]/40 hover:text-[#f0a832]"
+      >
+        {copied ? (isZh ? '✓ 已复制！' : '✓ Copied!') : (isZh ? '📋 复制结果' : '📋 Copy result')}
+      </button>
+      <a
+        href={twitterUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 rounded-lg border border-[#2d3d2d] bg-[#1a2e1a]/50 px-4 py-2 text-sm text-[#e8dcc8] transition-colors hover:border-[#1d9bf0]/40 hover:text-[#1d9bf0]"
+      >
+        𝕏 {isZh ? '分享到 X' : 'Share on X'}
+      </a>
+    </div>
+  )
+}
+
 type Archetype = 'optimizer' | 'aesthete' | 'explorer' | 'zen'
 
 interface Question {
@@ -239,6 +284,12 @@ export function FarmPersonalityQuiz({ locale }: Props) {
             ))}
           </div>
         </div>
+
+        <ShareButton
+          archetypeLabel={isZh ? result.titleZh : result.titleEn}
+          locale={locale}
+          isZh={isZh}
+        />
 
         {/* TendFarm Hook */}
         <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-6">
