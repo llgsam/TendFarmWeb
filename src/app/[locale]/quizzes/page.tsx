@@ -18,8 +18,8 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场']
-      : ['farming game quiz', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play'],
+      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场']
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -31,6 +31,19 @@ export async function generateMetadata({
 }
 
 const QUIZZES = [
+  {
+    slug: 'stardew-farm-type',
+    emoji: '🏡',
+    titleZh: '你适合哪种星露谷农场？',
+    titleEn: 'Which Stardew Valley Farm Type Is Right for You?',
+    descZh: '标准、森林、河地、山顶还是海滩？6 个问题帮你在五种官方农场类型中找到最适合你游戏风格的那一个，附老手小贴士。',
+    descEn: 'Standard, Forest, Riverland, Hill-top, or Beach? 6 questions to match you with your perfect Stardew Valley farm type — includes pro tips for each.',
+    tagZh: '农场选择',
+    tagEn: 'Farm Finder',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
   {
     slug: 'farm-aesthetic',
     emoji: '🌿',
@@ -136,6 +149,10 @@ const FAQ_EN = [
     q: 'What is a cottagecore farm aesthetic?',
     a: "Cottagecore farm aesthetic is a romantic, pastoral style inspired by rural life — wildflowers, honey jars, handmade candles, linen textures, and stone walls. In farming games like Stardew Valley, it means natural, slightly overgrown farm designs in cream, sage green, and blush palettes. It celebrates slow living and closeness to nature. Take the Farm Aesthetic Quiz above to find your exact aesthetic type.",
   },
+  {
+    q: 'Which Stardew Valley farm type should I choose?',
+    a: 'The best farm type depends on your playstyle: Standard is best for beginners and crop farmers (most land); Forest is best for crafters and foragers (renewable hardwood); Riverland is best for fishers and artisan goods makers; Hill-top is best for miners (on-farm quarry); Beach is best for challenge-seekers (hardest but most unique). Take the Stardew Valley Farm Type Quiz above to get a personalized recommendation.',
+  },
 ]
 
 const FAQ_ZH = [
@@ -162,6 +179,10 @@ const FAQ_ZH = [
   {
     q: '什么是 Cottagecore 农场美学？',
     a: 'Cottagecore 农场美学是一种浪漫的田园风格，灵感来自乡村生活——野花、蜂蜜罐、手工蜡烛、麻布质感和石砌墙壁。在星露谷物语等农场游戏中，它意味着自然、略微凌乱的农场设计，配色以米白、鼠尾草绿和淡玫瑰为主，颂扬慢生活和亲近自然的生活方式。做上面的「农场美学测试」，找到属于你的精确美学类型。',
+  },
+  {
+    q: '星露谷物语应该选哪种农场类型？',
+    a: '最适合的农场类型取决于你的游戏风格：标准农场适合新手和作物型玩家（最大可耕地）；森林农场适合手工和采集型玩家（可再生硬木）；河地农场适合钓鱼和手工艺品爱好者；山顶农场适合挖矿玩家（农场内含采石场）；海滩农场适合挑战型玩家（最难但最独特）。做上面的「星露谷农场类型测试」，获取个性化推荐。',
   },
 ]
 
