@@ -18,15 +18,21 @@ export async function generateMetadata({
   const post = await getGuideBySlug(locale, game, slug)
   if (!post) return {}
   const other = otherLocale(locale)
+  const otherPost = await getGuideBySlug(other, game, slug)
+
+  const languages: Record<string, string> = {
+    [locale]: `${BASE_URL}/${locale}/guides/${game}/${slug}`,
+  }
+  if (otherPost) {
+    languages[other] = `${BASE_URL}/${other}/guides/${game}/${slug}`
+  }
+
   return {
     title: `${post.title} — TendFarm`,
     description: post.description,
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}/${slug}`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/guides/${game}/${slug}`,
-        [other]: `${BASE_URL}/${other}/guides/${game}/${slug}`,
-      },
+      languages,
     },
   }
 }

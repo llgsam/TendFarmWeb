@@ -29,6 +29,7 @@ export default function PhilosophyPage() {
   const t = useTranslations('philosophy')
   const principles = t.raw('principles') as Array<{ title: string; desc: string }>
   const mappingRows = t.raw('mapping.rows') as Array<{ input: string; via: string; output: string }>
+  const mappingHeaders = t.raw('mapping.headers') as string[]
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
@@ -50,9 +51,9 @@ export default function PhilosophyPage() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-[#2d3d2d] bg-[#1a2e1a]">
-              <th className="px-4 py-3 text-left text-[#8a9a7a]">健康输入</th>
-              <th className="px-4 py-3 text-left text-[#8a9a7a]">媒介</th>
-              <th className="px-4 py-3 text-left text-[#8a9a7a]">农场效果</th>
+              {mappingHeaders.map((header) => (
+                <th key={header} className="px-4 py-3 text-left text-[#8a9a7a]">{header}</th>
+              ))}
             </tr>
           </thead>
           <tbody>

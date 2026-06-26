@@ -40,7 +40,7 @@ export default function ToolsPage() {
         {tools.map((tool) => (
           <div key={tool.title} className="rounded-xl border border-dashed border-[#2d3d2d] bg-[#1a2e1a]/50 p-5">
             <span className="mb-3 inline-block rounded-full bg-[#2d3d2d] px-2 py-0.5 text-xs text-[#8a9a7a]">
-              即将上线
+              {t('comingSoon')}
             </span>
             <h3 className="mb-2 font-semibold text-[#e8dcc8]">{tool.title}</h3>
             <p className="text-sm text-[#8a9a7a]">{tool.desc}</p>

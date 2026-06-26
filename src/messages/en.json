@@ -68,6 +68,7 @@
     ],
     "mapping": {
       "title": "Health Data → Farm Effects",
+      "headers": ["Health Input", "Mediator", "Farm Effect"],
       "rows": [
         { "input": "Activity (steps / workouts)", "via": "Sunlight", "output": "Crops in active time slots ripen early" },
         { "input": "Vitals / Sleep", "via": "Morning Dew", "output": "More abundant harvest (up to +20%)" },
@@ -153,7 +154,8 @@
       { "title": "Farm Efficiency Simulator", "desc": "Enter your health data to predict how much more your farm can harvest today." },
       { "title": "Crop Config Recommender", "desc": "Based on your lifestyle habits, get the field layout template that fits you best." }
     ],
-    "notify": "Notify me when tools launch"
+    "notify": "Notify me when tools launch",
+    "comingSoon": "Coming Soon"
   },
   "guides": {
     "title": "Farm Game Guides",
