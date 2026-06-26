@@ -18,8 +18,8 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', '你是哪位动物森友会村民']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'animal crossing personality quiz'],
+      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略']
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -157,6 +157,19 @@ const QUIZZES = [
     descEn: '6 personality questions to find your Animal Crossing villager match — Isabelle, Raymond, Stitches, or Marshal. Each result includes a special "if they were your friend" detail.',
     tagZh: '村民测验',
     tagEn: 'ACNH Quiz',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
+  {
+    slug: 'palia-playstyle',
+    emoji: '🌻',
+    titleZh: '你在 Palia 的游戏风格是什么？',
+    titleEn: "What's Your Palia Playstyle?",
+    descZh: '6 个关于游戏习惯的问题，测出你是 Palia 里的培育者、静待者、探险家还是工匠？每个结果附上该风格的技能优先攻略。',
+    descEn: '6 questions about how you play to find your Palia playstyle — Cultivator, Patient Watcher, Adventurer, or Maker. Each result includes which skills to prioritize.',
+    tagZh: 'Palia 测验',
+    tagEn: 'Palia Quiz',
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
     isNew: true,
