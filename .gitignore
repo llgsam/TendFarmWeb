@@ -41,3 +41,7 @@ next-env.d.ts
 
 # superpowers (internal tooling)
 .superpowers/
+
+# next-sitemap generated files
+/public/sitemap*.xml
+/public/robots.txt

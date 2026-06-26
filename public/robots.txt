@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://tendfarm.app
-
-# Sitemaps
-Sitemap: https://tendfarm.app/sitemap.xml
