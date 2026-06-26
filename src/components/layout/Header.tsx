@@ -23,6 +23,9 @@ export function Header() {
           <Link href={`${base}/gameplay`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {t('gameplay')}
           </Link>
+          <Link href={`${base}/tools`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
+            {t('tools')}
+          </Link>
           <Link href={`${base}/guides`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {t('guides')}
           </Link>

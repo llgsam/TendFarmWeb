@@ -146,9 +146,9 @@
   "tools": {
     "meta": {
       "title": "工具集 — TendFarm",
-      "description": "TendFarm 工具集：生活节律测评、农场效率模拟器等即将上线。"
+      "description": "Hay Day 作物利润计算器、星露谷物语作物利润计算器，以及 TendFarm 专属生活节律工具。"
     },
-    "hero": { "title": "更多工具即将上线", "subtitle": "我们正在开发生活节律测评、农场效率模拟器等工具，帮助你更好地了解自己的健康节律。" },
+    "hero": { "title": "游戏工具 & TendFarm 工具集", "subtitle": "Hay Day 和星露谷作物利润计算器现已上线。TendFarm 专属生活节律工具即将到来。" },
     "coming": [
       { "title": "生活节律测评", "desc": "8 个问题，测出你的生活节律等级和对应农场状态。" },
       { "title": "农场效率模拟器", "desc": "输入你的健康数据，预测你的农场今天能多收多少。" },

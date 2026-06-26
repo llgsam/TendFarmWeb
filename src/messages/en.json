@@ -146,9 +146,9 @@
   "tools": {
     "meta": {
       "title": "Tools — TendFarm",
-      "description": "TendFarm tools: circadian rhythm quiz, farm efficiency simulator, and more coming soon."
+      "description": "Hay Day crop profit calculator, Stardew Valley crop profit calculator, and TendFarm health rhythm tools."
     },
-    "hero": { "title": "More Tools Coming Soon", "subtitle": "We're building a circadian rhythm quiz, a farm efficiency simulator, and more tools to help you understand your health rhythm." },
+    "hero": { "title": "Game Tools & TendFarm Tools", "subtitle": "Hay Day and Stardew Valley crop profit calculators are live. TendFarm health rhythm tools coming soon." },
     "coming": [
       { "title": "Circadian Rhythm Quiz", "desc": "8 questions to reveal your rhythm level and matching farm state." },
       { "title": "Farm Efficiency Simulator", "desc": "Enter your health data to predict how much more your farm can harvest today." },

@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import { WaitlistForm } from '@/components/ui/WaitlistForm'
 import type { Metadata } from 'next'
 import { BASE_URL, otherLocale } from '@/lib/config'
+import Link from 'next/link'
 
 export async function generateMetadata({
   params,
@@ -25,10 +26,32 @@ export async function generateMetadata({
   }
 }
 
+const LIVE_TOOLS = [
+  {
+    key: 'hay-day',
+    href: 'tools/hay-day',
+    titleZh: 'Hay Day 作物利润计算器',
+    titleEn: 'Hay Day Crop Profit Calculator',
+    descZh: '按游戏风格筛选最优作物，实时显示利润/分钟和利润/小时。',
+    descEn: 'Filter by play style. See gold/min and gold/hour for every field crop.',
+    tag: 'Hay Day',
+  },
+  {
+    key: 'stardew',
+    href: 'tools/stardew',
+    titleZh: '星露谷物语作物利润计算器',
+    titleEn: 'Stardew Valley Crop Profit Calculator',
+    descZh: '按季节和剩余天数计算最优种植策略，支持工匠技能和再生作物。',
+    descEn: 'Best crops by season and days left. Includes regrow crops and artisan processing.',
+    tag: 'Stardew Valley',
+  },
+]
+
 export default function ToolsPage() {
   const t = useTranslations('tools')
   const locale = useLocale()
-  const tools = t.raw('coming') as Array<{ title: string; desc: string }>
+  const isZh = locale === 'zh'
+  const comingSoon = t.raw('coming') as Array<{ title: string; desc: string }>
   const wt = useTranslations('waitlist')
 
   return (
@@ -36,17 +59,52 @@ export default function ToolsPage() {
       <h1 className="mb-3 text-4xl font-bold text-[#e8dcc8]">{t('hero.title')}</h1>
       <p className="mb-12 text-lg text-[#8a9a7a]">{t('hero.subtitle')}</p>
 
-      <div className="mb-16 grid gap-4 md:grid-cols-3">
-        {tools.map((tool) => (
-          <div key={tool.title} className="rounded-xl border border-dashed border-[#2d3d2d] bg-[#1a2e1a]/50 p-5">
-            <span className="mb-3 inline-block rounded-full bg-[#2d3d2d] px-2 py-0.5 text-xs text-[#8a9a7a]">
-              {t('comingSoon')}
-            </span>
-            <h3 className="mb-2 font-semibold text-[#e8dcc8]">{tool.title}</h3>
-            <p className="text-sm text-[#8a9a7a]">{tool.desc}</p>
-          </div>
-        ))}
-      </div>
+      {/* Live Game Calculators */}
+      <section className="mb-14">
+        <h2 className="mb-4 text-xl font-semibold text-[#e8dcc8]">
+          {isZh ? '游戏数值计算器' : 'Game Calculators'}
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {LIVE_TOOLS.map((tool) => (
+            <Link
+              key={tool.key}
+              href={`/${locale}/${tool.href}`}
+              className="group rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-5 transition-colors hover:border-[#f0a832]/40 hover:bg-[#1a2e1a]"
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <span className="rounded-full bg-[#2d5a27] px-2 py-0.5 text-xs text-[#8a9a7a]">
+                  {tool.tag}
+                </span>
+                <span className="rounded-full bg-[#f0a832]/10 px-2 py-0.5 text-xs font-semibold text-[#f0a832]">
+                  {isZh ? '可用' : 'Live'}
+                </span>
+              </div>
+              <h3 className="mb-2 font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
+                {isZh ? tool.titleZh : tool.titleEn}
+              </h3>
+              <p className="text-sm text-[#8a9a7a]">{isZh ? tool.descZh : tool.descEn}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Coming Soon - TendFarm specific */}
+      <section className="mb-16">
+        <h2 className="mb-4 text-xl font-semibold text-[#e8dcc8]">
+          {isZh ? 'TendFarm 专属工具（即将上线）' : 'TendFarm Tools — Coming Soon'}
+        </h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {comingSoon.map((tool) => (
+            <div key={tool.title} className="rounded-xl border border-dashed border-[#2d3d2d] bg-[#1a2e1a]/50 p-5">
+              <span className="mb-3 inline-block rounded-full bg-[#2d3d2d] px-2 py-0.5 text-xs text-[#8a9a7a]">
+                {t('comingSoon')}
+              </span>
+              <h3 className="mb-2 font-semibold text-[#e8dcc8]">{tool.title}</h3>
+              <p className="text-sm text-[#8a9a7a]">{tool.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] p-8 text-center">
         <h2 className="mb-2 text-xl font-semibold text-[#e8dcc8]">{t('notify')}</h2>
