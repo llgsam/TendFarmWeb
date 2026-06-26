@@ -25,7 +25,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      siteName: 'TendFarm',
+      siteName: 'Tend Farm',
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
     },

@@ -12,11 +12,11 @@ export async function generateMetadata({
   const isZh = locale === 'zh'
   return {
     title: isZh
-      ? 'TendFarm 如何把健康生活转化为农场能量'
-      : 'How TendFarm Turns Your Health Life into Farm Energy',
+      ? 'Tend Farm 如何把健康生活转化为农场能量'
+      : 'How Tend Farm Turns Your Health Life into Farm Energy',
     description: isZh
-      ? '阳光来自活动，晨露来自睡眠，空气来自恢复与心情，生活节律放大转化效率——了解 TendFarm 的五大健康驱动力。'
-      : 'Sunlight from activity, dew from sleep, air from recovery and mood, rhythm as the amplifier — the five health drivers behind TendFarm.',
+      ? '阳光来自活动，晨露来自睡眠，空气来自恢复与心情，生活节律放大转化效率——了解 Tend Farm 的五大健康驱动力。'
+      : 'Sunlight from activity, dew from sleep, air from recovery and mood, rhythm as the amplifier — the five health drivers behind Tend Farm.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/lifestyle`,
       languages: {
@@ -109,8 +109,8 @@ export default async function LifestylePage({
       </h1>
       <p className="mb-16 text-lg leading-relaxed text-[#8a9a7a]">
         {isZh
-          ? 'TendFarm 把你的健康数据分为五种农场能量。每种能量影响不同的农场机制，不直接变金币，而是让农场运转得更好、长得更快、更持久。'
-          : 'TendFarm maps your health data into five types of farm energy. Each shapes a different farm mechanic — not converting directly to coins, but making your farm run better, grow faster, and last longer.'}
+          ? 'Tend Farm 把你的健康数据分为五种农场能量。每种能量影响不同的农场机制，不直接变金币，而是让农场运转得更好、长得更快、更持久。'
+          : 'Tend Farm maps your health data into five types of farm energy. Each shapes a different farm mechanic — not converting directly to coins, but making your farm run better, grow faster, and last longer.'}
       </p>
 
       {/* FarmData list */}
@@ -180,8 +180,8 @@ export default async function LifestylePage({
         </h2>
         <p className="mb-5 leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? 'TendFarm 还在早期，产品方向很大程度上会被真实用户的反馈塑造。你有任何功能想法、对健康游戏化的看法，或者只是觉得这个方向很有意思——都欢迎直接联系我们。'
-            : 'TendFarm is early-stage and user feedback will shape where it goes. Feature ideas, thoughts on gamified health, or just think this direction is interesting — reach out anytime.'}
+            ? 'Tend Farm 还在早期，产品方向很大程度上会被真实用户的反馈塑造。你有任何功能想法、对健康游戏化的看法，或者只是觉得这个方向很有意思——都欢迎直接联系我们。'
+            : 'Tend Farm is early-stage and user feedback will shape where it goes. Feature ideas, thoughts on gamified health, or just think this direction is interesting — reach out anytime.'}
         </p>
         <div className="flex flex-wrap gap-3">
           <a

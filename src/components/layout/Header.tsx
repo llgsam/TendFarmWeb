@@ -17,13 +17,13 @@ export function Header() {
         <Link href={base} className="flex items-center gap-2.5">
           <Image
             src="/logo.png"
-            alt="TendFarm"
+            alt="Tend Farm"
             width={30}
             height={30}
             className="rounded-lg"
           />
           <div className="flex flex-col leading-none">
-            <span className="text-base font-bold text-[#f0a832]">TendFarm</span>
+            <span className="text-base font-bold text-[#f0a832]">Tend Farm</span>
             <span className="text-[10px] text-[#8a9a7a] tracking-wide">
               {isZh ? '健康农场 App' : 'Health Farming App'}
             </span>

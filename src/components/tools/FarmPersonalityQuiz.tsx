@@ -98,9 +98,9 @@ const RESULTS: Record<Archetype, Result> = {
       'Data and systems are your language. You calculate gold-per-hour before planting your first seed. Your barn is always organized, your fields always optimal. Farming is a puzzle to be solved.',
     games: ['Hay Day', '星露谷物语 / Stardew Valley', 'Farming Simulator'],
     hookZh:
-      'TendFarm 为效率型玩家量身定制：步数、睡眠、HRV 都有精确的农场转化公式。终于有一个游戏，让你的现实数据也可以被优化。',
+      'Tend Farm 为效率型玩家量身定制：步数、睡眠、HRV 都有精确的农场转化公式。终于有一个游戏，让你的现实数据也可以被优化。',
     hookEn:
-      'TendFarm is built for optimizers: your steps, sleep, and HRV each have an exact formula for farm output. Finally, a game where your real-life data can be min-maxed.',
+      'Tend Farm is built for optimizers: your steps, sleep, and HRV each have an exact formula for farm output. Finally, a game where your real-life data can be min-maxed.',
   },
   aesthete: {
     type: 'aesthete',
@@ -113,9 +113,9 @@ const RESULTS: Record<Archetype, Result> = {
       'Your farm is a canvas. You care more about how it looks than how efficient it is. You rearrange furniture until it feels right, and your screenshots get the most comments.',
     games: ['动物森友会 / Animal Crossing', 'Coral Island', 'Cozy Grove'],
     hookZh:
-      'TendFarm 的农场随你的生活节律自然生长——规律的作息让农场更有层次，良好的睡眠让收成更充盈。你的生活方式，本身就是最美的农场设计。',
+      'Tend Farm 的农场随你的生活节律自然生长——规律的作息让农场更有层次，良好的睡眠让收成更充盈。你的生活方式，本身就是最美的农场设计。',
     hookEn:
-      'TendFarm grows with your natural rhythm. A consistent sleep schedule makes your farm lush. Your lifestyle is the design.',
+      'Tend Farm grows with your natural rhythm. A consistent sleep schedule makes your farm lush. Your lifestyle is the design.',
   },
   explorer: {
     type: 'explorer',
@@ -128,9 +128,9 @@ const RESULTS: Record<Archetype, Result> = {
       "New maps, new mechanics, new content — that's why you open the game. You never stay on one thing for long, because there's always something else to discover. Unlocking a new area beats any big harvest.",
     games: ['My Time at Sandrock', 'Palia', 'Fields of Mistria'],
     hookZh:
-      'TendFarm 每天都不一样——你的健康数据驱动农场产生新变化。今天多走了几步，今天的作物有不同的成熟节奏。每天打开都有新的发现。',
+      'Tend Farm 每天都不一样——你的健康数据驱动农场产生新变化。今天多走了几步，今天的作物有不同的成熟节奏。每天打开都有新的发现。',
     hookEn:
-      'TendFarm changes every day — your health data creates new variations in your farm. Walk more today, and your crops ripen differently. Something new every time you open it.',
+      'Tend Farm changes every day — your health data creates new variations in your farm. Walk more today, and your crops ripen differently. Something new every time you open it.',
   },
   zen: {
     type: 'zen',
@@ -143,9 +143,9 @@ const RESULTS: Record<Archetype, Result> = {
       "You play farming games not for efficiency or aesthetics — just for the feeling that nothing can go wrong. No deadlines, no failure states. Your farm is the quiet corner in a busy life.",
     games: ['Cozy Grove', 'Wylde Flowers', '动物森友会 / Animal Crossing'],
     hookZh:
-      'TendFarm 是终极的禅意农场——你不需要主动操作任何东西，你的步数和睡眠自动驱动农场生长。昨晚睡得好，今天打开 App 就看到农场悄悄变化了。你活着，它就生长。',
+      'Tend Farm 是终极的禅意农场——你不需要主动操作任何东西，你的步数和睡眠自动驱动农场生长。昨晚睡得好，今天打开 App 就看到农场悄悄变化了。你活着，它就生长。',
     hookEn:
-      "TendFarm is the ultimate zen farm — you don't actively do anything. Your steps and sleep drive it automatically. Sleep well last night, open the app today and find your farm quietly grew. You live; it grows.",
+      "Tend Farm is the ultimate zen farm — you don't actively do anything. Your steps and sleep drive it automatically. Sleep well last night, open the app today and find your farm quietly grew. You live; it grows.",
   },
 }
 
@@ -240,9 +240,9 @@ export function FarmPersonalityQuiz({ locale }: Props) {
           </div>
         </div>
 
-        {/* TendFarm Hook */}
+        {/* Tend Farm Hook */}
         <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-6">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">TendFarm</p>
+          <p className="mb-1 text-xs font-semibold text-[#f0a832]">Tend Farm</p>
           <p className="mb-4 text-sm leading-relaxed text-[#8a9a7a]">
             {isZh ? result.hookZh : result.hookEn}
           </p>
@@ -250,7 +250,7 @@ export function FarmPersonalityQuiz({ locale }: Props) {
             href={`/${locale}/gameplay`}
             className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
           >
-            {isZh ? '了解 TendFarm →' : 'Learn about TendFarm →'}
+            {isZh ? '了解 Tend Farm →' : 'Learn about Tend Farm →'}
           </Link>
         </div>
 

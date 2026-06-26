@@ -16,7 +16,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'home' })
   const other = otherLocale(locale)
   return {
-    title: `TendFarm — ${t('meta.title')}`,
+    title: `Tend Farm — ${t('meta.title')}`,
     description: t('meta.description'),
     alternates: {
       canonical: `${BASE_URL}/${locale}`,

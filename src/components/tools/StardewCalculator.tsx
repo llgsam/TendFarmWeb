@@ -247,7 +247,7 @@ export function StardewCalculator({ locale }: Props) {
         </p>
       </div>
 
-      {/* TendFarm Hook */}
+      {/* Tend Farm Hook */}
       <div className="mt-10 rounded-xl border border-[#2d5a27] bg-[#1a2e1a] p-6">
         <p className="text-sm text-[#8a9a7a]">
           {isZh
@@ -258,7 +258,7 @@ export function StardewCalculator({ locale }: Props) {
           href={`/${locale}/gameplay`}
           className="mt-3 inline-block text-sm font-semibold text-[#f0a832] hover:underline"
         >
-          {isZh ? '了解 TendFarm →' : 'Learn about TendFarm →'}
+          {isZh ? '了解 Tend Farm →' : 'Learn about Tend Farm →'}
         </Link>
       </div>
     </div>

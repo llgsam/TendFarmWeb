@@ -100,10 +100,10 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      {/* Coming Soon - TendFarm specific */}
+      {/* Coming Soon - Tend Farm specific */}
       <section className="mb-16">
         <h2 className="mb-4 text-xl font-semibold text-[#e8dcc8]">
-          {isZh ? 'TendFarm 专属工具（即将上线）' : 'TendFarm Tools — Coming Soon'}
+          {isZh ? 'Tend Farm 专属工具（即将上线）' : 'Tend Farm Tools — Coming Soon'}
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
           {comingSoon.map((tool) => (
