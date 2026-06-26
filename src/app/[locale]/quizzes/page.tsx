@@ -18,8 +18,8 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '农场人格测试', '哪款农场游戏适合我', '星露谷 动物森友会']
-      : ['farming game quiz', 'which farming game should i play', 'farming game personality test', 'best farming game for me'],
+      ? ['农场游戏测评', '农场人格测试', '你是哪位星露谷村民', '哪款农场游戏适合我', 'cozy gamer 测试']
+      : ['farming game quiz', 'which stardew valley character are you', 'which farming game should i play', 'cozy gamer quiz', 'farming game personality test'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -32,6 +32,19 @@ export async function generateMetadata({
 
 const QUIZZES = [
   {
+    slug: 'stardew-character',
+    emoji: '🌾',
+    titleZh: '你是哪位星露谷村民？',
+    titleEn: 'Which Stardew Valley Villager Are You?',
+    descZh: '6 个问题，测出你最像艾比盖尔、莉亚、潘妮、塞巴斯蒂安还是艾略特？每个结果都有专属描述，适合截图分享。',
+    descEn: '6 questions to find your Stardew Valley match — Abigail, Leah, Penny, Sebastian, or Elliott? Each result tells you exactly why you match.',
+    tagZh: '角色测试',
+    tagEn: 'Character Quiz',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
+  {
     slug: 'cozy-gamer',
     emoji: '☕',
     titleZh: '你是 Cozy Gamer 吗？',
@@ -42,7 +55,7 @@ const QUIZZES = [
     tagEn: 'Cozy Score',
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
-    isNew: true,
+    isNew: false,
   },
   {
     slug: 'which-farming-game',
@@ -59,7 +72,7 @@ const QUIZZES = [
   },
   {
     slug: 'farm-personality',
-    emoji: '🌾',
+    emoji: '🌱',
     titleZh: '你是哪种农场玩家？',
     titleEn: 'What Kind of Farmer Are You?',
     descZh: '6 个问题，测出你的农场游戏人格——效率农夫、美学农夫、探索农夫还是禅意农夫？附推荐游戏。',
@@ -73,6 +86,10 @@ const QUIZZES = [
 ]
 
 const FAQ_EN = [
+  {
+    q: 'Which Stardew Valley villager is the most popular?',
+    a: 'Abigail, Leah, and Sebastian consistently rank as the most popular Stardew Valley villagers in fan polls. Abigail wins for her adventurous personality and relatable non-conformism; Leah is beloved for her artist backstory; Sebastian resonates with introverts. Penny and Elliott have dedicated fanbases for their warmth and depth respectively.',
+  },
   {
     q: 'What are the best farming games right now?',
     a: "The top farming games in 2025 are Stardew Valley (PC/Switch/Mobile), Animal Crossing: New Horizons (Switch), Palia (PC/Switch, free), Hay Day (Mobile), and Farming Simulator 25 (PC/Console). Each excels in a different category.",
@@ -88,6 +105,10 @@ const FAQ_EN = [
 ]
 
 const FAQ_ZH = [
+  {
+    q: '星露谷物语最受欢迎的村民是谁？',
+    a: '根据粉丝票选，艾比盖尔、莉亚和塞巴斯蒂安始终是最受欢迎的星露谷村民。艾比盖尔以冒险个性和真实感著称；莉亚凭借艺术家背景故事获得大量喜爱；塞巴斯蒂安则在内向型玩家中高度共鸣。潘妮和艾略特也分别以温柔与深度吸引了忠实粉丝群体。',
+  },
   {
     q: '2025 年最好玩的农场游戏有哪些？',
     a: '2025 年最受好评的农场游戏包括：星露谷物语（PC/Switch/手机）、动物森友会（Switch）、Palia（PC/Switch，免费）、Hay Day（手机）、模拟农场 25（PC/主机）。每款都在不同方向上是各自品类的最佳。',
@@ -174,23 +195,6 @@ export default async function QuizzesPage({
               </p>
             </Link>
           ))}
-
-          {/* Coming soon */}
-          <div className="rounded-2xl border border-dashed border-[#2d3d2d] p-7 flex flex-col items-center justify-center text-center">
-            <p className="text-3xl mb-3">🎯</p>
-            <p className="font-semibold text-[#e8dcc8] mb-1">
-              {isZh ? '更多测评即将上线' : 'More quizzes coming soon'}
-            </p>
-            <p className="text-sm text-[#8a9a7a]">
-              {isZh ? '你想测什么？告诉我们 →' : 'What would you like to be quizzed on?'}
-            </p>
-            <a
-              href="mailto:jsamgogo@gmail.com"
-              className="mt-3 text-sm text-[#f0a832] hover:underline"
-            >
-              {isZh ? '发邮件告诉我们' : 'Let us know →'}
-            </a>
-          </div>
         </div>
 
         {/* FAQ Section for SEO/GEO */}
