@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
+import { BASE_URL, otherLocale } from '@/lib/config'
 
 export async function generateMetadata({
   params,
@@ -10,9 +11,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'guides' })
+  const other = otherLocale(locale)
   return {
     title: `${t('title')} — TendFarm`,
     description: t('subtitle'),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/guides`,
+      languages: {
+        [locale]: `${BASE_URL}/${locale}/guides`,
+        [other]: `${BASE_URL}/${other}/guides`,
+      },
+    },
   }
 }
 

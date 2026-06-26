@@ -1,10 +1,28 @@
 import { useTranslations, useLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { WaitlistForm } from '@/components/ui/WaitlistForm'
 import type { Metadata } from 'next'
+import { BASE_URL, otherLocale } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: '工具集 — TendFarm',
-  description: 'TendFarm 工具集：生活节律测评、农场效率模拟器等即将上线。',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'tools' })
+  const other = otherLocale(locale)
+  return {
+    title: t('meta.title'),
+    description: t('meta.description'),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/tools`,
+      languages: {
+        [locale]: `${BASE_URL}/${locale}/tools`,
+        [other]: `${BASE_URL}/${other}/tools`,
+      },
+    },
+  }
 }
 
 export default function ToolsPage() {

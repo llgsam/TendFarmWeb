@@ -1,10 +1,28 @@
 import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
 import type { Metadata } from 'next'
+import { BASE_URL, otherLocale } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: '玩法体验 — TendFarm',
-  description: '了解 TendFarm 的核心游戏循环：田地、水池、收成、清仓，以及健康数据如何驱动农场。',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'gameplay' })
+  const other = otherLocale(locale)
+  return {
+    title: t('meta.title'),
+    description: t('meta.description'),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/gameplay`,
+      languages: {
+        [locale]: `${BASE_URL}/${locale}/gameplay`,
+        [other]: `${BASE_URL}/${other}/gameplay`,
+      },
+    },
+  }
 }
 
 export default function GameplayPage() {

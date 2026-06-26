@@ -1,10 +1,28 @@
 import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
 import type { Metadata } from 'next'
+import { BASE_URL, otherLocale } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: '健康生活方式 — TendFarm',
-  description: '了解生活节律、HRV、睡眠质量和规律活动如何影响你的身体状态和 TendFarm 农场。',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'lifestyle' })
+  const other = otherLocale(locale)
+  return {
+    title: t('meta.title'),
+    description: t('meta.description'),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/lifestyle`,
+      languages: {
+        [locale]: `${BASE_URL}/${locale}/lifestyle`,
+        [other]: `${BASE_URL}/${other}/lifestyle`,
+      },
+    },
+  }
 }
 
 export default function LifestylePage() {

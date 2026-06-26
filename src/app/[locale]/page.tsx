@@ -4,6 +4,7 @@ import { HeroSection } from '@/components/home/HeroSection'
 import { ConceptCards } from '@/components/home/ConceptCards'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
+import { BASE_URL, otherLocale } from '@/lib/config'
 
 export async function generateMetadata({
   params,
@@ -12,9 +13,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'home' })
+  const other = otherLocale(locale)
   return {
     title: `TendFarm — ${t('meta.title')}`,
     description: t('meta.description'),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}`,
+      languages: {
+        [locale]: `${BASE_URL}/${locale}`,
+        [other]: `${BASE_URL}/${other}`,
+      },
+    },
   }
 }
 

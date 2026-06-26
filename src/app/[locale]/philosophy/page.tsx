@@ -1,10 +1,28 @@
 import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
 import type { Metadata } from 'next'
+import { BASE_URL, otherLocale } from '@/lib/config'
 
-export const metadata: Metadata = {
-  title: '产品理念 — TendFarm',
-  description: '了解 TendFarm 如何把 Activity、睡眠、HRV 和生活节律转化为农场的生长速度和收成。',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'philosophy' })
+  const other = otherLocale(locale)
+  return {
+    title: t('meta.title'),
+    description: t('meta.description'),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}/philosophy`,
+      languages: {
+        [locale]: `${BASE_URL}/${locale}/philosophy`,
+        [other]: `${BASE_URL}/${other}/philosophy`,
+      },
+    },
+  }
 }
 
 export default function PhilosophyPage() {
