@@ -159,6 +159,9 @@
     "title": "Farm Game Guides",
     "subtitle": "From beginner to veteran farmer",
     "readMore": "Read guide →",
+    "guidesLabel": "Guides",
+    "guidesCenter": "Guides Center",
+    "comingSoon": "Guides coming soon. Stay tuned.",
     "games": {
       "hay-day": { "name": "Hay Day", "desc": "The most popular mobile farm game" },
       "stardew-valley": { "name": "Stardew Valley", "desc": "The iconic indie farm RPG" },

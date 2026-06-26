@@ -159,6 +159,9 @@
     "title": "农场游戏攻略中心",
     "subtitle": "从新手到老农，找到你需要的攻略",
     "readMore": "阅读攻略 →",
+    "guidesLabel": "攻略",
+    "guidesCenter": "攻略中心",
+    "comingSoon": "攻略正在撰写中，敬请期待。",
     "games": {
       "hay-day": { "name": "Hay Day", "desc": "最受欢迎的移动端农场手游" },
       "stardew-valley": { "name": "星露谷物语", "desc": "独立农场 RPG 游戏神作" },

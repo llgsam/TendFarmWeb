@@ -18,7 +18,7 @@ export async function generateMetadata({
     ? t(`games.${game as 'hay-day' | 'stardew-valley' | 'animal-crossing'}.name`)
     : game
   return {
-    title: `${gameName} 攻略 — TendFarm`,
+    title: `${gameName} ${t('guidesLabel')} — TendFarm`,
     description: t(`games.${game as 'hay-day' | 'stardew-valley' | 'animal-crossing'}.desc`),
   }
 }
@@ -41,14 +41,12 @@ export default async function GameGuidesPage({
         href={`/${locale}/guides`}
         className="mb-6 inline-block text-sm text-[#8a9a7a] transition-colors hover:text-[#f0a832]"
       >
-        ← {locale === 'zh' ? '攻略中心' : 'Guides'}
+        ← {t('guidesCenter')}
       </Link>
       <h1 className="mb-10 text-3xl font-bold text-[#e8dcc8]">{gameName}</h1>
       {guides.length === 0 ? (
         <p className="text-[#8a9a7a]">
-          {locale === 'zh'
-            ? '攻略正在撰写中，敬请期待。'
-            : 'Guides are being written. Check back soon.'}
+          {t('comingSoon')}
         </p>
       ) : (
         <div className="space-y-4">
@@ -73,7 +71,7 @@ export default async function GameGuidesPage({
                 </div>
               )}
               {g.publishedAt && (
-                <p className="mt-2 text-xs text-[#4a5a4a]">{g.publishedAt}</p>
+                <p className="mt-2 text-xs text-[#8a9a7a]">{g.publishedAt}</p>
               )}
             </Link>
           ))}

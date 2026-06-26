@@ -31,7 +31,7 @@ export default async function GuideArticlePage({
   const post = await getGuideBySlug(locale, game, slug)
   if (!post) notFound()
 
-  const gameLabel = game.replace(/-/g, ' ')
+  const gameLabel = game.split('-').map((w: string) => w[0].toUpperCase() + w.slice(1)).join(' ')
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
@@ -43,7 +43,7 @@ export default async function GuideArticlePage({
       </Link>
       <h1 className="mb-3 text-3xl font-bold text-[#e8dcc8]">{post.title}</h1>
       {post.publishedAt && (
-        <p className="mb-4 text-sm text-[#4a5a4a]">{post.publishedAt}</p>
+        <p className="mb-4 text-sm text-[#8a9a7a]">{post.publishedAt}</p>
       )}
       {post.tags.length > 0 && (
         <div className="mb-10 flex flex-wrap gap-2">
