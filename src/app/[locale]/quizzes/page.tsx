@@ -32,6 +32,19 @@ export async function generateMetadata({
 
 const QUIZZES = [
   {
+    slug: 'stardew-season',
+    emoji: '🍃',
+    titleZh: '你是哪个星露谷季节？',
+    titleEn: 'Which Stardew Valley Season Are You?',
+    descZh: '春天的希望、夏天的活力、秋天的感恩还是冬天的内省？6 个性格问题测出你的灵魂季节，附村民配对和专属攻略。',
+    descEn: 'Spring hope, summer energy, fall gratitude, or winter depth? 6 personality questions to reveal your Stardew soul season, with villager match and tips.',
+    tagZh: '季节人格',
+    tagEn: 'Season Soul',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
+  {
     slug: 'stardew-farm-type',
     emoji: '🏡',
     titleZh: '你适合哪种星露谷农场？',
