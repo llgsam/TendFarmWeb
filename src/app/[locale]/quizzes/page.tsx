@@ -18,8 +18,8 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play'],
+      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验']
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'stardew valley beginner or pro'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -134,6 +134,19 @@ const QUIZZES = [
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
     isNew: false,
+  },
+  {
+    slug: 'stardew-beginner',
+    emoji: '🎯',
+    titleZh: '你是星露谷新手还是老鸟？',
+    titleEn: 'Stardew Valley: Beginner or Pro?',
+    descZh: '6 个经典场景问题，测出你是嫩苗新手、成长萌芽、丰收达人还是农场大师？每个段位都有专属进阶建议。',
+    descEn: '6 classic scenario questions to find your Stardew Valley skill level — Seedling, Sprout, Harvest Ready, or Master Farmer. With tips for your exact level.',
+    tagZh: '段位测验',
+    tagEn: 'Skill Level',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
   },
 ]
 

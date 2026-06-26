@@ -18,17 +18,19 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'farm-personality', emoji: '🌱', titleZh: '你是哪种农场玩家？', titleEn: 'What Kind of Farmer Are You?', tagZh: '人格测试', tagEn: 'Personality' },
   { slug: 'which-farming-game', emoji: '🎮', titleZh: '哪款农场游戏最适合你？', titleEn: 'Which Farming Game Should You Play?', tagZh: '游戏推荐', tagEn: 'Game Finder' },
   { slug: 'cozy-gamer', emoji: '☕', titleZh: '你是 Cozy Gamer 吗？', titleEn: 'Are You a Cozy Gamer?', tagZh: '风格测试', tagEn: 'Cozy Score' },
+  { slug: 'stardew-beginner', emoji: '🎯', titleZh: '你是星露谷新手还是老鸟？', titleEn: 'Stardew Valley: Beginner or Pro?', tagZh: '段位测验', tagEn: 'Skill Level' },
 ]
 
 const RELATED: Record<string, string[]> = {
   'stardew-season': ['stardew-character', 'stardew-romance', 'stardew-farm-type'],
-  'stardew-farm-type': ['stardew-season', 'stardew-character', 'farm-aesthetic'],
+  'stardew-farm-type': ['stardew-season', 'stardew-character', 'stardew-beginner'],
   'stardew-character': ['stardew-romance', 'stardew-season', 'stardew-farm-type'],
-  'stardew-romance': ['stardew-character', 'stardew-season', 'farm-personality'],
+  'stardew-romance': ['stardew-character', 'stardew-season', 'stardew-beginner'],
   'farm-aesthetic': ['stardew-season', 'farm-personality', 'which-farming-game'],
   'farm-personality': ['farm-aesthetic', 'which-farming-game', 'cozy-gamer'],
   'which-farming-game': ['farm-personality', 'cozy-gamer', 'farm-aesthetic'],
   'cozy-gamer': ['which-farming-game', 'farm-personality', 'stardew-character'],
+  'stardew-beginner': ['stardew-farm-type', 'stardew-season', 'stardew-character'],
 }
 
 interface Props {
