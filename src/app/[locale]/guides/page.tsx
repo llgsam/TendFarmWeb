@@ -13,7 +13,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'guides' })
   const other = otherLocale(locale)
   return {
-    title: `${t('title')} — Tend Farm`,
+    title: `${t('title')} — TendFarm`,
     description: t('subtitle'),
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides`,

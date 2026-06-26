@@ -30,14 +30,14 @@
     }
   },
   "nav": {
-    "tools": "游戏工具",
+    "games": "游戏大全",
+    "tools": "工具集",
+    "quizzes": "测评",
     "guides": "游戏攻略",
-    "philosophy": "TendFarm App",
-    "lifestyle": "健康机制",
-    "gameplay": "游戏玩法"
+    "tendfarm": "TendFarm App"
   },
   "footer": {
-    "tagline": "你的健康生活，在这里生长",
+    "tagline": "农场游戏爱好者的集结地",
     "privacy": "隐私政策",
     "contact": "联系我们"
   },

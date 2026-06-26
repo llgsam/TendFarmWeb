@@ -20,7 +20,7 @@ export async function generateMetadata({
     : game
   const other = otherLocale(locale)
   return {
-    title: `${gameName} ${t('guidesLabel')} — Tend Farm`,
+    title: `${gameName} ${t('guidesLabel')} — TendFarm`,
     description: t(`games.${game as 'hay-day' | 'stardew-valley' | 'animal-crossing'}.desc`),
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}`,

@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from 'next-intl'
 const TOOLS = [
   {
     key: 'quiz',
-    href: '/tools/quiz',
+    href: '/quizzes/farm-personality',
     icon: '🌾',
     titleZh: '你是哪种农场玩家？',
     titleEn: 'What Kind of Farmer Are You?',

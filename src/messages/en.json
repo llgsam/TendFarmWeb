@@ -30,14 +30,14 @@
     }
   },
   "nav": {
-    "tools": "Game Tools",
-    "guides": "Game Guides",
-    "philosophy": "TendFarm App",
-    "lifestyle": "Health System",
-    "gameplay": "Gameplay"
+    "games": "All Games",
+    "tools": "Tools",
+    "quizzes": "Quizzes",
+    "guides": "Guides",
+    "tendfarm": "TendFarm App"
   },
   "footer": {
-    "tagline": "Your healthy life, growing here",
+    "tagline": "The farming game community hub",
     "privacy": "Privacy Policy",
     "contact": "Contact"
   },

@@ -28,7 +28,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} — Tend Farm`,
+    title: `${post.title} — TendFarm`,
     description: post.description,
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}/${slug}`,
