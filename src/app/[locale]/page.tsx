@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { HeroSection } from '@/components/home/HeroSection'
-import { ConceptCards } from '@/components/home/ConceptCards'
+import { SiteIntro } from '@/components/home/SiteIntro'
 import { ToolsTeaser } from '@/components/home/ToolsTeaser'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
@@ -16,7 +16,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'home' })
   const other = otherLocale(locale)
   return {
-    title: `Tend Farm — ${t('meta.title')}`,
+    title: `TendFarm — ${t('meta.title')}`,
     description: t('meta.description'),
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
@@ -32,7 +32,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ConceptCards />
+      <SiteIntro />
       <ToolsTeaser />
       <GuidesTeaser />
       <WaitlistSection />

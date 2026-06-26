@@ -63,7 +63,6 @@ export default function ToolsPage() {
   const t = useTranslations('tools')
   const locale = useLocale()
   const isZh = locale === 'zh'
-  const comingSoon = t.raw('coming') as Array<{ title: string; desc: string }>
   const wt = useTranslations('waitlist')
 
   return (
@@ -100,27 +99,30 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      {/* Coming Soon - Tend Farm specific */}
-      <section className="mb-16">
-        <h2 className="mb-4 text-xl font-semibold text-[#e8dcc8]">
-          {isZh ? 'Tend Farm 专属工具（即将上线）' : 'Tend Farm Tools — Coming Soon'}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-3">
-          {comingSoon.map((tool) => (
-            <div key={tool.title} className="rounded-xl border border-dashed border-[#2d3d2d] bg-[#1a2e1a]/50 p-5">
-              <span className="mb-3 inline-block rounded-full bg-[#2d3d2d] px-2 py-0.5 text-xs text-[#8a9a7a]">
-                {t('comingSoon')}
-              </span>
-              <h3 className="mb-2 font-semibold text-[#e8dcc8]">{tool.title}</h3>
-              <p className="text-sm text-[#8a9a7a]">{tool.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* More tools note */}
+      <div className="mb-16 rounded-xl border border-dashed border-[#2d3d2d] bg-[#1a2e1a]/30 p-6 text-center">
+        <p className="text-sm text-[#8a9a7a]">
+          {isZh
+            ? '更多农场游戏工具持续更新中 · 有想要的计算器？'
+            : 'More farming game tools on the way · Have a calculator request?'}
+          {' '}
+          <a href="mailto:jsamgogo@gmail.com" className="text-[#f0a832] hover:underline">
+            {isZh ? '告诉我们 →' : 'Let us know →'}
+          </a>
+        </p>
+      </div>
 
+      {/* TendFarm App waitlist */}
       <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] p-8 text-center">
-        <h2 className="mb-2 text-xl font-semibold text-[#e8dcc8]">{t('notify')}</h2>
-        <p className="mb-6 text-sm text-[#8a9a7a]">{wt('subtitle')}</p>
+        <p className="mb-1 text-xs uppercase tracking-widest text-[#f0a832]">TendFarm App</p>
+        <h2 className="mb-2 text-xl font-semibold text-[#e8dcc8]">
+          {isZh ? '用健康数据驱动你的农场' : 'Power your farm with health data'}
+        </h2>
+        <p className="mb-6 text-sm text-[#8a9a7a]">
+          {isZh
+            ? '一款 iOS 农场 App，正在开发中。加入候补名单，第一批体验 Beta 版本。'
+            : 'An iOS farming app in development. Join the waitlist for early Beta access.'}
+        </p>
         <div className="mx-auto max-w-md">
           <WaitlistForm
             locale={locale}

@@ -12,11 +12,11 @@ export async function generateMetadata({
   const isZh = locale === 'zh'
   return {
     title: isZh
-      ? 'Tend Farm — 你去生活，农场替你生长'
-      : 'Tend Farm — You Live, Your Farm Grows',
+      ? 'TendFarm — 你去生活，农场替你生长'
+      : 'TendFarm — You Live, Your Farm Grows',
     description: isZh
-      ? 'Tend Farm 是由真实健康数据驱动的放置建造农场。活动、睡眠、恢复和生活节律，转化为农场里的阳光、晨露、空气和 Aura。'
-      : 'Tend Farm is an idle farming game powered by your real health data. Activity, sleep, recovery, and lifestyle rhythm become sunlight, dew, air, and Aura.',
+      ? 'TendFarm 是由真实健康数据驱动的放置建造农场。活动、睡眠、恢复和生活节律，转化为农场里的阳光、晨露、空气和 Aura。'
+      : 'TendFarm is an idle farming game powered by your real health data. Activity, sleep, recovery, and lifestyle rhythm become sunlight, dew, air, and Aura.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/philosophy`,
       languages: {
@@ -89,8 +89,8 @@ export default async function PhilosophyPage({
         </h1>
         <p className="max-w-2xl text-lg leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? 'Tend Farm 是一个由真实健康数据驱动的放置建造农场。你在现实中的活动形成阳光，睡眠形成晨露，心情和恢复状态形成空气，长期生活节律放大一切转化效率。你去生活，农场替你生长；你的生活越有节律，农场越懂得把健康数据转化为生产力。'
-            : 'Tend Farm is an idle farming game powered by your real health data. Your daily activity becomes sunlight. Sleep becomes morning dew. Mood and recovery become air quality. And your lifestyle rhythm amplifies it all. You live — your farm grows.'}
+            ? 'TendFarm 是一个由真实健康数据驱动的放置建造农场。你在现实中的活动形成阳光，睡眠形成晨露，心情和恢复状态形成空气，长期生活节律放大一切转化效率。你去生活，农场替你生长；你的生活越有节律，农场越懂得把健康数据转化为生产力。'
+            : 'TendFarm is an idle farming game powered by your real health data. Your daily activity becomes sunlight. Sleep becomes morning dew. Mood and recovery become air quality. And your lifestyle rhythm amplifies it all. You live — your farm grows.'}
         </p>
       </div>
 
@@ -124,12 +124,12 @@ export default async function PhilosophyPage({
       {/* Why */}
       <div className="mb-16 rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-6">
         <h2 className="mb-4 text-xl font-semibold text-[#f0a832]">
-          {isZh ? '为什么做 Tend Farm' : 'Why We Built This'}
+          {isZh ? '为什么做 TendFarm' : 'Why We Built This'}
         </h2>
         <p className="leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? '大多数健康 App 是数据仪表盘——你看了数字，关掉，然后忘了。农场游戏有一种天然的"想看看今天长出什么"的驱动力，和健康数据的每日反馈节奏完美契合。Tend Farm 不是要你完美，而是让健康的生活方式自然地成为你每天期待打开 App 的理由。'
-            : 'Most health apps are dashboards — you check the numbers, close the app, and forget. Farming games have a natural "I wonder what grew today" pull that matches daily health feedback perfectly. Tend Farm is not about being perfect. It turns healthy living into something you actually want to open every day.'}
+            ? '大多数健康 App 是数据仪表盘——你看了数字，关掉，然后忘了。农场游戏有一种天然的"想看看今天长出什么"的驱动力，和健康数据的每日反馈节奏完美契合。TendFarm 不是要你完美，而是让健康的生活方式自然地成为你每天期待打开 App 的理由。'
+            : 'Most health apps are dashboards — you check the numbers, close the app, and forget. Farming games have a natural "I wonder what grew today" pull that matches daily health feedback perfectly. TendFarm is not about being perfect. It turns healthy living into something you actually want to open every day.'}
         </p>
       </div>
 
@@ -140,8 +140,8 @@ export default async function PhilosophyPage({
         </h2>
         <p className="text-sm leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? 'Tend Farm 正在积极开发中，预计 2026 年底在 App Store 上线（iOS + Apple Watch）。加入候补名单，第一批用户可以优先体验 Beta 版本，并直接影响产品功能方向。'
-            : 'Tend Farm is in active development, targeting an App Store launch in late 2026 for iOS and Apple Watch. Join the waitlist for early Beta access and a direct line to shape the product.'}
+            ? 'TendFarm 正在积极开发中，预计 2026 年底在 App Store 上线（iOS + Apple Watch）。加入候补名单，第一批用户可以优先体验 Beta 版本，并直接影响产品功能方向。'
+            : 'TendFarm is in active development, targeting an App Store launch in late 2026 for iOS and Apple Watch. Join the waitlist for early Beta access and a direct line to shape the product.'}
         </p>
       </div>
 
@@ -152,8 +152,8 @@ export default async function PhilosophyPage({
         </h2>
         <p className="mb-4 leading-relaxed text-[#8a9a7a]">
           {isZh
-            ? 'Tend Farm 还在早期阶段，每一条用户反馈都会被认真对待。你有功能想法、设计建议，或者只是想聊聊对健康游戏化的看法，都欢迎联系我们。'
-            : 'Tend Farm is early-stage and every piece of feedback gets read. Got a feature idea, a design thought, or just want to talk about gamified health? We would love to hear from you.'}
+            ? 'TendFarm 还在早期阶段，每一条用户反馈都会被认真对待。你有功能想法、设计建议，或者只是想聊聊对健康游戏化的看法，都欢迎联系我们。'
+            : 'TendFarm is early-stage and every piece of feedback gets read. Got a feature idea, a design thought, or just want to talk about gamified health? We would love to hear from you.'}
         </p>
         <a
           href="mailto:jsamgogo@gmail.com"
