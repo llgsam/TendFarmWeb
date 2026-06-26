@@ -28,6 +28,16 @@ export async function generateMetadata({
 
 const LIVE_TOOLS = [
   {
+    key: 'quiz',
+    href: 'tools/quiz',
+    titleZh: '你是哪种农场玩家？',
+    titleEn: 'What Kind of Farmer Are You?',
+    descZh: '6 个问题，测出你的农场人格——效率、美学、探索还是禅意？并推荐最适合你的游戏。',
+    descEn: '6 questions to find your farm personality — Optimizer, Homesteader, Explorer, or Zen — plus game picks.',
+    tag: '🌾 测一测',
+    tagEn: '🌾 Quiz',
+  },
+  {
     key: 'hay-day',
     href: 'tools/hay-day',
     titleZh: 'Hay Day 作物利润计算器',
@@ -35,6 +45,7 @@ const LIVE_TOOLS = [
     descZh: '按游戏风格筛选最优作物，实时显示利润/分钟和利润/小时。',
     descEn: 'Filter by play style. See gold/min and gold/hour for every field crop.',
     tag: 'Hay Day',
+    tagEn: 'Hay Day',
   },
   {
     key: 'stardew',
@@ -44,6 +55,7 @@ const LIVE_TOOLS = [
     descZh: '按季节和剩余天数计算最优种植策略，支持工匠技能和再生作物。',
     descEn: 'Best crops by season and days left. Includes regrow crops and artisan processing.',
     tag: 'Stardew Valley',
+    tagEn: 'Stardew Valley',
   },
 ]
 
@@ -73,7 +85,7 @@ export default function ToolsPage() {
             >
               <div className="mb-3 flex items-center justify-between">
                 <span className="rounded-full bg-[#2d5a27] px-2 py-0.5 text-xs text-[#8a9a7a]">
-                  {tool.tag}
+                  {isZh ? tool.tag : tool.tagEn}
                 </span>
                 <span className="rounded-full bg-[#f0a832]/10 px-2 py-0.5 text-xs font-semibold text-[#f0a832]">
                   {isZh ? '可用' : 'Live'}
