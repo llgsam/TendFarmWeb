@@ -32,6 +32,19 @@ export async function generateMetadata({
 
 const QUIZZES = [
   {
+    slug: 'cozy-gamer',
+    emoji: '☕',
+    titleZh: '你是 Cozy Gamer 吗？',
+    titleEn: 'Are You a Cozy Gamer?',
+    descZh: '8 个问题测出你的 Cozy 指数（0%–100%）——从硬核玩家到超级 Cozy Gamer，看看你的灵魂属于哪个阵营。',
+    descEn: '8 questions to calculate your Cozy Score (0–100%) — from hardcore player to True Cozy Gamer. Share your result with friends.',
+    tagZh: '风格测试',
+    tagEn: 'Cozy Score',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
+  {
     slug: 'which-farming-game',
     emoji: '🎮',
     titleZh: '哪款农场游戏最适合你？',
@@ -42,7 +55,7 @@ const QUIZZES = [
     tagEn: 'Game Finder',
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
-    isNew: true,
+    isNew: false,
   },
   {
     slug: 'farm-personality',
