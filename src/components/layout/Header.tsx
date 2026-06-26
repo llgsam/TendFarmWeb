@@ -20,7 +20,7 @@ export function Header() {
             alt="TendFarm"
             width={30}
             height={30}
-            className="rounded-lg"
+            className=""
           />
           <div className="flex flex-col leading-none">
             <span className="text-base font-bold text-[#f0a832]">TendFarm</span>
