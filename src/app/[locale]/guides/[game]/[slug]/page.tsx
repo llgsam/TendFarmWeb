@@ -76,6 +76,23 @@ export default async function GuideArticlePage({
         className="prose prose-invert prose-p:text-[#8a9a7a] prose-headings:text-[#e8dcc8] prose-a:text-[#f0a832] prose-strong:text-[#e8dcc8] prose-li:text-[#8a9a7a] max-w-none"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      {/* Calculator cross-link */}
+      {(game === 'hay-day' || game === 'stardew-valley') && (
+        <div className="mt-12 flex items-center justify-between rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] px-5 py-4">
+          <p className="text-sm text-[#8a9a7a]">
+            {game === 'hay-day'
+              ? (locale === 'zh' ? '用计算器验证文中的作物效益数据' : 'Verify crop profit data with our calculator')
+              : (locale === 'zh' ? '用计算器算出本季最优种植方案' : 'Calculate the best crops for your season')}
+          </p>
+          <Link
+            href={`/${locale}/tools/${game === 'hay-day' ? 'hay-day' : 'stardew'}`}
+            className="ml-4 shrink-0 rounded-lg bg-[#f0a832]/10 px-4 py-1.5 text-sm font-semibold text-[#f0a832] hover:bg-[#f0a832]/20 transition-colors"
+          >
+            {locale === 'zh' ? '打开计算器 →' : 'Open Calculator →'}
+          </Link>
+        </div>
+      )}
     </div>
   )
 }

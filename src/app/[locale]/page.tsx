@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { HeroSection } from '@/components/home/HeroSection'
 import { ConceptCards } from '@/components/home/ConceptCards'
+import { ToolsTeaser } from '@/components/home/ToolsTeaser'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
 import { WaitlistSection } from '@/components/home/WaitlistSection'
 import { BASE_URL, otherLocale } from '@/lib/config'
@@ -32,6 +33,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ConceptCards />
+      <ToolsTeaser />
       <GuidesTeaser />
       <WaitlistSection />
     </>

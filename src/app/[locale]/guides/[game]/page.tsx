@@ -53,10 +53,37 @@ export default async function GameGuidesPage({
         ← {t('guidesCenter')}
       </Link>
       <h1 className="mb-10 text-3xl font-bold text-[#e8dcc8]">{gameName}</h1>
+      {/* Calculator cross-link for supported games */}
+      {(game === 'hay-day' || game === 'stardew-valley') && (
+        <div className="mb-8 flex items-center justify-between rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] px-5 py-4">
+          <p className="text-sm text-[#8a9a7a]">
+            {game === 'hay-day'
+              ? locale === 'zh' ? '边看攻略，边用计算器验证最优作物配置' : 'Pair this guide with our crop profit calculator'
+              : locale === 'zh' ? '配合季节作物利润计算器，找出最优种植方案' : 'Use our crop calculator to find the best seasonal picks'}
+          </p>
+          <Link
+            href={`/${locale}/tools/${game === 'hay-day' ? 'hay-day' : 'stardew'}`}
+            className="ml-4 shrink-0 rounded-lg bg-[#f0a832]/10 px-4 py-1.5 text-sm font-semibold text-[#f0a832] hover:bg-[#f0a832]/20 transition-colors"
+          >
+            {locale === 'zh' ? '打开计算器 →' : 'Open Calculator →'}
+          </Link>
+        </div>
+      )}
+
       {guides.length === 0 ? (
-        <p className="text-[#8a9a7a]">
-          {t('comingSoon')}
-        </p>
+        <div>
+          <p className="mb-6 text-[#8a9a7a]">{t('comingSoon')}</p>
+          {locale === 'en' && (
+            <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-5">
+              <p className="mb-3 text-sm font-semibold text-[#e8dcc8]">Try our interactive tools while guides are being written:</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href={`/${locale}/tools/quiz`} className="text-sm text-[#f0a832] hover:underline">🌾 Farm Personality Quiz →</Link>
+                {game === 'hay-day' && <Link href={`/${locale}/tools/hay-day`} className="text-sm text-[#f0a832] hover:underline">📊 Hay Day Crop Calculator →</Link>}
+                {game === 'stardew-valley' && <Link href={`/${locale}/tools/stardew`} className="text-sm text-[#f0a832] hover:underline">🌱 Stardew Valley Calculator →</Link>}
+              </div>
+            </div>
+          )}
+        </div>
       ) : (
         <div className="space-y-4">
           {guides.map((g) => (
