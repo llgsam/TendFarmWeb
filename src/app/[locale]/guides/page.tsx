@@ -1,10 +1,19 @@
 import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: '农场游戏攻略中心 — TendFarm',
-  description: '从新手到老农，找到 Hay Day、星露谷物语、动物森友会等热门农场游戏的完整攻略。',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'guides' })
+  return {
+    title: `${t('title')} — TendFarm`,
+    description: t('subtitle'),
+  }
 }
 
 const GAMES = ['hay-day', 'stardew-valley', 'animal-crossing'] as const
