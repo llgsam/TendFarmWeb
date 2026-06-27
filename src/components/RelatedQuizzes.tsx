@@ -60,6 +60,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'creature-raising-quiz', emoji: '🫧', titleZh: '生物养成游戏推荐测验', titleEn: 'Which Creature-Raising Game Is Right for You?', tagZh: '生物养成推荐', tagEn: 'Creature Pick' },
   { slug: 'cozy-management-quiz', emoji: '🏗️', titleZh: '管理模拟游戏推荐测验', titleEn: 'Which Management Sim Is Right for Cozy Gamers?', tagZh: '管理模拟推荐', tagEn: 'Management Pick' },
   { slug: 'deep-think-games-quiz', emoji: '🧩', titleZh: '深度思考游戏推荐测验', titleEn: 'Which Deep-Think Game Is Right for You?', tagZh: '深度思考推荐', tagEn: 'Deep Think Pick' },
+  { slug: 'jrpg-finder-quiz', emoji: '🗺️', titleZh: 'JRPG 推荐测验', titleEn: 'Which JRPG Is Right for You?', tagZh: 'JRPG 推荐', tagEn: 'JRPG Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -113,6 +114,7 @@ const RELATED: Record<string, string[]> = {
   'creature-raising-quiz': ['cozy-rpg-quiz', 'cozy-2023-surprise-hits', 'cozy-beyond-cozy'],
   'cozy-management-quiz': ['cozy-builder-games', 'farming-game-challenge', 'cozy-new-2024'],
   'deep-think-games-quiz': ['cozy-dark-games', 'cozy-beyond-cozy', 'cozy-rpg-quiz'],
+  'jrpg-finder-quiz': ['cozy-rpg-quiz', 'relationship-sim-quiz', 'cozy-2023-surprise-hits'],
 }
 
 interface Props {
