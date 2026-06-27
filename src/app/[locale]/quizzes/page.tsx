@@ -356,6 +356,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'stardew-mods-quiz',
+    emoji: '🔧',
+    titleZh: '你应该给星露谷物语装模组吗？装哪些？',
+    titleEn: 'Should You Play Stardew Valley with Mods? Which Ones?',
+    descZh: '6 个问题，根据你的游玩进度找到正确的模组策略——原版、SVE、纯视觉模组或完整模组栈。',
+    descEn: '6 questions to find the right mod strategy for where you are — pure vanilla, Stardew Valley Expanded, visual mods only, or the full SVE + Ridgeside mod stack.',
+    tagZh: 'SVE 模组',
+    tagEn: 'Mods Quiz',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
