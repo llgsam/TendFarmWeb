@@ -21,6 +21,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'stardew-beginner', emoji: '🎯', titleZh: '你是星露谷新手还是老鸟？', titleEn: 'Stardew Valley: Beginner or Pro?', tagZh: '段位测验', tagEn: 'Skill Level' },
   { slug: 'animal-crossing-villager', emoji: '🍃', titleZh: '你是哪位动物森友会村民？', titleEn: 'Which Animal Crossing Villager Are You?', tagZh: '村民测验', tagEn: 'ACNH Quiz' },
   { slug: 'palia-playstyle', emoji: '🌻', titleZh: '你在 Palia 的游戏风格是什么？', titleEn: "What's Your Palia Playstyle?", tagZh: 'Palia 测验', tagEn: 'Palia Quiz' },
+  { slug: 'harvest-moon-quiz', emoji: '⛰️', titleZh: '哪款牧场物语最适合你？', titleEn: 'Which Story of Seasons Game Should You Play?', tagZh: '游戏推荐', tagEn: 'SoS Finder' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -29,12 +30,13 @@ const RELATED: Record<string, string[]> = {
   'stardew-character': ['stardew-romance', 'stardew-season', 'animal-crossing-villager'],
   'stardew-romance': ['stardew-character', 'stardew-season', 'stardew-beginner'],
   'farm-aesthetic': ['stardew-season', 'farm-personality', 'palia-playstyle'],
-  'farm-personality': ['farm-aesthetic', 'which-farming-game', 'cozy-gamer'],
-  'which-farming-game': ['farm-personality', 'cozy-gamer', 'palia-playstyle'],
+  'farm-personality': ['farm-aesthetic', 'which-farming-game', 'harvest-moon-quiz'],
+  'which-farming-game': ['harvest-moon-quiz', 'farm-personality', 'palia-playstyle'],
   'cozy-gamer': ['which-farming-game', 'farm-personality', 'animal-crossing-villager'],
   'stardew-beginner': ['stardew-farm-type', 'stardew-season', 'stardew-character'],
   'animal-crossing-villager': ['stardew-character', 'cozy-gamer', 'which-farming-game'],
   'palia-playstyle': ['which-farming-game', 'farm-personality', 'cozy-gamer'],
+  'harvest-moon-quiz': ['which-farming-game', 'farm-personality', 'cozy-gamer'],
 }
 
 interface Props {
