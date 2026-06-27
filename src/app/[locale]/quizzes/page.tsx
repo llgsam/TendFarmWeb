@@ -265,6 +265,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'palia-beginner-guide',
+    emoji: '🌻',
+    titleZh: 'Palia 新手测验：你该从哪里开始？',
+    titleEn: 'Palia Beginner Quiz: Where Should You Start?',
+    descZh: '6 个问题，找出最适合你的 Palia 起点——园艺、狩猎、社交还是制作？每个结果含 3 条专属新手攻略。Palia 免费游玩，立即开始。',
+    descEn: '6 questions to find your Palia beginner focus — Gardening, Hunting, Friendships, or Crafting. Each result includes 3 beginner tips for your path. Palia is free — start today.',
+    tagZh: 'Palia 攻略',
+    tagEn: 'Palia Guide',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [

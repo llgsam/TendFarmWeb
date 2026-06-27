@@ -28,6 +28,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'mobile-farming-quiz', emoji: '📱', titleZh: '哪款手机农场游戏最适合你？', titleEn: 'Which Mobile Farming Game Is Right for You?', tagZh: '手机游戏', tagEn: 'Mobile Pick' },
   { slug: 'stardew-alternatives', emoji: '🌸', titleZh: '星露谷之后该玩哪款游戏？', titleEn: 'What to Play After Stardew Valley?', tagZh: '游戏推荐', tagEn: 'Next Game' },
   { slug: 'cozy-switch-games', emoji: '🎮', titleZh: '你该在 Switch 上玩哪款 Cozy 游戏？', titleEn: 'Which Cozy Game for Nintendo Switch?', tagZh: 'Switch 推荐', tagEn: 'Switch Pick' },
+  { slug: 'palia-beginner-guide', emoji: '🌻', titleZh: 'Palia 新手测验：你该从哪里开始？', titleEn: 'Palia Beginner Quiz: Where to Start?', tagZh: 'Palia 攻略', tagEn: 'Palia Guide' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -49,6 +50,7 @@ const RELATED: Record<string, string[]> = {
   'mobile-farming-quiz': ['which-farming-game', 'cozy-gamer', 'farm-personality'],
   'stardew-alternatives': ['which-farming-game', 'harvest-moon-quiz', 'stardew-season'],
   'cozy-switch-games': ['which-farming-game', 'cozy-gamer', 'dreamlight-valley-quiz'],
+  'palia-beginner-guide': ['palia-playstyle', 'which-farming-game', 'cozy-gamer'],
 }
 
 interface Props {
