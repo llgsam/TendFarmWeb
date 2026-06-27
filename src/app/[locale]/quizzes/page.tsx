@@ -317,6 +317,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-game-mood',
+    emoji: '🌙',
+    titleZh: '根据心情选 Cozy 游戏：今晚该玩什么？',
+    titleEn: 'What Cozy Game Should I Play Tonight? Mood Quiz',
+    descZh: '6 个问题，根据你现在的心情——效率感、平静、关脑子、还是有情绪——找到今晚最合适的游戏。',
+    descEn: '6 questions to find the right cozy game for your exact mood — productive, peaceful, need to switch off, or ready to feel something real.',
+    tagZh: '心情推荐',
+    tagEn: 'Mood Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
@@ -376,6 +389,10 @@ const FAQ_EN = [
     q: 'Is Animal Crossing better than Stardew Valley for beginners?',
     a: "For absolute beginners, Animal Crossing: New Horizons is gentler because it has zero fail states — you literally cannot do anything wrong. Stardew Valley is more forgiving than most games but has mild time-management elements (daily energy, seasonal crops, a loose year-one goal) that some first-time gamers find slightly structured. Both are excellent first cozy games; the right choice depends on whether you want pure creative freedom with no structure (Animal Crossing) or a gentle introduction to progression goals and RPG elements (Stardew Valley). Take the Best Cozy Game for Beginners Quiz to get a recommendation based on your specific priorities.",
   },
+  {
+    q: 'What cozy game should I play when I am stressed, anxious, or burned out?',
+    a: "The best cozy games for stress, anxiety, and burnout are: PowerWash Simulator (best for completely switching your brain off — no fail states, no time pressure, pure sensory satisfaction of cleaning); Animal Crossing: New Horizons (best for gentle, zero-pressure creative space that feels genuinely safe); Stardew Valley (best when you want to feel productive without pressure — the daily farming rhythm is grounding); and Spiritfarer (best for emotional catharsis — it processes grief and connection in a warm, cozy format). Take the Cozy Game Mood Quiz to find the right match for exactly how you feel right now.",
+  },
 ]
 
 const FAQ_ZH = [
@@ -434,6 +451,10 @@ const FAQ_ZH = [
   {
     q: '对于新手来说，动物之森比星露谷更好吗？',
     a: '对于完全的新手，动物之森：新视野更温和，因为它有零失败状态——你字面意义上不可能做任何错误的事情。星露谷物语比大多数游戏更宽容，但有轻微的时间管理元素（每日体力、季节性作物、松散的第一年目标），一些第一次玩游戏的人会觉得稍微有点结构化。两款都是很棒的第一款 cozy 游戏；正确的选择取决于你是想要没有任何结构的纯粹创意自由（动物之森），还是想要对进度目标和 RPG 元素的温和介绍（星露谷物语）。做「Cozy 游戏新手入门测验」，根据你的具体优先级获得推荐。',
+  },
+  {
+    q: '压力大、焦虑或倦怠时应该玩什么 cozy 游戏？',
+    a: '压力、焦虑和倦怠时最好的 cozy 游戏是：PowerWash Simulator（最适合完全关闭大脑——没有失败状态、没有时间压力、清洁的纯感官满足）；动物之森：新视野（最适合感觉真正安全的温和零压力创意空间）；星露谷物语（最适合想要在没有压力的情况下感到有成效——每日农业节律有稳定作用）；以及 Spiritfarer（最适合情感宣泄——它以温暖的 cozy 形式处理悲伤和联系）。做「根据心情选 Cozy 游戏测验」，找到最适合你现在感受的游戏。',
   },
 ]
 

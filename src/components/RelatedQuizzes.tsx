@@ -32,6 +32,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'stardew-vs-animal-crossing', emoji: '🌾🍃', titleZh: '星露谷 vs 动物之森：哪款更适合你？', titleEn: 'Stardew Valley vs Animal Crossing Quiz', tagZh: '游戏对比', tagEn: 'vs Quiz' },
   { slug: 'cozy-games-for-couples', emoji: '💑', titleZh: '适合情侣的 Cozy 游戏推荐测验', titleEn: 'Best Cozy Game for Couples Quiz', tagZh: '情侣推荐', tagEn: 'Couple Pick' },
   { slug: 'cozy-games-for-beginners', emoji: '🌱', titleZh: 'Cozy 游戏新手入门测验', titleEn: 'Best Cozy Game for Beginners Quiz', tagZh: '新手入门', tagEn: 'Beginner Pick' },
+  { slug: 'cozy-game-mood', emoji: '🌙', titleZh: '根据心情选 Cozy 游戏测验', titleEn: 'What Cozy Game Fits My Mood Quiz', tagZh: '心情推荐', tagEn: 'Mood Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -57,6 +58,7 @@ const RELATED: Record<string, string[]> = {
   'stardew-vs-animal-crossing': ['stardew-season', 'animal-crossing-villager', 'cozy-switch-games'],
   'cozy-games-for-couples': ['stardew-multiplayer', 'palia-beginner-guide', 'cozy-switch-games'],
   'cozy-games-for-beginners': ['which-farming-game', 'cozy-switch-games', 'palia-beginner-guide'],
+  'cozy-game-mood': ['spiritfarer-quiz', 'cozy-gamer', 'which-farming-game'],
 }
 
 interface Props {
