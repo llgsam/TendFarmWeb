@@ -473,6 +473,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-short-adventure',
+    emoji: '🌱',
+    titleZh: '你应该玩哪款短篇 Cozy 冒险游戏？',
+    titleEn: 'Which Short Cozy Adventure Game Should You Play?',
+    descZh: '6 个问题，在 Venba、奇异园艺、小鳄鱼游戏和 Tinykin 中找到你的完美短篇体验——全部 12 小时以内，全部独具一格。',
+    descEn: '6 questions to find your match — from a 90-minute Indian family cooking narrative to a Victorian herbalist mystery to a child\'s pretend adventure to thumb-sized house exploration.',
+    tagZh: '短篇推荐',
+    tagEn: 'Short Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
