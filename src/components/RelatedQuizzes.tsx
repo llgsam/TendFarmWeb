@@ -24,6 +24,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'harvest-moon-quiz', emoji: '⛰️', titleZh: '哪款牧场物语最适合你？', titleEn: 'Which Story of Seasons Game Should You Play?', tagZh: '游戏推荐', tagEn: 'SoS Finder' },
   { slug: 'dreamlight-valley-quiz', emoji: '✨', titleZh: '你是哪位 Disney Dreamlight Valley 角色？', titleEn: 'Which Disney Dreamlight Valley Character Are You?', tagZh: 'Disney 测验', tagEn: 'Disney Quiz' },
   { slug: 'stardew-multiplayer', emoji: '🤝', titleZh: '你在星露谷联机里是哪种队友？', titleEn: 'What Kind of Stardew Valley Co-op Partner Are You?', tagZh: '联机测验', tagEn: 'Co-op Quiz' },
+  { slug: 'spiritfarer-quiz', emoji: '🦊', titleZh: '你是哪位 Spiritfarer 灵魂？', titleEn: 'Which Spiritfarer Spirit Are You?', tagZh: '角色测验', tagEn: 'Spirit Quiz' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -41,6 +42,7 @@ const RELATED: Record<string, string[]> = {
   'harvest-moon-quiz': ['which-farming-game', 'farm-personality', 'cozy-gamer'],
   'dreamlight-valley-quiz': ['animal-crossing-villager', 'which-farming-game', 'cozy-gamer'],
   'stardew-multiplayer': ['stardew-beginner', 'stardew-character', 'stardew-farm-type'],
+  'spiritfarer-quiz': ['cozy-gamer', 'which-farming-game', 'farm-personality'],
 }
 
 interface Props {
