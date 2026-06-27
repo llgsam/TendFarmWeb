@@ -629,6 +629,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'relationship-sim-quiz',
+    emoji: '💞',
+    titleZh: '哪款以「关系与社交」为核心的游戏最适合你？',
+    titleEn: 'Which Relationship-Driven Game Is Right for You?',
+    descZh: '6 个问题，从牧场物语：美好的生活、沙石镇时光、女神异闻录 4 黄金版、火焰纹章：风花雪月中找到你的社交关系核心游戏。',
+    descEn: '6 questions to match you with Story of Seasons: A Wonderful Life, My Time at Sandrock, Persona 4 Golden, or Fire Emblem: Three Houses — games where relationships are the heart.',
+    tagZh: '社交关系推荐',
+    tagEn: 'Relationship Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
