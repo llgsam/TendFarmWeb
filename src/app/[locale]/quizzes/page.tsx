@@ -278,6 +278,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'stardew-vs-animal-crossing',
+    emoji: '🌾🍃',
+    titleZh: '星露谷物语 vs 动物之森：哪款更适合你？',
+    titleEn: 'Stardew Valley vs Animal Crossing: Which Is Right for You?',
+    descZh: '6 个问题，帮你在星露谷物语和动物之森新视野之间做出选择——或找到两款都玩的最佳顺序。含游戏风格深度对比。',
+    descEn: '6 questions to choose between Stardew Valley and Animal Crossing: New Horizons — or find the perfect order to play both. Includes honest deep-dives into each game.',
+    tagZh: '游戏对比',
+    tagEn: 'vs Quiz',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
