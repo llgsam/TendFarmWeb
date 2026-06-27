@@ -525,6 +525,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-beyond-cozy',
+    emoji: '🪐',
+    titleZh: 'Cozy 玩家的下一步：哪款深度独立游戏最适合你？',
+    titleEn: 'Beyond Cozy: Which Beloved Indie Game Should You Try Next?',
+    descZh: '6 个问题，为 Cozy 玩家找到完美进阶游戏——零挑战冥想清洗、太阳系神秘探索、类塞尔达说明书谜题，还是 1-bit 船员命运演绎？',
+    descEn: '6 questions to find the perfect next game as a cozy gamer who wants more — PowerWash Simulator, Outer Wilds, Tunic, or Return of the Obra Dinn.',
+    tagZh: '进阶探索',
+    tagEn: 'Beyond Cozy Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
