@@ -512,6 +512,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-creative-2024',
+    emoji: '🏰',
+    titleZh: '根据你的创意风格，2024 哪款 Cozy 新游最适合你？',
+    titleEn: 'Which 2023-2024 Creative Cozy Game Matches Your Style?',
+    descZh: '6 个关于创意偏好的问题——无目标城堡立体沙盘 Tiny Glade、贴纸设计小店、嵌套世界解谜 Cocoon，还是摄影重塑空间 Viewfinder？',
+    descEn: '6 questions to find your 2024 creative match — a freeform diorama builder that went viral, a sticker shop sim, a worlds-within-worlds puzzle, or a photography-reshapes-space puzzle game.',
+    tagZh: '创意推荐',
+    tagEn: '2024 Creative Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
