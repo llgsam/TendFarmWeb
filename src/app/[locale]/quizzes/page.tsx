@@ -460,6 +460,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-atmosphere-quiz',
+    emoji: '🌧️',
+    titleZh: '你现在的心情氛围适合哪款 Cozy 游戏？',
+    titleEn: 'Which Cozy Game Matches Your Atmosphere Right Now?',
+    descZh: '6 个感官问题，根据你此刻的天气感受——雨夜、秋日余晖、晨雾还是春日清晨——找到你的氛围 Cozy 游戏。',
+    descEn: '6 sensory questions matching your exact mood — rainy-night café, contemplative autumn road, seasonal harvest rhythm, or spring community garden.',
+    tagZh: '氛围推荐',
+    tagEn: 'Atmosphere Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
