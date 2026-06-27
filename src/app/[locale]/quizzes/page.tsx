@@ -807,6 +807,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'nature-photography-quiz',
+    emoji: '📷',
+    titleZh: '治愈自然摄影游戏推荐测验',
+    titleEn: 'Which Cozy Nature Photography Game Is Right for You?',
+    descZh: '宝可梦随乐拍、Alba、Toem还是Umurangi Generation？找到最适合你的自然观察游戏',
+    descEn: 'Pokémon Snap, Alba, Toem, or Umurangi Generation — what kind of nature photographer are you?',
+    tagZh: '摄影游戏推荐',
+    tagEn: 'Nature Photo Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [

@@ -70,6 +70,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'new-wave-farm-quiz', emoji: '🌱', titleZh: '新浪潮农场游戏推荐测验', titleEn: 'Which New-Wave Farming Game Is Right for You?', tagZh: '新浪潮农场推荐', tagEn: 'New-Wave Farm Pick' },
   { slug: 'farm-craft-build-quiz', emoji: '⛏️', titleZh: '农场制作建造游戏推荐测验', titleEn: 'Which Farm Craft & Build Game Is Right for You?', tagZh: '制作建造推荐', tagEn: 'Farm Craft Pick' },
   { slug: 'cozy-japan-farm-quiz', emoji: '🌸', titleZh: '日式温馨农场游戏推荐测验', titleEn: 'Which Japanese Cozy Farming Game Is Right for You?', tagZh: '日式农场推荐', tagEn: 'Japan Farm Pick' },
+  { slug: 'nature-photography-quiz', emoji: '📷', titleZh: '治愈自然摄影游戏推荐测验', titleEn: 'Which Cozy Nature Photography Game Is Right for You?', tagZh: '摄影游戏推荐', tagEn: 'Nature Photo Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -133,6 +134,7 @@ const RELATED: Record<string, string[]> = {
   'new-wave-farm-quiz': ['spirit-farm-life-quiz', 'cozy-indie-farm-quiz', 'farming-rpg-adventure-quiz'],
   'farm-craft-build-quiz': ['new-wave-farm-quiz', 'cozy-indie-farm-quiz', 'cozy-management-quiz'],
   'cozy-japan-farm-quiz': ['farm-craft-build-quiz', 'harvest-moon-quiz', 'farming-rpg-adventure-quiz'],
+  'nature-photography-quiz': ['cozy-exploration-games', 'cozy-short-adventure', 'cozy-indie-games'],
 }
 
 interface Props {
