@@ -19,7 +19,7 @@ export async function generateMetadata({
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
       ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', 'Palia 免费吗', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略', '类星露谷游戏', '星露谷替代品', 'Switch cozy 游戏推荐']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games'],
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games', 'cozy games with dark themes', 'dark cozy games', 'dave the diver worth it', 'is cult of the lamb worth it', 'dredge game worth buying', 'cozy games that are not actually cozy', 'games like stardew valley but darker'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -369,6 +369,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-dark-games',
+    emoji: '🌑',
+    titleZh: '你应该玩哪款暗色系 Cozy 游戏？',
+    titleEn: 'Which Dark Cozy Game Should You Play?',
+    descZh: '不是所有 cozy 游戏都真的温馨——6 个问题，在 Dave the Diver、羔羊邪教、Dredge 和 Potion Craft 中找到最适合你的。',
+    descEn: "Not every cozy game is truly cozy — 6 questions to find your match across Dave the Diver, Cult of the Lamb, Dredge, and Potion Craft.",
+    tagZh: '暗色系推荐',
+    tagEn: 'Dark Cozy Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
@@ -427,6 +440,10 @@ const FAQ_EN = [
   {
     q: 'Is Animal Crossing better than Stardew Valley for beginners?',
     a: "For absolute beginners, Animal Crossing: New Horizons is gentler because it has zero fail states — you literally cannot do anything wrong. Stardew Valley is more forgiving than most games but has mild time-management elements (daily energy, seasonal crops, a loose year-one goal) that some first-time gamers find slightly structured. Both are excellent first cozy games; the right choice depends on whether you want pure creative freedom with no structure (Animal Crossing) or a gentle introduction to progression goals and RPG elements (Stardew Valley). Take the Best Cozy Game for Beginners Quiz to get a recommendation based on your specific priorities.",
+  },
+  {
+    q: 'What are the best cozy games with dark themes or dark aesthetics?',
+    a: "The best 'dark cozy' games are: Dave the Diver (overwhelmingly positive on Steam — ocean diving + sushi restaurant with a surprisingly gripping story and high stakes); Cult of the Lamb (adorable cult management + roguelike combat with genuinely dark themes under a cute art style); Dredge (a fishing game set in waters where the fish are wrong and the sea has a memory — Lovecraftian atmosphere, never scary but persistently unsettling); and Potion Craft: Alchemist Simulator (medieval alchemy puzzle with moral complexity — you choose who deserves the potions you brew). For something darker and more emotionally heavy, Spiritfarer handles grief and death in a warm, cozy format. Take the Dark Cozy Games Quiz to find which one matches your specific tolerance for darkness and preferred gameplay style.",
   },
   {
     q: 'What cozy game should I play when I am stressed, anxious, or burned out?',
@@ -490,6 +507,10 @@ const FAQ_ZH = [
   {
     q: '对于新手来说，动物之森比星露谷更好吗？',
     a: '对于完全的新手，动物之森：新视野更温和，因为它有零失败状态——你字面意义上不可能做任何错误的事情。星露谷物语比大多数游戏更宽容，但有轻微的时间管理元素（每日体力、季节性作物、松散的第一年目标），一些第一次玩游戏的人会觉得稍微有点结构化。两款都是很棒的第一款 cozy 游戏；正确的选择取决于你是想要没有任何结构的纯粹创意自由（动物之森），还是想要对进度目标和 RPG 元素的温和介绍（星露谷物语）。做「Cozy 游戏新手入门测验」，根据你的具体优先级获得推荐。',
+  },
+  {
+    q: '有哪些有黑暗主题或暗色系美学的 cozy 游戏推荐？',
+    a: '最好的"暗色系 cozy"游戏是：Dave the Diver（Steam 极度好评——海洋潜水 + 寿司餐厅，有出人意料的引人入胜故事和高风险）；羔羊邪教（可爱邪教管理 + roguelike 战斗，在可爱美术风格下有真正的黑暗主题）；Dredge（一款设置在鱼不对劲、海洋有记忆的水域的钓鱼游戏——洛夫克拉夫特式氛围，从不恐怖但持续令人不安）；以及 Potion Craft: 炼金师模拟器（有道德复杂性的中世纪炼金谜题——你选择谁值得得到你调制的药水）。想要更深度情感体验的，Spiritfarer 以温暖的 cozy 方式处理悲伤和死亡。做「暗色系 Cozy 游戏测验」，找出哪款游戏最符合你对黑暗的接受度和首选游戏风格。',
   },
   {
     q: '压力大、焦虑或倦怠时应该玩什么 cozy 游戏？',
