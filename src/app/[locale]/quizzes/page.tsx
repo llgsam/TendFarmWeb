@@ -330,6 +330,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-indie-games',
+    emoji: '🏕️',
+    titleZh: '你应该玩哪款独立 Cozy 游戏？',
+    titleEn: 'Which Indie Cozy Game Should You Play?',
+    descZh: '在 Cozy Grove、Unpacking、A Little to the Left 和 Wylde Flowers 之间找到最适合你的——四款完全不同的独立 cozy 体验。',
+    descEn: 'Find your match across Cozy Grove, Unpacking, A Little to the Left, and Wylde Flowers — four acclaimed indie cozy games with completely different souls.',
+    tagZh: '独立游戏',
+    tagEn: 'Indie Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
