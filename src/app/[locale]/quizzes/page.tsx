@@ -19,7 +19,7 @@ export async function generateMetadata({
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
       ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', 'Palia 免费吗', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略', '类星露谷游戏', '星露谷替代品', 'Switch cozy 游戏推荐']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing'],
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -304,6 +304,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-games-for-beginners',
+    emoji: '🌱',
+    titleZh: 'Cozy 游戏新手入门测验：哪款最适合你？',
+    titleEn: 'Best Cozy Game for Beginners Quiz',
+    descZh: '6 个问题，为 cozy 游戏新手找到完美入门作品——无论你的游戏经验或预算如何。含新手第一步指南。',
+    descEn: '6 questions to find the perfect first cozy game for you — no gaming experience needed. Includes Animal Crossing, Stardew Valley, Palia (free), and Disney Dreamlight Valley.',
+    tagZh: '新手入门',
+    tagEn: 'Beginner Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
@@ -355,6 +368,14 @@ const FAQ_EN = [
     q: 'Is Spiritfarer worth playing? Is it very sad?',
     a: "Yes — Spiritfarer is absolutely worth playing. It is widely considered one of the best cozy games ever made, often appearing on lists of the most emotionally powerful games period. Yes, it will make many players cry — it is about accompanying spirits (inspired by real people in the developer's life) through death and letting them go. However, it is not a sad game in a depressing way; it is a warm, hopeful meditation on grief, connection, and what we leave behind. The management and crafting systems are fun and satisfying, and the writing is exceptional. Take our Spiritfarer Quiz to find which spirit you most resemble.",
   },
+  {
+    q: 'What is the easiest cozy game for people who have never played video games?',
+    a: "Animal Crossing: New Horizons is the easiest cozy game for true beginners with no gaming experience. It was specifically designed to have no way to fail: you cannot die, there is no time pressure on any activity, no crops that wither, and no enemies. Your island grows on your real-world clock over days and weeks, and you are never rushed. Second recommendation for non-gamers is Disney Dreamlight Valley (also free to download) — it uses familiar Disney characters to create immediate emotional context, which removes the alienating feeling of learning an unknown world. Take the Best Cozy Game for Beginners Quiz above to get a personalized first-game recommendation.",
+  },
+  {
+    q: 'Is Animal Crossing better than Stardew Valley for beginners?',
+    a: "For absolute beginners, Animal Crossing: New Horizons is gentler because it has zero fail states — you literally cannot do anything wrong. Stardew Valley is more forgiving than most games but has mild time-management elements (daily energy, seasonal crops, a loose year-one goal) that some first-time gamers find slightly structured. Both are excellent first cozy games; the right choice depends on whether you want pure creative freedom with no structure (Animal Crossing) or a gentle introduction to progression goals and RPG elements (Stardew Valley). Take the Best Cozy Game for Beginners Quiz to get a recommendation based on your specific priorities.",
+  },
 ]
 
 const FAQ_ZH = [
@@ -405,6 +426,14 @@ const FAQ_ZH = [
   {
     q: 'Spiritfarer 值得玩吗？它很悲伤吗？',
     a: '是的——Spiritfarer 绝对值得玩。它被广泛认为是有史以来最好的 cozy 游戏之一，经常出现在最具情感冲击力游戏的榜单上。是的，它会让许多玩家哭泣——它讲述的是陪伴灵魂（受开发者生活中真实人物启发）走过死亡并放手的故事。然而，它不是一款令人沮丧的悲伤游戏；它是关于悲伤、联系和我们留下的东西的温暖、充满希望的沉思。经营和制作系统有趣而令人满足，写作水准极高。做我们的「Spiritfarer 角色测验」，找到你最像哪位灵魂。',
+  },
+  {
+    q: '完全没有玩过电子游戏的人，最容易上手的 cozy 游戏是什么？',
+    a: '动物之森：新视野是真正没有游戏经验的新手最容易上手的 cozy 游戏。它专门设计成没有任何失败方式：你永远不会死亡、任何活动都没有时间压力、作物不会枯萎、没有敌人。你的岛屿在几天和几周内按你的现实世界时钟成长，永远不会催促你。第二推荐是 Disney Dreamlight Valley（也可免费下载）——它使用熟悉的 Disney 角色创造即时的情感背景，消除了学习陌生世界的疏离感。做上面的「Cozy 游戏新手入门测验」，获取个性化的第一款游戏推荐。',
+  },
+  {
+    q: '对于新手来说，动物之森比星露谷更好吗？',
+    a: '对于完全的新手，动物之森：新视野更温和，因为它有零失败状态——你字面意义上不可能做任何错误的事情。星露谷物语比大多数游戏更宽容，但有轻微的时间管理元素（每日体力、季节性作物、松散的第一年目标），一些第一次玩游戏的人会觉得稍微有点结构化。两款都是很棒的第一款 cozy 游戏；正确的选择取决于你是想要没有任何结构的纯粹创意自由（动物之森），还是想要对进度目标和 RPG 元素的温和介绍（星露谷物语）。做「Cozy 游戏新手入门测验」，根据你的具体优先级获得推荐。',
   },
 ]
 
