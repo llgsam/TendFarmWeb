@@ -54,6 +54,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'stardew-fishing-quiz', emoji: '🎣', titleZh: '星露谷钓鱼风格测验', titleEn: 'What Is Your Stardew Valley Fishing Style?', tagZh: '钓鱼攻略', tagEn: 'Fishing Style Guide' },
   { slug: 'cozy-weird-games', emoji: '🤔', titleZh: '奇异 Cozy 游戏推荐测验', titleEn: 'Which Impossible-to-Explain Cozy Game?', tagZh: '奇异推荐', tagEn: 'Weird Cozy Pick' },
   { slug: 'cozy-rpg-quiz', emoji: '🎮', titleZh: 'Cozy 玩家独立 RPG 进阶推荐测验', titleEn: 'Which Indie RPG Is Perfect for a Cozy Gamer?', tagZh: 'RPG 进阶推荐', tagEn: 'Indie RPG Pick' },
+  { slug: 'cozy-2023-surprise-hits', emoji: '⭐', titleZh: '2023 年让 Cozy 玩家意外爱上的游戏推荐测验', titleEn: 'Which 2023 Game Would a Cozy Gamer Unexpectedly Love?', tagZh: '2023 惊喜推荐', tagEn: '2023 Surprise Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -101,6 +102,7 @@ const RELATED: Record<string, string[]> = {
   'stardew-fishing-quiz': ['stardew-beginner', 'stardew-mods-quiz', 'stardew-multiplayer'],
   'cozy-weird-games': ['cozy-short-adventure', 'cozy-atmosphere-quiz', 'cozy-hidden-gems'],
   'cozy-rpg-quiz': ['cozy-beyond-cozy', 'cozy-hidden-gems', 'cozy-dark-games'],
+  'cozy-2023-surprise-hits': ['cozy-rpg-quiz', 'cozy-beyond-cozy', 'cozy-new-2024'],
 }
 
 interface Props {
