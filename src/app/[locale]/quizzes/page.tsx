@@ -447,6 +447,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-new-2024',
+    emoji: '✨',
+    titleZh: '2024 年哪款新 Cozy 游戏最适合你？',
+    titleEn: 'Which New 2024 Cozy Game Is Right for You?',
+    descZh: '6 个问题，在植物庄园、Rusty 的退休生活、Mistria 的田野和 Hinterberg 的地下城中找到你的 2024 年度 Cozy 游戏——全部 Xbox Game Pass 可用。',
+    descEn: '6 questions to match you with the best new cozy game of 2024 — botany puzzles, an idle farm on your taskbar, a Stardew successor, or a cozy action RPG in the Alps.',
+    tagZh: '2024 年度推荐',
+    tagEn: '2024 Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [

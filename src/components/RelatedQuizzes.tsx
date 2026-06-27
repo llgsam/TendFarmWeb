@@ -42,6 +42,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-exploration-games', emoji: '🌿', titleZh: '氛围探索游戏测验', titleEn: 'Which Atmospheric Exploration Game Should You Play?', tagZh: '探索推荐', tagEn: 'Exploration Pick' },
   { slug: 'cozy-builder-games', emoji: '🏘️', titleZh: '放松建造游戏测验', titleEn: 'Which Cozy Builder Game Should You Play?', tagZh: '建造推荐', tagEn: 'Builder Pick' },
   { slug: 'cozy-roguelike-quiz', emoji: '🎲', titleZh: '入门 Roguelike 推荐测验', titleEn: 'Which Roguelike Should You Start With?', tagZh: 'Roguelike 推荐', tagEn: 'Roguelike Pick' },
+  { slug: 'cozy-new-2024', emoji: '✨', titleZh: '2024 最佳新 Cozy 游戏测验', titleEn: 'Which New 2024 Cozy Game Should You Play?', tagZh: '2024 年度推荐', tagEn: '2024 Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -77,6 +78,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-exploration-games': ['spiritfarer-quiz', 'cozy-dark-games', 'cozy-indie-games'],
   'cozy-builder-games': ['farm-aesthetic', 'cozy-indie-games', 'cozy-exploration-games'],
   'cozy-roguelike-quiz': ['cozy-dark-games', 'cozy-indie-games', 'cozy-exploration-games'],
+  'cozy-new-2024': ['cozy-indie-games', 'cozy-builder-games', 'cozy-roguelike-quiz'],
 }
 
 interface Props {
