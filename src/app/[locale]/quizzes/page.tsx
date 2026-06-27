@@ -408,6 +408,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-exploration-games',
+    emoji: '🌿',
+    titleZh: '你应该玩哪款氛围探索游戏？',
+    titleEn: 'Which Atmospheric Exploration Game Should You Play?',
+    descZh: '6 个问题，在看火人、艾迪芬奇的记忆、短途徒步和 Abzû 中找到最适合你的短篇氛围体验。',
+    descEn: '6 questions to find your short atmospheric match — wilderness mystery, a house of memories, a cozy mountain, or a wordless ocean.',
+    tagZh: '探索推荐',
+    tagEn: 'Exploration Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
