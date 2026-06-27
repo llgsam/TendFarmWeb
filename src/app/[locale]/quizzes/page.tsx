@@ -18,7 +18,7 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略']
+      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', 'Palia 免费吗', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略', '类星露谷游戏', '星露谷替代品', 'Switch cozy 游戏推荐']
       : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
@@ -309,6 +309,26 @@ const FAQ_EN = [
     q: 'Which Stardew Valley farm type should I choose?',
     a: 'The best farm type depends on your playstyle: Standard is best for beginners and crop farmers (most land); Forest is best for crafters and foragers (renewable hardwood); Riverland is best for fishers and artisan goods makers; Hill-top is best for miners (on-farm quarry); Beach is best for challenge-seekers (hardest but most unique). Take the Stardew Valley Farm Type Quiz above to get a personalized recommendation.',
   },
+  {
+    q: 'What are the best games like Stardew Valley?',
+    a: "The best Stardew Valley alternatives in 2025 are: Sun Haven (PC/Switch) for players who want a full fantasy RPG with multiple towns and deep combat; Coral Island (PC/PS/Xbox/Switch) for a vibrant tropical farming game with ocean diving; Fields of Mistria (PC, Early Access) for players who want the Stardew feel in a fresh medieval pixel art setting; and My Time at Sandrock (all platforms) for deep crafting and town-rebuilding with a fully voiced story. Take our Stardew Valley Alternatives Quiz to find which one fits your playstyle.",
+  },
+  {
+    q: 'Is Palia free to play? What should beginners do first?',
+    a: "Yes — Palia is completely free to download and play on PC (Steam, Epic Games Store) and Nintendo Switch. There are no energy timers, no pay-to-win mechanics, and no forced ads. Cosmetic purchases are optional. For beginners, the best first steps are: complete the starter quests to unlock your plot and meet the main NPCs; build a Worktable and Plant Station early; start a small garden with tomatoes or potatoes (the best early gold source); and talk to every NPC daily for friendship points. Take our Palia Beginner Quiz to find which focus — gardening, hunting, socializing, or crafting — suits you best.",
+  },
+  {
+    q: 'What is the best cozy game on Nintendo Switch?',
+    a: "The best cozy game on Nintendo Switch depends on what you want: Stardew Valley (~$15) for deep farming RPG progression with hundreds of hours of content; Animal Crossing: New Horizons (~$60) for creative island decoration with no fail states and the most relaxing pace; Spiritfarer (~$30, often on sale for ~$10) for the most emotionally powerful cozy story on Switch; and Disney Dreamlight Valley (free) for Disney fans who want character quests and a life sim with beloved franchises. Take our Cozy Switch Games Quiz to find your match.",
+  },
+  {
+    q: 'What is the best mobile farming game?',
+    a: "The best mobile farming game depends on your preferences: Hay Day (free, iOS/Android) is the best for classic production-chain farming with social features and neighborhood competitions; Stardew Valley ($4.99, iOS/Android) is the best complete no-timer farming RPG with zero in-app purchases; Township (free, iOS/Android) is best for players who want farming combined with town-building and active co-op teams; Animal Crossing: Pocket Camp (free, iOS/Android) is best for Animal Crossing fans who want the franchise on mobile. Take our Mobile Farming Game Quiz to find the right fit for you.",
+  },
+  {
+    q: 'Is Spiritfarer worth playing? Is it very sad?',
+    a: "Yes — Spiritfarer is absolutely worth playing. It is widely considered one of the best cozy games ever made, often appearing on lists of the most emotionally powerful games period. Yes, it will make many players cry — it is about accompanying spirits (inspired by real people in the developer's life) through death and letting them go. However, it is not a sad game in a depressing way; it is a warm, hopeful meditation on grief, connection, and what we leave behind. The management and crafting systems are fun and satisfying, and the writing is exceptional. Take our Spiritfarer Quiz to find which spirit you most resemble.",
+  },
 ]
 
 const FAQ_ZH = [
@@ -339,6 +359,26 @@ const FAQ_ZH = [
   {
     q: '星露谷物语应该选哪种农场类型？',
     a: '最适合的农场类型取决于你的游戏风格：标准农场适合新手和作物型玩家（最大可耕地）；森林农场适合手工和采集型玩家（可再生硬木）；河地农场适合钓鱼和手工艺品爱好者；山顶农场适合挖矿玩家（农场内含采石场）；海滩农场适合挑战型玩家（最难但最独特）。做上面的「星露谷农场类型测试」，获取个性化推荐。',
+  },
+  {
+    q: '有哪些好玩的类星露谷游戏？',
+    a: '2025 年最好的星露谷替代品包括：Sun Haven（PC/Switch）——适合想要有多个城镇和深度战斗的完整奇幻 RPG 的玩家；珊瑚岛（PC/PS/Xbox/Switch）——拥有海底潜水机制的生机勃勃热带农场游戏；Fields of Mistria（PC，抢先体验）——适合想在清新中世纪像素风设定中体验星露谷感觉的玩家；沙石镇时光（全平台）——拥有完全配音故事的深度制作和城镇重建游戏。做我们的「星露谷替代品推荐测验」，找到最适合你游戏风格的那款。',
+  },
+  {
+    q: 'Palia 免费吗？Palia 新手应该先做什么？',
+    a: '是的——Palia 在 PC（Steam、Epic Games Store）和 Nintendo Switch 上完全免费下载和游玩。没有体力计时器、没有付费赢机制、没有强制广告。外观购买是可选的。对于新手，最好的第一步是：完成新手任务以解锁你的地块并认识主要 NPC；尽早建造工作台和种植台；从西红柿或土豆开始一个小花园（最好的早期赚钱来源）；每天和每个 NPC 交谈以获得友谊点数。做我们的「Palia 新手测验」，找出哪个方向——园艺、狩猎、社交还是制作——最适合你。',
+  },
+  {
+    q: 'Nintendo Switch 上最好的 Cozy 游戏是什么？',
+    a: 'Switch 上最好的 cozy 游戏取决于你的需求：星露谷物语（约 100 元）适合想要数百小时内容的深度农场 RPG 进度；动物之森：新视野（约 300 元）适合没有失败机制、最放松节奏的创意岛屿装饰；Spiritfarer（约 60 元，促销时约 20 元）适合 Switch 上情感最强大的治愈故事；Disney Dreamlight Valley（免费）适合想要角色任务和心爱 Disney 角色的粉丝。做我们的「Switch Cozy 游戏推荐测验」，找到你的匹配。',
+  },
+  {
+    q: '最好的手机农场游戏是什么？',
+    a: '最好的手机农场游戏取决于你的偏好：Hay Day（免费，iOS/Android）最适合有社交功能和社区竞赛的经典生产链农业；星露谷物语（4.99 美元，iOS/Android）是没有任何游戏内购的最完整无计时器农场 RPG；Township（免费，iOS/Android）最适合想要将农业与城镇建设和活跃合作团队结合的玩家；动物之森：口袋营地（免费，iOS/Android）最适合想在手机上体验该系列的动物森友会粉丝。做我们的「手机农场游戏推荐测验」，找到适合你的那款。',
+  },
+  {
+    q: 'Spiritfarer 值得玩吗？它很悲伤吗？',
+    a: '是的——Spiritfarer 绝对值得玩。它被广泛认为是有史以来最好的 cozy 游戏之一，经常出现在最具情感冲击力游戏的榜单上。是的，它会让许多玩家哭泣——它讲述的是陪伴灵魂（受开发者生活中真实人物启发）走过死亡并放手的故事。然而，它不是一款令人沮丧的悲伤游戏；它是关于悲伤、联系和我们留下的东西的温暖、充满希望的沉思。经营和制作系统有趣而令人满足，写作水准极高。做我们的「Spiritfarer 角色测验」，找到你最像哪位灵魂。',
   },
 ]
 
