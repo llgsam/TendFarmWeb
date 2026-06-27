@@ -40,6 +40,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-coop-games', emoji: '🤝', titleZh: '合作 Cozy 游戏推荐测验', titleEn: 'Which Co-op Cozy Game Should You Play Together?', tagZh: '合作推荐', tagEn: 'Co-op Pick' },
   { slug: 'cozy-animal-games', emoji: '🐾', titleZh: '动物主题 Cozy 游戏测验', titleEn: 'Which Animal Cozy Game Should You Play?', tagZh: '动物推荐', tagEn: 'Animal Pick' },
   { slug: 'cozy-exploration-games', emoji: '🌿', titleZh: '氛围探索游戏测验', titleEn: 'Which Atmospheric Exploration Game Should You Play?', tagZh: '探索推荐', tagEn: 'Exploration Pick' },
+  { slug: 'cozy-builder-games', emoji: '🏘️', titleZh: '放松建造游戏测验', titleEn: 'Which Cozy Builder Game Should You Play?', tagZh: '建造推荐', tagEn: 'Builder Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -73,6 +74,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-coop-games': ['stardew-multiplayer', 'cozy-games-for-couples', 'cozy-switch-games'],
   'cozy-animal-games': ['animal-crossing-villager', 'cozy-indie-games', 'cozy-game-mood'],
   'cozy-exploration-games': ['spiritfarer-quiz', 'cozy-dark-games', 'cozy-indie-games'],
+  'cozy-builder-games': ['farm-aesthetic', 'cozy-indie-games', 'cozy-exploration-games'],
 }
 
 interface Props {

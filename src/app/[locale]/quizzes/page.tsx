@@ -421,6 +421,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-builder-games',
+    emoji: '🏘️',
+    titleZh: '你应该玩哪款放松建造游戏？',
+    titleEn: 'Which Cozy Builder Game Should You Play?',
+    descZh: '6 个问题，在 Townscaper、Terra Nil、Dorfromantik 和 Summerhouse 中找到最适合你的冥想建造体验——全部零战斗。',
+    descEn: '6 questions to find your cozy builder match — pure sandbox town, ecological restoration puzzle, tile-placement village, or tiny garden aesthetics.',
+    tagZh: '建造推荐',
+    tagEn: 'Builder Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
