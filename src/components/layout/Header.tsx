@@ -23,7 +23,7 @@ export function Header() {
             className=""
           />
           <div className="flex flex-col leading-none">
-            <span className="text-base font-bold text-[#f0a832]">Farm Game Hub</span>
+            <span className="text-base font-bold text-[#f0a832]">Farming Game Hub</span>
             <span className="text-[10px] text-[#8a9a7a] tracking-wide">
               {isZh ? '农场游戏集结地' : 'Farming Game Hub'}
             </span>
