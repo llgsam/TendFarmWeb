@@ -45,6 +45,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-new-2024', emoji: '✨', titleZh: '2024 最佳新 Cozy 游戏测验', titleEn: 'Which New 2024 Cozy Game Should You Play?', tagZh: '2024 年度推荐', tagEn: '2024 Pick' },
   { slug: 'cozy-atmosphere-quiz', emoji: '🌧️', titleZh: '根据氛围找 Cozy 游戏测验', titleEn: 'Which Cozy Game Matches Your Atmosphere?', tagZh: '氛围推荐', tagEn: 'Atmosphere Pick' },
   { slug: 'cozy-short-adventure', emoji: '🌱', titleZh: '短篇 Cozy 冒险游戏推荐测验', titleEn: 'Which Short Cozy Adventure Should You Play?', tagZh: '短篇推荐', tagEn: 'Short Pick' },
+  { slug: 'cozy-next-step', emoji: '🌿', titleZh: '星露谷进阶推荐测验', titleEn: 'What to Play After Stardew Valley & Animal Crossing?', tagZh: '进阶推荐', tagEn: 'Next Step Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -83,6 +84,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-new-2024': ['cozy-indie-games', 'cozy-builder-games', 'cozy-roguelike-quiz'],
   'cozy-atmosphere-quiz': ['cozy-game-mood', 'cozy-exploration-games', 'cozy-dark-games'],
   'cozy-short-adventure': ['cozy-exploration-games', 'cozy-atmosphere-quiz', 'cozy-indie-games'],
+  'cozy-next-step': ['stardew-alternatives', 'cozy-indie-games', 'cozy-games-for-beginners'],
 }
 
 interface Props {
