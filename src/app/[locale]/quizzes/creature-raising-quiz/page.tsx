@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { CreatureRaisingQuiz } from '@/components/tools/CreatureRaisingQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 
@@ -9,7 +9,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   const canonical = `${BASE_URL}/${locale}/quizzes/creature-raising-quiz`
 
@@ -51,8 +50,8 @@ export async function generateMetadata({
 
   return {
     title: isZh
-      ? '哪款生物养成游戏最适合你？Slime Rancher 2 / 怪物避难所 / DQ 怪兽仙境 / Temtem | Farm Game Hub'
-      : 'Which Creature-Raising Game Is Right for You? Slime Rancher 2 vs Monster Sanctuary vs DQ Monsters vs Temtem | Farm Game Hub',
+      ? '哪款生物养成游戏最适合你？Slime Rancher 2 / 怪物避难所 / DQ 怪兽仙境 / Temtem | Farming Game Hub'
+      : 'Which Creature-Raising Game Is Right for You? Slime Rancher 2 vs Monster Sanctuary vs DQ Monsters vs Temtem | Farming Game Hub',
     description: isZh
       ? '6 个问题找到你的生物养成游戏：纯 Cozy 史莱姆牧场（Slime Rancher 2）、银河城怪物战斗（怪物避难所）、深度怪物合成 JRPG（DQ 怪兽仙境），或在线竞技 MMO（Temtem）。'
       : '6 questions to find your creature game: pure cozy slime ranching (Slime Rancher 2), metroidvania monster battles (Monster Sanctuary), deep synthesis JRPG (DQ Monsters: The Dark Prince), or competitive online MMO (Temtem).',
@@ -61,10 +60,7 @@ export async function generateMetadata({
       : ['which creature raising game', 'slime rancher 2 worth it', 'monster sanctuary worth it', 'dragon quest monsters dark prince worth it', 'temtem worth it 2024', 'creature games like pokemon', 'monster collecting games pc', 'slime rancher 2 review', 'monster sanctuary review metroidvania', 'temtem vs pokemon'],
     alternates: {
       canonical,
-      languages: {
-        [locale]: canonical,
-        [other]: `${BASE_URL}/${other}/quizzes/creature-raising-quiz`,
-      },
+      languages: buildLanguageAlternates('/quizzes/creature-raising-quiz'),
     },
     other: {
       'script:ld+json:faq': JSON.stringify(faqSchema),

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { NintendoExclusivesQuiz } from '@/components/tools/NintendoExclusivesQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -19,10 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : 'Answer 6 questions to find your perfect Nintendo Switch exclusive — Zelda: Tears of the Kingdom, Pikmin 4, Super Mario Bros. Wonder, or Kirby and the Forgotten Land.',
     alternates: {
       canonical,
-      languages: {
-        'en': `${BASE_URL}/en/quizzes/nintendo-switch-exclusives-quiz`,
-        'zh': `${BASE_URL}/zh/quizzes/nintendo-switch-exclusives-quiz`,
-      },
+      languages: buildLanguageAlternates('/quizzes/nintendo-switch-exclusives-quiz'),
     },
     keywords: isZh
       ? ['塞尔达王国之泪值得买吗', '皮克敏4值得买吗', '超级马力欧奇妙之旅值得买吗', '星之卡比探索发现值得买吗', 'Switch独占游戏推荐', 'Nintendo Switch必玩游戏', '2023任天堂游戏推荐']

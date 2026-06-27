@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { CozyRpgQuiz } from '@/components/tools/CozyRpgQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : ['moonlighter review worth it', 'cassette beasts review worth it', 'a hat in time review worth it', 'crosscode worth it 2024', 'indie rpg for cozy gamers', 'best indie rpg like stardew valley', 'cassette beasts vs pokemon', 'moonlighter shopkeeper game', 'crosscode rpg review'],
     alternates: {
       canonical,
-      languages: { [otherLocale(locale)]: `${BASE_URL}/${otherLocale(locale)}/quizzes/cozy-rpg-quiz` },
+      languages: buildLanguageAlternates('/quizzes/cozy-rpg-quiz'),
     },
   }
 }

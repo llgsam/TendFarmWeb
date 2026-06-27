@@ -1,6 +1,6 @@
 import { WaitlistSection } from '@/components/home/WaitlistSection'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 export async function generateMetadata({
   params,
@@ -8,7 +8,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
@@ -19,10 +18,7 @@ export async function generateMetadata({
       : 'TendFarm is an iOS health farming app — activity becomes sunlight, sleep becomes dew, and your daily rhythm amplifies everything. In development, waitlist open.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/tendfarm`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/tendfarm`,
-        [other]: `${BASE_URL}/${other}/tendfarm`,
-      },
+      languages: buildLanguageAlternates('/tendfarm'),
     },
   }
 }

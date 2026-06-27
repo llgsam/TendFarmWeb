@@ -5,7 +5,7 @@ import { HeroSection } from '@/components/home/HeroSection'
 import { GamesTeaser } from '@/components/home/GamesTeaser'
 import { ToolsTeaser } from '@/components/home/ToolsTeaser'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 export async function generateMetadata({
   params,
@@ -14,19 +14,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'home' })
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
-      ? 'Farm Game Hub — 农场游戏爱好者集结地'
-      : 'Farm Game Hub — The Farming Game Community',
+      ? 'Farming Game Hub — 农场游戏爱好者集结地'
+      : 'Farming Game Hub — The Farming Game Community',
     description: t('meta.description'),
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}`,
-        [other]: `${BASE_URL}/${other}`,
-      },
+      languages: buildLanguageAlternates(''),
     },
   }
 }

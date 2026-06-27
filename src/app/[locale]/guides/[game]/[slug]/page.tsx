@@ -2,7 +2,7 @@ import { getGuideBySlug, getAllGuideSlugs } from '@/lib/guides'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { articleSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 
 export async function generateStaticParams() {
@@ -18,22 +18,13 @@ export async function generateMetadata({
   const { locale, game, slug } = await params
   const post = await getGuideBySlug(locale, game, slug)
   if (!post) return {}
-  const other = otherLocale(locale)
-  const otherPost = await getGuideBySlug(other, game, slug)
-
-  const languages: Record<string, string> = {
-    [locale]: `${BASE_URL}/${locale}/guides/${game}/${slug}`,
-  }
-  if (otherPost) {
-    languages[other] = `${BASE_URL}/${other}/guides/${game}/${slug}`
-  }
 
   return {
     title: `${post.title} — TendFarm`,
     description: post.description,
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}/${slug}`,
-      languages,
+      languages: buildLanguageAlternates(`/guides/${game}/${slug}`),
     },
   }
 }

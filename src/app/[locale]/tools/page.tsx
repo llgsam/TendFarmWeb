@@ -2,7 +2,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 import { WaitlistForm } from '@/components/ui/WaitlistForm'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -12,16 +12,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'tools' })
-  const other = otherLocale(locale)
   return {
     title: t('meta.title'),
     description: t('meta.description'),
     alternates: {
       canonical: `${BASE_URL}/${locale}/tools`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/tools`,
-        [other]: `${BASE_URL}/${other}/tools`,
-      },
+      languages: buildLanguageAlternates('/tools'),
     },
   }
 }

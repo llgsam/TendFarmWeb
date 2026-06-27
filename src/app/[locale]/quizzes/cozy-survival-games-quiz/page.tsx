@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CozySurvivalGamesQuiz } from '@/components/tools/CozySurvivalGamesQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -19,10 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : 'Answer 6 questions to find your perfect cozy survival game — Raft, Core Keeper, Lightyear Frontier, or Grounded. From the coziest alien farm to the most intense backyard survival.',
     alternates: {
       canonical,
-      languages: {
-        'en': `${BASE_URL}/en/quizzes/cozy-survival-games-quiz`,
-        'zh': `${BASE_URL}/zh/quizzes/cozy-survival-games-quiz`,
-      },
+      languages: buildLanguageAlternates('/quizzes/cozy-survival-games-quiz'),
     },
     keywords: isZh
       ? ['Raft木筏求生值得买吗', '核心守护者值得买吗', '光年边疆值得买吗', '缩小与生存值得买吗', 'cozy生存游戏推荐', '适合新手的生存游戏', '类星露谷生存游戏']

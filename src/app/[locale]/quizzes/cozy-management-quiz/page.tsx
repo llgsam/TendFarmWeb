@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { CozyManagementQuiz } from '@/components/tools/CozyManagementQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 
@@ -9,7 +9,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-management-quiz`
 
@@ -61,10 +60,7 @@ export async function generateMetadata({
       : ['which management sim to play', 'two point campus worth it', 'planet zoo worth it', 'two point hospital worth it', 'planet coaster 2 worth it', 'management games like stardew valley', 'cozy tycoon games', 'best zoo management game', 'best theme park game 2024'],
     alternates: {
       canonical,
-      languages: {
-        [locale]: canonical,
-        [other]: `${BASE_URL}/${other}/quizzes/cozy-management-quiz`,
-      },
+      languages: buildLanguageAlternates('/quizzes/cozy-management-quiz'),
     },
     other: {
       'script:ld+json:faq': JSON.stringify(faqSchema),

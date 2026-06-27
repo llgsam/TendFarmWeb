@@ -1,7 +1,7 @@
 import { WhichFarmingGameQuiz } from '@/components/tools/WhichFarmingGameQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -10,7 +10,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
@@ -24,10 +23,7 @@ export async function generateMetadata({
       : ['which farming game should i play', 'best farming game for me', 'farming game quiz', 'farming game recommendation quiz', 'stardew valley vs animal crossing'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes/which-farming-game`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/quizzes/which-farming-game`,
-        [other]: `${BASE_URL}/${other}/quizzes/which-farming-game`,
-      },
+      languages: buildLanguageAlternates('/quizzes/which-farming-game'),
     },
   }
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { JrpgFinderQuiz } from '@/components/tools/JrpgFinderQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -9,7 +9,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const isZh = locale === 'zh'
   const canonical = `${BASE_URL}/${locale}/quizzes/jrpg-finder-quiz`
-  const alternate = `${BASE_URL}/${otherLocale(locale)}/quizzes/jrpg-finder-quiz`
 
   return {
     title: isZh
@@ -20,10 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : 'Answer 6 questions to find your perfect JRPG — Octopath Traveler II, Triangle Strategy, Xenoblade Chronicles 3, or Atelier Ryza. Each has a distinct story style, combat system, and time commitment.',
     alternates: {
       canonical,
-      languages: {
-        'en': alternate.replace('/zh/', '/en/'),
-        'zh': alternate.replace('/en/', '/zh/'),
-      },
+      languages: buildLanguageAlternates('/quizzes/jrpg-finder-quiz'),
     },
     keywords: isZh
       ? ['JRPG推荐', '歧路旅人2值得买吗', '三角战略值得买吗', '异度神剑3值得买吗', '莱莎炼金工房值得买吗', 'JRPG测验', '最好的JRPG2023', 'Switch JRPG推荐']

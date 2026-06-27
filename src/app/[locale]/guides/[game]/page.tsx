@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import { getGuides } from '@/lib/guides'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 const VALID_GAMES = ['hay-day', 'stardew-valley', 'animal-crossing']
 
@@ -18,16 +18,12 @@ export async function generateMetadata({
   const gameName = VALID_GAMES.includes(game)
     ? t(`games.${game as 'hay-day' | 'stardew-valley' | 'animal-crossing'}.name`)
     : game
-  const other = otherLocale(locale)
   return {
     title: `${gameName} ${t('guidesLabel')} — TendFarm`,
     description: t(`games.${game as 'hay-day' | 'stardew-valley' | 'animal-crossing'}.desc`),
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/guides/${game}`,
-        [other]: `${BASE_URL}/${other}/guides/${game}`,
-      },
+      languages: buildLanguageAlternates(`/guides/${game}`),
     },
   }
 }

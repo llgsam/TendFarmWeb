@@ -1,9 +1,7 @@
 import { Metadata } from 'next'
 import { CozyWeirdGamesQuiz } from '@/components/tools/CozyWeirdGamesQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL } from '@/lib/config'
-
-const otherLocale = { zh: 'en', en: 'zh' } as const
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 export async function generateMetadata({
   params,
@@ -13,7 +11,6 @@ export async function generateMetadata({
   const { locale } = await params
   const isZh = locale === 'zh'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-weird-games`
-  const alt = `${BASE_URL}/${otherLocale[locale as 'zh' | 'en']}/quizzes/cozy-weird-games`
 
   return {
     title: isZh
@@ -38,10 +35,7 @@ export async function generateMetadata({
     ],
     alternates: {
       canonical,
-      languages: {
-        'zh-CN': canonical,
-        'en-US': alt,
-      },
+      languages: buildLanguageAlternates('/quizzes/cozy-weird-games'),
     },
     openGraph: {
       title: isZh

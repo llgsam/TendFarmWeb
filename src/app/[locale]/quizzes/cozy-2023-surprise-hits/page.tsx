@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { Cozy2023SurpriseQuiz } from '@/components/tools/Cozy2023SurpriseQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : ['sea of stars review worth it', 'hi fi rush review worth it', 'chants of sennaar review worth it', 'jusant game review worth it', 'best indie games 2023 for cozy gamers', 'sea of stars worth buying', 'hi fi rush worth it game pass', 'chants of sennaar puzzle game', 'jusant climbing game review', 'best 2023 games for people who like stardew valley'],
     alternates: {
       canonical,
-      languages: { [otherLocale(locale)]: `${BASE_URL}/${otherLocale(locale)}/quizzes/cozy-2023-surprise-hits` },
+      languages: buildLanguageAlternates('/quizzes/cozy-2023-surprise-hits'),
     },
   }
 }

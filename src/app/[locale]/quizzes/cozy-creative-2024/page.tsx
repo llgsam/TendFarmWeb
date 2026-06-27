@@ -1,7 +1,7 @@
 import { CozyCreative2024Quiz } from '@/components/tools/CozyCreative2024Quiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -10,7 +10,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
@@ -42,10 +41,7 @@ export async function generateMetadata({
         ],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes/cozy-creative-2024`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/quizzes/cozy-creative-2024`,
-        [other]: `${BASE_URL}/${other}/quizzes/cozy-creative-2024`,
-      },
+      languages: buildLanguageAlternates('/quizzes/cozy-creative-2024'),
     },
   }
 }

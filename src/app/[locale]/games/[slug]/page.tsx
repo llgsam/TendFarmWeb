@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { GAMES, getGameBySlug, getAllGameSlugs, PLATFORM_LABELS, STYLE_LABELS_ZH, STYLE_LABELS_EN } from '@/lib/games'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { videoGameSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 
 export async function generateStaticParams() {
@@ -21,21 +21,17 @@ export async function generateMetadata({
   if (!game) return {}
 
   const isZh = locale === 'zh'
-  const other = otherLocale(locale)
   const name = isZh ? game.nameZh : game.nameEn
   const desc = isZh ? game.descZh : game.descEn
 
   return {
     title: isZh
-      ? `${name} 攻略与推荐 | Farm Game Hub`
-      : `${name} Review & Guide | Farm Game Hub`,
+      ? `${name} 攻略与推荐 | Farming Game Hub`
+      : `${name} Review & Guide | Farming Game Hub`,
     description: desc,
     alternates: {
       canonical: `${BASE_URL}/${locale}/games/${slug}`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/games/${slug}`,
-        [other]: `${BASE_URL}/${other}/games/${slug}`,
-      },
+      languages: buildLanguageAlternates(`/games/${slug}`),
     },
   }
 }

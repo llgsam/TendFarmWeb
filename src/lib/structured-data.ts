@@ -1,16 +1,25 @@
 import { BASE_URL } from './config'
 
+const LOCALE_TO_LANGUAGE: Record<string, string> = {
+  zh: 'zh-CN',
+  'zh-TW': 'zh-TW',
+  en: 'en-US',
+  ja: 'ja-JP',
+  ko: 'ko-KR',
+  de: 'de-DE',
+}
+
 export function websiteSchema(locale: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Farm Game Hub',
+    name: 'Farming Game Hub',
     url: `${BASE_URL}/${locale}`,
     description:
       locale === 'zh'
         ? '农场游戏爱好者集结地——攻略、工具和游戏推荐'
         : 'The farming game community — guides, tools, and game recommendations',
-    inLanguage: locale === 'zh' ? 'zh-CN' : 'en-US',
+    inLanguage: LOCALE_TO_LANGUAGE[locale] ?? 'en-US',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -26,7 +35,7 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Farm Game Hub',
+    name: 'Farming Game Hub',
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     sameAs: [],
@@ -73,7 +82,7 @@ export function videoGameSchema(game: {
     url: `${BASE_URL}/${locale}/games/${game.slug}`,
     gamePlatform: game.platforms,
     genre: 'Farming Simulation',
-    inLanguage: isZh ? 'zh-CN' : 'en-US',
+    inLanguage: LOCALE_TO_LANGUAGE[locale] ?? 'en-US',
   }
 }
 
@@ -94,19 +103,19 @@ export function articleSchema(post: {
     url: `${BASE_URL}/${locale}/guides/${post.game}/${post.slug}`,
     author: {
       '@type': 'Organization',
-      name: 'Farm Game Hub',
+      name: 'Farming Game Hub',
       url: BASE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Farm Game Hub',
+      name: 'Farming Game Hub',
       url: BASE_URL,
       logo: {
         '@type': 'ImageObject',
         url: `${BASE_URL}/logo.png`,
       },
     },
-    inLanguage: locale === 'zh' ? 'zh-CN' : 'en-US',
+    inLanguage: LOCALE_TO_LANGUAGE[locale] ?? 'en-US',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${BASE_URL}/${locale}/guides/${post.game}/${post.slug}`,

@@ -1,9 +1,7 @@
 import { Metadata } from 'next'
 import { StardewFishingQuiz } from '@/components/tools/StardewFishingQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL } from '@/lib/config'
-
-const otherLocale = { zh: 'en', en: 'zh' } as const
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 export async function generateMetadata({
   params,
@@ -13,7 +11,6 @@ export async function generateMetadata({
   const { locale } = await params
   const isZh = locale === 'zh'
   const canonical = `${BASE_URL}/${locale}/quizzes/stardew-fishing-quiz`
-  const alt = `${BASE_URL}/${otherLocale[locale as 'zh' | 'en']}/quizzes/stardew-fishing-quiz`
 
   return {
     title: isZh
@@ -40,10 +37,7 @@ export async function generateMetadata({
     ],
     alternates: {
       canonical,
-      languages: {
-        'zh-CN': canonical,
-        'en-US': alt,
-      },
+      languages: buildLanguageAlternates('/quizzes/stardew-fishing-quiz'),
     },
     openGraph: {
       title: isZh

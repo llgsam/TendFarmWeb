@@ -1,6 +1,6 @@
 import { StardewCalculator } from '@/components/tools/StardewCalculator'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -9,7 +9,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
@@ -20,10 +19,7 @@ export async function generateMetadata({
       : 'Free Stardew Valley crop profit calculator. Filter by season, toggle artisan skill, and see gold per day for every crop including regrow crops.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/tools/stardew`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/tools/stardew`,
-        [other]: `${BASE_URL}/${other}/tools/stardew`,
-      },
+      languages: buildLanguageAlternates('/tools/stardew'),
     },
   }
 }

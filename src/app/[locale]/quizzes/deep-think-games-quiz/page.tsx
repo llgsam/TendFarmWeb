@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { DeepThinkGamesQuiz } from '@/components/tools/DeepThinkGamesQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 
@@ -9,7 +9,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   const canonical = `${BASE_URL}/${locale}/quizzes/deep-think-games-quiz`
 
@@ -61,10 +60,7 @@ export async function generateMetadata({
       : ['deep think games quiz', 'hollow knight worth it', 'inscryption worth it', 'the forgotten city worth it', 'pentiment worth it', 'games like outer wilds', 'best narrative adventure games', 'best metroidvania games', 'best indie games for story lovers'],
     alternates: {
       canonical,
-      languages: {
-        [locale]: canonical,
-        [other]: `${BASE_URL}/${other}/quizzes/deep-think-games-quiz`,
-      },
+      languages: buildLanguageAlternates('/quizzes/deep-think-games-quiz'),
     },
     other: {
       'script:ld+json:faq': JSON.stringify(faqSchema),

@@ -1,7 +1,7 @@
 import { FarmAestheticQuiz } from '@/components/tools/FarmAestheticQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -10,11 +10,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
-      ? '你的农场美学是什么风格？— Cottagecore/暗调/极简 | Farm Game Hub'
+      ? '你的农场美学是什么风格？— Cottagecore/暗调/极简 | Farming Game Hub'
       : 'What Is Your Farm Aesthetic? — Cottagecore, Dark Moody, Zen Minimal Quiz',
     description: isZh
       ? '6 个问题测出你的农场美学风格——Cottagecore 田园梦、暗调神秘、彩虹缤纷、禅意极简还是 Cozy Rustic？附推荐游戏与 TendFarm 专属提示。'
@@ -33,10 +32,7 @@ export async function generateMetadata({
         ],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes/farm-aesthetic`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/quizzes/farm-aesthetic`,
-        [other]: `${BASE_URL}/${other}/quizzes/farm-aesthetic`,
-      },
+      languages: buildLanguageAlternates('/quizzes/farm-aesthetic'),
     },
   }
 }

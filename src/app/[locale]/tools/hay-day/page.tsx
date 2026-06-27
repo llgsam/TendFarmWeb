@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import { HayDayCalculator } from '@/components/tools/HayDayCalculator'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -10,7 +10,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
@@ -21,10 +20,7 @@ export async function generateMetadata({
       : 'Free Hay Day crop profit calculator. Filter by play style (active/casual/AFK) and see gold per minute and gold per hour for every crop.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/tools/hay-day`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/tools/hay-day`,
-        [other]: `${BASE_URL}/${other}/tools/hay-day`,
-      },
+      languages: buildLanguageAlternates('/tools/hay-day'),
     },
   }
 }

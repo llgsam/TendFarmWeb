@@ -1,7 +1,7 @@
 import { MobileFarmingQuiz } from '@/components/tools/MobileFarmingQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -10,7 +10,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
@@ -34,10 +33,7 @@ export async function generateMetadata({
         ],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes/mobile-farming-quiz`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/quizzes/mobile-farming-quiz`,
-        [other]: `${BASE_URL}/${other}/quizzes/mobile-farming-quiz`,
-      },
+      languages: buildLanguageAlternates('/quizzes/mobile-farming-quiz'),
     },
   }
 }

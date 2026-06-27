@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { CozyOpenWorldQuiz } from '@/components/tools/CozyOpenWorldQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : ['no mans sky worth it 2024', 'terraria worth it review 2024', 'astroneer review worth it', 'subnautica worth it 2024', 'games like stardew valley but bigger', 'open world games for cozy gamers', 'what to play after stardew valley open world', 'no mans sky beginners guide', 'terraria vs no mans sky', 'subnautica worth buying'],
     alternates: {
       canonical,
-      languages: { [otherLocale(locale)]: `${BASE_URL}/${otherLocale(locale)}/quizzes/cozy-open-world-quiz` },
+      languages: buildLanguageAlternates('/quizzes/cozy-open-world-quiz'),
     },
   }
 }

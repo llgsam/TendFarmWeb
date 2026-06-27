@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { RelationshipSimQuiz } from '@/components/tools/RelationshipSimQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       : ['story of seasons a wonderful life worth it 2023', 'my time at sandrock review worth it', 'persona 4 golden worth it pc steam', 'fire emblem three houses worth it', 'best games with social links', 'games like stardew valley with romance', 'best relationship simulation games', 'my time at sandrock vs portia', 'persona 4 golden beginners guide', 'fire emblem three houses best house'],
     alternates: {
       canonical,
-      languages: { [otherLocale(locale)]: `${BASE_URL}/${otherLocale(locale)}/quizzes/relationship-sim-quiz` },
+      languages: buildLanguageAlternates('/quizzes/relationship-sim-quiz'),
     },
   }
 }

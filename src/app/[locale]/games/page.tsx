@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { GAMES, getFeaturedGames, PLATFORM_LABELS, STYLE_LABELS_ZH, STYLE_LABELS_EN } from '@/lib/games'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 export async function generateMetadata({
   params,
@@ -9,21 +9,17 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
-      ? '农场游戏大全 2025 — Farm Game Hub'
-      : 'All Farming Games 2025 — Farm Game Hub',
+      ? '农场游戏大全 2025 — Farming Game Hub'
+      : 'All Farming Games 2025 — Farming Game Hub',
     description: isZh
       ? '全球农场游戏大全：Hay Day、星露谷物语、动物森友会、Farming Simulator 等 15+ 款游戏介绍、平台与风格分类，帮你找到最适合自己的农场游戏。'
       : 'The complete list of farming games — Hay Day, Stardew Valley, Animal Crossing, Farming Simulator, and 15+ more. Find your perfect farming game by platform and style.',
     alternates: {
       canonical: `${BASE_URL}/${locale}/games`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/games`,
-        [other]: `${BASE_URL}/${other}/games`,
-      },
+      languages: buildLanguageAlternates('/games'),
     },
   }
 }

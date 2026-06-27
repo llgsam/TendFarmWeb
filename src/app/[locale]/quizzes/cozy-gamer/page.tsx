@@ -1,7 +1,7 @@
 import { CozyGamerQuiz } from '@/components/tools/CozyGamerQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
-import { BASE_URL, otherLocale } from '@/lib/config'
+import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -10,7 +10,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const other = otherLocale(locale)
   const isZh = locale === 'zh'
   return {
     title: isZh
@@ -24,10 +23,7 @@ export async function generateMetadata({
       : ['cozy gamer quiz', 'am i a cozy gamer', 'cozy gamer test', 'cozy gaming personality', 'what kind of gamer am i quiz'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes/cozy-gamer`,
-      languages: {
-        [locale]: `${BASE_URL}/${locale}/quizzes/cozy-gamer`,
-        [other]: `${BASE_URL}/${other}/quizzes/cozy-gamer`,
-      },
+      languages: buildLanguageAlternates('/quizzes/cozy-gamer'),
     },
   }
 }
