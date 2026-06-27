@@ -1,5 +1,5 @@
 ---
-name: tend_build-farming-articles
+name: tend-build-farming-articles
 description: 每次写 2 篇农场游戏横向评测文章（EN + ZH 各一篇），commit 后报告结果。每周手动触发一次。
 ---
 
