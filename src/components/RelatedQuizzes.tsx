@@ -51,6 +51,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-beyond-cozy', emoji: '🪐', titleZh: 'Cozy 玩家进阶独立游戏推荐测验', titleEn: 'Beyond Cozy: Which Indie Game Should You Try Next?', tagZh: '进阶探索', tagEn: 'Beyond Cozy Pick' },
   { slug: 'cozy-hidden-gems', emoji: '💎', titleZh: 'Cozy 游戏隐藏宝石推荐测验', titleEn: 'Which Underrated Cozy Hidden Gem Should You Play?', tagZh: '隐藏宝石', tagEn: 'Hidden Gem Pick' },
   { slug: 'cozy-play-as-animal', emoji: '🐾', titleZh: '动物主角 Cozy 游戏推荐测验', titleEn: 'Which Game Where You Play as an Animal?', tagZh: '动物主角', tagEn: 'Play as Animal Pick' },
+  { slug: 'stardew-fishing-quiz', emoji: '🎣', titleZh: '星露谷钓鱼风格测验', titleEn: 'What Is Your Stardew Valley Fishing Style?', tagZh: '钓鱼攻略', tagEn: 'Fishing Style Guide' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -95,6 +96,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-beyond-cozy': ['cozy-dark-games', 'cozy-short-adventure', 'cozy-creative-2024'],
   'cozy-hidden-gems': ['cozy-beyond-cozy', 'cozy-indie-games', 'cozy-atmosphere-quiz'],
   'cozy-play-as-animal': ['cozy-hidden-gems', 'cozy-indie-games', 'cozy-short-adventure'],
+  'stardew-fishing-quiz': ['stardew-beginner', 'stardew-mods-quiz', 'stardew-multiplayer'],
 }
 
 interface Props {
