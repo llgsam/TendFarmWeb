@@ -23,22 +23,24 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'palia-playstyle', emoji: '🌻', titleZh: '你在 Palia 的游戏风格是什么？', titleEn: "What's Your Palia Playstyle?", tagZh: 'Palia 测验', tagEn: 'Palia Quiz' },
   { slug: 'harvest-moon-quiz', emoji: '⛰️', titleZh: '哪款牧场物语最适合你？', titleEn: 'Which Story of Seasons Game Should You Play?', tagZh: '游戏推荐', tagEn: 'SoS Finder' },
   { slug: 'dreamlight-valley-quiz', emoji: '✨', titleZh: '你是哪位 Disney Dreamlight Valley 角色？', titleEn: 'Which Disney Dreamlight Valley Character Are You?', tagZh: 'Disney 测验', tagEn: 'Disney Quiz' },
+  { slug: 'stardew-multiplayer', emoji: '🤝', titleZh: '你在星露谷联机里是哪种队友？', titleEn: 'What Kind of Stardew Valley Co-op Partner Are You?', tagZh: '联机测验', tagEn: 'Co-op Quiz' },
 ]
 
 const RELATED: Record<string, string[]> = {
   'stardew-season': ['stardew-character', 'stardew-romance', 'stardew-farm-type'],
   'stardew-farm-type': ['stardew-season', 'stardew-character', 'stardew-beginner'],
-  'stardew-character': ['stardew-romance', 'stardew-season', 'animal-crossing-villager'],
+  'stardew-character': ['stardew-romance', 'stardew-multiplayer', 'stardew-season'],
   'stardew-romance': ['stardew-character', 'stardew-season', 'stardew-beginner'],
   'farm-aesthetic': ['stardew-season', 'farm-personality', 'palia-playstyle'],
   'farm-personality': ['farm-aesthetic', 'which-farming-game', 'harvest-moon-quiz'],
   'which-farming-game': ['harvest-moon-quiz', 'dreamlight-valley-quiz', 'palia-playstyle'],
   'cozy-gamer': ['dreamlight-valley-quiz', 'animal-crossing-villager', 'which-farming-game'],
-  'stardew-beginner': ['stardew-farm-type', 'stardew-season', 'stardew-character'],
+  'stardew-beginner': ['stardew-multiplayer', 'stardew-farm-type', 'stardew-season'],
   'animal-crossing-villager': ['dreamlight-valley-quiz', 'stardew-character', 'cozy-gamer'],
   'palia-playstyle': ['which-farming-game', 'farm-personality', 'cozy-gamer'],
   'harvest-moon-quiz': ['which-farming-game', 'farm-personality', 'cozy-gamer'],
   'dreamlight-valley-quiz': ['animal-crossing-villager', 'which-farming-game', 'cozy-gamer'],
+  'stardew-multiplayer': ['stardew-beginner', 'stardew-character', 'stardew-farm-type'],
 }
 
 interface Props {
