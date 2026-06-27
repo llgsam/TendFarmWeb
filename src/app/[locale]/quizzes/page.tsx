@@ -19,7 +19,7 @@ export async function generateMetadata({
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
       ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', 'Palia 免费吗', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略', '类星露谷游戏', '星露谷替代品', 'Switch cozy 游戏推荐']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games', 'cozy games with dark themes', 'dark cozy games', 'dave the diver worth it', 'is cult of the lamb worth it', 'dredge game worth buying', 'cozy games that are not actually cozy', 'games like stardew valley but darker'],
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games', 'cozy games with dark themes', 'dark cozy games', 'dave the diver worth it', 'is cult of the lamb worth it', 'dredge game worth buying', 'cozy games that are not actually cozy', 'games like stardew valley but darker', 'best co-op cozy games', 'cozy games to play with partner', 'is it takes two worth it', 'overcooked 2 worth it', 'cozy games for couples switch'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -378,6 +378,19 @@ const QUIZZES = [
     descEn: "Not every cozy game is truly cozy — 6 questions to find your match across Dave the Diver, Cult of the Lamb, Dredge, and Potion Craft.",
     tagZh: '暗色系推荐',
     tagEn: 'Dark Cozy Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
+  {
+    slug: 'cozy-coop-games',
+    emoji: '🤝',
+    titleZh: '你们应该一起玩哪款合作 Cozy 游戏？',
+    titleEn: 'Which Co-op Cozy Game Should You Play Together?',
+    descZh: '6 个问题，在 It Takes Two、胡闹厨房 2、PlateUp! 和搬家模拟器中找到最适合你们组合的游戏体验。',
+    descEn: '6 questions to find your co-op match — from emotional couple story to chaotic kitchen team to strategic restaurant builders to pure absurdist comedy.',
+    tagZh: '合作推荐',
+    tagEn: 'Co-op Pick',
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
     isNew: true,
