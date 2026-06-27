@@ -58,6 +58,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-open-world-quiz', emoji: '🌌', titleZh: '农场游戏玩家的开放世界探索推荐测验', titleEn: 'Which Open-World Exploration Game for Farming Game Fans?', tagZh: '开放世界推荐', tagEn: 'Open World Pick' },
   { slug: 'relationship-sim-quiz', emoji: '💞', titleZh: '以「关系」为核心的游戏推荐测验', titleEn: 'Which Relationship-Driven Game Is Right for You?', tagZh: '社交关系推荐', tagEn: 'Relationship Pick' },
   { slug: 'creature-raising-quiz', emoji: '🫧', titleZh: '生物养成游戏推荐测验', titleEn: 'Which Creature-Raising Game Is Right for You?', tagZh: '生物养成推荐', tagEn: 'Creature Pick' },
+  { slug: 'cozy-management-quiz', emoji: '🏗️', titleZh: '管理模拟游戏推荐测验', titleEn: 'Which Management Sim Is Right for Cozy Gamers?', tagZh: '管理模拟推荐', tagEn: 'Management Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -109,6 +110,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-open-world-quiz': ['cozy-rpg-quiz', 'cozy-2023-surprise-hits', 'cozy-beyond-cozy'],
   'relationship-sim-quiz': ['stardew-romance', 'stardew-alternatives', 'cozy-rpg-quiz'],
   'creature-raising-quiz': ['cozy-rpg-quiz', 'cozy-2023-surprise-hits', 'cozy-beyond-cozy'],
+  'cozy-management-quiz': ['cozy-builder-games', 'farming-game-challenge', 'cozy-new-2024'],
 }
 
 interface Props {
