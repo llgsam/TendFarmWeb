@@ -8,7 +8,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh' || locale === 'zh-TW'
+  const isZh = locale === 'zh' || locale === 'zh-TW' || locale === 'zh-TW'
   return {
     title: isZh
       ? '农场游戏测评 — 找到你的游戏类型 | Farming Game Hub'
@@ -794,6 +794,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-japan-farm-quiz',
+    emoji: '🌸',
+    titleZh: '日式温馨农场游戏推荐测验',
+    titleEn: 'Which Japanese Cozy Farming Game Is Right for You?',
+    descZh: '矿石镇重制、哆啦A梦、SunnySide还是小龙咖啡馆？6道题找到最适合你的日式农场游戏',
+    descEn: 'FoMT remake, Doraemon SoS, SunnySide, or Little Dragon Café — nostalgic or modern?',
+    tagZh: '日式农场推荐',
+    tagEn: 'Japan Farm Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
@@ -944,7 +957,7 @@ export default async function QuizzesPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh' || locale === 'zh-TW'
+  const isZh = locale === 'zh' || locale === 'zh-TW' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
 
   const faqSchema = {
