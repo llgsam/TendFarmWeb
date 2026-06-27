@@ -46,6 +46,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-atmosphere-quiz', emoji: '🌧️', titleZh: '根据氛围找 Cozy 游戏测验', titleEn: 'Which Cozy Game Matches Your Atmosphere?', tagZh: '氛围推荐', tagEn: 'Atmosphere Pick' },
   { slug: 'cozy-short-adventure', emoji: '🌱', titleZh: '短篇 Cozy 冒险游戏推荐测验', titleEn: 'Which Short Cozy Adventure Should You Play?', tagZh: '短篇推荐', tagEn: 'Short Pick' },
   { slug: 'cozy-next-step', emoji: '🌿', titleZh: '星露谷进阶推荐测验', titleEn: 'What to Play After Stardew Valley & Animal Crossing?', tagZh: '进阶推荐', tagEn: 'Next Step Pick' },
+  { slug: 'cozy-soundtrack-quiz', emoji: '🎵', titleZh: 'Cozy 游戏原声音乐测验', titleEn: 'Which Cozy Game Soundtrack Matches Your Music Taste?', tagZh: '配乐推荐', tagEn: 'Soundtrack Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -85,6 +86,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-atmosphere-quiz': ['cozy-game-mood', 'cozy-exploration-games', 'cozy-dark-games'],
   'cozy-short-adventure': ['cozy-exploration-games', 'cozy-atmosphere-quiz', 'cozy-indie-games'],
   'cozy-next-step': ['stardew-alternatives', 'cozy-indie-games', 'cozy-games-for-beginners'],
+  'cozy-soundtrack-quiz': ['cozy-atmosphere-quiz', 'cozy-short-adventure', 'cozy-indie-games'],
 }
 
 interface Props {

@@ -499,6 +499,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-soundtrack-quiz',
+    emoji: '🎵',
+    titleZh: '你的音乐品味对应哪款 Cozy 游戏原声？',
+    titleEn: 'Which Cozy Game Has the Soundtrack You\'ll Love?',
+    descZh: '6 个关于音乐感受的问题——Celeste 格莱美提名电子乐、Gris 无言水彩管弦乐、Chicory 温暖涂色配乐，还是林中夜晚独立摇滚？',
+    descEn: '6 questions about how music moves you — Grammy-nominated electronic, wordless orchestral watercolor, warm discovery adventure, or lo-fi indie guitar small-town story.',
+    tagZh: '配乐推荐',
+    tagEn: 'Soundtrack Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
