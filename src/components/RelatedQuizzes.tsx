@@ -26,6 +26,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'stardew-multiplayer', emoji: '🤝', titleZh: '你在星露谷联机里是哪种队友？', titleEn: 'What Kind of Stardew Valley Co-op Partner Are You?', tagZh: '联机测验', tagEn: 'Co-op Quiz' },
   { slug: 'spiritfarer-quiz', emoji: '🦊', titleZh: '你是哪位 Spiritfarer 灵魂？', titleEn: 'Which Spiritfarer Spirit Are You?', tagZh: '角色测验', tagEn: 'Spirit Quiz' },
   { slug: 'mobile-farming-quiz', emoji: '📱', titleZh: '哪款手机农场游戏最适合你？', titleEn: 'Which Mobile Farming Game Is Right for You?', tagZh: '手机游戏', tagEn: 'Mobile Pick' },
+  { slug: 'stardew-alternatives', emoji: '🌸', titleZh: '星露谷之后该玩哪款游戏？', titleEn: 'What to Play After Stardew Valley?', tagZh: '游戏推荐', tagEn: 'Next Game' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -45,6 +46,7 @@ const RELATED: Record<string, string[]> = {
   'stardew-multiplayer': ['stardew-beginner', 'stardew-character', 'stardew-farm-type'],
   'spiritfarer-quiz': ['cozy-gamer', 'which-farming-game', 'farm-personality'],
   'mobile-farming-quiz': ['which-farming-game', 'cozy-gamer', 'farm-personality'],
+  'stardew-alternatives': ['which-farming-game', 'harvest-moon-quiz', 'stardew-season'],
 }
 
 interface Props {

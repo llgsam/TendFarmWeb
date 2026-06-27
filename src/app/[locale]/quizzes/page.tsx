@@ -19,7 +19,7 @@ export async function generateMetadata({
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
       ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners'],
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -235,6 +235,19 @@ const QUIZZES = [
     descEn: '6 questions to match you with the best mobile farming game — Hay Day, Stardew Valley, Township, or Pocket Camp. Includes honest pros and watch-outs for each.',
     tagZh: '手机游戏',
     tagEn: 'Mobile Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
+  {
+    slug: 'stardew-alternatives',
+    emoji: '🌸',
+    titleZh: '星露谷之后该玩哪款游戏？',
+    titleEn: 'What to Play After Stardew Valley?',
+    descZh: '6 个问题，从 Sun Haven、珊瑚岛、Fields of Mistria、沙石镇时光中找到最适合你的星露谷替代品。含详细游戏特点和「需要注意」对比。',
+    descEn: '6 questions to find your perfect Stardew Valley alternative — Sun Haven, Coral Island, Fields of Mistria, or My Time at Sandrock. Includes honest game breakdowns and watch-outs.',
+    tagZh: '游戏推荐',
+    tagEn: 'Next Game',
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
     isNew: true,
