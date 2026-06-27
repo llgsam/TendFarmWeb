@@ -66,6 +66,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'rhythm-games-quiz', emoji: '🎵', titleZh: '节奏音乐游戏推荐测验', titleEn: 'Which Rhythm Game Is Right for You?', tagZh: '节奏游戏推荐', tagEn: 'Rhythm Pick' },
   { slug: 'farming-rpg-adventure-quiz', emoji: '⚔️', titleZh: '农场RPG冒险游戏推荐测验', titleEn: 'Which Farming RPG Adventure Is Right for You?', tagZh: '农场RPG推荐', tagEn: 'Farming RPG Pick' },
   { slug: 'cozy-indie-farm-quiz', emoji: '🌿', titleZh: '治愈独立农场游戏推荐测验', titleEn: 'Which Cozy Indie Farming Game Is Right for You?', tagZh: '治愈独立农场推荐', tagEn: 'Cozy Indie Farm Pick' },
+  { slug: 'spirit-farm-life-quiz', emoji: '🌸', titleZh: '灵气农场生活风格测验', titleEn: 'Which Spirit Farm Life Game Is Right for You?', tagZh: '灵气农场推荐', tagEn: 'Spirit Farm Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -125,6 +126,7 @@ const RELATED: Record<string, string[]> = {
   'rhythm-games-quiz': ['cozy-soundtrack-quiz', 'cozy-short-adventure', 'cozy-2023-surprise-hits'],
   'farming-rpg-adventure-quiz': ['jrpg-finder-quiz', 'creature-raising-quiz', 'cozy-survival-games-quiz'],
   'cozy-indie-farm-quiz': ['farming-rpg-adventure-quiz', 'cozy-management-quiz', 'cozy-survival-games-quiz'],
+  'spirit-farm-life-quiz': ['cozy-indie-farm-quiz', 'farming-rpg-adventure-quiz', 'creature-raising-quiz'],
 }
 
 interface Props {
