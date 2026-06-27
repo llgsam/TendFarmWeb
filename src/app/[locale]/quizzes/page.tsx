@@ -19,7 +19,7 @@ export async function generateMetadata({
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
       ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', 'Palia 免费吗', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略', '类星露谷游戏', '星露谷替代品', 'Switch cozy 游戏推荐']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games', 'cozy games with dark themes', 'dark cozy games', 'dave the diver worth it', 'is cult of the lamb worth it', 'dredge game worth buying', 'cozy games that are not actually cozy', 'games like stardew valley but darker', 'best co-op cozy games', 'cozy games to play with partner', 'is it takes two worth it', 'overcooked 2 worth it', 'cozy games for couples switch', 'cozy games with cats', 'cozy games about animals', 'neko atsume worth playing', 'webfishing game review', 'is untitled goose game worth it'],
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games', 'cozy games with dark themes', 'dark cozy games', 'dave the diver worth it', 'is cult of the lamb worth it', 'dredge game worth buying', 'cozy games that are not actually cozy', 'games like stardew valley but darker', 'best co-op cozy games', 'cozy games to play with partner', 'is it takes two worth it', 'overcooked 2 worth it', 'cozy games for couples switch', 'cozy games with cats', 'cozy games about animals', 'neko atsume worth playing', 'webfishing game review', 'is untitled goose game worth it', 'is hades worth it', 'vampire survivors worth it', 'is balatro worth it 2024', 'slay the spire review worth buying', 'best beginner roguelike games', 'cozy roguelike games', 'best roguelike to start with'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -434,6 +434,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-roguelike-quiz',
+    emoji: '🎲',
+    titleZh: '你应该从哪款 Roguelike 游戏入门？',
+    titleEn: 'Which Roguelike Should You Start With?',
+    descZh: '6 个问题，在黑帝斯、吸血鬼幸存者、杀戮尖塔和 Balatro 中找到最适合你的入门 Roguelike——全部低门槛高可重玩性。',
+    descEn: '6 questions to find your starter roguelike — action escape to bullet heaven to deckbuilding strategy to poker multiplier madness. All beginner-friendly.',
+    tagZh: 'Roguelike 推荐',
+    tagEn: 'Roguelike Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
@@ -496,6 +509,10 @@ const FAQ_EN = [
   {
     q: 'What are the best cozy games with dark themes or dark aesthetics?',
     a: "The best 'dark cozy' games are: Dave the Diver (overwhelmingly positive on Steam — ocean diving + sushi restaurant with a surprisingly gripping story and high stakes); Cult of the Lamb (adorable cult management + roguelike combat with genuinely dark themes under a cute art style); Dredge (a fishing game set in waters where the fish are wrong and the sea has a memory — Lovecraftian atmosphere, never scary but persistently unsettling); and Potion Craft: Alchemist Simulator (medieval alchemy puzzle with moral complexity — you choose who deserves the potions you brew). For something darker and more emotionally heavy, Spiritfarer handles grief and death in a warm, cozy format. Take the Dark Cozy Games Quiz to find which one matches your specific tolerance for darkness and preferred gameplay style.",
+  },
+  {
+    q: 'What is the best first roguelike game for someone who has never played one?',
+    a: "The best first roguelike depends entirely on what you want: Hades (PC/Switch/PlayStation/Xbox, ~$25) if you want a story with characters you care about and fast action combat — the best roguelike for cozy game players. Vampire Survivors (PC/Xbox Game Pass ~$3, iOS/Android free) if you want the simplest possible entry with minimal decisions and maximum visual satisfaction. Slay the Spire (PC/Switch/iOS/Android, ~$25) if you want deep strategic deckbuilding with no time pressure. Balatro (PC/Switch/PlayStation/Xbox/iOS/Android, ~$15) if you want poker-based multiplier discovery that won Game of the Year 2024. All four are considered beginner-friendly despite being roguelikes. Take the Which Roguelike Should You Start With quiz above to get a personalized match based on your specific preferences.",
   },
   {
     q: 'What cozy game should I play when I am stressed, anxious, or burned out?',
@@ -563,6 +580,10 @@ const FAQ_ZH = [
   {
     q: '有哪些有黑暗主题或暗色系美学的 cozy 游戏推荐？',
     a: '最好的"暗色系 cozy"游戏是：Dave the Diver（Steam 极度好评——海洋潜水 + 寿司餐厅，有出人意料的引人入胜故事和高风险）；羔羊邪教（可爱邪教管理 + roguelike 战斗，在可爱美术风格下有真正的黑暗主题）；Dredge（一款设置在鱼不对劲、海洋有记忆的水域的钓鱼游戏——洛夫克拉夫特式氛围，从不恐怖但持续令人不安）；以及 Potion Craft: 炼金师模拟器（有道德复杂性的中世纪炼金谜题——你选择谁值得得到你调制的药水）。想要更深度情感体验的，Spiritfarer 以温暖的 cozy 方式处理悲伤和死亡。做「暗色系 Cozy 游戏测验」，找出哪款游戏最符合你对黑暗的接受度和首选游戏风格。',
+  },
+  {
+    q: '从未玩过 Roguelike 的人，第一款应该选哪个？',
+    a: '最好的第一款 roguelike 完全取决于你想要什么：黑帝斯（PC/Switch/PlayStation/Xbox，约 25 美元）——如果你想要有你关心的角色的故事和快速动作战斗——cozy 游戏玩家的最佳 roguelike。吸血鬼幸存者（PC/Xbox Game Pass 约 3 美元，iOS/Android 免费）——如果你想要最简单的入门，决策最少，视觉满足感最大。杀戮尖塔（PC/Switch/iOS/Android，约 25 美元）——如果你想要没有时间压力的深度策略卡组构建。Balatro（PC/Switch/PlayStation/Xbox/iOS/Android，约 15 美元）——如果你想要赢得 2024 年年度最佳游戏的基于扑克的乘数发现游戏。尽管是 roguelike，但这四款都被认为对新手友好。做上面的「入门 Roguelike 推荐测验」，根据你的具体偏好获得个性化匹配。',
   },
   {
     q: '压力大、焦虑或倦怠时应该玩什么 cozy 游戏？',
