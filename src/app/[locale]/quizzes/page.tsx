@@ -781,6 +781,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'farm-craft-build-quiz',
+    emoji: '⛏️',
+    titleZh: '农场制作建造游戏推荐测验',
+    titleEn: 'Which Farm Craft & Build Game Is Right for You?',
+    descZh: '你适合Forager、Garden Paws、Staxel还是Havendock？沙盒扩张vs海洋漂浮农场',
+    descEn: 'Forager, Garden Paws, Staxel, or Havendock — addicted expansionist or peaceful ocean farmer?',
+    tagZh: '制作建造推荐',
+    tagEn: 'Farm Craft Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
