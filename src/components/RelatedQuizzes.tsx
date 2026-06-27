@@ -34,6 +34,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-games-for-beginners', emoji: '🌱', titleZh: 'Cozy 游戏新手入门测验', titleEn: 'Best Cozy Game for Beginners Quiz', tagZh: '新手入门', tagEn: 'Beginner Pick' },
   { slug: 'cozy-game-mood', emoji: '🌙', titleZh: '根据心情选 Cozy 游戏测验', titleEn: 'What Cozy Game Fits My Mood Quiz', tagZh: '心情推荐', tagEn: 'Mood Pick' },
   { slug: 'cozy-indie-games', emoji: '🏕️', titleZh: '你应该玩哪款独立 Cozy 游戏？', titleEn: 'Which Indie Cozy Game Should You Play?', tagZh: '独立游戏', tagEn: 'Indie Pick' },
+  { slug: 'farming-game-challenge', emoji: '⚔️', titleZh: '农场游戏挑战度测验', titleEn: 'How Much Challenge Do You Want? Farming Game Quiz', tagZh: '挑战偏好', tagEn: 'Challenge Quiz' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -61,6 +62,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-games-for-beginners': ['which-farming-game', 'cozy-switch-games', 'palia-beginner-guide'],
   'cozy-game-mood': ['spiritfarer-quiz', 'cozy-gamer', 'which-farming-game'],
   'cozy-indie-games': ['spiritfarer-quiz', 'cozy-game-mood', 'cozy-gamer'],
+  'farming-game-challenge': ['which-farming-game', 'harvest-moon-quiz', 'farm-personality'],
 }
 
 interface Props {

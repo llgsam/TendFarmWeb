@@ -343,6 +343,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'farming-game-challenge',
+    emoji: '⚔️',
+    titleZh: '你想要多少挑战感？农场游戏推荐测验',
+    titleEn: 'How Much Challenge Do You Want in Your Farming Game?',
+    descZh: '从零战斗的纯探索（Yonder）到动作 RPG 地下城（牧场物语 4）到真实农业机械模拟——6 个问题找到你的挑战区间。',
+    descEn: 'From zero-combat exploration (Yonder) to action RPG dungeons (Rune Factory 4) to realistic agricultural simulation — 6 questions to match your challenge tolerance.',
+    tagZh: '挑战偏好',
+    tagEn: 'Challenge Quiz',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
