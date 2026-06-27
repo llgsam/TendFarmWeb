@@ -74,7 +74,8 @@ function calcReadingTime(content: string): number {
 }
 
 export async function getGuides(locale: string, game: string): Promise<GuideMeta[]> {
-  const dir = path.join(contentDir, locale, 'guides', game)
+  const resolved = resolveContentLocale(locale)
+  const dir = path.join(contentDir, resolved, 'guides', game)
   if (!fs.existsSync(dir)) return []
 
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'))
@@ -101,7 +102,8 @@ export async function getGuideBySlug(
   game: string,
   slug: string
 ): Promise<GuidePost | null> {
-  const filePath = path.join(contentDir, locale, 'guides', game, `${slug}.md`)
+  const resolved = resolveContentLocale(locale)
+  const filePath = path.join(contentDir, resolved, 'guides', game, `${slug}.md`)
   if (!fs.existsSync(filePath)) return null
 
   const raw = fs.readFileSync(filePath, 'utf-8')
@@ -125,11 +127,19 @@ export async function getGuideBySlug(
   }
 }
 
+const CONTENT_LOCALES = ['zh', 'en'] as const
+const FALLBACK_LOCALE = 'en'
+
+function resolveContentLocale(locale: string): string {
+  if ((CONTENT_LOCALES as readonly string[]).includes(locale)) return locale
+  return FALLBACK_LOCALE
+}
+
 export async function getAllGuideSlugs(): Promise<
   Array<{ locale: string; game: string; slug: string }>
 > {
   const result: Array<{ locale: string; game: string; slug: string }> = []
-  const locales = ['zh', 'en']
+  const locales = CONTENT_LOCALES
 
   for (const locale of locales) {
     const localeDir = path.join(contentDir, locale, 'guides')
