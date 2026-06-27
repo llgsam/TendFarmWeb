@@ -57,6 +57,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-2023-surprise-hits', emoji: '⭐', titleZh: '2023 年让 Cozy 玩家意外爱上的游戏推荐测验', titleEn: 'Which 2023 Game Would a Cozy Gamer Unexpectedly Love?', tagZh: '2023 惊喜推荐', tagEn: '2023 Surprise Pick' },
   { slug: 'cozy-open-world-quiz', emoji: '🌌', titleZh: '农场游戏玩家的开放世界探索推荐测验', titleEn: 'Which Open-World Exploration Game for Farming Game Fans?', tagZh: '开放世界推荐', tagEn: 'Open World Pick' },
   { slug: 'relationship-sim-quiz', emoji: '💞', titleZh: '以「关系」为核心的游戏推荐测验', titleEn: 'Which Relationship-Driven Game Is Right for You?', tagZh: '社交关系推荐', tagEn: 'Relationship Pick' },
+  { slug: 'creature-raising-quiz', emoji: '🫧', titleZh: '生物养成游戏推荐测验', titleEn: 'Which Creature-Raising Game Is Right for You?', tagZh: '生物养成推荐', tagEn: 'Creature Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -107,6 +108,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-2023-surprise-hits': ['cozy-rpg-quiz', 'cozy-beyond-cozy', 'cozy-new-2024'],
   'cozy-open-world-quiz': ['cozy-rpg-quiz', 'cozy-2023-surprise-hits', 'cozy-beyond-cozy'],
   'relationship-sim-quiz': ['stardew-romance', 'stardew-alternatives', 'cozy-rpg-quiz'],
+  'creature-raising-quiz': ['cozy-rpg-quiz', 'cozy-2023-surprise-hits', 'cozy-beyond-cozy'],
 }
 
 interface Props {
