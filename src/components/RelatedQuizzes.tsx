@@ -55,6 +55,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-weird-games', emoji: '🤔', titleZh: '奇异 Cozy 游戏推荐测验', titleEn: 'Which Impossible-to-Explain Cozy Game?', tagZh: '奇异推荐', tagEn: 'Weird Cozy Pick' },
   { slug: 'cozy-rpg-quiz', emoji: '🎮', titleZh: 'Cozy 玩家独立 RPG 进阶推荐测验', titleEn: 'Which Indie RPG Is Perfect for a Cozy Gamer?', tagZh: 'RPG 进阶推荐', tagEn: 'Indie RPG Pick' },
   { slug: 'cozy-2023-surprise-hits', emoji: '⭐', titleZh: '2023 年让 Cozy 玩家意外爱上的游戏推荐测验', titleEn: 'Which 2023 Game Would a Cozy Gamer Unexpectedly Love?', tagZh: '2023 惊喜推荐', tagEn: '2023 Surprise Pick' },
+  { slug: 'cozy-open-world-quiz', emoji: '🌌', titleZh: '农场游戏玩家的开放世界探索推荐测验', titleEn: 'Which Open-World Exploration Game for Farming Game Fans?', tagZh: '开放世界推荐', tagEn: 'Open World Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -103,6 +104,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-weird-games': ['cozy-short-adventure', 'cozy-atmosphere-quiz', 'cozy-hidden-gems'],
   'cozy-rpg-quiz': ['cozy-beyond-cozy', 'cozy-hidden-gems', 'cozy-dark-games'],
   'cozy-2023-surprise-hits': ['cozy-rpg-quiz', 'cozy-beyond-cozy', 'cozy-new-2024'],
+  'cozy-open-world-quiz': ['cozy-rpg-quiz', 'cozy-2023-surprise-hits', 'cozy-beyond-cozy'],
 }
 
 interface Props {

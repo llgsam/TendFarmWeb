@@ -616,6 +616,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-open-world-quiz',
+    emoji: '🌌',
+    titleZh: '农场游戏玩家的下一片星空：哪款开放世界最适合你？',
+    titleEn: 'Which Open-World Game Should a Farming Game Fan Play Next?',
+    descZh: '6 个问题，从无人深空、泰拉瑞亚、Astroneer、Subnautica 中找到你的下一个探索天地——当农场已经不够大。',
+    descEn: '6 questions to match you with No Man\'s Sky, Terraria, Astroneer, or Subnautica — bigger worlds for farming game fans who want more to explore.',
+    tagZh: '开放世界推荐',
+    tagEn: 'Open World Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
