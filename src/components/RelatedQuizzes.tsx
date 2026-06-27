@@ -49,6 +49,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-soundtrack-quiz', emoji: '🎵', titleZh: 'Cozy 游戏原声音乐测验', titleEn: 'Which Cozy Game Soundtrack Matches Your Music Taste?', tagZh: '配乐推荐', tagEn: 'Soundtrack Pick' },
   { slug: 'cozy-creative-2024', emoji: '🏰', titleZh: '2024 创意 Cozy 游戏推荐测验', titleEn: 'Which 2023-2024 Creative Cozy Game Matches Your Style?', tagZh: '创意推荐', tagEn: '2024 Creative Pick' },
   { slug: 'cozy-beyond-cozy', emoji: '🪐', titleZh: 'Cozy 玩家进阶独立游戏推荐测验', titleEn: 'Beyond Cozy: Which Indie Game Should You Try Next?', tagZh: '进阶探索', tagEn: 'Beyond Cozy Pick' },
+  { slug: 'cozy-hidden-gems', emoji: '💎', titleZh: 'Cozy 游戏隐藏宝石推荐测验', titleEn: 'Which Underrated Cozy Hidden Gem Should You Play?', tagZh: '隐藏宝石', tagEn: 'Hidden Gem Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -91,6 +92,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-soundtrack-quiz': ['cozy-atmosphere-quiz', 'cozy-short-adventure', 'cozy-indie-games'],
   'cozy-creative-2024': ['cozy-builder-games', 'cozy-new-2024', 'cozy-indie-games'],
   'cozy-beyond-cozy': ['cozy-dark-games', 'cozy-short-adventure', 'cozy-creative-2024'],
+  'cozy-hidden-gems': ['cozy-beyond-cozy', 'cozy-indie-games', 'cozy-atmosphere-quiz'],
 }
 
 interface Props {
