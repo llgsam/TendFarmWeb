@@ -27,6 +27,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'spiritfarer-quiz', emoji: '🦊', titleZh: '你是哪位 Spiritfarer 灵魂？', titleEn: 'Which Spiritfarer Spirit Are You?', tagZh: '角色测验', tagEn: 'Spirit Quiz' },
   { slug: 'mobile-farming-quiz', emoji: '📱', titleZh: '哪款手机农场游戏最适合你？', titleEn: 'Which Mobile Farming Game Is Right for You?', tagZh: '手机游戏', tagEn: 'Mobile Pick' },
   { slug: 'stardew-alternatives', emoji: '🌸', titleZh: '星露谷之后该玩哪款游戏？', titleEn: 'What to Play After Stardew Valley?', tagZh: '游戏推荐', tagEn: 'Next Game' },
+  { slug: 'cozy-switch-games', emoji: '🎮', titleZh: '你该在 Switch 上玩哪款 Cozy 游戏？', titleEn: 'Which Cozy Game for Nintendo Switch?', tagZh: 'Switch 推荐', tagEn: 'Switch Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -47,6 +48,7 @@ const RELATED: Record<string, string[]> = {
   'spiritfarer-quiz': ['cozy-gamer', 'which-farming-game', 'farm-personality'],
   'mobile-farming-quiz': ['which-farming-game', 'cozy-gamer', 'farm-personality'],
   'stardew-alternatives': ['which-farming-game', 'harvest-moon-quiz', 'stardew-season'],
+  'cozy-switch-games': ['which-farming-game', 'cozy-gamer', 'dreamlight-valley-quiz'],
 }
 
 interface Props {
