@@ -30,6 +30,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'cozy-switch-games', emoji: '🎮', titleZh: '你该在 Switch 上玩哪款 Cozy 游戏？', titleEn: 'Which Cozy Game for Nintendo Switch?', tagZh: 'Switch 推荐', tagEn: 'Switch Pick' },
   { slug: 'palia-beginner-guide', emoji: '🌻', titleZh: 'Palia 新手测验：你该从哪里开始？', titleEn: 'Palia Beginner Quiz: Where to Start?', tagZh: 'Palia 攻略', tagEn: 'Palia Guide' },
   { slug: 'stardew-vs-animal-crossing', emoji: '🌾🍃', titleZh: '星露谷 vs 动物之森：哪款更适合你？', titleEn: 'Stardew Valley vs Animal Crossing Quiz', tagZh: '游戏对比', tagEn: 'vs Quiz' },
+  { slug: 'cozy-games-for-couples', emoji: '💑', titleZh: '适合情侣的 Cozy 游戏推荐测验', titleEn: 'Best Cozy Game for Couples Quiz', tagZh: '情侣推荐', tagEn: 'Couple Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -53,6 +54,7 @@ const RELATED: Record<string, string[]> = {
   'cozy-switch-games': ['which-farming-game', 'cozy-gamer', 'dreamlight-valley-quiz'],
   'palia-beginner-guide': ['palia-playstyle', 'which-farming-game', 'cozy-gamer'],
   'stardew-vs-animal-crossing': ['stardew-season', 'animal-crossing-villager', 'cozy-switch-games'],
+  'cozy-games-for-couples': ['stardew-multiplayer', 'palia-beginner-guide', 'cozy-switch-games'],
 }
 
 interface Props {

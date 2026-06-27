@@ -291,6 +291,19 @@ const QUIZZES = [
     timeEn: '~2 min',
     isNew: true,
   },
+  {
+    slug: 'cozy-games-for-couples',
+    emoji: '💑',
+    titleZh: '适合情侣的 Cozy 游戏推荐测验',
+    titleEn: 'Best Cozy Game for Couples Quiz',
+    descZh: '6 个问题，为你们找到最适合一起玩的 cozy 游戏——星露谷联机、动物之森、Palia 或煮过头？发给你的另一半一起做！',
+    descEn: '6 questions to find the perfect cozy game for you and your partner — Stardew Valley co-op, Animal Crossing, Palia, or Overcooked. Share with your partner and compare!',
+    tagZh: '情侣推荐',
+    tagEn: 'Couple Pick',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
 ]
 
 const FAQ_EN = [
