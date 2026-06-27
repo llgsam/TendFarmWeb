@@ -2,8 +2,8 @@
 
 ## Skill routing
 
-When the user types `/farming-articles`, invoke it via the Skill tool:
-- `/farming-articles` → 写 2 篇农场游戏横向评测文章（EN + ZH）并 commit
+When the user types `/tend_build-farming-articles`, invoke it via the Skill tool:
+- `/tend_build-farming-articles` → 写 2 篇农场游戏横向评测文章（EN + ZH）并 commit
 
 ## Content Structure
 
