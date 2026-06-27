@@ -18,8 +18,8 @@ export async function generateMetadata({
       ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
       : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
     keywords: isZh
-      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', '牧场物语哪款好', '符文工房推荐']
-      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz'],
+      ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗']
+      : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free'],
     alternates: {
       canonical: `${BASE_URL}/${locale}/quizzes`,
       languages: {
@@ -183,6 +183,19 @@ const QUIZZES = [
     descEn: '6 questions to find your perfect Story of Seasons game — Friends of Mineral Town, A Wonderful Life, Pioneers of Olive Town, or Rune Factory 4. Includes platform availability and buying guide.',
     tagZh: '游戏推荐',
     tagEn: 'SoS Finder',
+    timeZh: '约 2 分钟',
+    timeEn: '~2 min',
+    isNew: true,
+  },
+  {
+    slug: 'dreamlight-valley-quiz',
+    emoji: '✨',
+    titleZh: '你是哪位 Disney Dreamlight Valley 角色？',
+    titleEn: 'Which Disney Dreamlight Valley Character Are You?',
+    descZh: '6 个性格问题，测出你最像莫阿娜、WALL-E、艾莎还是高飞？每个结果附上该角色在游戏内的专属攻略提示，结果适合截图分享。',
+    descEn: '6 personality questions to find your Disney Dreamlight Valley character match — Moana, WALL-E, Elsa, or Goofy. Each result includes an in-game tip for your character.',
+    tagZh: 'Disney 测验',
+    tagEn: 'Disney Quiz',
     timeZh: '约 2 分钟',
     timeEn: '~2 min',
     isNew: true,
