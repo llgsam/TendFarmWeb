@@ -62,6 +62,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'deep-think-games-quiz', emoji: '🧩', titleZh: '深度思考游戏推荐测验', titleEn: 'Which Deep-Think Game Is Right for You?', tagZh: '深度思考推荐', tagEn: 'Deep Think Pick' },
   { slug: 'jrpg-finder-quiz', emoji: '🗺️', titleZh: 'JRPG 推荐测验', titleEn: 'Which JRPG Is Right for You?', tagZh: 'JRPG 推荐', tagEn: 'JRPG Pick' },
   { slug: 'nintendo-switch-exclusives-quiz', emoji: '🎮', titleZh: 'Switch 独占游戏推荐测验', titleEn: 'Which Nintendo Switch Exclusive Is Right for You?', tagZh: 'Switch 推荐', tagEn: 'Switch Exclusive Pick' },
+  { slug: 'cozy-survival-games-quiz', emoji: '🏕️', titleZh: 'Cozy 生存游戏推荐测验', titleEn: 'Which Survival Game Is Right for Cozy Gamers?', tagZh: '生存游戏推荐', tagEn: 'Survival Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -117,6 +118,7 @@ const RELATED: Record<string, string[]> = {
   'deep-think-games-quiz': ['cozy-dark-games', 'cozy-beyond-cozy', 'cozy-rpg-quiz'],
   'jrpg-finder-quiz': ['cozy-rpg-quiz', 'relationship-sim-quiz', 'cozy-2023-surprise-hits'],
   'nintendo-switch-exclusives-quiz': ['cozy-switch-games', 'jrpg-finder-quiz', 'cozy-2023-surprise-hits'],
+  'cozy-survival-games-quiz': ['cozy-open-world-quiz', 'farming-game-challenge', 'cozy-new-2024'],
 }
 
 interface Props {
