@@ -64,6 +64,7 @@ const ALL_QUIZZES: Quiz[] = [
   { slug: 'nintendo-switch-exclusives-quiz', emoji: '🎮', titleZh: 'Switch 独占游戏推荐测验', titleEn: 'Which Nintendo Switch Exclusive Is Right for You?', tagZh: 'Switch 推荐', tagEn: 'Switch Exclusive Pick' },
   { slug: 'cozy-survival-games-quiz', emoji: '🏕️', titleZh: 'Cozy 生存游戏推荐测验', titleEn: 'Which Survival Game Is Right for Cozy Gamers?', tagZh: '生存游戏推荐', tagEn: 'Survival Pick' },
   { slug: 'rhythm-games-quiz', emoji: '🎵', titleZh: '节奏音乐游戏推荐测验', titleEn: 'Which Rhythm Game Is Right for You?', tagZh: '节奏游戏推荐', tagEn: 'Rhythm Pick' },
+  { slug: 'detective-narrative-games-quiz', emoji: '🕵️', titleZh: '侦探叙事游戏推荐测验', titleEn: 'Which Detective Narrative Game Is Right for You?', tagZh: '侦探叙事推荐', tagEn: 'Detective Pick' },
 ]
 
 const RELATED: Record<string, string[]> = {
@@ -121,6 +122,7 @@ const RELATED: Record<string, string[]> = {
   'nintendo-switch-exclusives-quiz': ['cozy-switch-games', 'jrpg-finder-quiz', 'cozy-2023-surprise-hits'],
   'cozy-survival-games-quiz': ['cozy-open-world-quiz', 'farming-game-challenge', 'cozy-new-2024'],
   'rhythm-games-quiz': ['cozy-soundtrack-quiz', 'cozy-short-adventure', 'cozy-2023-surprise-hits'],
+  'detective-narrative-games-quiz': ['deep-think-games-quiz', 'cozy-beyond-cozy', 'cozy-2023-surprise-hits'],
 }
 
 interface Props {
