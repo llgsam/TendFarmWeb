@@ -3,9 +3,10 @@
 
 export interface GameTranslation {
   nameZhTW: string
-  // Official localized titles — only set where a real localized release name exists.
-  // Absent → getGameName falls back to the English name.
-  nameJa?: string; nameKo?: string; nameDe?: string
+  // Display name per locale. Uses the official localized title where one exists;
+  // for games that ship under their English name globally, this equals the English name.
+  // Every game sets all three explicitly so names can be reviewed in one place.
+  nameJa: string; nameKo: string; nameDe: string
   descZhTW: string; descJa: string; descKo: string; descDe: string
   longDescZhTW: string; longDescJa: string; longDescKo: string; longDescDe: string
   featuresZhTW: string[]; featuresJa: string[]; featuresKo: string[]; featuresDe: string[]
@@ -16,6 +17,7 @@ export interface GameTranslation {
 export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   'hay-day': {
     nameZhTW: 'Hay Day',
+    nameJa: 'Hay Day', nameKo: 'Hay Day', nameDe: 'Hay Day',
     descZhTW: '輕鬆愜意的農場經營遊戲，種作物、養動物、製作商品，還能和鄰居買賣交易。利用零碎時間就能玩得很充實。',
     descJa: 'のんびり農場経営ゲーム。作物を育て、動物を飼い、商品を作って近所の人と取引しよう。スキマ時間にぴったりの一作です。',
     descKo: '부담 없이 즐기는 농장 경영 게임. 작물을 키우고 동물을 기르며 상품을 만들어 이웃과 거래해 보세요. 짬짬이 플레이하기 딱 좋아요.',
@@ -111,6 +113,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'coral-island': {
     nameZhTW: '珊瑚島',
+    nameJa: 'Coral Island', nameKo: 'Coral Island', nameDe: 'Coral Island',
     descZhTW: '在熱帶海島上經營農場、潛入水底清理珊瑚礁，融合環保主題的農場生活遊戲。星露谷的進化版。',
     descJa: '熱帯の島でファームライフを楽しみながら、サンゴ礁を守るエコなアドベンチャー。スターデューバレーの進化形。',
     descKo: '열대 섬에서 농장을 가꾸고 산호초를 지키는 친환경 농장 게임. 스타듀 밸리의 진화형.',
@@ -134,6 +137,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'roots-of-pacha': {
     nameZhTW: '帕恰之根',
+    nameJa: 'Roots of Pacha', nameKo: 'Roots of Pacha', nameDe: 'Roots of Pacha',
     descZhTW: '石器時代農場遊戲，帶領史前部落發現農業、馴化動物、發明工具，親歷人類文明的曙光時刻。',
     descJa: '石器時代が舞台の農場ゲーム。史前の部族を導いて農業を発見し、野生動物を手なずけ、道具を生み出そう。独自の歴史情緒が光る一作。',
     descKo: '석기 시대를 배경으로 한 농장 게임. 선사 시대 부족을 이끌어 농업을 발견하고, 동물을 길들이고, 도구를 발명하며 문명의 시작을 직접 만들어 가세요.',
@@ -157,6 +161,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'ranch-simulator': {
     nameZhTW: 'Ranch Simulator',
+    nameJa: 'Ranch Simulator', nameKo: 'Ranch Simulator', nameDe: 'Ranch Simulator',
     descZhTW: '第一人稱農場牧場模擬，從荒廢的祖父農場重新出發，管理牲畜、耕種作物、建造建築。',
     descJa: '祖父から受け継いだ廃れた農場を一から立て直す、一人称視点の本格ファーム＆ランチシミュレーター。家畜の世話から農作物の栽培、建物の建設までこなそう。',
     descKo: '할아버지의 버려진 농장을 물려받아 처음부터 다시 일으키는 1인칭 농장·목장 시뮬레이션. 가축을 키우고 작물을 재배하며 나만의 농장을 완성하세요.',
@@ -180,6 +185,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'littlewood': {
     nameZhTW: 'Littlewood',
+    nameJa: 'Littlewood', nameKo: 'Littlewood', nameDe: 'Littlewood',
     descZhTW: '擊敗大魔王之後的故事——以失憶英雄的身分，帶領村民一磚一瓦重建小鎮。完全無壓力的輕鬆日常。',
     descJa: '勇者として魔王を倒した後の物語。記憶を失ったまま、傷ついた世界で小さな村を再建していく、穏やかな日常系ゲームです。',
     descKo: '마왕을 물리친 이후의 이야기 — 기억을 잃은 영웅이 되어 상처받은 마을을 천천히 재건해 나가는 힐링 게임.',
@@ -251,6 +257,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'sun-haven': {
     nameZhTW: 'Sun Haven',
+    nameJa: 'Sun Haven', nameKo: 'Sun Haven', nameDe: 'Sun Haven',
     descZhTW: '結合魔法與龍族的農場 RPG，可在人類村莊、精靈森林、龍族城市三個世界間自由切換。戰鬥系統豐富紮實。',
     descJa: '魔法とドラゴンが息づく農場RPG。人間の村・エルフの森・ドラゴンの都市、3つの世界を行き来しながら冒険しよう。戦闘要素も充実。',
     descKo: '마법과 용이 존재하는 농장 RPG. 인간 마을, 엘프 숲, 용족 도시 세 개의 세계를 오가며 모험하세요. 전투 콘텐츠도 풍성합니다.',
@@ -274,6 +281,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'farmville-3': {
     nameZhTW: 'FarmVille 3',
+    nameJa: 'FarmVille 3', nameKo: 'FarmVille 3', nameDe: 'FarmVille 3',
     descZhTW: '經典農場遊戲系列的現代手機版，輕鬆建設、多種動物，最適合隨時隨地小玩放鬆。',
     descJa: '名作『FarmVille』シリーズのスマホ向け最新作。ライトな農場運営と豊富な動物で、スキマ時間にのんびり楽しめます。',
     descKo: '클래식 농장 게임 시리즈의 모바일 최신작. 가볍게 농장을 꾸미고 다양한 동물을 키우는 초캐주얼 게임입니다.',
@@ -297,6 +305,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'garden-paws': {
     nameZhTW: 'Garden Paws',
+    nameJa: 'Garden Paws', nameKo: 'Garden Paws', nameDe: 'Garden Paws',
     descZhTW: '在爺爺的小島上打造商店與花園，與可愛的動物居民一同生活。極度療癒的休閒遊戲。',
     descJa: 'おじいちゃんの島でショップや庭を作りながら、かわいい動物の住人たちとのんびり暮らそう。じんわり癒やされるまったり系ゲームです。',
     descKo: '할아버지의 섬에서 가게와 정원을 가꾸며 귀여운 동물 주민들과 함께 살아가는 초힐링 캐주얼 게임.',
@@ -344,6 +353,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'spirittea': {
     nameZhTW: 'Spirittea',
+    nameJa: 'Spirittea', nameKo: 'Spirittea', nameDe: 'Spirittea',
     descZhTW: '經營靈界澡堂、聆聽眾神心事——一款融合日本民俗文化的獨特農場 RPG。',
     descJa: '神様たちが憩う温泉宿を切り盛りしながら、彼らの悩みを解決する日本民話風ファーミング RPG。',
     descKo: '정령들의 목욕탕을 운영하며 그들의 고민을 해결하는, 일본 민속에서 영감 받은 독특한 농장 RPG.',
