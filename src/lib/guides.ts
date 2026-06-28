@@ -89,15 +89,18 @@ function calcReadingTime(content: string): number {
 }
 
 export async function getGuides(locale: string, game: string): Promise<GuideMeta[]> {
-  const resolved = resolveContentLocale(locale)
-  const dir = path.join(contentDir, resolved, 'guides', game)
-  if (!fs.existsSync(dir)) return []
+  // The canonical article list comes from the listing locale's dir; each article's
+  // metadata is read from the best available translation (own locale → English).
+  const listDir = path.join(contentDir, listingLocale(locale), 'guides', game)
+  if (!fs.existsSync(listDir)) return []
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'))
+  const files = fs.readdirSync(listDir).filter((f) => f.endsWith('.md'))
   return files
     .map((file) => {
       const slug = file.replace(/\.md$/, '')
-      const raw = fs.readFileSync(path.join(dir, file), 'utf-8')
+      const resolved = resolveGuideFile(locale, game, slug)
+      if (!resolved) return null
+      const raw = fs.readFileSync(resolved.filePath, 'utf-8')
       const { data } = matter(raw)
       return {
         slug,
@@ -109,6 +112,7 @@ export async function getGuides(locale: string, game: string): Promise<GuideMeta
         tags: (data.tags ?? []).map((t: string) => localizeZh(locale, t)),
       }
     })
+    .filter((g): g is GuideMeta => g !== null)
     .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
 }
 
@@ -117,11 +121,10 @@ export async function getGuideBySlug(
   game: string,
   slug: string
 ): Promise<GuidePost | null> {
-  const resolved = resolveContentLocale(locale)
-  const filePath = path.join(contentDir, resolved, 'guides', game, `${slug}.md`)
-  if (!fs.existsSync(filePath)) return null
+  const resolved = resolveGuideFile(locale, game, slug)
+  if (!resolved) return null
 
-  const raw = fs.readFileSync(filePath, 'utf-8')
+  const raw = fs.readFileSync(resolved.filePath, 'utf-8')
   const { data, content: rawContent } = matter(raw)
   // Convert the source (simplified) markdown to Traditional first, so the rendered
   // HTML, the TOC text, and the heading IDs all stay consistent for zh-TW.
@@ -148,13 +151,38 @@ export async function getGuideBySlug(
   }
 }
 
-const CONTENT_LOCALES = ['zh', 'en'] as const
+// Physical source directories that hold the full article set.
+const SOURCE_LOCALES = ['zh', 'en'] as const
+// Locales with their own (possibly partial) translated dirs; untranslated articles fall back to English.
+const TRANSLATED_LOCALES = ['ja', 'ko', 'de'] as const
 const FALLBACK_LOCALE = 'en'
 
-function resolveContentLocale(locale: string): string {
-  if ((CONTENT_LOCALES as readonly string[]).includes(locale)) return locale
-  if (locale === 'zh-TW') return 'zh'
-  return FALLBACK_LOCALE
+// The directory whose article set defines the canonical list for a locale.
+// zh/zh-TW list against the zh set; en/ja/ko/de list against the en set (full coverage).
+function listingLocale(locale: string): string {
+  return locale === 'zh' || locale === 'zh-TW' ? 'zh' : 'en'
+}
+
+// Ordered content dirs to try for a specific article — first existing file wins.
+function contentLocaleChain(locale: string): string[] {
+  if (locale === 'zh') return ['zh']
+  if (locale === 'zh-TW') return ['zh'] // converted Simplified→Traditional at render time
+  if (locale === 'en') return ['en']
+  if ((TRANSLATED_LOCALES as readonly string[]).includes(locale)) return [locale, FALLBACK_LOCALE]
+  return [FALLBACK_LOCALE]
+}
+
+// Resolve the on-disk markdown file for (locale, game, slug), honoring the fallback chain.
+function resolveGuideFile(
+  locale: string,
+  game: string,
+  slug: string
+): { filePath: string; sourceLocale: string } | null {
+  for (const c of contentLocaleChain(locale)) {
+    const p = path.join(contentDir, c, 'guides', game, `${slug}.md`)
+    if (fs.existsSync(p)) return { filePath: p, sourceLocale: c }
+  }
+  return null
 }
 
 export async function getAllGuideSlugs(): Promise<
@@ -162,7 +190,7 @@ export async function getAllGuideSlugs(): Promise<
 > {
   const result: Array<{ locale: string; game: string; slug: string }> = []
 
-  for (const locale of CONTENT_LOCALES) {
+  for (const locale of SOURCE_LOCALES) {
     const localeDir = path.join(contentDir, locale, 'guides')
     if (!fs.existsSync(localeDir)) continue
 
@@ -177,6 +205,15 @@ export async function getAllGuideSlugs(): Promise<
         result.push({ locale, game, slug })
         // zh-TW reuses the simplified-Chinese source, converted to Traditional at render time.
         if (locale === 'zh') result.push({ locale: 'zh-TW', game, slug })
+        // ja/ko/de: only pre-render (and sitemap) articles that actually have a native
+        // translation file. Untranslated ones stay reachable on-demand with English fallback,
+        // but we don't ship localized URLs serving English content.
+        if (locale === 'en') {
+          for (const tl of TRANSLATED_LOCALES) {
+            const translated = path.join(contentDir, tl, 'guides', game, `${slug}.md`)
+            if (fs.existsSync(translated)) result.push({ locale: tl, game, slug })
+          }
+        }
       }
     }
   }
