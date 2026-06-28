@@ -4,8 +4,23 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import remarkGfm from 'remark-gfm'
+import * as OpenCC from 'opencc-js'
 
 const contentDir = path.join(process.cwd(), 'src', 'content')
+
+// Simplified → Traditional (Taiwan standard + Taiwanese idioms, e.g. 软件→軟體, 程序→程式).
+// Lazily created so it's only built when a zh-TW page is rendered.
+let _s2twp: ((text: string) => string) | null = null
+function toTraditional(text: string): string {
+  if (!text) return text
+  if (!_s2twp) _s2twp = OpenCC.Converter({ from: 'cn', to: 'twp' })
+  return _s2twp(text)
+}
+
+// Convert source-Chinese (simplified) strings to Traditional only for the zh-TW locale.
+function localizeZh(locale: string, text: string): string {
+  return locale === 'zh-TW' ? toTraditional(text) : text
+}
 
 export interface TocHeading {
   level: 2 | 3
@@ -88,10 +103,10 @@ export async function getGuides(locale: string, game: string): Promise<GuideMeta
         slug,
         game,
         locale,
-        title: data.title ?? '',
-        description: data.description ?? '',
+        title: localizeZh(locale, data.title ?? ''),
+        description: localizeZh(locale, data.description ?? ''),
         publishedAt: data.publishedAt ?? '',
-        tags: data.tags ?? [],
+        tags: (data.tags ?? []).map((t: string) => localizeZh(locale, t)),
       }
     })
     .sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
@@ -107,7 +122,10 @@ export async function getGuideBySlug(
   if (!fs.existsSync(filePath)) return null
 
   const raw = fs.readFileSync(filePath, 'utf-8')
-  const { data, content } = matter(raw)
+  const { data, content: rawContent } = matter(raw)
+  // Convert the source (simplified) markdown to Traditional first, so the rendered
+  // HTML, the TOC text, and the heading IDs all stay consistent for zh-TW.
+  const content = localizeZh(locale, rawContent)
   const toc = extractToc(content)
   const processed = await remark().use(remarkGfm).use(remarkHtml, { sanitize: false }).process(content)
   const contentHtml = addHeadingIds(processed.toString(), toc)
@@ -116,14 +134,17 @@ export async function getGuideBySlug(
     slug,
     game,
     locale,
-    title: data.title ?? '',
-    description: data.description ?? '',
+    title: localizeZh(locale, data.title ?? ''),
+    description: localizeZh(locale, data.description ?? ''),
     publishedAt: data.publishedAt ?? '',
-    tags: data.tags ?? [],
+    tags: (data.tags ?? []).map((t: string) => localizeZh(locale, t)),
     contentHtml,
     toc,
     readingTime: calcReadingTime(content),
-    faqs: data.faqs ?? [],
+    faqs: (data.faqs ?? []).map((f: FaqItem) => ({
+      q: localizeZh(locale, f.q),
+      a: localizeZh(locale, f.a),
+    })),
   }
 }
 
@@ -140,9 +161,8 @@ export async function getAllGuideSlugs(): Promise<
   Array<{ locale: string; game: string; slug: string }>
 > {
   const result: Array<{ locale: string; game: string; slug: string }> = []
-  const locales = CONTENT_LOCALES
 
-  for (const locale of locales) {
+  for (const locale of CONTENT_LOCALES) {
     const localeDir = path.join(contentDir, locale, 'guides')
     if (!fs.existsSync(localeDir)) continue
 
@@ -153,7 +173,10 @@ export async function getAllGuideSlugs(): Promise<
 
       const files = fs.readdirSync(gameDir).filter((f) => f.endsWith('.md'))
       for (const file of files) {
-        result.push({ locale, game, slug: file.replace(/\.md$/, '') })
+        const slug = file.replace(/\.md$/, '')
+        result.push({ locale, game, slug })
+        // zh-TW reuses the simplified-Chinese source, converted to Traditional at render time.
+        if (locale === 'zh') result.push({ locale: 'zh-TW', game, slug })
       }
     }
   }
