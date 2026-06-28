@@ -11,9 +11,18 @@
     },
     "concepts": {
       "title": "Health data drives your farm",
-      "activity": { "title": "Activity → Sunlight", "desc": "When you're active, crops in that time slot grow faster." },
-      "vitals": { "title": "Sleep → Morning Dew", "desc": "A good night's sleep means a more abundant harvest." },
-      "rhythm": { "title": "Life Rhythm → Efficiency", "desc": "A stable daily rhythm boosts your farm's health data conversion by up to 12%." }
+      "activity": {
+        "title": "Activity → Sunlight",
+        "desc": "When you're active, crops in that time slot grow faster."
+      },
+      "vitals": {
+        "title": "Sleep → Morning Dew",
+        "desc": "A good night's sleep means a more abundant harvest."
+      },
+      "rhythm": {
+        "title": "Life Rhythm → Efficiency",
+        "desc": "A stable daily rhythm boosts your farm's health data conversion by up to 12%."
+      }
     },
     "guidesTeaser": {
       "title": "Do you play these games?",
@@ -33,7 +42,7 @@
     "games": "All Games",
     "tools": "Tools",
     "quizzes": "Quizzes",
-    "guides": "Guides",
+    "guides": "Best Games",
     "tendfarm": "TendFarm App"
   },
   "footer": {
@@ -61,20 +70,56 @@
     },
     "principlesTitle": "Design Principles",
     "principles": [
-      { "title": "Health data doesn't give coins directly", "desc": "Activity affects growth speed, sleep affects harvest abundance, HRV affects fuel efficiency. Health data influences output through efficiency, not direct exchange." },
-      { "title": "Casual users need no planning", "desc": "The system auto-configures default crops. Power users can enter the field-planning screen to optimize output around their own rhythm." },
-      { "title": "Daily rhythm is your conversion rate", "desc": "Life rhythm is the efficiency multiplier that converts health data into farm effects — up to 12% boost. It's not decoration; it's productivity." },
-      { "title": "Automation means offline management", "desc": "Your farm keeps running even when the app is closed. When automation fails, players can step in manually to cover the gap." }
+      {
+        "title": "Health data doesn't give coins directly",
+        "desc": "Activity affects growth speed, sleep affects harvest abundance, HRV affects fuel efficiency. Health data influences output through efficiency, not direct exchange."
+      },
+      {
+        "title": "Casual users need no planning",
+        "desc": "The system auto-configures default crops. Power users can enter the field-planning screen to optimize output around their own rhythm."
+      },
+      {
+        "title": "Daily rhythm is your conversion rate",
+        "desc": "Life rhythm is the efficiency multiplier that converts health data into farm effects — up to 12% boost. It's not decoration; it's productivity."
+      },
+      {
+        "title": "Automation means offline management",
+        "desc": "Your farm keeps running even when the app is closed. When automation fails, players can step in manually to cover the gap."
+      }
     ],
     "mapping": {
       "title": "Health Data → Farm Effects",
-      "headers": ["Health Input", "Mediator", "Farm Effect"],
+      "headers": [
+        "Health Input",
+        "Mediator",
+        "Farm Effect"
+      ],
       "rows": [
-        { "input": "Activity (steps / workouts)", "via": "Sunlight", "output": "Crops in active time slots ripen early" },
-        { "input": "Vitals / Sleep", "via": "Morning Dew", "output": "More abundant harvest (up to +20%)" },
-        { "input": "HRV / Recovery trend", "via": "Fuel efficiency", "output": "Auto-harvester uses less fuel" },
-        { "input": "Daily rhythm (regularity)", "via": "Health conversion rate", "output": "All effects boosted ×1.00~1.12" },
-        { "input": "Long-term health data", "via": "LifeExp", "output": "Farm level / world unlocks" }
+        {
+          "input": "Activity (steps / workouts)",
+          "via": "Sunlight",
+          "output": "Crops in active time slots ripen early"
+        },
+        {
+          "input": "Vitals / Sleep",
+          "via": "Morning Dew",
+          "output": "More abundant harvest (up to +20%)"
+        },
+        {
+          "input": "HRV / Recovery trend",
+          "via": "Fuel efficiency",
+          "output": "Auto-harvester uses less fuel"
+        },
+        {
+          "input": "Daily rhythm (regularity)",
+          "via": "Health conversion rate",
+          "output": "All effects boosted ×1.00~1.12"
+        },
+        {
+          "input": "Long-term health data",
+          "via": "LifeExp",
+          "output": "Farm level / world unlocks"
+        }
       ]
     }
   },
@@ -83,7 +128,9 @@
       "title": "Healthy Living — TendFarm",
       "description": "Learn how circadian rhythm, HRV, sleep quality, and regular activity affect your body and your TendFarm."
     },
-    "hero": { "title": "Healthy Living Starts with Understanding" },
+    "hero": {
+      "title": "Healthy Living Starts with Understanding"
+    },
     "sections": [
       {
         "id": "circadian-rhythm",
@@ -117,29 +164,74 @@
       "title": "Gameplay — TendFarm",
       "description": "Discover TendFarm's core game loop: fields, water tanks, harvests, and sell-offs — all driven by your health data."
     },
-    "hero": { "title": "Plant Once, Live to Harvest" },
+    "hero": {
+      "title": "Plant Once, Live to Harvest"
+    },
     "loop": {
       "title": "Core Loop",
-      "steps": ["Field needs water", "Auto-water", "Growing (activity speeds up)", "Ready to harvest", "Auto-harvest", "Store & sell", "Coins & upgrades"]
+      "steps": [
+        "Field needs water",
+        "Auto-water",
+        "Growing (activity speeds up)",
+        "Ready to harvest",
+        "Auto-harvest",
+        "Store & sell",
+        "Coins & upgrades"
+      ]
     },
     "crops": {
       "title": "Crop Overview",
       "list": [
-        { "name": "Dawn Bean", "cycle": "6 min", "desc": "Tutorial crop — experience your first harvest fast" },
-        { "name": "Wheat Sprout", "cycle": "45 min", "desc": "High-frequency daytime crop, great for active checkers" },
-        { "name": "Cotton Puff", "cycle": "2.5 hr", "desc": "Steady set-and-forget, the everyday favourite" },
-        { "name": "Night Berry", "cycle": "8 hr", "desc": "Grows while you sleep — ready when you wake up" },
-        { "name": "Energy Grass", "cycle": "2 hr", "desc": "High fuel by-product, keeps your auto-harvester fuelled" }
+        {
+          "name": "Dawn Bean",
+          "cycle": "6 min",
+          "desc": "Tutorial crop — experience your first harvest fast"
+        },
+        {
+          "name": "Wheat Sprout",
+          "cycle": "45 min",
+          "desc": "High-frequency daytime crop, great for active checkers"
+        },
+        {
+          "name": "Cotton Puff",
+          "cycle": "2.5 hr",
+          "desc": "Steady set-and-forget, the everyday favourite"
+        },
+        {
+          "name": "Night Berry",
+          "cycle": "8 hr",
+          "desc": "Grows while you sleep — ready when you wake up"
+        },
+        {
+          "name": "Energy Grass",
+          "cycle": "2 hr",
+          "desc": "High fuel by-product, keeps your auto-harvester fuelled"
+        }
       ]
     },
     "week": {
       "title": "First 7 Days Experience",
       "days": [
-        { "day": "Day 1", "exp": "First harvest and sell-off" },
-        { "day": "Day 2", "exp": "Upgrade barn and water tank, unlock second field" },
-        { "day": "Day 3", "exp": "Unlock auto-harvester and fuel system" },
-        { "day": "Day 4–5", "exp": "Experiment with crop configs, optimise output" },
-        { "day": "Day 6–7", "exp": "Daily rhythm feedback kicks in, first Aura glimpse" }
+        {
+          "day": "Day 1",
+          "exp": "First harvest and sell-off"
+        },
+        {
+          "day": "Day 2",
+          "exp": "Upgrade barn and water tank, unlock second field"
+        },
+        {
+          "day": "Day 3",
+          "exp": "Unlock auto-harvester and fuel system"
+        },
+        {
+          "day": "Day 4–5",
+          "exp": "Experiment with crop configs, optimise output"
+        },
+        {
+          "day": "Day 6–7",
+          "exp": "Daily rhythm feedback kicks in, first Aura glimpse"
+        }
       ]
     }
   },
@@ -148,11 +240,23 @@
       "title": "Tools — TendFarm",
       "description": "Hay Day crop profit calculator, Stardew Valley crop profit calculator, and TendFarm health rhythm tools."
     },
-    "hero": { "title": "Game Tools & TendFarm Tools", "subtitle": "Hay Day and Stardew Valley crop profit calculators are live. TendFarm health rhythm tools coming soon." },
+    "hero": {
+      "title": "Game Tools & TendFarm Tools",
+      "subtitle": "Hay Day and Stardew Valley crop profit calculators are live. TendFarm health rhythm tools coming soon."
+    },
     "coming": [
-      { "title": "Circadian Rhythm Quiz", "desc": "8 questions to reveal your rhythm level and matching farm state." },
-      { "title": "Farm Efficiency Simulator", "desc": "Enter your health data to predict how much more your farm can harvest today." },
-      { "title": "Crop Config Recommender", "desc": "Based on your lifestyle habits, get the field layout template that fits you best." }
+      {
+        "title": "Circadian Rhythm Quiz",
+        "desc": "8 questions to reveal your rhythm level and matching farm state."
+      },
+      {
+        "title": "Farm Efficiency Simulator",
+        "desc": "Enter your health data to predict how much more your farm can harvest today."
+      },
+      {
+        "title": "Crop Config Recommender",
+        "desc": "Based on your lifestyle habits, get the field layout template that fits you best."
+      }
     ],
     "notify": "Notify me when tools launch",
     "comingSoon": "Coming Soon"
@@ -165,9 +269,18 @@
     "guidesCenter": "Guides Center",
     "comingSoon": "Guides coming soon. Stay tuned.",
     "games": {
-      "hay-day": { "name": "Hay Day", "desc": "The most popular mobile farm game" },
-      "stardew-valley": { "name": "Stardew Valley", "desc": "The iconic indie farm RPG" },
-      "animal-crossing": { "name": "Animal Crossing: New Horizons", "desc": "Nintendo's cozy island life game" }
+      "hay-day": {
+        "name": "Hay Day",
+        "desc": "The most popular mobile farm game"
+      },
+      "stardew-valley": {
+        "name": "Stardew Valley",
+        "desc": "The iconic indie farm RPG"
+      },
+      "animal-crossing": {
+        "name": "Animal Crossing: New Horizons",
+        "desc": "Nintendo's cozy island life game"
+      }
     },
     "tendfarmHook": {
       "title": "Did you know?",

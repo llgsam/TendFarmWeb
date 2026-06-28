@@ -45,10 +45,10 @@ export function SiteIntro() {
               {getLoc(locale, '🔧 工具集', '🔧 Tools', '🔧 工具集', '🔧 ツール', '🔧 도구', '🔧 Tools')}
             </Link>
             <Link
-              href={`${base}/guides`}
+              href={`${base}/guides/best-games`}
               className="rounded-lg bg-[#2d3d2d] px-4 py-2 text-sm text-[#e8dcc8] transition-colors hover:bg-[#3d4d3d]"
             >
-              {getLoc(locale, '📖 游戏攻略', '📖 Guides', '📖 遊戲攻略', '📖 攻略', '📖 공략', '📖 Guides')}
+              {getLoc(locale, '📖 游戏评测', '📖 Best Games', '📖 遊戲評測', '📖 ゲーム比較', '📖 게임 비교', '📖 Beste Spiele')}
             </Link>
           </div>
         </div>

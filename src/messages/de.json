@@ -11,9 +11,18 @@
     },
     "concepts": {
       "title": "Gesundheitsdaten treiben deine Farm an",
-      "activity": { "title": "Aktivität → Sonnenlicht", "desc": "Pflanzen in dem Zeitfenster, in dem du aktiv bist, wachsen schneller." },
-      "vitals": { "title": "Schlaf → Morgentau", "desc": "Eine gute Nacht bedeutet eine reichhaltigere Ernte am nächsten Tag." },
-      "rhythm": { "title": "Lebensrhythmus → Effizienz", "desc": "Ein stabiler Tagesrhythmus steigert die Umwandlungsrate deiner Gesundheitsdaten um bis zu 12%." }
+      "activity": {
+        "title": "Aktivität → Sonnenlicht",
+        "desc": "Pflanzen in dem Zeitfenster, in dem du aktiv bist, wachsen schneller."
+      },
+      "vitals": {
+        "title": "Schlaf → Morgentau",
+        "desc": "Eine gute Nacht bedeutet eine reichhaltigere Ernte am nächsten Tag."
+      },
+      "rhythm": {
+        "title": "Lebensrhythmus → Effizienz",
+        "desc": "Ein stabiler Tagesrhythmus steigert die Umwandlungsrate deiner Gesundheitsdaten um bis zu 12%."
+      }
     },
     "guidesTeaser": {
       "title": "Spielst du diese Spiele?",
@@ -33,7 +42,7 @@
     "games": "Alle Spiele",
     "tools": "Tools",
     "quizzes": "Quizze",
-    "guides": "Guides",
+    "guides": "Beste Spiele",
     "tendfarm": "TendFarm App"
   },
   "footer": {
@@ -61,20 +70,56 @@
     },
     "principlesTitle": "Designprinzipien",
     "principles": [
-      { "title": "Gesundheitsdaten geben nicht direkt Münzen", "desc": "Aktivität beeinflusst die Wachstumsgeschwindigkeit, Schlaf die Erntefülle, HRV die Kraftstoffeffizienz. Gesundheitsdaten beeinflussen den Output über Effizienz, nicht durch direkten Austausch." },
-      { "title": "Gelegenheitsspieler brauchen keine Planung", "desc": "Das System konfiguriert automatisch Standardpflanzen. Fortgeschrittene Spieler können den Feldplanungsbildschirm aufrufen, um den Output um ihren eigenen Rhythmus herum zu optimieren." },
-      { "title": "Tagesrhythmus ist deine Umwandlungsrate", "desc": "Der Lebensrhythmus ist der Effizienzfaktor, der Gesundheitsdaten in Farmeffekte umwandelt — bis zu 12% Steigerung. Er ist kein Dekor, er ist Produktivität." },
-      { "title": "Automatisierung bedeutet Offline-Management", "desc": "Deine Farm läuft auch weiter, wenn die App geschlossen ist. Wenn die Automatisierung versagt, können Spieler manuell eingreifen." }
+      {
+        "title": "Gesundheitsdaten geben nicht direkt Münzen",
+        "desc": "Aktivität beeinflusst die Wachstumsgeschwindigkeit, Schlaf die Erntefülle, HRV die Kraftstoffeffizienz. Gesundheitsdaten beeinflussen den Output über Effizienz, nicht durch direkten Austausch."
+      },
+      {
+        "title": "Gelegenheitsspieler brauchen keine Planung",
+        "desc": "Das System konfiguriert automatisch Standardpflanzen. Fortgeschrittene Spieler können den Feldplanungsbildschirm aufrufen, um den Output um ihren eigenen Rhythmus herum zu optimieren."
+      },
+      {
+        "title": "Tagesrhythmus ist deine Umwandlungsrate",
+        "desc": "Der Lebensrhythmus ist der Effizienzfaktor, der Gesundheitsdaten in Farmeffekte umwandelt — bis zu 12% Steigerung. Er ist kein Dekor, er ist Produktivität."
+      },
+      {
+        "title": "Automatisierung bedeutet Offline-Management",
+        "desc": "Deine Farm läuft auch weiter, wenn die App geschlossen ist. Wenn die Automatisierung versagt, können Spieler manuell eingreifen."
+      }
     ],
     "mapping": {
       "title": "Gesundheitsdaten → Farmeffekte",
-      "headers": ["Gesundheitseingabe", "Vermittler", "Farmeffekt"],
+      "headers": [
+        "Gesundheitseingabe",
+        "Vermittler",
+        "Farmeffekt"
+      ],
       "rows": [
-        { "input": "Aktivität (Schritte/Workouts)", "via": "Sonnenlicht", "output": "Pflanzen in aktiven Zeitfenstern reifen früher" },
-        { "input": "Vitalwerte/Schlaf", "via": "Morgentau", "output": "Reichhaltigere Ernte (bis zu +20%)" },
-        { "input": "HRV/Erholungstrend", "via": "Kraftstoffeffizienz", "output": "Auto-Ernter verbraucht weniger Kraftstoff" },
-        { "input": "Tagesrhythmus (Regelmäßigkeit)", "via": "Gesundheitsumwandlungsrate", "output": "Alle Effekte verstärkt ×1,00–1,12" },
-        { "input": "Langfristige Gesundheitsdaten", "via": "LifeExp", "output": "Farm-Level/Weltfreischaltungen" }
+        {
+          "input": "Aktivität (Schritte/Workouts)",
+          "via": "Sonnenlicht",
+          "output": "Pflanzen in aktiven Zeitfenstern reifen früher"
+        },
+        {
+          "input": "Vitalwerte/Schlaf",
+          "via": "Morgentau",
+          "output": "Reichhaltigere Ernte (bis zu +20%)"
+        },
+        {
+          "input": "HRV/Erholungstrend",
+          "via": "Kraftstoffeffizienz",
+          "output": "Auto-Ernter verbraucht weniger Kraftstoff"
+        },
+        {
+          "input": "Tagesrhythmus (Regelmäßigkeit)",
+          "via": "Gesundheitsumwandlungsrate",
+          "output": "Alle Effekte verstärkt ×1,00–1,12"
+        },
+        {
+          "input": "Langfristige Gesundheitsdaten",
+          "via": "LifeExp",
+          "output": "Farm-Level/Weltfreischaltungen"
+        }
       ]
     }
   },
@@ -83,7 +128,9 @@
       "title": "Gesund leben — TendFarm",
       "description": "Erfahre, wie zirkadiane Rhythmen, HRV, Schlafqualität und regelmäßige Aktivität deinen Körper und deine TendFarm beeinflussen."
     },
-    "hero": { "title": "Gesundes Leben beginnt mit Verstehen" },
+    "hero": {
+      "title": "Gesundes Leben beginnt mit Verstehen"
+    },
     "sections": [
       {
         "id": "circadian-rhythm",
@@ -117,29 +164,74 @@
       "title": "Gameplay — TendFarm",
       "description": "Entdecke TendFarms Kern-Spielschleife: Felder, Wassertanks, Ernten und Verkäufe — alles angetrieben von deinen Gesundheitsdaten."
     },
-    "hero": { "title": "Einmal pflanzen, ein Leben lang ernten" },
+    "hero": {
+      "title": "Einmal pflanzen, ein Leben lang ernten"
+    },
     "loop": {
       "title": "Kern-Schleife",
-      "steps": ["Feld braucht Wasser", "Auto-Bewässerung", "Wächst (Aktivität beschleunigt)", "Erntereif", "Auto-Ernte", "Einlagern & Verkaufen", "Münzen & Upgrades"]
+      "steps": [
+        "Feld braucht Wasser",
+        "Auto-Bewässerung",
+        "Wächst (Aktivität beschleunigt)",
+        "Erntereif",
+        "Auto-Ernte",
+        "Einlagern & Verkaufen",
+        "Münzen & Upgrades"
+      ]
     },
     "crops": {
       "title": "Pflanzenübersicht",
       "list": [
-        { "name": "Morgenbohne", "cycle": "6 Min", "desc": "Tutorial-Pflanze — erlebe deine erste Ernte schnell" },
-        { "name": "Weizensprössling", "cycle": "45 Min", "desc": "Hochfrequente Tagespflanze, ideal für häufige Prüfer" },
-        { "name": "Baumwollpuff", "cycle": "2,5 Std", "desc": "Stabile Setz-und-vergiss-Pflanze, der tägliche Favorit" },
-        { "name": "Nachtbeere", "cycle": "8 Std", "desc": "Wächst während du schläfst — beim Aufwachen erntefertig" },
-        { "name": "Energiegras", "cycle": "2 Std", "desc": "Hohe Kraftstoff-Nebenprodukte, hält deinen Auto-Ernter betankt" }
+        {
+          "name": "Morgenbohne",
+          "cycle": "6 Min",
+          "desc": "Tutorial-Pflanze — erlebe deine erste Ernte schnell"
+        },
+        {
+          "name": "Weizensprössling",
+          "cycle": "45 Min",
+          "desc": "Hochfrequente Tagespflanze, ideal für häufige Prüfer"
+        },
+        {
+          "name": "Baumwollpuff",
+          "cycle": "2,5 Std",
+          "desc": "Stabile Setz-und-vergiss-Pflanze, der tägliche Favorit"
+        },
+        {
+          "name": "Nachtbeere",
+          "cycle": "8 Std",
+          "desc": "Wächst während du schläfst — beim Aufwachen erntefertig"
+        },
+        {
+          "name": "Energiegras",
+          "cycle": "2 Std",
+          "desc": "Hohe Kraftstoff-Nebenprodukte, hält deinen Auto-Ernter betankt"
+        }
       ]
     },
     "week": {
       "title": "Erfahrung der ersten 7 Tage",
       "days": [
-        { "day": "Tag 1", "exp": "Erste Ernte und Verkauf" },
-        { "day": "Tag 2", "exp": "Scheune und Wassertank upgraden, zweites Feld freischalten" },
-        { "day": "Tag 3", "exp": "Auto-Ernter und Kraftstoffsystem freischalten" },
-        { "day": "Tag 4–5", "exp": "Pflanzenkonfigurationen ausprobieren, Output optimieren" },
-        { "day": "Tag 6–7", "exp": "Tagesrhythmus-Feedback setzt ein, erste Aura-Sichtung" }
+        {
+          "day": "Tag 1",
+          "exp": "Erste Ernte und Verkauf"
+        },
+        {
+          "day": "Tag 2",
+          "exp": "Scheune und Wassertank upgraden, zweites Feld freischalten"
+        },
+        {
+          "day": "Tag 3",
+          "exp": "Auto-Ernter und Kraftstoffsystem freischalten"
+        },
+        {
+          "day": "Tag 4–5",
+          "exp": "Pflanzenkonfigurationen ausprobieren, Output optimieren"
+        },
+        {
+          "day": "Tag 6–7",
+          "exp": "Tagesrhythmus-Feedback setzt ein, erste Aura-Sichtung"
+        }
       ]
     }
   },
@@ -148,11 +240,23 @@
       "title": "Tools — TendFarm",
       "description": "Hay Day Ertragsrechner, Stardew Valley Ertragsrechner und TendFarm Gesundheitsrhythmus-Tools."
     },
-    "hero": { "title": "Spiel-Tools & TendFarm-Tools", "subtitle": "Hay Day und Stardew Valley Ertragsrechner sind live. TendFarm Gesundheitsrhythmus-Tools kommen bald." },
+    "hero": {
+      "title": "Spiel-Tools & TendFarm-Tools",
+      "subtitle": "Hay Day und Stardew Valley Ertragsrechner sind live. TendFarm Gesundheitsrhythmus-Tools kommen bald."
+    },
     "coming": [
-      { "title": "Zirkadianer Rhythmus-Quiz", "desc": "8 Fragen enthüllen dein Rhythmus-Level und den entsprechenden Farm-Zustand." },
-      { "title": "Farm-Effizienz-Simulator", "desc": "Gib deine Gesundheitsdaten ein, um vorherzusagen, wie viel mehr deine Farm heute ernten kann." },
-      { "title": "Pflanzenkonfigurations-Empfehler", "desc": "Basierend auf deinen Lebensgewohnheiten erhältst du das passende Feldlayout-Template." }
+      {
+        "title": "Zirkadianer Rhythmus-Quiz",
+        "desc": "8 Fragen enthüllen dein Rhythmus-Level und den entsprechenden Farm-Zustand."
+      },
+      {
+        "title": "Farm-Effizienz-Simulator",
+        "desc": "Gib deine Gesundheitsdaten ein, um vorherzusagen, wie viel mehr deine Farm heute ernten kann."
+      },
+      {
+        "title": "Pflanzenkonfigurations-Empfehler",
+        "desc": "Basierend auf deinen Lebensgewohnheiten erhältst du das passende Feldlayout-Template."
+      }
     ],
     "notify": "Benachrichtige mich, wenn Tools verfügbar sind",
     "comingSoon": "Demnächst verfügbar"
@@ -165,9 +269,18 @@
     "guidesCenter": "Guides-Center",
     "comingSoon": "Guides folgen bald. Bleib dran.",
     "games": {
-      "hay-day": { "name": "Hay Day", "desc": "Das beliebteste mobile Farming-Spiel" },
-      "stardew-valley": { "name": "Stardew Valley", "desc": "Das legendäre Indie-Farming-RPG" },
-      "animal-crossing": { "name": "Animal Crossing: New Horizons", "desc": "Nintendos gemütliches Insellebens-Spiel" }
+      "hay-day": {
+        "name": "Hay Day",
+        "desc": "Das beliebteste mobile Farming-Spiel"
+      },
+      "stardew-valley": {
+        "name": "Stardew Valley",
+        "desc": "Das legendäre Indie-Farming-RPG"
+      },
+      "animal-crossing": {
+        "name": "Animal Crossing: New Horizons",
+        "desc": "Nintendos gemütliches Insellebens-Spiel"
+      }
     },
     "tendfarmHook": {
       "title": "Wusstest du das?",

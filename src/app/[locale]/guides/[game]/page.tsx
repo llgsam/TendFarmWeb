@@ -4,8 +4,9 @@ import { getGuides } from '@/lib/guides'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
-import { getGuideCategory, GUIDE_CATEGORY_KEYS } from '@/lib/guide-categories'
+import { getGuideCategory, GUIDE_CATEGORY_KEYS, guideLoc as getLoc } from '@/lib/guide-categories'
 import { LOCALES } from '@/lib/config'
+import { getGameBySlug, getGameName } from '@/lib/games'
 
 export async function generateStaticParams() {
   return LOCALES.flatMap((locale) =>
@@ -45,13 +46,21 @@ export default async function GameGuidesPage({
   const t = await getTranslations({ locale, namespace: 'guides' })
   const gameName = category.name(locale)
 
+  // Per-game guides belong to the game: link back to its profile.
+  // The best-games hub links back to the game directory.
+  const gameProfile = getGameBySlug(game)
+  const backHref = gameProfile ? `/${locale}/games/${game}` : `/${locale}/games`
+  const backLabel = gameProfile
+    ? `← ${getGameName(gameProfile, locale)}`
+    : `← ${getLoc(locale, '游戏大全', 'All Games', '遊戲大全', 'ゲーム一覧', '모든 게임', 'Alle Spiele')}`
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <Link
-        href={`/${locale}/guides`}
+        href={backHref}
         className="mb-6 inline-block text-sm text-[#8a9a7a] transition-colors hover:text-[#f0a832]"
       >
-        ← {t('guidesCenter')}
+        {backLabel}
       </Link>
       <h1 className="mb-10 text-3xl font-bold text-[#e8dcc8]">{gameName}</h1>
       {/* Calculator cross-link for supported games */}

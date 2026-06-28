@@ -51,9 +51,10 @@ export default async function GuideArticlePage({
     { title: post.title, description: post.description, publishedAt: post.publishedAt, slug, game },
     locale
   )
+  // Home > {category} > article. (No generic "Guides" level — /guides is a redirect
+  // to the comparison hub; the category already conveys the section.)
   const breadcrumb = breadcrumbSchema([
     { name: isZh ? '首页' : 'Home', url: `${BASE_URL}/${locale}` },
-    { name: isZh ? '攻略' : 'Guides', url: `${BASE_URL}/${locale}/guides` },
     { name: gameLabel, url: `${BASE_URL}/${locale}/guides/${game}` },
     { name: post.title, url: `${BASE_URL}/${locale}/guides/${game}/${slug}` },
   ])
