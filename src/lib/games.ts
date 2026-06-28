@@ -52,6 +52,47 @@ export const STYLE_LABELS_EN: Record<Style, string> = {
   multiplayer: 'Multiplayer',
 }
 
+export const STYLE_LABELS_JA: Record<Style, string> = {
+  casual: 'カジュアル',
+  strategy: 'ストラテジー',
+  simulation: 'シミュレーション',
+  rpg: 'RPG',
+  multiplayer: 'マルチプレイヤー',
+}
+
+export const STYLE_LABELS_KO: Record<Style, string> = {
+  casual: '캐주얼',
+  strategy: '전략',
+  simulation: '시뮬레이션',
+  rpg: 'RPG',
+  multiplayer: '멀티플레이어',
+}
+
+export const STYLE_LABELS_DE: Record<Style, string> = {
+  casual: 'Casual',
+  strategy: 'Strategie',
+  simulation: 'Simulation',
+  rpg: 'RPG',
+  multiplayer: 'Mehrspieler',
+}
+
+export const STYLE_LABELS_TW: Record<Style, string> = {
+  casual: '休閒',
+  strategy: '策略',
+  simulation: '模擬經營',
+  rpg: 'RPG',
+  multiplayer: '多人連線',
+}
+
+export function getStyleLabels(locale: string): Record<Style, string> {
+  if (locale === 'zh') return STYLE_LABELS_ZH
+  if (locale === 'zh-TW') return STYLE_LABELS_TW
+  if (locale === 'ja') return STYLE_LABELS_JA
+  if (locale === 'ko') return STYLE_LABELS_KO
+  if (locale === 'de') return STYLE_LABELS_DE
+  return STYLE_LABELS_EN
+}
+
 export const GAMES: GameData[] = [
   {
     slug: 'hay-day',

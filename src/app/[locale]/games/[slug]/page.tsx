@@ -1,14 +1,24 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { GAMES, getGameBySlug, getAllGameSlugs, PLATFORM_LABELS, STYLE_LABELS_ZH, STYLE_LABELS_EN } from '@/lib/games'
+import { GAMES, getGameBySlug, getAllGameSlugs, PLATFORM_LABELS, getStyleLabels } from '@/lib/games'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { videoGameSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 
+const ALL_LOCALES = ['zh', 'en', 'zh-TW', 'ja', 'ko', 'de']
+
 export async function generateStaticParams() {
-  const locales = ['zh', 'en']
   const slugs = getAllGameSlugs()
-  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })))
+  return ALL_LOCALES.flatMap((locale) => slugs.map((slug) => ({ locale, slug })))
+}
+
+function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
+  if (locale === 'zh') return zh
+  if (locale === 'zh-TW') return zhTW ?? zh
+  if (locale === 'ja') return ja ?? en
+  if (locale === 'ko') return ko ?? en
+  if (locale === 'de') return de ?? en
+  return en
 }
 
 export async function generateMetadata({
@@ -24,10 +34,10 @@ export async function generateMetadata({
   const name = isZh ? game.nameZh : game.nameEn
   const desc = isZh ? game.descZh : game.descEn
 
+  const titleSuffix = getLoc(locale, '攻略与推荐', 'Review & Guide', '攻略與推薦', 'レビュー・攻略', '리뷰 및 공략', 'Review & Guide')
+
   return {
-    title: isZh
-      ? `${name} 攻略与推荐 | Farming Game Hub`
-      : `${name} Review & Guide | Farming Game Hub`,
+    title: `${name} ${titleSuffix} | Farming Game Hub`,
     description: desc,
     alternates: {
       canonical: `${BASE_URL}/${locale}/games/${slug}`,
@@ -46,11 +56,12 @@ export default async function GameDetailPage({
   if (!game) notFound()
 
   const isZh = locale === 'zh' || locale === 'zh-TW'
+  const styleLabels = getStyleLabels(locale)
   const name = isZh ? game.nameZh : game.nameEn
   const desc = isZh ? game.longDescZh : game.longDescEn
   const forWhom = isZh ? game.forWhomZh : game.forWhomEn
   const tip = isZh ? game.tipZh : game.tipEn
-  const styles = game.styles.map((s) => (isZh ? STYLE_LABELS_ZH[s] : STYLE_LABELS_EN[s]))
+  const styles = game.styles.map((s) => styleLabels[s])
 
   const related = (game.relatedSlugs ?? [])
     .map((s) => GAMES.find((g) => g.slug === s))
@@ -58,56 +69,51 @@ export default async function GameDetailPage({
 
   const gameSchema = videoGameSchema(game, locale)
   const breadcrumb = breadcrumbSchema([
-    { name: isZh ? '首页' : 'Home', url: `${BASE_URL}/${locale}` },
-    { name: isZh ? '游戏大全' : 'All Games', url: `${BASE_URL}/${locale}/games` },
+    { name: getLoc(locale, '首页', 'Home', '首頁', 'ホーム', '홈', 'Startseite'), url: `${BASE_URL}/${locale}` },
+    { name: getLoc(locale, '游戏大全', 'All Games', '遊戲大全', 'ゲーム一覧', '모든 게임', 'Alle Spiele'), url: `${BASE_URL}/${locale}/games` },
     { name, url: `${BASE_URL}/${locale}/games/${slug}` },
   ])
 
-  const platformNames = game.platforms.map((p) => PLATFORM_LABELS[p]).join('、')
+  const platformNames = game.platforms.map((p) => PLATFORM_LABELS[p]).join(isZh ? '、' : ', ')
+
   const faqs = isZh
     ? [
-        {
-          question: `${name} 是什么游戏？`,
-          answer: game.descZh,
-        },
-        {
-          question: `${name} 支持哪些平台？`,
-          answer: `${name} 支持以下平台：${platformNames}。`,
-        },
-        {
-          question: `${name} 适合新手吗？`,
-          answer: game.tipZh || `${name} 对新手相对友好，建议先了解基本玩法。`,
-        },
-        {
-          question: `${name} 是谁开发的？`,
-          answer: `${name} 由 ${game.developerZh} 于 ${game.year} 年开发。`,
-        },
-        {
-          question: `${name} 适合什么类型的玩家？`,
-          answer: game.forWhomZh,
-        },
+        { question: `${name} 是什么游戏？`, answer: game.descZh },
+        { question: `${name} 支持哪些平台？`, answer: `${name} 支持以下平台：${platformNames}。` },
+        { question: `${name} 适合新手吗？`, answer: game.tipZh || `${name} 对新手相对友好，建议先了解基本玩法。` },
+        { question: `${name} 是谁开发的？`, answer: `${name} 由 ${game.developerZh} 于 ${game.year} 年开发。` },
+        { question: `${name} 适合什么类型的玩家？`, answer: game.forWhomZh },
+      ]
+    : locale === 'ja'
+    ? [
+        { question: `${name} はどんなゲームですか？`, answer: game.descEn },
+        { question: `${name} はどのプラットフォームで遊べますか？`, answer: `${name} は ${platformNames} で遊べます。` },
+        { question: `${name} は初心者向けですか？`, answer: game.tipEn || `${name} は初心者に優しく、すぐに楽しめます。` },
+        { question: `${name} の開発者は？`, answer: `${name} は ${game.developerEn} が ${game.year} 年にリリースしました。` },
+        { question: `${name} はどんな人に向いていますか？`, answer: game.forWhomEn },
+      ]
+    : locale === 'ko'
+    ? [
+        { question: `${name}는 어떤 게임인가요?`, answer: game.descEn },
+        { question: `${name}는 어떤 플랫폼에서 즐길 수 있나요?`, answer: `${name}는 ${platformNames}에서 플레이할 수 있습니다.` },
+        { question: `${name}는 초보자에게 적합한가요?`, answer: game.tipEn || `${name}는 초보자 친화적인 게임입니다.` },
+        { question: `${name}는 누가 개발했나요?`, answer: `${name}는 ${game.developerEn}이 ${game.year}년에 출시했습니다.` },
+        { question: `${name}는 어떤 플레이어에게 맞나요?`, answer: game.forWhomEn },
+      ]
+    : locale === 'de'
+    ? [
+        { question: `Was ist ${name}?`, answer: game.descEn },
+        { question: `Auf welchen Plattformen ist ${name} verfügbar?`, answer: `${name} ist auf ${platformNames} verfügbar.` },
+        { question: `Ist ${name} für Anfänger geeignet?`, answer: game.tipEn || `${name} ist einsteiger­freundlich.` },
+        { question: `Wer hat ${name} entwickelt?`, answer: `${name} wurde von ${game.developerEn} im Jahr ${game.year} veröffentlicht.` },
+        { question: `Für wen ist ${name} gedacht?`, answer: game.forWhomEn },
       ]
     : [
-        {
-          question: `What is ${name}?`,
-          answer: game.descEn,
-        },
-        {
-          question: `What platforms is ${name} available on?`,
-          answer: `${name} is available on: ${platformNames}.`,
-        },
-        {
-          question: `Is ${name} good for beginners?`,
-          answer: game.tipEn || `${name} is beginner-friendly with a gentle learning curve.`,
-        },
-        {
-          question: `Who developed ${name}?`,
-          answer: `${name} was developed by ${game.developerEn} and released in ${game.year}.`,
-        },
-        {
-          question: `Who should play ${name}?`,
-          answer: game.forWhomEn,
-        },
+        { question: `What is ${name}?`, answer: game.descEn },
+        { question: `What platforms is ${name} available on?`, answer: `${name} is available on: ${platformNames}.` },
+        { question: `Is ${name} good for beginners?`, answer: game.tipEn || `${name} is beginner-friendly with a gentle learning curve.` },
+        { question: `Who developed ${name}?`, answer: `${name} was developed by ${game.developerEn} and released in ${game.year}.` },
+        { question: `Who should play ${name}?`, answer: game.forWhomEn },
       ]
 
   const faq = faqSchema(faqs.filter((f) => f.answer))
@@ -130,11 +136,11 @@ export default async function GameDetailPage({
         {/* Breadcrumb */}
         <nav className="mb-8 flex items-center gap-2 text-xs text-[#8a9a7a]">
           <Link href={`/${locale}`} className="hover:text-[#e8dcc8]">
-            {isZh ? '首页' : 'Home'}
+            {getLoc(locale, '首页', 'Home', '首頁', 'ホーム', '홈', 'Startseite')}
           </Link>
           <span>›</span>
           <Link href={`/${locale}/games`} className="hover:text-[#e8dcc8]">
-            {isZh ? '游戏大全' : 'All Games'}
+            {getLoc(locale, '游戏大全', 'All Games', '遊戲大全', 'ゲーム一覧', '모든 게임', 'Alle Spiele')}
           </Link>
           <span>›</span>
           <span className="text-[#e8dcc8]">{name}</span>
@@ -163,7 +169,7 @@ export default async function GameDetailPage({
             ))}
           </div>
           <p className="text-sm text-[#8a9a7a]">
-            {isZh ? '开发商：' : 'Developer: '}
+            {getLoc(locale, '开发商：', 'Developer: ', '開發商：', 'デベロッパー: ', '개발사: ', 'Entwickler: ')}
             <span className="text-[#e8dcc8]">{isZh ? game.developerZh : game.developerEn}</span>
             <span className="mx-2">·</span>
             {game.year}
@@ -173,7 +179,7 @@ export default async function GameDetailPage({
         {/* Description */}
         <section className="mb-10">
           <h2 className="mb-4 text-lg font-semibold text-[#e8dcc8]">
-            {isZh ? '游戏介绍' : 'About the Game'}
+            {getLoc(locale, '游戏介绍', 'About the Game', '遊戲介紹', 'ゲーム紹介', '게임 소개', 'Über das Spiel')}
           </h2>
           <p className="leading-relaxed text-[#8a9a7a]">{desc}</p>
         </section>
@@ -182,7 +188,7 @@ export default async function GameDetailPage({
         {game.features.length > 0 && (
           <section className="mb-10">
             <h2 className="mb-4 text-lg font-semibold text-[#e8dcc8]">
-              {isZh ? '核心玩法亮点' : 'Key Features'}
+              {getLoc(locale, '核心玩法亮点', 'Key Features', '核心玩法亮點', '主な特徴', '주요 특징', 'Highlights')}
             </h2>
             <ul className="space-y-2">
               {game.features.map((f, i) => (
@@ -202,7 +208,7 @@ export default async function GameDetailPage({
         {forWhom && (
           <section className="mb-10 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f]/50 p-6">
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#f0a832]">
-              {isZh ? '适合什么样的玩家？' : 'Who Is This Game For?'}
+              {getLoc(locale, '适合什么样的玩家？', 'Who Is This Game For?', '適合什麼樣的玩家？', 'こんな人におすすめ', '이런 플레이어에게 추천', 'Für wen ist dieses Spiel?')}
             </h2>
             <p className="text-sm leading-relaxed text-[#8a9a7a]">{forWhom}</p>
           </section>
@@ -212,7 +218,7 @@ export default async function GameDetailPage({
         {tip && (
           <section className="mb-10 rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-6">
             <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#7bc67e]">
-              {isZh ? '新手小贴士' : 'Beginner Tip'}
+              {getLoc(locale, '新手小贴士', 'Beginner Tip', '新手小貼士', '初心者へのアドバイス', '초보자 팁', 'Einsteiger-Tipp')}
             </h2>
             <p className="text-sm leading-relaxed text-[#8a9a7a]">{tip}</p>
           </section>
@@ -222,7 +228,7 @@ export default async function GameDetailPage({
         {(game.hasTools || game.hasGuides) && (
           <section className="mb-10">
             <h2 className="mb-4 text-lg font-semibold text-[#e8dcc8]">
-              {isZh ? '更多资源' : 'More Resources'}
+              {getLoc(locale, '更多资源', 'More Resources', '更多資源', 'その他のリソース', '더 많은 리소스', 'Weitere Ressourcen')}
             </h2>
             <div className="flex flex-wrap gap-3">
               {game.hasTools && (
@@ -230,7 +236,7 @@ export default async function GameDetailPage({
                   href={`/${locale}/tools/${game.slug}`}
                   className="rounded-lg border border-[#f0a832]/30 px-4 py-2 text-sm text-[#f0a832] hover:border-[#f0a832]/60 hover:bg-[#f0a832]/5 transition-colors"
                 >
-                  {isZh ? `📊 ${name} 计算器` : `📊 ${name} Calculator`}
+                  {getLoc(locale, `📊 ${name} 计算器`, `📊 ${name} Calculator`, `📊 ${name} 計算器`, `📊 ${name} 計算ツール`, `📊 ${name} 계산기`, `📊 ${name} Rechner`)}
                 </Link>
               )}
               {game.hasGuides && (
@@ -238,7 +244,7 @@ export default async function GameDetailPage({
                   href={`/${locale}/guides`}
                   className="rounded-lg border border-[#7bc67e]/30 px-4 py-2 text-sm text-[#7bc67e] hover:border-[#7bc67e]/60 hover:bg-[#7bc67e]/5 transition-colors"
                 >
-                  {isZh ? `📖 ${name} 攻略` : `📖 ${name} Guides`}
+                  {getLoc(locale, `📖 ${name} 攻略`, `📖 ${name} Guides`, `📖 ${name} 攻略`, `📖 ${name} 攻略`, `📖 ${name} 공략`, `📖 ${name} Guides`)}
                 </Link>
               )}
             </div>
@@ -249,11 +255,12 @@ export default async function GameDetailPage({
         {related.length > 0 && (
           <section className="mb-10">
             <h2 className="mb-4 text-lg font-semibold text-[#e8dcc8]">
-              {isZh ? '类似游戏' : 'Similar Games'}
+              {getLoc(locale, '类似游戏', 'Similar Games', '類似遊戲', '似たようなゲーム', '비슷한 게임', 'Ähnliche Spiele')}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2">
               {related.map((r) => {
                 if (!r) return null
+                const rName = isZh ? r.nameZh : r.nameEn
                 return (
                   <Link
                     key={r.slug}
@@ -263,10 +270,10 @@ export default async function GameDetailPage({
                     <span className="text-2xl">{r.emoji}</span>
                     <div>
                       <p className="text-sm font-medium text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
-                        {isZh ? r.nameZh : r.nameEn}
+                        {rName}
                       </p>
                       <p className="text-xs text-[#8a9a7a]">
-                        {r.styles.map((s) => (isZh ? STYLE_LABELS_ZH[s] : STYLE_LABELS_EN[s])).join(' · ')}
+                        {r.styles.map((s) => styleLabels[s]).join(' · ')}
                       </p>
                     </div>
                   </Link>
@@ -279,19 +286,19 @@ export default async function GameDetailPage({
         {/* FAQ */}
         <section className="mb-10">
           <h2 className="mb-6 text-lg font-semibold text-[#e8dcc8]">
-            {locale === 'zh' ? '常见问题' : locale === 'zh-TW' ? '常見問題' : locale === 'ja' ? 'よくある質問' : locale === 'ko' ? '자주 묻는 질문' : locale === 'de' ? 'Häufig gestellte Fragen' : 'Frequently Asked Questions'}
+            {getLoc(locale, '常见问题', 'Frequently Asked Questions', '常見問題', 'よくある質問', '자주 묻는 질문', 'Häufig gestellte Fragen')}
           </h2>
           <div className="space-y-4">
-            {faqs.filter((f) => f.answer).map((faq, i) => (
+            {faqs.filter((f) => f.answer).map((faqItem, i) => (
               <details
                 key={i}
                 className="group rounded-xl border border-[#2d3d2d] bg-[#0f1a0f]/30 open:border-[#f0a832]/20"
               >
                 <summary className="cursor-pointer select-none px-5 py-4 text-sm font-medium text-[#e8dcc8] list-none flex items-center justify-between">
-                  {faq.question}
+                  {faqItem.question}
                   <span className="ml-2 text-[#8a9a7a] group-open:rotate-180 transition-transform">▾</span>
                 </summary>
-                <p className="px-5 pb-4 text-sm text-[#8a9a7a] leading-relaxed">{faq.answer}</p>
+                <p className="px-5 pb-4 text-sm text-[#8a9a7a] leading-relaxed">{faqItem.answer}</p>
               </details>
             ))}
           </div>
@@ -303,13 +310,13 @@ export default async function GameDetailPage({
             href={`/${locale}/games`}
             className="text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors"
           >
-            ← {isZh ? '回到游戏大全' : 'Back to All Games'}
+            ← {getLoc(locale, '回到游戏大全', 'Back to All Games', '回到遊戲大全', 'ゲーム一覧に戻る', '모든 게임으로 돌아가기', 'Zurück zur Spielliste')}
           </Link>
           <Link
             href={`/${locale}/quizzes/farm-personality`}
             className="text-sm text-[#f0a832] hover:underline"
           >
-            {isZh ? '🌾 测测你的农场人格 →' : '🌾 Take the Farm Quiz →'}
+            {getLoc(locale, '🌾 测测你的农场人格 →', '🌾 Take the Farm Quiz →', '🌾 測測你的農場人格 →', '🌾 農場診断を受ける →', '🌾 농장 퀴즈 하기 →', '🌾 Farm-Quiz starten →')}
           </Link>
         </div>
       </div>
