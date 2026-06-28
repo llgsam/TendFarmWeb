@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { GAMES, getFeaturedGames, PLATFORM_LABELS, getStyleLabels, getGameName, getGameDesc } from '@/lib/games'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
+import { itemListSchema } from '@/lib/structured-data'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -57,8 +58,21 @@ export default async function GamesPage({
   const featured = getFeaturedGames()
   const others = GAMES.filter((g) => !g.featured)
 
+  const itemList = itemListSchema(
+    getLoc(locale, '农场游戏大全', 'All Farming Games', '農場遊戲大全', 'すべての農場ゲーム', '모든 농장 게임', 'Alle Farmspiele'),
+    GAMES.map((g) => ({
+      name: getGameName(g, locale),
+      url: `${BASE_URL}/${locale}/games/${g.slug}`,
+      description: getGameDesc(g, locale),
+    }))
+  )
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
+      />
       {/* Header */}
       <div className="mb-12">
         <p className="mb-2 text-xs uppercase tracking-widest text-[#f0a832]">

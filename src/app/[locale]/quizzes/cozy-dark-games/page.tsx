@@ -125,6 +125,10 @@ export default async function CozyDarkGamesPage({
           </span>
         </nav>
 
+        <h1 className="mb-4 text-2xl font-bold leading-tight text-[#e8dcc8]">
+          {isZh ? '暗色系 Cozy 游戏测验' : 'Dark Cozy Games Quiz'}
+        </h1>
+
         <div className="rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-8">
           <CozyDarkQuiz locale={locale} />
         </div>

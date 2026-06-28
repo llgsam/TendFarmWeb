@@ -94,9 +94,7 @@ export default async function Page({ params }: Props) {
         <div className="mx-auto max-w-2xl px-4 py-10">
           <div className="mb-8 text-center">
             <span className="mb-3 inline-block text-5xl">🏕️</span>
-            <p className="text-sm text-[#8a9a7a]">
-              {isZh ? 'Cozy 生存游戏推荐测验' : 'Cozy Survival Game Quiz'}
-            </p>
+            <h1 className="text-2xl font-bold leading-tight text-[#e8dcc8]">{isZh ? 'Cozy 生存游戏推荐测验' : 'Cozy Survival Game Quiz'}</h1>
           </div>
 
           <div className="rounded-2xl border border-[#2d3d2d] bg-[#141f14] p-6 shadow-xl">

@@ -57,6 +57,27 @@ export function breadcrumbSchema(
   }
 }
 
+// Ordered list of entities on a directory/collection page (games, comparison
+// articles, quizzes). Helps AI engines and search extract "here are the items".
+export function itemListSchema(
+  name: string,
+  items: { name: string; url: string; description?: string }[]
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+      ...(item.description ? { description: item.description } : {}),
+    })),
+  }
+}
+
 export function videoGameSchema(game: {
   slug: string
   nameEn: string

@@ -3,10 +3,11 @@ import { getTranslations } from 'next-intl/server'
 import { getGuides } from '@/lib/guides'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
+import { buildLanguageAlternates } from '@/lib/config'
 import { getGuideCategory, GUIDE_CATEGORY_KEYS, guideLoc as getLoc } from '@/lib/guide-categories'
-import { LOCALES } from '@/lib/config'
+import { LOCALES, BASE_URL } from '@/lib/config'
 import { getGameBySlug, getGameName } from '@/lib/games'
+import { itemListSchema } from '@/lib/structured-data'
 
 export async function generateStaticParams() {
   return LOCALES.flatMap((locale) =>
@@ -54,8 +55,25 @@ export default async function GameGuidesPage({
     ? `← ${getGameName(gameProfile, locale)}`
     : `← ${getLoc(locale, '游戏大全', 'All Games', '遊戲大全', 'ゲーム一覧', '모든 게임', 'Alle Spiele')}`
 
+  const itemList = guides.length
+    ? itemListSchema(
+        gameName,
+        guides.map((g) => ({
+          name: g.title,
+          url: `${BASE_URL}/${locale}/guides/${game}/${g.slug}`,
+          description: g.description,
+        }))
+      )
+    : null
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
+      {itemList && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }}
+        />
+      )}
       <Link
         href={backHref}
         className="mb-6 inline-block text-sm text-[#8a9a7a] transition-colors hover:text-[#f0a832]"

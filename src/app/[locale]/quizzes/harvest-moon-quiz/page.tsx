@@ -119,6 +119,10 @@ export default async function HarvestMoonQuizPage({
           </span>
         </nav>
 
+        <h1 className="mb-4 text-2xl font-bold leading-tight text-[#e8dcc8]">
+          {isZh ? '牧场物语 / 符文工房推荐测验' : 'Story of Seasons Quiz'}
+        </h1>
+
         <div className="rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-8">
           <HarvestMoonQuiz locale={locale} />
         </div>

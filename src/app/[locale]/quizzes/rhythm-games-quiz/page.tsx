@@ -118,6 +118,9 @@ export default async function RhythmGamesQuizPage({
         <div className="mb-2 text-xs uppercase tracking-widest text-[#f0a832]">
           {isZh ? '节奏游戏推荐' : 'Rhythm Game Finder'}
         </div>
+        <h1 className="mb-8 text-2xl font-bold leading-tight text-[#e8dcc8]">
+          {isZh ? '哪款节奏游戏最适合你？' : 'Which Rhythm Game Should You Play?'}
+        </h1>
 
         <div className="mb-8 rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-8">
           <RhythmGamesQuiz locale={locale} />

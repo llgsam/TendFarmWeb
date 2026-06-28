@@ -97,9 +97,7 @@ export default async function CozyManagementQuizPage({
     <div className="min-h-screen bg-[#0f1a0f] text-[#e8dcc8]">
       <main className="mx-auto max-w-2xl px-4 py-12">
         <div className="mb-8 text-center">
-          <p className="mb-2 text-sm text-[#8a9a7a]">
-            {isZh ? '管理模拟 · 游戏推荐测验' : 'Management Sim · Game Finder Quiz'}
-          </p>
+          <h1 className="text-2xl font-bold leading-tight text-[#e8dcc8]">{isZh ? '管理模拟 · 游戏推荐测验' : 'Management Sim · Game Finder Quiz'}</h1>
         </div>
 
         <div className="rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/60 p-6 shadow-xl">

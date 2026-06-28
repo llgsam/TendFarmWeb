@@ -116,6 +116,10 @@ export default async function StardewRomancePage({
           </span>
         </nav>
 
+        <h1 className="mb-4 text-2xl font-bold leading-tight text-[#e8dcc8]">
+          {isZh ? '星露谷配对测验' : 'Stardew Romance Quiz'}
+        </h1>
+
         <div className="rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-8">
           <StardewRomanceQuiz locale={locale} />
         </div>
