@@ -1,6 +1,16 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
+import { QUIZ_TRANSLATIONS } from '@/lib/quizzes-i18n'
+
+function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
+  if (locale === 'zh') return zh
+  if (locale === 'zh-TW') return zhTW ?? zh
+  if (locale === 'ja') return ja ?? en
+  if (locale === 'ko') return ko ?? en
+  if (locale === 'de') return de ?? en
+  return en
+}
 
 export async function generateMetadata({
   params,
@@ -8,14 +18,26 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh' || locale === 'zh-TW' || locale === 'zh-TW'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
-    title: isZh
-      ? '农场游戏测评 — 找到你的游戏类型 | Farming Game Hub'
-      : 'Farming Game Quizzes — Find Your Perfect Game | Farming Game Hub',
-    description: isZh
-      ? '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。'
-      : 'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
+    title: getLoc(
+      locale,
+      '农场游戏测评 — 找到你的游戏类型 | Farming Game Hub',
+      'Farming Game Quizzes — Find Your Perfect Game | Farming Game Hub',
+      '農場遊戲測驗 — 找到你的遊戲類型 | Farming Game Hub',
+      '農場ゲーム診断 — あなたのゲームタイプを見つけよう | Farming Game Hub',
+      '농장 게임 퀴즈 — 당신의 게임 유형 찾기 | Farming Game Hub',
+      'Farmspiel-Quizze — Finde dein perfektes Spiel | Farming Game Hub',
+    ),
+    description: getLoc(
+      locale,
+      '农场游戏互动测评：测出你的农场人格、找到最适合你的游戏，结果适合截图分享。',
+      'Interactive farming game quizzes — discover your farming personality, find the perfect game for your playstyle, and share your results.',
+      '農場遊戲互動測驗：測出你的農場人格、找到最適合你的遊戲，結果適合截圖分享。',
+      '農場ゲームのインタラクティブ診断：あなたの農場プレイスタイルを知り、ぴったりのゲームを見つけて、結果をシェアしよう。',
+      '농장 게임 인터랙티브 퀴즈: 당신의 농장 성격을 알아보고 딱 맞는 게임을 찾아 결과를 공유하세요.',
+      'Interaktive Farmspiel-Quizze — entdecke deinen Farm-Typ, finde das perfekte Spiel und teile deine Ergebnisse.',
+    ),
     keywords: isZh
       ? ['农场游戏测评', '星露谷农场类型测试', '农场美学测试', '农场人格测试', '你是哪位星露谷村民', '星露谷配对测验', 'cozy gamer 测试', 'cottagecore 农场', '星露谷新手攻略', '星露谷段位测验', '动物森友会村民测验', 'Palia 游戏风格', 'Palia 新手攻略', 'Palia 免费吗', '牧场物语哪款好', '符文工房推荐', 'Disney Dreamlight Valley 角色测验', 'Dreamlight Valley 免费吗', '星露谷联机攻略', '星露谷多人模式', 'Spiritfarer 灵魂测验', 'Spiritfarer 会哭吗', '手机农场游戏推荐', 'Hay Day 攻略', '类星露谷游戏', '星露谷替代品', 'Switch cozy 游戏推荐', '农场RPG推荐', 'Harvestella值得买吗', '符文工房5值得买吗', 'Paleo Pines推荐', '牧场物语橄榄镇好玩吗', '农场游戏带战斗', '恐龙农场游戏', 'Dinkum值得买吗', 'Kynseed推荐', 'Littlewood好玩吗', '旅者驿站值得买吗', '治愈独立农场游戏推荐', '澳洲农场游戏', 'Spirittea值得买吗', '仙武门评测', 'Moonglow Bay好玩吗', 'Everdream Valley推荐', '日式妖怪农场游戏', '仙侠农场游戏', '梅林回响评测', 'Sugardew Island好玩吗', '生长常树之歌推荐', 'Farm Together 2好玩吗', '2024农场游戏推荐', '合作农场游戏']
       : ['farming game quiz', 'which stardew valley farm type', 'farm aesthetic quiz', 'cottagecore farm aesthetic', 'which stardew valley character are you', 'stardew valley romance quiz', 'cozy gamer quiz', 'which farming game should i play', 'stardew valley tips for beginners', 'which animal crossing villager are you', 'palia tips for beginners', 'palia playstyle quiz', 'which story of seasons game should i play', 'harvest moon quiz', 'which disney dreamlight valley character are you', 'is disney dreamlight valley free', 'stardew valley multiplayer', 'stardew valley co-op tips', 'which spiritfarer spirit are you', 'is spiritfarer sad', 'best mobile farming game', 'hay day tips for beginners', 'games like stardew valley', 'stardew valley alternatives', 'sun haven vs stardew valley', 'what to play after stardew valley', 'best cozy games switch', 'cozy games nintendo switch', 'best nintendo switch games for relaxing', 'best cozy games for beginners', 'easy cozy games to get into', 'cozy games for non gamers', 'first cozy game to play', 'easiest cozy games', 'cozy games with dark themes', 'dark cozy games', 'dave the diver worth it', 'is cult of the lamb worth it', 'dredge game worth buying', 'cozy games that are not actually cozy', 'games like stardew valley but darker', 'best co-op cozy games', 'cozy games to play with partner', 'is it takes two worth it', 'overcooked 2 worth it', 'cozy games for couples switch', 'cozy games with cats', 'cozy games about animals', 'neko atsume worth playing', 'webfishing game review', 'is untitled goose game worth it', 'is hades worth it', 'vampire survivors worth it', 'is balatro worth it 2024', 'slay the spire review worth buying', 'best beginner roguelike games', 'cozy roguelike games', 'best roguelike to start with', 'ooblets review worth it', 'fae farm review worth it', 'roots of pacha review', 'potion permit review worth buying', 'games like stardew valley 2023 2024', 'games like animal crossing for pc', 'best cozy games after stardew valley', 'bear and breakfast review worth it', "mineko's night market review worth it", 'eastward game review worth it', 'potionomics worth it review', 'best underrated cozy games 2022 2023', 'hidden gem cozy games', 'is stray worth playing', 'stray game review', 'cozy games where you play as an animal', 'cattails wildwood story review', 'snufkin game review', 'pupperazzi review worth it', 'moonlighter review worth it', 'cassette beasts review worth it', 'a hat in time review worth it', 'crosscode worth it', 'indie rpg for cozy gamers', 'cassette beasts vs pokemon', 'moonlighter shopkeeper game', 'sea of stars review worth it', 'hi fi rush review worth it', 'chants of sennaar review worth it', 'jusant game review', 'best indie games 2023 cozy gamers', 'slime rancher 2 worth it', 'monster sanctuary worth it', 'dragon quest monsters dark prince worth it', 'temtem worth it 2024', 'creature raising games like pokemon', 'which creature game should i play', 'two point campus worth it', 'planet zoo worth it', 'two point hospital worth it', 'planet coaster 2 worth it', 'management games for cozy gamers', 'best tycoon games pc', 'hollow knight worth it', 'inscryption worth it', 'the forgotten city worth it', 'pentiment worth it', 'best narrative games pc', 'games like outer wilds', 'octopath traveler 2 worth it', 'triangle strategy worth it', 'xenoblade chronicles 3 worth it', 'atelier ryza worth it', 'best jrpg 2023', 'which jrpg should i play', 'jrpg for beginners', 'zelda tears of the kingdom worth it', 'pikmin 4 worth it', 'super mario wonder worth it', 'kirby forgotten land worth it', 'best nintendo switch exclusives 2023', 'which switch game should i buy', 'raft game worth it', 'core keeper worth it', 'lightyear frontier worth it', 'grounded game worth it', 'cozy survival games', 'survival games for beginners', 'sayonara wild hearts worth it', 'trombone champ worth it', 'crypt of the necrodancer worth it', 'melatonin game worth it', 'best rhythm game for cozy gamers', 'which rhythm game should i play', 'farming rpg adventure quiz', 'harvestella worth it', 'rune factory 5 worth it', 'paleo pines worth it', 'story of seasons pioneers of olive town review', 'best farming rpg switch', 'harvestella vs rune factory 5', 'dinkum worth it', 'kynseed worth it', 'littlewood farming game review', 'travellers rest game worth it', 'games like stardew valley hidden gems', 'australian farming game', 'spirittea worth it', 'immortal life farming game', 'moonglow bay worth it', 'everdream valley review', 'japanese spirit farming game', 'xianxia farming game', 'echoes of the plum grove worth it', 'sugardew island worth it', 'grow song of the evertree review', 'farm together 2 worth it', 'farming games 2024 new', 'co-op farming game'],
@@ -970,8 +992,39 @@ export default async function QuizzesPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh' || locale === 'zh-TW' || locale === 'zh-TW'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
+
+  // Localized quiz card fields: zh/en inline on QUIZZES; zh-TW/ja/ko/de in QUIZ_TRANSLATIONS.
+  const quizTitle = (q: { slug: string; titleZh: string; titleEn: string }) => {
+    if (locale === 'zh') return q.titleZh
+    const t = QUIZ_TRANSLATIONS[q.slug]
+    if (locale === 'zh-TW') return t?.titleZhTW ?? q.titleZh
+    if (locale === 'ja') return t?.titleJa ?? q.titleEn
+    if (locale === 'ko') return t?.titleKo ?? q.titleEn
+    if (locale === 'de') return t?.titleDe ?? q.titleEn
+    return q.titleEn
+  }
+  const quizDesc = (q: { slug: string; descZh: string; descEn: string }) => {
+    if (locale === 'zh') return q.descZh
+    const t = QUIZ_TRANSLATIONS[q.slug]
+    if (locale === 'zh-TW') return t?.descZhTW ?? q.descZh
+    if (locale === 'ja') return t?.descJa ?? q.descEn
+    if (locale === 'ko') return t?.descKo ?? q.descEn
+    if (locale === 'de') return t?.descDe ?? q.descEn
+    return q.descEn
+  }
+  const quizTag = (q: { slug: string; tagZh: string; tagEn: string }) => {
+    if (locale === 'zh') return q.tagZh
+    const t = QUIZ_TRANSLATIONS[q.slug]
+    if (locale === 'zh-TW') return t?.tagZhTW ?? q.tagZh
+    if (locale === 'ja') return t?.tagJa ?? q.tagEn
+    if (locale === 'ko') return t?.tagKo ?? q.tagEn
+    if (locale === 'de') return t?.tagDe ?? q.tagEn
+    return q.tagEn
+  }
+  const quizTime = (q: { timeZh: string; timeEn: string }) =>
+    getLoc(locale, q.timeZh, q.timeEn, q.timeZh, q.timeEn.replace('~', '約').replace(' min', '分'), q.timeEn.replace('~', '약 ').replace(' min', '분'), q.timeEn.replace('~', 'ca. ').replace(' min', ' Min.'))
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -992,15 +1045,21 @@ export default async function QuizzesPage({
       <div className="mx-auto max-w-4xl px-4 py-16">
         <div className="mb-12">
           <p className="mb-2 text-xs uppercase tracking-widest text-[#f0a832]">
-            {isZh ? '互动测评' : 'Interactive Quizzes'}
+            {getLoc(locale, '互动测评', 'Interactive Quizzes', '互動測驗', 'インタラクティブ診断', '인터랙티브 퀴즈', 'Interaktive Quizze')}
           </p>
           <h1 className="mb-4 text-4xl font-bold text-[#e8dcc8]">
-            {isZh ? '找到你的农场游戏类型' : 'Find Your Farming Game'}
+            {getLoc(locale, '找到你的农场游戏类型', 'Find Your Farming Game', '找到你的農場遊戲類型', 'あなたの農場ゲームを見つけよう', '당신의 농장 게임을 찾으세요', 'Finde dein Farmspiel')}
           </h1>
           <p className="max-w-xl text-lg text-[#8a9a7a]">
-            {isZh
-              ? '测出你的农场玩家类型，找到最适合你的游戏——把结果分享给朋友，看看你们是不是同类农夫。'
-              : 'Discover your farming playstyle and find the game that fits you best — then share your results to see if your friends are the same type of farmer.'}
+            {getLoc(
+              locale,
+              '测出你的农场玩家类型，找到最适合你的游戏——把结果分享给朋友，看看你们是不是同类农夫。',
+              'Discover your farming playstyle and find the game that fits you best — then share your results to see if your friends are the same type of farmer.',
+              '測出你的農場玩家類型，找到最適合你的遊戲——把結果分享給朋友，看看你們是不是同類農夫。',
+              'あなたの農場プレイスタイルを知り、ぴったりのゲームを見つけよう——結果を友達にシェアして、同じタイプか確かめてみて。',
+              '당신의 농장 플레이 스타일을 알아보고 딱 맞는 게임을 찾으세요 — 결과를 친구에게 공유해 같은 유형인지 확인해 보세요.',
+              'Entdecke deinen Farm-Spielstil und finde das passende Spiel — teile dann deine Ergebnisse und sieh, ob deine Freunde derselbe Farmer-Typ sind.',
+            )}
           </p>
         </div>
 
@@ -1013,26 +1072,26 @@ export default async function QuizzesPage({
             >
               {quiz.isNew && (
                 <span className="absolute right-4 top-4 rounded-full bg-[#f0a832] px-2 py-0.5 text-xs font-semibold text-[#0f1a0f]">
-                  {isZh ? '新上线' : 'NEW'}
+                  {getLoc(locale, '新上线', 'NEW', '新上線', 'NEW', 'NEW', 'NEU')}
                 </span>
               )}
               <div className="mb-4 text-4xl">{quiz.emoji}</div>
               <div className="mb-2 flex items-center gap-2">
                 <span className="rounded-full bg-[#2d5a27] px-2.5 py-0.5 text-xs text-[#8a9a7a]">
-                  {isZh ? quiz.tagZh : quiz.tagEn}
+                  {quizTag(quiz)}
                 </span>
                 <span className="text-xs text-[#4a5a4a]">
-                  {isZh ? quiz.timeZh : quiz.timeEn}
+                  {quizTime(quiz)}
                 </span>
               </div>
               <h2 className="mb-2 text-xl font-bold text-[#e8dcc8] transition-colors group-hover:text-[#f0a832]">
-                {isZh ? quiz.titleZh : quiz.titleEn}
+                {quizTitle(quiz)}
               </h2>
               <p className="text-sm leading-relaxed text-[#8a9a7a]">
-                {isZh ? quiz.descZh : quiz.descEn}
+                {quizDesc(quiz)}
               </p>
               <p className="mt-4 text-sm font-medium text-[#f0a832]">
-                {isZh ? '开始测评 →' : 'Start quiz →'}
+                {getLoc(locale, '开始测评 →', 'Start quiz →', '開始測驗 →', '診断を始める →', '퀴즈 시작 →', 'Quiz starten →')}
               </p>
             </Link>
           ))}
@@ -1041,7 +1100,7 @@ export default async function QuizzesPage({
         {/* FAQ Section for SEO/GEO */}
         <div className="mt-20">
           <h2 className="mb-6 text-xl font-bold text-[#e8dcc8]">
-            {isZh ? '关于农场游戏的常见问题' : 'Farming Game FAQ'}
+            {getLoc(locale, '关于农场游戏的常见问题', 'Farming Game FAQ', '關於農場遊戲的常見問題', '農場ゲームのよくある質問', '농장 게임 자주 묻는 질문', 'Farmspiel-FAQ')}
           </h2>
           <div className="space-y-4">
             {faq.map(({ q, a }) => (

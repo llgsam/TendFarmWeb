@@ -1,52 +1,96 @@
 import Link from 'next/link'
-import { useTranslations, useLocale } from 'next-intl'
+import { useLocale } from 'next-intl'
 
-const TOOLS = [
+type LocaleText = { zh: string; en: string; 'zh-TW': string; ja: string; ko: string; de: string }
+
+const TOOLS: {
+  key: string
+  href: string
+  icon: string
+  title: LocaleText
+  desc: LocaleText
+  highlight: boolean
+}[] = [
   {
     key: 'quiz',
     href: '/quizzes/farm-personality',
     icon: '🌾',
-    titleZh: '你是哪种农场玩家？',
-    titleEn: 'What Kind of Farmer Are You?',
-    descZh: '6 个问题，测出你的农场游戏人格，推荐最适合你的游戏。',
-    descEn: '6 questions to reveal your farming personality and get personalized game picks.',
+    title: {
+      zh: '你是哪种农场玩家？', en: 'What Kind of Farmer Are You?', 'zh-TW': '你是哪種農場玩家？',
+      ja: 'あなたはどんな農場プレイヤー？', ko: '당신은 어떤 농장 플레이어인가요?', de: 'Was für ein Bauer bist du?',
+    },
+    desc: {
+      zh: '6 个问题，测出你的农场游戏人格，推荐最适合你的游戏。',
+      en: '6 questions to reveal your farming personality and get personalized game picks.',
+      'zh-TW': '6 個問題，測出你的農場遊戲人格，推薦最適合你的遊戲。',
+      ja: '6つの質問であなたの農場プレイスタイルを診断し、ぴったりのゲームを提案。',
+      ko: '6가지 질문으로 농장 게임 성격을 알아보고 맞춤 게임을 추천받으세요.',
+      de: '6 Fragen, die deinen Farm-Typ verraten und dir passende Spiele empfehlen.',
+    },
     highlight: true,
   },
   {
     key: 'hay-day',
     href: '/tools/hay-day',
     icon: '📊',
-    titleZh: 'Hay Day 作物计算器',
-    titleEn: 'Hay Day Crop Calculator',
-    descZh: '找出你游戏风格下利润最高的作物。',
-    descEn: 'Find the best crops for your play style.',
+    title: {
+      zh: 'Hay Day 作物计算器', en: 'Hay Day Crop Calculator', 'zh-TW': 'Hay Day 作物計算器',
+      ja: 'Hay Day 作物計算機', ko: 'Hay Day 작물 계산기', de: 'Hay Day Ernte-Rechner',
+    },
+    desc: {
+      zh: '找出你游戏风格下利润最高的作物。',
+      en: 'Find the best crops for your play style.',
+      'zh-TW': '找出你遊戲風格下利潤最高的作物。',
+      ja: 'プレイスタイルに合った最も利益の高い作物を見つけよう。',
+      ko: '당신의 플레이 스타일에 가장 수익성 높은 작물을 찾으세요.',
+      de: 'Finde die profitabelsten Pflanzen für deinen Spielstil.',
+    },
     highlight: false,
   },
   {
     key: 'stardew',
     href: '/tools/stardew',
     icon: '🌱',
-    titleZh: '星露谷作物利润计算器',
-    titleEn: 'Stardew Valley Profit Calculator',
-    descZh: '按季节和剩余天数计算最优种植方案。',
-    descEn: 'Best crops by season, days left, and artisan skill.',
+    title: {
+      zh: '星露谷作物利润计算器', en: 'Stardew Valley Profit Calculator', 'zh-TW': '星露谷作物利潤計算器',
+      ja: 'スターデューバレー作物利益計算機', ko: '스타듀밸리 작물 수익 계산기', de: 'Stardew Valley Gewinnrechner',
+    },
+    desc: {
+      zh: '按季节和剩余天数计算最优种植方案。',
+      en: 'Best crops by season, days left, and artisan skill.',
+      'zh-TW': '按季節和剩餘天數計算最優種植方案。',
+      ja: '季節と残り日数から最適な作物を計算。',
+      ko: '계절과 남은 날수로 최적 작물을 계산하세요.',
+      de: 'Beste Pflanzen nach Jahreszeit, Resttagen und Handwerk.',
+    },
     highlight: false,
   },
 ]
 
+function pick(text: LocaleText, locale: string): string {
+  return text[locale as keyof LocaleText] ?? text.en
+}
+
+function getLoc(locale: string, zh: string, en: string, zhTW: string, ja: string, ko: string, de: string): string {
+  if (locale === 'zh') return zh
+  if (locale === 'zh-TW') return zhTW
+  if (locale === 'ja') return ja
+  if (locale === 'ko') return ko
+  if (locale === 'de') return de
+  return en
+}
+
 export function ToolsTeaser() {
-  const t = useTranslations()
   const locale = useLocale()
-  const isZh = locale === 'zh'
 
   return (
     <section className="px-4 py-16">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-2 text-center text-2xl font-semibold text-[#e8dcc8]">
-          {isZh ? '免费游戏工具' : 'Free Game Tools'}
+          {getLoc(locale, '免费游戏工具', 'Free Game Tools', '免費遊戲工具', '無料ゲームツール', '무료 게임 도구', 'Kostenlose Spiel-Tools')}
         </h2>
         <p className="mb-8 text-center text-sm text-[#8a9a7a]">
-          {isZh ? '计算器 + 人格测试，帮你玩得更明白' : 'Calculators and quizzes to play smarter'}
+          {getLoc(locale, '计算器 + 人格测试，帮你玩得更明白', 'Calculators and quizzes to play smarter', '計算器 + 人格測驗，幫你玩得更明白', '計算機と診断クイズで、もっと賢くプレイ', '계산기와 퀴즈로 더 똑똑하게 플레이하세요', 'Rechner und Quizze, um klüger zu spielen')}
         </p>
 
         <div className="grid gap-4 md:grid-cols-3">
@@ -62,13 +106,15 @@ export function ToolsTeaser() {
             >
               <div className="mb-3 text-2xl">{tool.icon}</div>
               <h3 className="mb-1 font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
-                {isZh ? tool.titleZh : tool.titleEn}
+                {pick(tool.title, locale)}
               </h3>
               <p className="text-sm text-[#8a9a7a]">
-                {isZh ? tool.descZh : tool.descEn}
+                {pick(tool.desc, locale)}
               </p>
               <p className="mt-3 text-xs text-[#f0a832]">
-                {isZh ? (tool.key === 'quiz' ? '开始测试 →' : '打开计算器 →') : (tool.key === 'quiz' ? 'Take quiz →' : 'Open calculator →')}
+                {tool.key === 'quiz'
+                  ? getLoc(locale, '开始测试 →', 'Take quiz →', '開始測驗 →', 'クイズを受ける →', '퀴즈 시작 →', 'Quiz starten →')
+                  : getLoc(locale, '打开计算器 →', 'Open calculator →', '打開計算器 →', '計算機を開く →', '계산기 열기 →', 'Rechner öffnen →')}
               </p>
             </Link>
           ))}

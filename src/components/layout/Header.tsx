@@ -3,11 +3,19 @@ import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
+function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
+  if (locale === 'zh') return zh
+  if (locale === 'zh-TW') return zhTW ?? zh
+  if (locale === 'ja') return ja ?? en
+  if (locale === 'ko') return ko ?? en
+  if (locale === 'de') return de ?? en
+  return en
+}
+
 export function Header() {
   const t = useTranslations('nav')
   const locale = useLocale()
   const base = `/${locale}`
-  const isZh = locale === 'zh'
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#2d3d2d] bg-[#0f1a0f]/90 backdrop-blur">
@@ -25,7 +33,7 @@ export function Header() {
           <div className="flex flex-col leading-none">
             <span className="text-base font-bold text-[#f0a832]">Farming Game Hub</span>
             <span className="text-[10px] text-[#8a9a7a] tracking-wide">
-              {isZh ? '农场游戏集结地' : 'Farming Game Hub'}
+              {getLoc(locale, '农场游戏集结地', 'Farming Game Hub', '農場遊戲集結地', '農場ゲームの集いの場', '농장 게임 모임의 장', 'Treffpunkt für Farmspiele')}
             </span>
           </div>
         </Link>
@@ -55,7 +63,7 @@ export function Header() {
             href={`${base}/games`}
             className="hidden rounded-lg bg-[#2d3d2d] px-3.5 py-1.5 text-xs font-semibold text-[#e8dcc8] transition-colors hover:bg-[#3d4d3d] sm:block"
           >
-            {isZh ? '🎮 游戏大全' : '🎮 All Games'}
+            {getLoc(locale, '🎮 游戏大全', '🎮 All Games', '🎮 遊戲大全', '🎮 ゲーム一覧', '🎮 모든 게임', '🎮 Alle Spiele')}
           </Link>
           <LanguageSwitcher />
         </div>
