@@ -257,12 +257,18 @@ export default async function GameDetailPage({
               )}
               {game.hasGuides && (
                 <Link
-                  href={`/${locale}/guides`}
+                  href={`/${locale}/guides/${game.slug}`}
                   className="rounded-lg border border-[#7bc67e]/30 px-4 py-2 text-sm text-[#7bc67e] hover:border-[#7bc67e]/60 hover:bg-[#7bc67e]/5 transition-colors"
                 >
                   {getLoc(locale, `📖 ${name} 攻略`, `📖 ${name} Guides`, `📖 ${name} 攻略`, `📖 ${name} 攻略`, `📖 ${name} 공략`, `📖 ${name} Guides`)}
                 </Link>
               )}
+              <Link
+                href={`/${locale}/quizzes`}
+                className="rounded-lg border border-[#f0a832]/30 px-4 py-2 text-sm text-[#f0a832] hover:border-[#f0a832]/60 hover:bg-[#f0a832]/5 transition-colors"
+              >
+                {getLoc(locale, '🌾 农场游戏测验', '🌾 Farm Game Quizzes', '🌾 農場遊戲測驗', '🌾 農場ゲーム診断', '🌾 농장 게임 퀴즈', '🌾 Farmspiel-Quizze')}
+              </Link>
             </div>
           </section>
         )}

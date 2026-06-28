@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { HeroSection } from '@/components/home/HeroSection'
 import { GamesTeaser } from '@/components/home/GamesTeaser'
 import { ToolsTeaser } from '@/components/home/ToolsTeaser'
+import { QuizzesTeaser } from '@/components/home/QuizzesTeaser'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
@@ -53,6 +54,7 @@ export default async function HomePage({
       <HeroSection />
       <GamesTeaser />
       <ToolsTeaser />
+      <QuizzesTeaser />
       <GuidesTeaser />
 
       {/* TendFarm App 彩蛋 */}

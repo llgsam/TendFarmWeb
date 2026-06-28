@@ -12,24 +12,6 @@ const TOOLS: {
   highlight: boolean
 }[] = [
   {
-    key: 'quiz',
-    href: '/quizzes/farm-personality',
-    icon: '🌾',
-    title: {
-      zh: '你是哪种农场玩家？', en: 'What Kind of Farmer Are You?', 'zh-TW': '你是哪種農場玩家？',
-      ja: 'あなたはどんな農場プレイヤー？', ko: '당신은 어떤 농장 플레이어인가요?', de: 'Was für ein Bauer bist du?',
-    },
-    desc: {
-      zh: '6 个问题，测出你的农场游戏人格，推荐最适合你的游戏。',
-      en: '6 questions to reveal your farming personality and get personalized game picks.',
-      'zh-TW': '6 個問題，測出你的農場遊戲人格，推薦最適合你的遊戲。',
-      ja: '6つの質問であなたの農場プレイスタイルを診断し、ぴったりのゲームを提案。',
-      ko: '6가지 질문으로 농장 게임 성격을 알아보고 맞춤 게임을 추천받으세요.',
-      de: '6 Fragen, die deinen Farm-Typ verraten und dir passende Spiele empfehlen.',
-    },
-    highlight: true,
-  },
-  {
     key: 'hay-day',
     href: '/tools/hay-day',
     icon: '📊',
@@ -87,13 +69,13 @@ export function ToolsTeaser() {
     <section className="px-4 py-16">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-2 text-center text-2xl font-semibold text-[#e8dcc8]">
-          {getLoc(locale, '免费游戏工具', 'Free Game Tools', '免費遊戲工具', '無料ゲームツール', '무료 게임 도구', 'Kostenlose Spiel-Tools')}
+          {getLoc(locale, '免费游戏计算器', 'Free Game Calculators', '免費遊戲計算器', '無料ゲーム計算機', '무료 게임 계산기', 'Kostenlose Spiel-Rechner')}
         </h2>
         <p className="mb-8 text-center text-sm text-[#8a9a7a]">
-          {getLoc(locale, '计算器 + 人格测试，帮你玩得更明白', 'Calculators and quizzes to play smarter', '計算器 + 人格測驗，幫你玩得更明白', '計算機と診断クイズで、もっと賢くプレイ', '계산기와 퀴즈로 더 똑똑하게 플레이하세요', 'Rechner und Quizze, um klüger zu spielen')}
+          {getLoc(locale, '作物利润计算器，帮你玩得更明白', 'Crop profit calculators to play smarter', '作物利潤計算器，幫你玩得更明白', '作物利益計算機で、もっと賢くプレイ', '작물 수익 계산기로 더 똑똑하게 플레이하세요', 'Ernte-Gewinnrechner, um klüger zu spielen')}
         </p>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2">
           {TOOLS.map((tool) => (
             <Link
               key={tool.key}

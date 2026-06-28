@@ -24,24 +24,6 @@ export async function generateMetadata({
 
 const LIVE_TOOLS = [
   {
-    key: 'quiz',
-    href: 'tools/quiz',
-    titles: {
-      zh: '你是哪种农场玩家？', 'zh-TW': '你是哪種農場玩家？',
-      ja: 'あなたはどんな農場プレイヤー？', ko: '당신은 어떤 농장 플레이어인가요?',
-      de: 'Was für ein Bauer bist du?', en: 'What Kind of Farmer Are You?',
-    },
-    descs: {
-      zh: '6 个问题，测出你的农场人格——效率、美学、探索还是禅意？并推荐最适合你的游戏。',
-      'zh-TW': '6 個問題，測出你的農場人格——效率、美學、探索還是禪意？並推薦最適合你的遊戲。',
-      ja: '6問で農場スタイルを診断——効率・美学・探索・禅意のどれ？おすすめゲームも紹介。',
-      ko: '6가지 질문으로 농장 성격 진단 — 효율, 미학, 탐험, 선 중 어떤 유형? 게임 추천 포함.',
-      de: '6 Fragen um deinen Farm-Typ zu finden — Optimierer, Ästhet, Entdecker oder Zen-Bauer?',
-      en: '6 questions to find your farm personality — Optimizer, Homesteader, Explorer, or Zen — plus game picks.',
-    },
-    tags: { zh: '🌾 测一测', 'zh-TW': '🌾 測一測', ja: '🌾 クイズ', ko: '🌾 퀴즈', de: '🌾 Quiz', en: '🌾 Quiz' },
-  },
-  {
     key: 'hay-day',
     href: 'tools/hay-day',
     titles: {
@@ -133,6 +115,24 @@ export default function ToolsPage() {
           })}
         </div>
       </section>
+
+      {/* Cross-link to Quizzes (quizzes live in their own section, not as a "tool") */}
+      <Link
+        href={`/${locale}/quizzes`}
+        className="mb-6 flex items-center justify-between rounded-xl border border-[#f0a832]/25 bg-[#f0a832]/5 p-5 transition-colors hover:border-[#f0a832]/50"
+      >
+        <div>
+          <p className="font-semibold text-[#e8dcc8]">
+            {getLoc('🌾 想测测你是哪种农场玩家？', '🌾 Curious what kind of farmer you are?', '🌾 想測測你是哪種農場玩家？', '🌾 あなたの農場プレイヤータイプは？', '🌾 당신은 어떤 농장 플레이어일까요?', '🌾 Welcher Farmer-Typ bist du?')}
+          </p>
+          <p className="mt-0.5 text-sm text-[#8a9a7a]">
+            {getLoc('60+ 个农场游戏互动测验，找到最适合你的游戏。', '60+ interactive farming-game quizzes to find your perfect game.', '60+ 個農場遊戲互動測驗，找到最適合你的遊戲。', '60以上の農場ゲーム診断であなたにぴったりの一本を。', '60개 이상의 농장 게임 퀴즈로 딱 맞는 게임을 찾으세요.', 'Über 60 Farmspiel-Quizze, um dein perfektes Spiel zu finden.')}
+          </p>
+        </div>
+        <span className="ml-4 shrink-0 text-sm font-semibold text-[#f0a832]">
+          {getLoc('去测验 →', 'Browse quizzes →', '去測驗 →', '診断を見る →', '퀴즈 보기 →', 'Quizze ansehen →')}
+        </span>
+      </Link>
 
       {/* More tools note */}
       <div className="mb-16 rounded-xl border border-dashed border-[#2d3d2d] bg-[#1a2e1a]/30 p-6 text-center">

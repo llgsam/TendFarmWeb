@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { articleSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { getGuideCategory } from '@/lib/guide-categories'
 
 export async function generateStaticParams() {
   const slugs = await getAllGuideSlugs()
@@ -38,7 +39,12 @@ export default async function GuideArticlePage({
   const post = await getGuideBySlug(locale, game, slug)
   if (!post) notFound()
 
-  const gameLabel = game.split('-').map((w: string) => w[0].toUpperCase() + w.slice(1)).join(' ')
+  // Use the localized category name (e.g. "Best Games & Comparisons" / "おすすめ＆比較ガイド")
+  // rather than a title-cased slug.
+  const category = getGuideCategory(game)
+  const gameLabel = category
+    ? category.name(locale)
+    : game.split('-').map((w: string) => w[0].toUpperCase() + w.slice(1)).join(' ')
   const isZh = locale === 'zh' || locale === 'zh-TW'
 
   const article = articleSchema(
