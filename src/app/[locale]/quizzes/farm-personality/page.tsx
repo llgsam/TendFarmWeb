@@ -2,7 +2,7 @@ import { FarmPersonalityQuiz } from '@/components/tools/FarmPersonalityQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
-import { getQuizShare, resultOgImageUrl, pickLocale } from '@/lib/quiz-share'
+import { quizResultShare, quizResultKeys } from '@/lib/quiz-share'
 import Link from 'next/link'
 
 export async function generateMetadata({
@@ -35,18 +35,14 @@ export async function generateMetadata({
 
   // Result permalink (?r=optimizer): show a result-specific title/description and
   // a dynamic, branded OG card so the shared link previews the actual result.
-  const share = getQuizShare('farm-personality')
-  const result = r && share ? share.results[r] : undefined
-  if (result && share) {
-    const title = pickLocale(result.title, locale)
-    const tag = pickLocale(result.tag, locale)
-    const ogImage = resultOgImageUrl(share, result, locale)
+  const rs = quizResultShare('farm-personality', locale, r)
+  if (rs) {
     return {
       ...baseMeta,
-      title: isZh ? `我的农场人格是「${title}」` : `My farming personality: ${title}`,
-      description: `${title} — ${tag}`,
-      openGraph: { title, description: tag, images: [{ url: ogImage, width: 1200, height: 630 }] },
-      twitter: { card: 'summary_large_image', title, description: tag, images: [ogImage] },
+      title: isZh ? `我的农场人格是「${rs.title}」` : `My farming personality: ${rs.title}`,
+      description: `${rs.title} — ${rs.tag}`,
+      openGraph: { title: rs.title, description: rs.tag, images: [{ url: rs.ogImage, width: 1200, height: 630 }] },
+      twitter: { card: 'summary_large_image', title: rs.title, description: rs.tag, images: [rs.ogImage] },
     }
   }
 
@@ -118,8 +114,7 @@ export default async function FarmPersonalityPage({
   const { r } = await searchParams
   const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
-  const validResults = ['optimizer', 'aesthete', 'explorer', 'zen']
-  const initialResult = r && validResults.includes(r) ? r : undefined
+  const initialResult = r && quizResultKeys('farm-personality').includes(r) ? r : undefined
 
   const faqSchema = {
     '@context': 'https://schema.org',

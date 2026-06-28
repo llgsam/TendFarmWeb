@@ -65,8 +65,71 @@ const FARM_PERSONALITY: QuizShare = {
   },
 }
 
+const WHICH_FARMING_GAME: QuizShare = {
+  slug: 'which-farming-game',
+  badge: {
+    zh: '农场游戏推荐测验', en: 'Which Farming Game Quiz', 'zh-TW': '農場遊戲推薦測驗',
+    ja: '農場ゲーム診断', ko: '농장 게임 추천 테스트', de: 'Welches Farmspiel Quiz',
+  },
+  results: {
+    stardew: {
+      key: 'stardew', emoji: '⛏️',
+      title: { zh: '星露谷物语', en: 'Stardew Valley', 'zh-TW': '星露谷物語', ja: 'スターデューバレー', ko: '스타듀 밸리', de: 'Stardew Valley' },
+      tag: { zh: '农场游戏的标杆之作', en: 'The gold standard of farming games', 'zh-TW': '農場遊戲的標竿之作', ja: '農場ゲームの金字塔', ko: '농장 게임의 교과서', de: 'Der Goldstandard der Farming-Games' },
+    },
+    'animal-crossing': {
+      key: 'animal-crossing', emoji: '🏝️',
+      title: { zh: '动物森友会', en: 'Animal Crossing: New Horizons', 'zh-TW': '動物森友會', ja: 'あつまれ どうぶつの森', ko: '모여봐요 동물의 숲', de: 'Animal Crossing: New Horizons' },
+      tag: { zh: '你的专属无压力小岛', en: 'Your pressure-free island paradise', 'zh-TW': '你的專屬無壓力小島', ja: 'プレッシャーのない、あなただけの島', ko: '스트레스 없는 나만의 섬', de: 'Deine stressfreie Insel-Oase' },
+    },
+    'hay-day': {
+      key: 'hay-day', emoji: '📱',
+      title: { zh: 'Hay Day', en: 'Hay Day', 'zh-TW': 'Hay Day', ja: 'Hay Day', ko: '헤이 데이', de: 'Hay Day' },
+      tag: { zh: '最好玩的手机农场游戏', en: 'The best mobile farming game', 'zh-TW': '最好玩的手機農場遊戲', ja: 'スマホ農場ゲームの定番', ko: '최고의 모바일 농장 게임', de: 'Das beste Mobile-Farming-Game' },
+    },
+    palia: {
+      key: 'palia', emoji: '🌍',
+      title: { zh: 'Palia', en: 'Palia', 'zh-TW': 'Palia', ja: 'Palia', ko: '팔리아', de: 'Palia' },
+      tag: { zh: '免费的社交农场 MMO', en: 'The free cozy social farming MMO', 'zh-TW': '免費的社交農場 MMO', ja: '無料でできるコージーMMO', ko: '무료 소셜 농장 MMO', de: 'Das kostenlose gemütliche Sozial-MMO' },
+    },
+    'farming-sim': {
+      key: 'farming-sim', emoji: '🚜',
+      title: { zh: '模拟农场 25', en: 'Farming Simulator 25', 'zh-TW': '模擬農場 25', ja: 'Farming Simulator 25', ko: '파밍 시뮬레이터 25', de: 'Farming Simulator 25' },
+      tag: { zh: '最真实的农业模拟', en: 'The most realistic farming simulation', 'zh-TW': '最真實的農業模擬', ja: '最もリアルな農業シミュレーション', ko: '가장 사실적인 농업 시뮬레이션', de: 'Die realistischste Landwirtschaftssimulation' },
+    },
+  },
+}
+
 const QUIZ_SHARE: Record<string, QuizShare> = {
   'farm-personality': FARM_PERSONALITY,
+  'which-farming-game': WHICH_FARMING_GAME,
+}
+
+// One-call result metadata for a quiz page's generateMetadata. Returns the
+// localized result title, tag, and branded OG image URL — or null if r is
+// missing/invalid (page falls back to its default metadata).
+export function quizResultShare(
+  slug: string,
+  locale: string,
+  r: string | undefined
+): { title: string; tag: string; ogImage: string; resultKeys: string[] } | null {
+  const share = getQuizShare(slug)
+  if (!share) return null
+  const resultKeys = Object.keys(share.results)
+  const result = r ? share.results[r] : undefined
+  if (!result) return null
+  return {
+    title: pick(result.title, locale),
+    tag: pick(result.tag, locale),
+    ogImage: resultOgImageUrl(share, result, locale),
+    resultKeys,
+  }
+}
+
+// Valid result keys for a quiz (for the page to validate ?r= before passing to the component).
+export function quizResultKeys(slug: string): string[] {
+  const share = getQuizShare(slug)
+  return share ? Object.keys(share.results) : []
 }
 
 export function getQuizShare(slug: string): QuizShare | undefined {

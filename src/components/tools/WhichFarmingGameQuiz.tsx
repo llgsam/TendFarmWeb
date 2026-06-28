@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 function ShareButton({ text, locale }: { text: string; locale: string }) {
@@ -798,11 +798,24 @@ function calcResult(answers: ScoreMap[]): GameId {
 
 interface Props {
   locale: string
+  initialResult?: string
 }
 
-export function WhichFarmingGameQuiz({ locale }: Props) {
-  const [step, setStep] = useState<number>(0)
+export function WhichFarmingGameQuiz({ locale, initialResult }: Props) {
+  const [forced, setForced] = useState<GameId | null>((initialResult as GameId | undefined) ?? null)
+  const [step, setStep] = useState<number>(forced ? QUESTIONS.length + 1 : 0)
   const [answers, setAnswers] = useState<ScoreMap[]>([])
+
+  // Keep the URL as a permalink to the current result (drives the share OG card).
+  const onResult = step === QUESTIONS.length + 1
+  const resultGameId: GameId | null = onResult ? (forced ?? calcResult(answers)) : null
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const u = new URL(window.location.href)
+    if (resultGameId) u.searchParams.set('r', resultGameId)
+    else u.searchParams.delete('r')
+    window.history.replaceState(null, '', u.toString())
+  }, [resultGameId])
 
   const getLoc = (zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string => {
     if (locale === 'zh') return zh
@@ -835,6 +848,7 @@ export function WhichFarmingGameQuiz({ locale }: Props) {
   }
 
   const reset = () => {
+    setForced(null)
     setAnswers([])
     setStep(0)
   }
@@ -879,9 +893,9 @@ export function WhichFarmingGameQuiz({ locale }: Props) {
 
   // Result
   if (step === QUESTIONS.length + 1) {
-    const gameId = calcResult(answers)
+    const gameId = resultGameId ?? calcResult(answers)
     const result = RESULTS[gameId]
-    const url = `https://www.farmgamehub.com/${locale}/quizzes/which-farming-game`
+    const url = `https://www.farmgamehub.com/${locale}/quizzes/which-farming-game?r=${gameId}`
     const gameName = getLoc(result.nameZh, result.nameEn, result.nameZhTW, result.nameJa, result.nameKo, result.nameDe)
     const shareText = getLoc(
       `测评结果：最适合我的农场游戏是「${gameName}」！来测测你的：${url}`,

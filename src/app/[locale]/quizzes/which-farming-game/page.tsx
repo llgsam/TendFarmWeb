@@ -2,22 +2,21 @@ import { WhichFarmingGameQuiz } from '@/components/tools/WhichFarmingGameQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
+import { quizResultShare, quizResultKeys } from '@/lib/quiz-share'
 import Link from 'next/link'
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ r?: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const { r } = await searchParams
   const isZh = locale === 'zh' || locale === 'zh-TW'
-  return {
-    title: isZh
-      ? '哪款农场游戏最适合我？6 题测出你的专属推荐'
-      : 'Which Farming Game Should You Play? Quiz — Find Your Perfect Match',
-    description: isZh
-      ? '6 个问题，根据你的平台、游戏时长、风格偏好，为你精准推荐最适合的农场游戏——星露谷、动物森友会、Palia、模拟农场等。'
-      : '6 quick questions to find your perfect farming game — Stardew Valley, Animal Crossing, Hay Day, Palia, Farming Simulator, and more. Based on your platform, playstyle, and what matters most to you.',
+
+  const baseMeta = {
     keywords: isZh
       ? ['哪款农场游戏', '农场游戏推荐', '农场游戏测试', '星露谷 动物森友会 哪个好']
       : ['which farming game should i play', 'best farming game for me', 'farming game quiz', 'farming game recommendation quiz', 'stardew valley vs animal crossing'],
@@ -25,6 +24,28 @@ export async function generateMetadata({
       canonical: `${BASE_URL}/${locale}/quizzes/which-farming-game`,
       languages: buildLanguageAlternates('/quizzes/which-farming-game'),
     },
+  }
+
+  // Result permalink (?r=stardew): preview the recommended game with a branded OG card.
+  const rs = quizResultShare('which-farming-game', locale, r)
+  if (rs) {
+    return {
+      ...baseMeta,
+      title: isZh ? `最适合我的农场游戏：${rs.title}` : `My perfect farming game: ${rs.title}`,
+      description: `${rs.title} — ${rs.tag}`,
+      openGraph: { title: rs.title, description: rs.tag, images: [{ url: rs.ogImage, width: 1200, height: 630 }] },
+      twitter: { card: 'summary_large_image', title: rs.title, description: rs.tag, images: [rs.ogImage] },
+    }
+  }
+
+  return {
+    ...baseMeta,
+    title: isZh
+      ? '哪款农场游戏最适合我？6 题测出你的专属推荐'
+      : 'Which Farming Game Should You Play? Quiz — Find Your Perfect Match',
+    description: isZh
+      ? '6 个问题，根据你的平台、游戏时长、风格偏好，为你精准推荐最适合的农场游戏——星露谷、动物森友会、Palia、模拟农场等。'
+      : '6 quick questions to find your perfect farming game — Stardew Valley, Animal Crossing, Hay Day, Palia, Farming Simulator, and more. Based on your platform, playstyle, and what matters most to you.',
   }
 }
 
@@ -76,12 +97,16 @@ const FAQ_ZH = [
 
 export default async function WhichFarmingGamePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ r?: string }>
 }) {
   const { locale } = await params
+  const { r } = await searchParams
   const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
+  const initialResult = r && quizResultKeys('which-farming-game').includes(r) ? r : undefined
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -115,7 +140,7 @@ export default async function WhichFarmingGamePage({
         </h1>
 
         <div className="rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-8">
-          <WhichFarmingGameQuiz locale={locale} />
+          <WhichFarmingGameQuiz locale={locale} initialResult={initialResult} />
         </div>
 
         <p className="mt-6 text-center text-xs text-[#8a9a7a]">
