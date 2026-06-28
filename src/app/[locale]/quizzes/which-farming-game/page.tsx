@@ -102,7 +102,7 @@ export default async function WhichFarmingGamePage({
       <div className="mx-auto max-w-2xl px-4 py-12">
         <nav className="mb-6 text-sm text-[#8a9a7a]">
           <Link href={`/${locale}/quizzes`} className="hover:text-[#e8dcc8]">
-            {isZh ? '测评' : 'Quizzes'}
+            {locale === 'zh' ? '测评' : locale === 'zh-TW' ? '測評' : locale === 'ja' ? 'クイズ' : locale === 'ko' ? '퀴즈' : locale === 'de' ? 'Quiz' : 'Quizzes'}
           </Link>
           <span className="mx-2">›</span>
           <span className="text-[#e8dcc8]">
@@ -125,7 +125,7 @@ export default async function WhichFarmingGamePage({
         {/* FAQ Section — SEO/GEO value */}
         <div className="mt-16">
           <h2 className="mb-6 text-xl font-bold text-[#e8dcc8]">
-            {isZh ? '常见问题' : 'Frequently Asked Questions'}
+            {locale === 'zh' ? '常见问题' : locale === 'zh-TW' ? '常見問題' : locale === 'ja' ? 'よくある質問' : locale === 'ko' ? '자주 묻는 질문' : locale === 'de' ? 'Häufig gestellte Fragen' : 'Frequently Asked Questions'}
           </h2>
           <div className="space-y-5">
             {faq.map(({ q, a }) => (

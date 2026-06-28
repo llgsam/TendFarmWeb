@@ -120,7 +120,7 @@ export default async function Cozy2023SurpriseHitsPage({ params }: Props) {
 
           <div className="mt-12 space-y-6">
             <h2 className="text-lg font-semibold text-[#e8dcc8]">
-              {isZh ? '常见问题' : 'Frequently Asked Questions'}
+              {locale === 'zh' ? '常见问题' : locale === 'zh-TW' ? '常見問題' : locale === 'ja' ? 'よくある質問' : locale === 'ko' ? '자주 묻는 질문' : locale === 'de' ? 'Häufig gestellte Fragen' : 'Frequently Asked Questions'}
             </h2>
             {faqItems.map(({ q, a }, i) => (
               <div key={i} className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] p-5">

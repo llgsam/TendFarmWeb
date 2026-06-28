@@ -111,7 +111,7 @@ export default async function DreamlightValleyQuizPage({
       <div className="mx-auto max-w-2xl px-4 py-12">
         <nav className="mb-6 text-sm text-[#8a9a7a]">
           <Link href={`/${locale}/quizzes`} className="hover:text-[#e8dcc8]">
-            {isZh ? '测评' : 'Quizzes'}
+            {locale === 'zh' ? '测评' : locale === 'zh-TW' ? '測評' : locale === 'ja' ? 'クイズ' : locale === 'ko' ? '퀴즈' : locale === 'de' ? 'Quiz' : 'Quizzes'}
           </Link>
           <span className="mx-2">›</span>
           <span className="text-[#e8dcc8]">

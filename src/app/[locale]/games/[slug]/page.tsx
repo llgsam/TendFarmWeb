@@ -279,7 +279,7 @@ export default async function GameDetailPage({
         {/* FAQ */}
         <section className="mb-10">
           <h2 className="mb-6 text-lg font-semibold text-[#e8dcc8]">
-            {isZh ? '常见问题' : 'Frequently Asked Questions'}
+            {locale === 'zh' ? '常见问题' : locale === 'zh-TW' ? '常見問題' : locale === 'ja' ? 'よくある質問' : locale === 'ko' ? '자주 묻는 질문' : locale === 'de' ? 'Häufig gestellte Fragen' : 'Frequently Asked Questions'}
           </h2>
           <div className="space-y-4">
             {faqs.filter((f) => f.answer).map((faq, i) => (

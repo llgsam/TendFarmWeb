@@ -143,15 +143,21 @@ interface Props {
 }
 
 export function RelatedQuizzes({ currentSlug, locale }: Props) {
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const relatedSlugs = RELATED[currentSlug] ?? ALL_QUIZZES.filter((q) => q.slug !== currentSlug).slice(0, 3).map((q) => q.slug)
   const related = relatedSlugs.map((s) => ALL_QUIZZES.find((q) => q.slug === s)).filter(Boolean) as Quiz[]
 
+  const sectionTitle =
+    locale === 'zh' ? '还有这些测评你可能也会喜欢' :
+    locale === 'zh-TW' ? '還有這些測評你可能也會喜歡' :
+    locale === 'ja' ? '他にもおすすめのクイズ' :
+    locale === 'ko' ? '더 즐길 수 있는 퀴즈' :
+    locale === 'de' ? 'Weitere Quizze, die dir gefallen könnten' :
+    'More quizzes you might enjoy'
+
   return (
     <div className="mt-12">
-      <h2 className="mb-4 text-lg font-bold text-[#e8dcc8]">
-        {isZh ? '还有这些测评你可能也会喜欢' : 'More quizzes you might enjoy'}
-      </h2>
+      <h2 className="mb-4 text-lg font-bold text-[#e8dcc8]">{sectionTitle}</h2>
       <div className="grid gap-3 sm:grid-cols-3">
         {related.map((quiz) => (
           <Link

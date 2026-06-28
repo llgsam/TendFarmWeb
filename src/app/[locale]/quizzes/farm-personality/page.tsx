@@ -109,7 +109,7 @@ export default async function FarmPersonalityPage({
       <div className="mx-auto max-w-2xl px-4 py-12">
         <nav className="mb-6 text-sm text-[#8a9a7a]">
           <Link href={`/${locale}/quizzes`} className="hover:text-[#e8dcc8]">
-            {isZh ? '测评' : 'Quizzes'}
+            {locale === 'zh' ? '测评' : locale === 'zh-TW' ? '測評' : locale === 'ja' ? 'クイズ' : locale === 'ko' ? '퀴즈' : locale === 'de' ? 'Quiz' : 'Quizzes'}
           </Link>
           <span className="mx-2">›</span>
           <span className="text-[#e8dcc8]">
@@ -122,9 +122,7 @@ export default async function FarmPersonalityPage({
         </div>
 
         <p className="mt-6 text-center text-xs text-[#8a9a7a]">
-          {isZh
-            ? '你的选择完全匿名，帮助我们了解农场玩家的偏好。'
-            : 'Your answers are anonymous and help us understand what farmers want.'}
+          {locale === 'zh' ? '你的选择完全匿名，帮助我们了解农场玩家的偏好。' : locale === 'zh-TW' ? '你的選擇完全匿名，幫助我們了解農場玩家的偏好。' : locale === 'ja' ? '回答は完全に匿名で、農場ゲームファンの傾向を把握するために使用されます。' : locale === 'ko' ? '답변은 완전히 익명이며 농장 게이머의 선호도를 파악하는 데 도움이 됩니다。' : locale === 'de' ? 'Deine Antworten sind anonym und helfen uns, die Vorlieben von Farmspielern zu verstehen.' : 'Your answers are anonymous and help us understand what farmers want.'}
         </p>
 
         <RelatedQuizzes currentSlug="farm-personality" locale={locale} />

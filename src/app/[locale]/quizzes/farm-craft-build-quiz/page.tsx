@@ -164,7 +164,7 @@ export default async function Page({
 
           <section className="mt-16">
             <h2 className="mb-6 text-xl font-semibold text-[#f0a832]">
-              {isZh ? '常见问题' : 'Frequently Asked Questions'}
+              {locale === 'zh' ? '常见问题' : locale === 'zh-TW' ? '常見問題' : locale === 'ja' ? 'よくある質問' : locale === 'ko' ? '자주 묻는 질문' : locale === 'de' ? 'Häufig gestellte Fragen' : 'Frequently Asked Questions'}
             </h2>
             <div className="space-y-5">
               {faqItems.map(({ q, a }, i) => (

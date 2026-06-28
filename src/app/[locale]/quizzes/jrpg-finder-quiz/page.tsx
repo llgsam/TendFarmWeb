@@ -117,7 +117,7 @@ export default async function Page({ params }: Props) {
 
           <div className="mt-12">
             <h2 className="mb-6 text-lg font-semibold text-[#e8dcc8]">
-              {isZh ? '常见问题' : 'Frequently Asked Questions'}
+              {locale === 'zh' ? '常见问题' : locale === 'zh-TW' ? '常見問題' : locale === 'ja' ? 'よくある質問' : locale === 'ko' ? '자주 묻는 질문' : locale === 'de' ? 'Häufig gestellte Fragen' : 'Frequently Asked Questions'}
             </h2>
             <div className="space-y-5">
               {faqItems.map((item, i) => (
