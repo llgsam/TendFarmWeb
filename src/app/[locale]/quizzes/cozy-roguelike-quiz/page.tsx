@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '入门 Roguelike 推荐测验 — 黑帝斯、吸血鬼幸存者、杀戮尖塔还是 Balatro？'
@@ -99,7 +99,7 @@ export default async function CozyRoguelikeQuizPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
 
   const faqSchema = {

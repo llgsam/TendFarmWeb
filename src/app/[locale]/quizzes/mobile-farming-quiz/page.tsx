@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '哪款手机农场游戏最适合你？— Hay Day / 星露谷 / Township / 口袋营地测验'
@@ -90,7 +90,7 @@ export default async function MobileFarmingQuizPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
 
   const faqSchema = {

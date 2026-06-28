@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-weird-games`
 
   return {
@@ -55,7 +55,7 @@ export default async function CozyWeirdGamesPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-weird-games`
 
   const faqSchema = {

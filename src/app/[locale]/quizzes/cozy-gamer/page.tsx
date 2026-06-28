@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '你是 Cozy Gamer 吗？测出你的 Cozy 指数（0%–100%）'
@@ -80,7 +80,7 @@ export default async function CozyGamerPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
 
   const faqSchema = {

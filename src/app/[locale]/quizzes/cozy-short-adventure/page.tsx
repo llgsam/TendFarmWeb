@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '短篇 Cozy 冒险游戏推荐测验 — Venba、奇异园艺、小鳄鱼游戏还是 Tinykin？'
@@ -97,7 +97,7 @@ export default async function CozyShortAdventurePage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
 
   const faqSchema = {

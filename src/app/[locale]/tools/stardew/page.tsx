@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '星露谷物语作物利润计算器 — 最优季节种植策略'
@@ -30,7 +30,7 @@ export default async function StardewToolPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">

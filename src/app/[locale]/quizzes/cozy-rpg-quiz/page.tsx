@@ -7,7 +7,7 @@ type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-rpg-quiz`
 
   return {
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CozyRpgQuizPage({ params }: Props) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-rpg-quiz`
 
   const faqItems = [

@@ -132,6 +132,7 @@ const FALLBACK_LOCALE = 'en'
 
 function resolveContentLocale(locale: string): string {
   if ((CONTENT_LOCALES as readonly string[]).includes(locale)) return locale
+  if (locale === 'zh-TW') return 'zh'
   return FALLBACK_LOCALE
 }
 

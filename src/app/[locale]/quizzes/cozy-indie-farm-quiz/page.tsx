@@ -6,7 +6,7 @@ const SLUG = 'cozy-indie-farm-quiz'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '治愈独立农场游戏推荐测验 — Dinkum/Kynseed/Littlewood/旅者驿站 | Farm Game Hub'
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
 
   const faqItems = isZh
     ? [

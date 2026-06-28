@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/stardew-fishing-quiz`
 
   return {
@@ -57,7 +57,7 @@ export default async function StardewFishingQuizPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/stardew-fishing-quiz`
 
   const faqSchema = {

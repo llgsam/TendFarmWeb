@@ -39,7 +39,7 @@ export default async function GuideArticlePage({
   if (!post) notFound()
 
   const gameLabel = game.split('-').map((w: string) => w[0].toUpperCase() + w.slice(1)).join(' ')
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
 
   const article = articleSchema(
     { title: post.title, description: post.description, publishedAt: post.publishedAt, slug, game },

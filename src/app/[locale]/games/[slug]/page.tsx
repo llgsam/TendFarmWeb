@@ -20,7 +20,7 @@ export async function generateMetadata({
   const game = getGameBySlug(slug)
   if (!game) return {}
 
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const name = isZh ? game.nameZh : game.nameEn
   const desc = isZh ? game.descZh : game.descEn
 
@@ -45,7 +45,7 @@ export default async function GameDetailPage({
   const game = getGameBySlug(slug)
   if (!game) notFound()
 
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const name = isZh ? game.nameZh : game.nameEn
   const desc = isZh ? game.longDescZh : game.longDescEn
   const forWhom = isZh ? game.forWhomZh : game.forWhomEn

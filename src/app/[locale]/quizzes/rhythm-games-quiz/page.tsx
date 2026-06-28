@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '节奏游戏推荐测验：再见狂心 vs 长号冠军 vs 亡灵舞者 vs 褪黑素 | Farming Game Hub'
@@ -33,7 +33,7 @@ export default async function RhythmGamesQuizPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
 
   const faqItems = isZh
     ? [

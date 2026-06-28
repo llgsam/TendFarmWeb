@@ -5,7 +5,11 @@ import Link from 'next/link'
 
 interface Crop {
   nameZh: string
+  nameZhTW: string
   nameEn: string
+  nameJa: string
+  nameKo: string
+  nameDe: string
   season: 'spring' | 'summer' | 'fall' | 'any'
   seedCost: number
   sellPrice: number
@@ -16,40 +20,39 @@ interface Crop {
 
 const CROPS: Crop[] = [
   // Spring
-  { nameZh: '防风草', nameEn: 'Parsnip', season: 'spring', seedCost: 20, sellPrice: 35, days: 4, regrowDays: 0, perPick: 1 },
-  { nameZh: '大蒜', nameEn: 'Garlic', season: 'spring', seedCost: 40, sellPrice: 60, days: 4, regrowDays: 0, perPick: 1 },
-  { nameZh: '土豆', nameEn: 'Potato', season: 'spring', seedCost: 50, sellPrice: 80, days: 6, regrowDays: 0, perPick: 1 },
-  { nameZh: '郁金香', nameEn: 'Tulip', season: 'spring', seedCost: 20, sellPrice: 30, days: 6, regrowDays: 0, perPick: 1 },
-  { nameZh: '花椰菜', nameEn: 'Cauliflower', season: 'spring', seedCost: 80, sellPrice: 175, days: 12, regrowDays: 0, perPick: 1 },
-  { nameZh: '草莓', nameEn: 'Strawberry', season: 'spring', seedCost: 100, sellPrice: 120, days: 8, regrowDays: 4, perPick: 1 },
+  { nameZh: '防风草', nameZhTW: '防風草', nameEn: 'Parsnip', nameJa: 'パースニップ', nameKo: '파스닙', nameDe: 'Pastinake', season: 'spring', seedCost: 20, sellPrice: 35, days: 4, regrowDays: 0, perPick: 1 },
+  { nameZh: '大蒜', nameZhTW: '大蒜', nameEn: 'Garlic', nameJa: 'ガーリック', nameKo: '마늘', nameDe: 'Knoblauch', season: 'spring', seedCost: 40, sellPrice: 60, days: 4, regrowDays: 0, perPick: 1 },
+  { nameZh: '土豆', nameZhTW: '馬鈴薯', nameEn: 'Potato', nameJa: 'ポテト', nameKo: '감자', nameDe: 'Kartoffel', season: 'spring', seedCost: 50, sellPrice: 80, days: 6, regrowDays: 0, perPick: 1 },
+  { nameZh: '郁金香', nameZhTW: '鬱金香', nameEn: 'Tulip', nameJa: 'チューリップ', nameKo: '튤립', nameDe: 'Tulpe', season: 'spring', seedCost: 20, sellPrice: 30, days: 6, regrowDays: 0, perPick: 1 },
+  { nameZh: '花椰菜', nameZhTW: '花椰菜', nameEn: 'Cauliflower', nameJa: 'カリフラワー', nameKo: '콜리플라워', nameDe: 'Blumenkohl', season: 'spring', seedCost: 80, sellPrice: 175, days: 12, regrowDays: 0, perPick: 1 },
+  { nameZh: '草莓', nameZhTW: '草莓', nameEn: 'Strawberry', nameJa: 'イチゴ', nameKo: '딸기', nameDe: 'Erdbeere', season: 'spring', seedCost: 100, sellPrice: 120, days: 8, regrowDays: 4, perPick: 1 },
   // Summer
-  { nameZh: '萝卜', nameEn: 'Radish', season: 'summer', seedCost: 40, sellPrice: 90, days: 6, regrowDays: 0, perPick: 1 },
-  { nameZh: '甜瓜', nameEn: 'Melon', season: 'summer', seedCost: 80, sellPrice: 250, days: 12, regrowDays: 0, perPick: 1 },
-  { nameZh: '红甘蓝', nameEn: 'Red Cabbage', season: 'summer', seedCost: 100, sellPrice: 260, days: 9, regrowDays: 0, perPick: 1 },
-  { nameZh: '杨桃', nameEn: 'Starfruit', season: 'summer', seedCost: 400, sellPrice: 750, days: 13, regrowDays: 0, perPick: 1 },
-  { nameZh: '蓝莓', nameEn: 'Blueberry', season: 'summer', seedCost: 80, sellPrice: 50, days: 13, regrowDays: 4, perPick: 3 },
-  { nameZh: '辣椒', nameEn: 'Hot Pepper', season: 'summer', seedCost: 40, sellPrice: 40, days: 5, regrowDays: 3, perPick: 1 },
+  { nameZh: '萝卜', nameZhTW: '蘿蔔', nameEn: 'Radish', nameJa: 'ラディッシュ', nameKo: '래디시', nameDe: 'Radieschen', season: 'summer', seedCost: 40, sellPrice: 90, days: 6, regrowDays: 0, perPick: 1 },
+  { nameZh: '甜瓜', nameZhTW: '甜瓜', nameEn: 'Melon', nameJa: 'メロン', nameKo: '멜론', nameDe: 'Melone', season: 'summer', seedCost: 80, sellPrice: 250, days: 12, regrowDays: 0, perPick: 1 },
+  { nameZh: '红甘蓝', nameZhTW: '紅甘藍', nameEn: 'Red Cabbage', nameJa: 'レッドキャベツ', nameKo: '적양배추', nameDe: 'Rotkohl', season: 'summer', seedCost: 100, sellPrice: 260, days: 9, regrowDays: 0, perPick: 1 },
+  { nameZh: '杨桃', nameZhTW: '楊桃', nameEn: 'Starfruit', nameJa: 'スターフルーツ', nameKo: '스타프루트', nameDe: 'Sternfrucht', season: 'summer', seedCost: 400, sellPrice: 750, days: 13, regrowDays: 0, perPick: 1 },
+  { nameZh: '蓝莓', nameZhTW: '藍莓', nameEn: 'Blueberry', nameJa: 'ブルーベリー', nameKo: '블루베리', nameDe: 'Blaubeere', season: 'summer', seedCost: 80, sellPrice: 50, days: 13, regrowDays: 4, perPick: 3 },
+  { nameZh: '辣椒', nameZhTW: '辣椒', nameEn: 'Hot Pepper', nameJa: 'ホットペッパー', nameKo: '핫페퍼', nameDe: 'Peperoni', season: 'summer', seedCost: 40, sellPrice: 40, days: 5, regrowDays: 3, perPick: 1 },
   // Fall
-  { nameZh: '南瓜', nameEn: 'Pumpkin', season: 'fall', seedCost: 100, sellPrice: 320, days: 13, regrowDays: 0, perPick: 1 },
-  { nameZh: '山药', nameEn: 'Yam', season: 'fall', seedCost: 60, sellPrice: 160, days: 10, regrowDays: 0, perPick: 1 },
-  { nameZh: '苋菜', nameEn: 'Amaranth', season: 'fall', seedCost: 70, sellPrice: 150, days: 7, regrowDays: 0, perPick: 1 },
-  { nameZh: '洋蓟', nameEn: 'Artichoke', season: 'fall', seedCost: 30, sellPrice: 160, days: 8, regrowDays: 0, perPick: 1 },
-  { nameZh: '甜菜', nameEn: 'Beet', season: 'fall', seedCost: 20, sellPrice: 100, days: 6, regrowDays: 0, perPick: 1 },
-  { nameZh: '蔓越莓', nameEn: 'Cranberry', season: 'fall', seedCost: 240, sellPrice: 75, days: 7, regrowDays: 5, perPick: 2 },
-  { nameZh: '葡萄', nameEn: 'Grape', season: 'fall', seedCost: 60, sellPrice: 80, days: 10, regrowDays: 3, perPick: 1 },
-  { nameZh: '茄子', nameEn: 'Eggplant', season: 'fall', seedCost: 20, sellPrice: 60, days: 5, regrowDays: 5, perPick: 1 },
+  { nameZh: '南瓜', nameZhTW: '南瓜', nameEn: 'Pumpkin', nameJa: 'パンプキン', nameKo: '호박', nameDe: 'Kürbis', season: 'fall', seedCost: 100, sellPrice: 320, days: 13, regrowDays: 0, perPick: 1 },
+  { nameZh: '山药', nameZhTW: '山藥', nameEn: 'Yam', nameJa: 'ヤム', nameKo: '얌', nameDe: 'Yamswurzel', season: 'fall', seedCost: 60, sellPrice: 160, days: 10, regrowDays: 0, perPick: 1 },
+  { nameZh: '苋菜', nameZhTW: '莧菜', nameEn: 'Amaranth', nameJa: 'アマランス', nameKo: '아마란스', nameDe: 'Amaranth', season: 'fall', seedCost: 70, sellPrice: 150, days: 7, regrowDays: 0, perPick: 1 },
+  { nameZh: '洋蓟', nameZhTW: '朝鮮薊', nameEn: 'Artichoke', nameJa: 'アーティチョーク', nameKo: '아티초크', nameDe: 'Artischocke', season: 'fall', seedCost: 30, sellPrice: 160, days: 8, regrowDays: 0, perPick: 1 },
+  { nameZh: '甜菜', nameZhTW: '甜菜', nameEn: 'Beet', nameJa: 'ビート', nameKo: '사탕무', nameDe: 'Rübe', season: 'fall', seedCost: 20, sellPrice: 100, days: 6, regrowDays: 0, perPick: 1 },
+  { nameZh: '蔓越莓', nameZhTW: '蔓越莓', nameEn: 'Cranberry', nameJa: 'クランベリー', nameKo: '크랜베리', nameDe: 'Preiselbeere', season: 'fall', seedCost: 240, sellPrice: 75, days: 7, regrowDays: 5, perPick: 2 },
+  { nameZh: '葡萄', nameZhTW: '葡萄', nameEn: 'Grape', nameJa: 'グレープ', nameKo: '포도', nameDe: 'Weintraube', season: 'fall', seedCost: 60, sellPrice: 80, days: 10, regrowDays: 3, perPick: 1 },
+  { nameZh: '茄子', nameZhTW: '茄子', nameEn: 'Eggplant', nameJa: 'ナス', nameKo: '가지', nameDe: 'Aubergine', season: 'fall', seedCost: 20, sellPrice: 60, days: 5, regrowDays: 5, perPick: 1 },
 ]
 
 type Season = 'spring' | 'summer' | 'fall'
 
-const SEASON_LABELS: Record<Season, { zh: string; en: string }> = {
-  spring: { zh: '春季', en: 'Spring' },
-  summer: { zh: '夏季', en: 'Summer' },
-  fall: { zh: '秋季', en: 'Fall' },
+const SEASON_LABELS: Record<Season, { zh: string; zhTW: string; en: string; ja: string; ko: string; de: string }> = {
+  spring: { zh: '春季', zhTW: '春季', en: 'Spring', ja: '春', ko: '봄', de: 'Frühling' },
+  summer: { zh: '夏季', zhTW: '夏季', en: 'Summer', ja: '夏', ko: '여름', de: 'Sommer' },
+  fall: { zh: '秋季', zhTW: '秋季', en: 'Fall', ja: '秋', ko: '가을', de: 'Herbst' },
 }
 
-// Artisan multipliers for processed goods
-const ARTISAN_MULT = 1.4 // Artisan skill on processed goods
+const ARTISAN_MULT = 1.4
 const KEG_MULT_FRUIT = 3
 const KEG_MULT_VEG = 2.25
 
@@ -67,16 +70,13 @@ function calcGoldPerDay(crop: Crop, daysLeft: number, artisan: boolean): number 
       : Math.round(crop.sellPrice * KEG_MULT_VEG * ARTISAN_MULT)
     : crop.sellPrice * crop.perPick
 
-  // First harvest
   remainingDays -= crop.days
   totalGold += effectiveSell - crop.seedCost
 
-  // Regrow harvests
   if (crop.regrowDays > 0) {
     const extraHarvests = Math.floor(remainingDays / crop.regrowDays)
     totalGold += extraHarvests * effectiveSell
   } else {
-    // Plant again
     while (remainingDays >= crop.days) {
       remainingDays -= crop.days
       totalGold += effectiveSell - crop.seedCost
@@ -94,7 +94,16 @@ export function StardewCalculator({ locale }: Props) {
   const [season, setSeason] = useState<Season>('spring')
   const [daysLeft, setDaysLeft] = useState(28)
   const [artisan, setArtisan] = useState(false)
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
+  const getLoc = (zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string => {
+    if (locale === 'zh') return zh
+    if (locale === 'zh-TW') return zhTW ?? zh
+    if (locale === 'ja') return ja ?? en
+    if (locale === 'ko') return ko ?? en
+    if (locale === 'de') return de ?? en
+    return en
+  }
+  const getCropName = (crop: Crop) => getLoc(crop.nameZh, crop.nameEn, crop.nameZhTW, crop.nameJa, crop.nameKo, crop.nameDe)
 
   const results = useMemo(() => {
     const seasonCrops = CROPS.filter((c) => c.season === season || c.season === 'any')
@@ -106,9 +115,13 @@ export function StardewCalculator({ locale }: Props) {
       .sort((a, b) => b.goldPerDay - a.goldPerDay)
   }, [season, daysLeft, artisan])
 
-  const headers = isZh
-    ? { crop: '作物', days: '生长天数', sell: '售价', regen: '再生', goldDay: '金/天 ★' }
-    : { crop: 'Crop', days: 'Days', sell: 'Sell Price', regen: 'Regrow', goldDay: 'Gold/Day ★' }
+  const headers = {
+    crop: getLoc('作物', 'Crop', '作物', '作物', '작물', 'Pflanze'),
+    days: getLoc('生长天数', 'Days', '生長天數', '成長日数', '성장 일수', 'Tage'),
+    sell: getLoc('售价', 'Sell Price', '售價', '売値', '판매가', 'Preis'),
+    regen: getLoc('再生', 'Regrow', '再生', '再成長', '재성장', 'Nachwachs'),
+    goldDay: getLoc('金/天 ★', 'Gold/Day ★', '金/天 ★', 'G/日 ★', '금/일 ★', 'Gold/Tag ★'),
+  }
 
   return (
     <div>
@@ -117,7 +130,7 @@ export function StardewCalculator({ locale }: Props) {
         {/* Season */}
         <div>
           <label className="mb-1 block text-xs text-[#8a9a7a]">
-            {isZh ? '季节' : 'Season'}
+            {getLoc('季节', 'Season', '季節', 'シーズン', '계절', 'Jahreszeit')}
           </label>
           <div className="flex gap-2">
             {(Object.keys(SEASON_LABELS) as Season[]).map((s) => (
@@ -130,7 +143,7 @@ export function StardewCalculator({ locale }: Props) {
                     : 'border border-[#2d3d2d] text-[#8a9a7a] hover:text-[#e8dcc8]'
                 }`}
               >
-                {isZh ? SEASON_LABELS[s].zh : SEASON_LABELS[s].en}
+                {getLoc(SEASON_LABELS[s].zh, SEASON_LABELS[s].en, SEASON_LABELS[s].zhTW, SEASON_LABELS[s].ja, SEASON_LABELS[s].ko, SEASON_LABELS[s].de)}
               </button>
             ))}
           </div>
@@ -139,7 +152,7 @@ export function StardewCalculator({ locale }: Props) {
         {/* Days Left */}
         <div className="flex-1 min-w-[200px]">
           <label className="mb-1 block text-xs text-[#8a9a7a]">
-            {isZh ? `季节剩余天数：${daysLeft} 天` : `Days left in season: ${daysLeft}`}
+            {getLoc(`季节剩余天数：${daysLeft} 天`, `Days left in season: ${daysLeft}`, `季節剩餘天數：${daysLeft} 天`, `残り日数：${daysLeft}日`, `남은 일수: ${daysLeft}일`, `Verbleibende Tage: ${daysLeft}`)}
           </label>
           <input
             type="range"
@@ -150,15 +163,15 @@ export function StardewCalculator({ locale }: Props) {
             className="w-full accent-[#f0a832]"
           />
           <div className="flex justify-between text-xs text-[#8a9a7a]">
-            <span>{isZh ? '1天（季末）' : '1 day left'}</span>
-            <span>{isZh ? '28天（季初）' : '28 days (full)'}</span>
+            <span>{getLoc('1天（季末）', '1 day left', '1天（季末）', '残り1日', '마지막 날', 'Letzter Tag')}</span>
+            <span>{getLoc('28天（季初）', '28 days (full)', '28天（季初）', '28日（初日）', '28일 (시작)', '28 Tage (voll)')}</span>
           </div>
         </div>
 
         {/* Artisan Toggle */}
         <div>
           <label className="mb-1 block text-xs text-[#8a9a7a]">
-            {isZh ? '工匠技能（酒桶/坛子加工）' : 'Artisan Skill (keg/jar)'}
+            {getLoc('工匠技能（酒桶/坛子加工）', 'Artisan Skill (keg/jar)', '工匠技能（酒桶/罐子加工）', 'アーティザンスキル（樽/瓶）', '장인 기술 (통/항아리)', 'Handwerker-Skill (Fass/Glas)')}
           </label>
           <button
             onClick={() => setArtisan(!artisan)}
@@ -169,12 +182,12 @@ export function StardewCalculator({ locale }: Props) {
             }`}
           >
             {artisan
-              ? isZh ? '✓ 已启用' : '✓ Enabled'
-              : isZh ? '关闭' : 'Off'}
+              ? getLoc('✓ 已启用', '✓ Enabled', '✓ 已啟用', '✓ 有効', '✓ 활성화', '✓ Aktiv')
+              : getLoc('关闭', 'Off', '關閉', 'OFF', '꺼짐', 'Aus')}
           </button>
           {artisan && (
             <p className="mt-1 text-xs text-[#8a9a7a]">
-              {isZh ? '水果 ×3 酒桶 ×1.4 工匠，蔬菜 ×2.25 ×1.4' : 'Fruits ×3 keg ×1.4 artisan; Veg ×2.25 ×1.4'}
+              {getLoc('水果 ×3 酒桶 ×1.4 工匠，蔬菜 ×2.25 ×1.4', 'Fruits ×3 keg ×1.4 artisan; Veg ×2.25 ×1.4', '水果 ×3 酒桶 ×1.4 工匠，蔬菜 ×2.25 ×1.4', '果物 ×3 樽 ×1.4 職人；野菜 ×2.25 ×1.4', '과일 ×3 통 ×1.4 장인; 채소 ×2.25 ×1.4', 'Früchte ×3 Fass ×1.4 Handwerker; Gemüse ×2.25 ×1.4')}
             </p>
           )}
         </div>
@@ -201,10 +214,10 @@ export function StardewCalculator({ locale }: Props) {
                 }`}
               >
                 <td className="px-4 py-3 font-medium text-[#e8dcc8]">
-                  {isZh ? crop.nameZh : crop.nameEn}
+                  {getCropName(crop)}
                   {i === 0 && (
                     <span className="ml-2 rounded-full bg-[#f0a832] px-1.5 py-0.5 text-xs text-[#0f1a0f] font-semibold">
-                      {isZh ? '最优' : 'Best'}
+                      {getLoc('最优', 'Best', '最優', 'ベスト', '최고', 'Bestes')}
                     </span>
                   )}
                   {crop.perPick > 1 && (
@@ -223,7 +236,7 @@ export function StardewCalculator({ locale }: Props) {
                     </span>
                   ) : (
                     <span className="text-[#8a9a7a]">
-                      {isZh ? '无法种植' : 'Can\'t plant'}
+                      {getLoc('无法种植', "Can't plant", '無法種植', '植えられない', '심을 수 없음', 'Nicht pflanzbar')}
                     </span>
                   )}
                 </td>
@@ -236,29 +249,44 @@ export function StardewCalculator({ locale }: Props) {
       {/* Notes */}
       <div className="mt-3 space-y-1">
         <p className="text-xs text-[#8a9a7a]">
-          {isZh
-            ? '★ 金/天 = 整个可用天数内的平均日利润（含种子成本）。'
-            : '★ Gold/Day = average daily profit over available days (seed costs included).'}
+          {getLoc(
+            '★ 金/天 = 整个可用天数内的平均日利润（含种子成本）。',
+            '★ Gold/Day = average daily profit over available days (seed costs included).',
+            '★ 金/天 = 整個可用天數內的平均日利潤（含種子成本）。',
+            '★ G/日 = 利用可能日数全体の平均日利益（種コスト含む）。',
+            '★ 금/일 = 가능한 일수 전체의 평균 일일 수익 (씨앗 비용 포함).',
+            '★ Gold/Tag = durchschnittlicher Tagesgewinn über verfügbare Tage (inkl. Samenkosten).'
+          )}
         </p>
         <p className="text-xs text-[#8a9a7a]">
-          {isZh
-            ? '* 草莓种子仅在蛋节获得（春季第 13 天）。工匠技能可将处理后产品价值再提升 40%。'
-            : '* Strawberry seeds only from Egg Festival (Spring Day 13). Artisan skill boosts processed goods by +40%.'}
+          {getLoc(
+            '* 草莓种子仅在蛋节获得（春季第 13 天）。工匠技能可将处理后产品价值再提升 40%。',
+            '* Strawberry seeds only from Egg Festival (Spring Day 13). Artisan skill boosts processed goods by +40%.',
+            '* 草莓種子僅在蛋節獲得（春季第 13 天）。工匠技能可將加工後產品價值再提升 40%。',
+            '* イチゴの種はエッグフェスティバル（春13日目）のみ。職人スキルで加工品を+40%アップ。',
+            '* 딸기 씨앗은 에그 페스티벌(봄 13일)에서만 구매 가능. 장인 기술은 가공품 가치 +40% 상승.',
+            '* Erdbeer-Samen nur beim Egg Festival (Frühling Tag 13). Handwerker-Skill: +40% für Verarbeitetes.'
+          )}
         </p>
       </div>
 
       {/* TendFarm Hook */}
       <div className="mt-10 rounded-xl border border-[#2d5a27] bg-[#1a2e1a] p-6">
         <p className="text-sm text-[#8a9a7a]">
-          {isZh
-            ? '星露谷里，你精心规划作物来最大化金币产出。有一款游戏让这个逻辑更进一步——它用你真实的睡眠和步数来驱动收成。睡得好，作物更充盈；动得多，提前成熟。'
-            : "Stardew Valley rewards careful crop planning. One game takes this further — it uses your real sleep and steps to drive harvest yield. Sleep well, harvest more; move more, crops ripen early."}
+          {getLoc(
+            '星露谷里，你精心规划作物来最大化金币产出。有一款游戏让这个逻辑更进一步——它用你真实的睡眠和步数来驱动收成。睡得好，作物更充盈；动得多，提前成熟。',
+            "Stardew Valley rewards careful crop planning. One game takes this further — it uses your real sleep and steps to drive harvest yield. Sleep well, harvest more; move more, crops ripen early.",
+            '星露谷裡，你精心規劃作物來最大化金幣產出。有一款遊戲讓這個邏輯更進一步——它用你真實的睡眠和步數來驅動收成。睡得好，作物更充盈；動得多，提前成熟。',
+            'スターデューバレーは丁寧な作物計画が重要です。一歩進んだゲームがあります――本当の睡眠と歩数が収穫量を左右します。よく眠れば豊作、よく動けば早熟。',
+            '스타듀 밸리는 작물 계획이 중요하죠. 한 단계 더 나아간 게임이 있습니다 — 실제 수면과 걸음 수로 수확량을 결정해요. 잘 자면 풍작, 많이 움직이면 빨리 익어요.',
+            'Stardew Valley belohnt sorgfältige Planung. Ein Spiel geht weiter — dein echter Schlaf und deine Schritte bestimmen die Ernte. Gut schlafen, mehr ernten; mehr laufen, früher reif.'
+          )}
         </p>
         <Link
           href={`/${locale}/gameplay`}
           className="mt-3 inline-block text-sm font-semibold text-[#f0a832] hover:underline"
         >
-          {isZh ? '了解 TendFarm →' : 'Learn about TendFarm →'}
+          {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm について →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
         </Link>
       </div>
     </div>

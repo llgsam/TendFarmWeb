@@ -6,7 +6,7 @@ const SLUG = 'new-wave-farm-quiz'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '新浪潮农场游戏推荐测验 — 梅林回响/Sugardew/生长常树之歌/Farm Together 2 | Farm Game Hub'
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
 
   const faqItems = isZh
     ? [

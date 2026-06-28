@@ -5,7 +5,11 @@ import Link from 'next/link'
 
 interface Crop {
   nameZh: string
+  nameZhTW: string
   nameEn: string
+  nameJa: string
+  nameKo: string
+  nameDe: string
   level: number
   seedCost: number
   sellPrice: number
@@ -13,30 +17,30 @@ interface Crop {
 }
 
 const CROPS: Crop[] = [
-  { nameZh: '小麦', nameEn: 'Wheat', level: 1, seedCost: 4, sellPrice: 8, growMin: 1 },
-  { nameZh: '玉米', nameEn: 'Corn', level: 1, seedCost: 16, sellPrice: 36, growMin: 5 },
-  { nameZh: '胡萝卜', nameEn: 'Carrot', level: 8, seedCost: 12, sellPrice: 23, growMin: 10 },
-  { nameZh: '大豆', nameEn: 'Soybean', level: 17, seedCost: 28, sellPrice: 73, growMin: 45 },
-  { nameZh: '南瓜', nameEn: 'Pumpkin', level: 25, seedCost: 84, sellPrice: 175, growMin: 90 },
-  { nameZh: '靛蓝草', nameEn: 'Indigo', level: 43, seedCost: 60, sellPrice: 112, growMin: 60 },
-  { nameZh: '番茄', nameEn: 'Tomato', level: 35, seedCost: 68, sellPrice: 159, growMin: 120 },
-  { nameZh: '辣椒', nameEn: 'Chili Pepper', level: 45, seedCost: 96, sellPrice: 249, growMin: 180 },
-  { nameZh: '草莓', nameEn: 'Strawberry', level: 55, seedCost: 84, sellPrice: 204, growMin: 120 },
-  { nameZh: '树莓', nameEn: 'Raspberry', level: 58, seedCost: 96, sellPrice: 229, growMin: 150 },
-  { nameZh: '向日葵', nameEn: 'Sunflower', level: 60, seedCost: 36, sellPrice: 95, growMin: 120 },
-  { nameZh: '棉花', nameEn: 'Cotton', level: 51, seedCost: 112, sellPrice: 254, growMin: 300 },
-  { nameZh: '黑莓', nameEn: 'Blackberry', level: 62, seedCost: 140, sellPrice: 380, growMin: 240 },
-  { nameZh: '猴面包树果', nameEn: 'Baobab', level: 65, seedCost: 192, sellPrice: 528, growMin: 360 },
+  { nameZh: '小麦', nameZhTW: '小麥', nameEn: 'Wheat', nameJa: '小麦', nameKo: '밀', nameDe: 'Weizen', level: 1, seedCost: 4, sellPrice: 8, growMin: 1 },
+  { nameZh: '玉米', nameZhTW: '玉米', nameEn: 'Corn', nameJa: 'コーン', nameKo: '옥수수', nameDe: 'Mais', level: 1, seedCost: 16, sellPrice: 36, growMin: 5 },
+  { nameZh: '胡萝卜', nameZhTW: '胡蘿蔔', nameEn: 'Carrot', nameJa: 'ニンジン', nameKo: '당근', nameDe: 'Karotte', level: 8, seedCost: 12, sellPrice: 23, growMin: 10 },
+  { nameZh: '大豆', nameZhTW: '大豆', nameEn: 'Soybean', nameJa: '大豆', nameKo: '대두', nameDe: 'Sojabohne', level: 17, seedCost: 28, sellPrice: 73, growMin: 45 },
+  { nameZh: '南瓜', nameZhTW: '南瓜', nameEn: 'Pumpkin', nameJa: 'カボチャ', nameKo: '호박', nameDe: 'Kürbis', level: 25, seedCost: 84, sellPrice: 175, growMin: 90 },
+  { nameZh: '靛蓝草', nameZhTW: '靛藍草', nameEn: 'Indigo', nameJa: 'インディゴ', nameKo: '인디고', nameDe: 'Indigo', level: 43, seedCost: 60, sellPrice: 112, growMin: 60 },
+  { nameZh: '番茄', nameZhTW: '番茄', nameEn: 'Tomato', nameJa: 'トマト', nameKo: '토마토', nameDe: 'Tomate', level: 35, seedCost: 68, sellPrice: 159, growMin: 120 },
+  { nameZh: '辣椒', nameZhTW: '辣椒', nameEn: 'Chili Pepper', nameJa: 'チリペッパー', nameKo: '고추', nameDe: 'Chili', level: 45, seedCost: 96, sellPrice: 249, growMin: 180 },
+  { nameZh: '草莓', nameZhTW: '草莓', nameEn: 'Strawberry', nameJa: 'イチゴ', nameKo: '딸기', nameDe: 'Erdbeere', level: 55, seedCost: 84, sellPrice: 204, growMin: 120 },
+  { nameZh: '树莓', nameZhTW: '樹莓', nameEn: 'Raspberry', nameJa: 'ラズベリー', nameKo: '라즈베리', nameDe: 'Himbeere', level: 58, seedCost: 96, sellPrice: 229, growMin: 150 },
+  { nameZh: '向日葵', nameZhTW: '向日葵', nameEn: 'Sunflower', nameJa: 'ヒマワリ', nameKo: '해바라기', nameDe: 'Sonnenblume', level: 60, seedCost: 36, sellPrice: 95, growMin: 120 },
+  { nameZh: '棉花', nameZhTW: '棉花', nameEn: 'Cotton', nameJa: 'コットン', nameKo: '면화', nameDe: 'Baumwolle', level: 51, seedCost: 112, sellPrice: 254, growMin: 300 },
+  { nameZh: '黑莓', nameZhTW: '黑莓', nameEn: 'Blackberry', nameJa: 'ブラックベリー', nameKo: '블랙베리', nameDe: 'Brombeere', level: 62, seedCost: 140, sellPrice: 380, growMin: 240 },
+  { nameZh: '猴面包树果', nameZhTW: '猴麵包樹果', nameEn: 'Baobab', nameJa: 'バオバブ', nameKo: '바오밥', nameDe: 'Baobab', level: 65, seedCost: 192, sellPrice: 528, growMin: 360 },
 ]
 
 type SortKey = 'profitPerMin' | 'profitPerHour' | 'profitPerHarvest' | 'level'
 type PlayStyle = 'all' | 'active' | 'casual' | 'afk'
 
-const PLAY_STYLE_LABELS: Record<PlayStyle, { zh: string; en: string; maxMin: number }> = {
-  all: { zh: '全部', en: 'All', maxMin: Infinity },
-  active: { zh: '活跃（每 15 分钟登录）', en: 'Active (check every 15 min)', maxMin: 15 },
-  casual: { zh: '休闲（每 1-2 小时登录）', en: 'Casual (check every 1-2 hrs)', maxMin: 120 },
-  afk: { zh: 'AFK（挂机 4 小时以上）', en: 'AFK (away 4+ hours)', maxMin: Infinity },
+const PLAY_STYLE_LABELS: Record<PlayStyle, { zh: string; zhTW: string; en: string; ja: string; ko: string; de: string; maxMin: number }> = {
+  all: { zh: '全部', zhTW: '全部', en: 'All', ja: 'すべて', ko: '전체', de: 'Alle', maxMin: Infinity },
+  active: { zh: '活跃（每 15 分钟登录）', zhTW: '活躍（每 15 分鐘登入）', en: 'Active (check every 15 min)', ja: 'アクティブ（15分ごと）', ko: '적극적 (15분마다 접속)', de: 'Aktiv (alle 15 Min.)', maxMin: 15 },
+  casual: { zh: '休闲（每 1-2 小时登录）', zhTW: '休閒（每 1-2 小時登入）', en: 'Casual (check every 1-2 hrs)', ja: 'カジュアル（1〜2時間ごと）', ko: '캐주얼 (1~2시간마다)', de: 'Gelegentlich (1-2 Std.)', maxMin: 120 },
+  afk: { zh: 'AFK（挂机 4 小时以上）', zhTW: 'AFK（掛機 4 小時以上）', en: 'AFK (away 4+ hours)', ja: 'AFK（4時間以上放置）', ko: 'AFK (4시간 이상 자리비움)', de: 'AFK (4+ Std. weg)', maxMin: Infinity },
 }
 
 interface Props {
@@ -46,7 +50,16 @@ interface Props {
 export function HayDayCalculator({ locale }: Props) {
   const [sortBy, setSortBy] = useState<SortKey>('profitPerMin')
   const [playStyle, setPlayStyle] = useState<PlayStyle>('all')
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
+  const getLoc = (zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string => {
+    if (locale === 'zh') return zh
+    if (locale === 'zh-TW') return zhTW ?? zh
+    if (locale === 'ja') return ja ?? en
+    if (locale === 'ko') return ko ?? en
+    if (locale === 'de') return de ?? en
+    return en
+  }
+  const getCropName = (crop: Crop) => getLoc(crop.nameZh, crop.nameEn, crop.nameZhTW, crop.nameJa, crop.nameKo, crop.nameDe)
 
   const processedCrops = useMemo(() => {
     return CROPS.map((c) => ({
@@ -77,15 +90,22 @@ export function HayDayCalculator({ locale }: Props) {
   }, [processedCrops, sortBy, playStyle])
 
   const fmtMin = (min: number) => {
-    if (min < 60) return `${min}${isZh ? '分钟' : 'min'}`
+    const minUnit = getLoc('分钟', 'min', '分鐘', '分', '분', 'Min.')
+    const minShort = getLoc('分', 'm', '分', '分', '분', 'M')
+    if (min < 60) return `${min}${minUnit}`
     const h = Math.floor(min / 60)
     const m = min % 60
-    return m > 0 ? `${h}h ${m}${isZh ? '分' : 'm'}` : `${h}h`
+    return m > 0 ? `${h}h ${m}${minShort}` : `${h}h`
   }
 
-  const headers = isZh
-    ? { crop: '作物', level: '解锁等级', grow: '生长时间', profit: '单次利润', perMin: '利润/分钟', perHour: '利润/小时' }
-    : { crop: 'Crop', level: 'Level', grow: 'Grow Time', profit: 'Profit/Harvest', perMin: 'Gold/Min', perHour: 'Gold/Hour' }
+  const headers = {
+    crop: getLoc('作物', 'Crop', '作物', '作物', '작물', 'Pflanze'),
+    level: getLoc('解锁等级', 'Level', '解鎖等級', 'レベル', '레벨', 'Level'),
+    grow: getLoc('生长时间', 'Grow Time', '生長時間', '育成時間', '성장 시간', 'Wachstum'),
+    profit: getLoc('单次利润', 'Profit/Harvest', '單次利潤', '収穫利益', '수확 수익', 'Gewinn/Ernte'),
+    perMin: getLoc('利润/分钟', 'Gold/Min', '利潤/分鐘', '利益/分', '수익/분', 'Gold/Min'),
+    perHour: getLoc('利润/小时', 'Gold/Hour', '利潤/小時', '利益/時間', '수익/시간', 'Gold/Std.'),
+  }
 
   return (
     <div>
@@ -93,7 +113,7 @@ export function HayDayCalculator({ locale }: Props) {
       <div className="mb-6 flex flex-wrap gap-4">
         <div>
           <label className="mb-1 block text-xs text-[#8a9a7a]">
-            {isZh ? '游戏风格' : 'Play Style'}
+            {getLoc('游戏风格', 'Play Style', '遊戲風格', 'プレイスタイル', '플레이 스타일', 'Spielstil')}
           </label>
           <div className="flex flex-wrap gap-2">
             {(Object.keys(PLAY_STYLE_LABELS) as PlayStyle[]).map((style) => (
@@ -106,7 +126,7 @@ export function HayDayCalculator({ locale }: Props) {
                     : 'border border-[#2d3d2d] text-[#8a9a7a] hover:text-[#e8dcc8]'
                 }`}
               >
-                {isZh ? PLAY_STYLE_LABELS[style].zh : PLAY_STYLE_LABELS[style].en}
+                {getLoc(PLAY_STYLE_LABELS[style].zh, PLAY_STYLE_LABELS[style].en, PLAY_STYLE_LABELS[style].zhTW, PLAY_STYLE_LABELS[style].ja, PLAY_STYLE_LABELS[style].ko, PLAY_STYLE_LABELS[style].de)}
               </button>
             ))}
           </div>
@@ -114,14 +134,14 @@ export function HayDayCalculator({ locale }: Props) {
 
         <div>
           <label className="mb-1 block text-xs text-[#8a9a7a]">
-            {isZh ? '排序方式' : 'Sort By'}
+            {getLoc('排序方式', 'Sort By', '排序方式', '並び替え', '정렬 기준', 'Sortieren nach')}
           </label>
           <div className="flex flex-wrap gap-2">
             {([
-              ['profitPerMin', isZh ? '利润/分钟' : 'Gold/Min'],
-              ['profitPerHour', isZh ? '利润/小时' : 'Gold/Hour'],
-              ['profitPerHarvest', isZh ? '单次利润' : 'Per Harvest'],
-              ['level', isZh ? '等级' : 'Level'],
+              ['profitPerMin', getLoc('利润/分钟', 'Gold/Min', '利潤/分鐘', '利益/分', '수익/분', 'Gold/Min')],
+              ['profitPerHour', getLoc('利润/小时', 'Gold/Hour', '利潤/小時', '利益/時間', '수익/시간', 'Gold/Std.')],
+              ['profitPerHarvest', getLoc('单次利润', 'Per Harvest', '單次利潤', '収穫利益', '수확 수익', 'Pro Ernte')],
+              ['level', getLoc('等级', 'Level', '等級', 'レベル', '레벨', 'Level')],
             ] as [SortKey, string][]).map(([key, label]) => (
               <button
                 key={key}
@@ -167,10 +187,10 @@ export function HayDayCalculator({ locale }: Props) {
                 }`}
               >
                 <td className="px-4 py-3 font-medium text-[#e8dcc8]">
-                  {isZh ? `${crop.nameZh}` : crop.nameEn}
+                  {getCropName(crop)}
                   {i === 0 && (
                     <span className="ml-2 rounded-full bg-[#f0a832] px-1.5 py-0.5 text-xs text-[#0f1a0f] font-semibold">
-                      {isZh ? '最优' : 'Best'}
+                      {getLoc('最优', 'Best', '最優', 'ベスト', '최고', 'Bestes')}
                     </span>
                   )}
                 </td>
@@ -187,30 +207,40 @@ export function HayDayCalculator({ locale }: Props) {
         </table>
         {filteredAndSorted.length === 0 && (
           <div className="py-8 text-center text-[#8a9a7a]">
-            {isZh ? '该玩法风格暂无匹配作物' : 'No crops match this play style'}
+            {getLoc('该玩法风格暂无匹配作物', 'No crops match this play style', '該玩法風格暫無匹配作物', 'このスタイルに合う作物はありません', '이 플레이 스타일에 맞는 작물이 없습니다', 'Keine Pflanzen für diesen Spielstil')}
           </div>
         )}
       </div>
 
       {/* Note */}
       <p className="mt-3 text-xs text-[#8a9a7a]">
-        {isZh
-          ? '* 数据来源：Hay Day 社区 Fandom Wiki。价格可能因更新有所变化。'
-          : '* Data from the Hay Day Fandom Wiki community. Prices may vary with game updates.'}
+        {getLoc(
+          '* 数据来源：Hay Day 社区 Fandom Wiki。价格可能因更新有所变化。',
+          '* Data from the Hay Day Fandom Wiki community. Prices may vary with game updates.',
+          '* 數據來源：Hay Day 社群 Fandom Wiki。價格可能因更新有所變化。',
+          '* データはHay Day Fandomコミュニティより。価格はアップデートで変わる場合があります。',
+          '* 데이터 출처: Hay Day Fandom 커뮤니티 Wiki. 업데이트에 따라 가격이 변동될 수 있습니다.',
+          '* Daten aus dem Hay Day Fandom Wiki. Preise können sich durch Updates ändern.'
+        )}
       </p>
 
       {/* TendFarm Hook */}
       <div className="mt-10 rounded-xl border border-[#2d5a27] bg-[#1a2e1a] p-6">
         <p className="text-sm text-[#8a9a7a]">
-          {isZh
-            ? 'Hay Day 讲究按时登录收获——但有一款游戏更进一步：它读取你真实的步数和睡眠，让你的现实生活节律直接驱动农场产出。'
-            : 'Hay Day rewards consistent logins — but one game goes further: it reads your real steps and sleep so your actual daily rhythm drives your farm output.'}
+          {getLoc(
+            'Hay Day 讲究按时登录收获——但有一款游戏更进一步：它读取你真实的步数和睡眠，让你的现实生活节律直接驱动农场产出。',
+            'Hay Day rewards consistent logins — but one game goes further: it reads your real steps and sleep so your actual daily rhythm drives your farm output.',
+            'Hay Day 講究按時登入收穫——但有一款遊戲更進一步：它讀取你真實的步數和睡眠，讓你的現實生活節律直接驅動農場產出。',
+            'Hay Dayは定期ログインが大事ですが、さらに一歩進んだゲームがあります：実際の歩数と睡眠を読み取り、あなたの日常リズムで農場を動かします。',
+            'Hay Day는 꾸준한 접속이 중요하지만, 한 단계 더 나아간 게임이 있습니다: 실제 걸음 수와 수면을 읽어 당신의 실제 생활 리듬으로 농장을 운영합니다.',
+            'Hay Day belohnt regelmäßige Logins — aber ein Spiel geht weiter: Es liest deine echten Schritte und Schlafmuster, sodass dein Alltag die Farm antreibt.'
+          )}
         </p>
         <Link
           href={`/${locale}/gameplay`}
           className="mt-3 inline-block text-sm font-semibold text-[#f0a832] hover:underline"
         >
-          {isZh ? '了解 TendFarm →' : 'Learn about TendFarm →'}
+          {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm について →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
         </Link>
       </div>
     </div>

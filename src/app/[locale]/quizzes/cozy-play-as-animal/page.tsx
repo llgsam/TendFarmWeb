@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-play-as-animal`
 
   return {
@@ -55,7 +55,7 @@ export default async function CozyPlayAsAnimalPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const canonical = `${BASE_URL}/${locale}/quizzes/cozy-play-as-animal`
 
   const faqSchema = {

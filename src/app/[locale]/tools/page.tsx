@@ -58,7 +58,7 @@ const LIVE_TOOLS = [
 export default function ToolsPage() {
   const t = useTranslations('tools')
   const locale = useLocale()
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const wt = useTranslations('waitlist')
 
   return (

@@ -9,7 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     title: isZh
       ? '农场游戏大全 2025 — Farming Game Hub'
@@ -30,7 +30,7 @@ export default async function GamesPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh'
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   const styleLabels = isZh ? STYLE_LABELS_ZH : STYLE_LABELS_EN
 
   const featured = getFeaturedGames()
