@@ -100,16 +100,22 @@ export async function getGuides(locale: string, game: string): Promise<GuideMeta
       const slug = file.replace(/\.md$/, '')
       const resolved = resolveGuideFile(locale, game, slug)
       if (!resolved) return null
-      const raw = fs.readFileSync(resolved.filePath, 'utf-8')
-      const { data } = matter(raw)
-      return {
-        slug,
-        game,
-        locale,
-        title: localizeZh(locale, data.title ?? ''),
-        description: localizeZh(locale, data.description ?? ''),
-        publishedAt: data.publishedAt ?? '',
-        tags: (data.tags ?? []).map((t: string) => localizeZh(locale, t)),
+      try {
+        const raw = fs.readFileSync(resolved.filePath, 'utf-8')
+        const { data } = matter(raw)
+        return {
+          slug,
+          game,
+          locale,
+          title: localizeZh(locale, data.title ?? ''),
+          description: localizeZh(locale, data.description ?? ''),
+          publishedAt: data.publishedAt ?? '',
+          tags: (data.tags ?? []).map((t: string) => localizeZh(locale, t)),
+        }
+      } catch (err) {
+        // A single malformed frontmatter file must not crash the whole listing.
+        console.error(`[guides] failed to parse ${resolved.filePath}:`, err)
+        return null
       }
     })
     .filter((g): g is GuideMeta => g !== null)
@@ -125,7 +131,21 @@ export async function getGuideBySlug(
   if (!resolved) return null
 
   const raw = fs.readFileSync(resolved.filePath, 'utf-8')
-  const { data, content: rawContent } = matter(raw)
+  let data: { [key: string]: unknown }
+  let rawContent: string
+  try {
+    const parsed = matter(raw)
+    data = parsed.data
+    rawContent = parsed.content
+  } catch (err) {
+    console.error(`[guides] failed to parse ${resolved.filePath}:`, err)
+    return null
+  }
+  const title = (data.title as string) ?? ''
+  const description = (data.description as string) ?? ''
+  const publishedAt = (data.publishedAt as string) ?? ''
+  const tags = (data.tags as string[]) ?? []
+  const faqList = (data.faqs as FaqItem[]) ?? []
   // Convert the source (simplified) markdown to Traditional first, so the rendered
   // HTML, the TOC text, and the heading IDs all stay consistent for zh-TW.
   const content = localizeZh(locale, rawContent)
@@ -137,14 +157,14 @@ export async function getGuideBySlug(
     slug,
     game,
     locale,
-    title: localizeZh(locale, data.title ?? ''),
-    description: localizeZh(locale, data.description ?? ''),
-    publishedAt: data.publishedAt ?? '',
-    tags: (data.tags ?? []).map((t: string) => localizeZh(locale, t)),
+    title: localizeZh(locale, title),
+    description: localizeZh(locale, description),
+    publishedAt,
+    tags: tags.map((t: string) => localizeZh(locale, t)),
     contentHtml,
     toc,
     readingTime: calcReadingTime(content),
-    faqs: (data.faqs ?? []).map((f: FaqItem) => ({
+    faqs: faqList.map((f: FaqItem) => ({
       q: localizeZh(locale, f.q),
       a: localizeZh(locale, f.a),
     })),
