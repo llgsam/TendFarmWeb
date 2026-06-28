@@ -2,22 +2,21 @@ import { FarmPersonalityQuiz } from '@/components/tools/FarmPersonalityQuiz'
 import { RelatedQuizzes } from '@/components/RelatedQuizzes'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
+import { getQuizShare, resultOgImageUrl, pickLocale } from '@/lib/quiz-share'
 import Link from 'next/link'
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ r?: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const { r } = await searchParams
   const isZh = locale === 'zh' || locale === 'zh-TW'
-  return {
-    title: isZh
-      ? '你是哪种农场玩家？测出你的农场游戏人格'
-      : 'What Kind of Farmer Are You? Farm Game Personality Quiz',
-    description: isZh
-      ? '6 个问题，测出你的农场游戏人格：效率农夫、美学农夫、探索农夫还是禅意农夫？并推荐最适合你的游戏。'
-      : '6 questions to reveal your farming game personality — Optimizer, Homesteader, Explorer, or Zen Farmer — plus personalized game recommendations.',
+
+  const baseMeta = {
     keywords: isZh
       ? ['农场游戏人格测试', '我是什么类型的农场玩家', '效率农夫还是美学农夫', '农场游戏风格测验', '农场游戏哪款适合我']
       : [
@@ -32,6 +31,33 @@ export async function generateMetadata({
       canonical: `${BASE_URL}/${locale}/quizzes/farm-personality`,
       languages: buildLanguageAlternates('/quizzes/farm-personality'),
     },
+  }
+
+  // Result permalink (?r=optimizer): show a result-specific title/description and
+  // a dynamic, branded OG card so the shared link previews the actual result.
+  const share = getQuizShare('farm-personality')
+  const result = r && share ? share.results[r] : undefined
+  if (result && share) {
+    const title = pickLocale(result.title, locale)
+    const tag = pickLocale(result.tag, locale)
+    const ogImage = resultOgImageUrl(share, result, locale)
+    return {
+      ...baseMeta,
+      title: isZh ? `我的农场人格是「${title}」` : `My farming personality: ${title}`,
+      description: `${title} — ${tag}`,
+      openGraph: { title, description: tag, images: [{ url: ogImage, width: 1200, height: 630 }] },
+      twitter: { card: 'summary_large_image', title, description: tag, images: [ogImage] },
+    }
+  }
+
+  return {
+    ...baseMeta,
+    title: isZh
+      ? '你是哪种农场玩家？测出你的农场游戏人格'
+      : 'What Kind of Farmer Are You? Farm Game Personality Quiz',
+    description: isZh
+      ? '6 个问题，测出你的农场游戏人格：效率农夫、美学农夫、探索农夫还是禅意农夫？并推荐最适合你的游戏。'
+      : '6 questions to reveal your farming game personality — Optimizer, Homesteader, Explorer, or Zen Farmer — plus personalized game recommendations.',
   }
 }
 
@@ -83,12 +109,17 @@ const FAQ_ZH = [
 
 export default async function FarmPersonalityPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ r?: string }>
 }) {
   const { locale } = await params
+  const { r } = await searchParams
   const isZh = locale === 'zh' || locale === 'zh-TW'
   const faq = isZh ? FAQ_ZH : FAQ_EN
+  const validResults = ['optimizer', 'aesthete', 'explorer', 'zen']
+  const initialResult = r && validResults.includes(r) ? r : undefined
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -122,7 +153,7 @@ export default async function FarmPersonalityPage({
         </h1>
 
         <div className="rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-8">
-          <FarmPersonalityQuiz locale={locale} />
+          <FarmPersonalityQuiz locale={locale} initialResult={initialResult} />
         </div>
 
         <p className="mt-6 text-center text-xs text-[#8a9a7a]">

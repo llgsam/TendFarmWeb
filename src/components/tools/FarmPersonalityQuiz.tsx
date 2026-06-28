@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 function ShareButton({ text, locale }: { text: string; locale: string }) {
@@ -302,11 +302,25 @@ function calcResult(answers: Archetype[]): Archetype {
 
 interface Props {
   locale: string
+  initialResult?: string
 }
 
-export function FarmPersonalityQuiz({ locale }: Props) {
-  const [step, setStep] = useState<number>(0) // 0 = intro, 1-6 = questions, 7 = result
+export function FarmPersonalityQuiz({ locale, initialResult }: Props) {
+  const [forced, setForced] = useState<Archetype | null>((initialResult as Archetype | undefined) ?? null)
+  const [step, setStep] = useState<number>(forced ? QUESTIONS.length + 1 : 0) // 0 = intro, 1-6 = questions, 7 = result
   const [answers, setAnswers] = useState<Archetype[]>([])
+
+  // Keep the URL in sync with the current result so the share link is a
+  // permalink to exactly this result (and previews the matching OG card).
+  const onResult = step === QUESTIONS.length + 1
+  const resultArchetype: Archetype | null = onResult ? (forced ?? calcResult(answers)) : null
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const u = new URL(window.location.href)
+    if (resultArchetype) u.searchParams.set('r', resultArchetype)
+    else u.searchParams.delete('r')
+    window.history.replaceState(null, '', u.toString())
+  }, [resultArchetype])
 
   const getLoc = (zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string => {
     if (locale === 'zh') return zh
@@ -330,6 +344,7 @@ export function FarmPersonalityQuiz({ locale }: Props) {
   }
 
   const reset = () => {
+    setForced(null)
     setAnswers([])
     setStep(0)
   }
@@ -364,9 +379,9 @@ export function FarmPersonalityQuiz({ locale }: Props) {
 
   // Result
   if (step === QUESTIONS.length + 1) {
-    const archetype = calcResult(answers)
+    const archetype = resultArchetype ?? calcResult(answers)
     const result = RESULTS[archetype]
-    const url = `https://www.farmgamehub.com/${locale}/quizzes/farm-personality`
+    const url = `https://www.farmgamehub.com/${locale}/quizzes/farm-personality?r=${archetype}`
     const titleLabel = getLoc(result.titleZh, result.titleEn, result.titleZhTW, result.titleJa, result.titleKo, result.titleDe)
     const shareText = getLoc(
       `我的农场人格是「${titleLabel}」！来测测你是哪种农场玩家：${url}`,
