@@ -67,16 +67,16 @@ export function videoGameSchema(game: {
   developerZh: string
   year: number
   platforms: string[]
-}, locale: string) {
-  const isZh = locale === 'zh'
+}, locale: string, localized?: { name?: string; description?: string; developer?: string }) {
+  const isZh = locale === 'zh' || locale === 'zh-TW'
   return {
     '@context': 'https://schema.org',
     '@type': 'VideoGame',
-    name: isZh ? game.nameZh : game.nameEn,
-    description: isZh ? game.descZh : game.descEn,
+    name: localized?.name ?? (isZh ? game.nameZh : game.nameEn),
+    description: localized?.description ?? (isZh ? game.descZh : game.descEn),
     author: {
       '@type': 'Organization',
-      name: isZh ? game.developerZh : game.developerEn,
+      name: localized?.developer ?? (isZh ? game.developerZh : game.developerEn),
     },
     datePublished: String(game.year),
     url: `${BASE_URL}/${locale}/games/${game.slug}`,

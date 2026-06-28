@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { GAMES, getGameBySlug, getAllGameSlugs, PLATFORM_LABELS, getStyleLabels } from '@/lib/games'
+import { GAMES, getGameBySlug, getAllGameSlugs, PLATFORM_LABELS, getStyleLabels, getGameName, getGameDesc, getGameLongDesc, getGameForWhom, getGameTip, getGameFeatures } from '@/lib/games'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { videoGameSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 
@@ -30,9 +30,8 @@ export async function generateMetadata({
   const game = getGameBySlug(slug)
   if (!game) return {}
 
-  const isZh = locale === 'zh' || locale === 'zh-TW'
-  const name = isZh ? game.nameZh : game.nameEn
-  const desc = isZh ? game.descZh : game.descEn
+  const name = getGameName(game, locale)
+  const desc = getGameDesc(game, locale)
 
   const titleSuffix = getLoc(locale, '攻略与推荐', 'Review & Guide', '攻略與推薦', 'レビュー・攻略', '리뷰 및 공략', 'Review & Guide')
 
@@ -55,65 +54,82 @@ export default async function GameDetailPage({
   const game = getGameBySlug(slug)
   if (!game) notFound()
 
-  const isZh = locale === 'zh' || locale === 'zh-TW'
   const styleLabels = getStyleLabels(locale)
-  const name = isZh ? game.nameZh : game.nameEn
-  const desc = isZh ? game.longDescZh : game.longDescEn
-  const forWhom = isZh ? game.forWhomZh : game.forWhomEn
-  const tip = isZh ? game.tipZh : game.tipEn
+  const name = getGameName(game, locale)
+  const desc = getGameLongDesc(game, locale)
+  const forWhom = getGameForWhom(game, locale)
+  const tip = getGameTip(game, locale)
+  const features = getGameFeatures(game, locale)
+  const developer = locale === 'zh' || locale === 'zh-TW' ? game.developerZh : game.developerEn
   const styles = game.styles.map((s) => styleLabels[s])
 
   const related = (game.relatedSlugs ?? [])
     .map((s) => GAMES.find((g) => g.slug === s))
     .filter(Boolean)
 
-  const gameSchema = videoGameSchema(game, locale)
+  const gameSchema = videoGameSchema(game, locale, {
+    name,
+    description: getGameDesc(game, locale),
+    developer,
+  })
   const breadcrumb = breadcrumbSchema([
     { name: getLoc(locale, '首页', 'Home', '首頁', 'ホーム', '홈', 'Startseite'), url: `${BASE_URL}/${locale}` },
     { name: getLoc(locale, '游戏大全', 'All Games', '遊戲大全', 'ゲーム一覧', '모든 게임', 'Alle Spiele'), url: `${BASE_URL}/${locale}/games` },
     { name, url: `${BASE_URL}/${locale}/games/${slug}` },
   ])
 
-  const platformNames = game.platforms.map((p) => PLATFORM_LABELS[p]).join(isZh ? '、' : ', ')
+  const platformNames = game.platforms.map((p) => PLATFORM_LABELS[p]).join(locale === 'zh' || locale === 'zh-TW' ? '、' : ', ')
+  // Localized content for FAQ answers
+  const faqDesc = getGameDesc(game, locale)
+  const faqTip = getGameTip(game, locale)
+  const faqForWhom = getGameForWhom(game, locale)
 
-  const faqs = isZh
+  const faqs = locale === 'zh'
     ? [
-        { question: `${name} 是什么游戏？`, answer: game.descZh },
+        { question: `${name} 是什么游戏？`, answer: faqDesc },
         { question: `${name} 支持哪些平台？`, answer: `${name} 支持以下平台：${platformNames}。` },
-        { question: `${name} 适合新手吗？`, answer: game.tipZh || `${name} 对新手相对友好，建议先了解基本玩法。` },
-        { question: `${name} 是谁开发的？`, answer: `${name} 由 ${game.developerZh} 于 ${game.year} 年开发。` },
-        { question: `${name} 适合什么类型的玩家？`, answer: game.forWhomZh },
+        { question: `${name} 适合新手吗？`, answer: faqTip || `${name} 对新手相对友好，建议先了解基本玩法。` },
+        { question: `${name} 是谁开发的？`, answer: `${name} 由 ${developer} 于 ${game.year} 年开发。` },
+        { question: `${name} 适合什么类型的玩家？`, answer: faqForWhom },
+      ]
+    : locale === 'zh-TW'
+    ? [
+        { question: `${name} 是什麼遊戲？`, answer: faqDesc },
+        { question: `${name} 支援哪些平台？`, answer: `${name} 支援以下平台：${platformNames}。` },
+        { question: `${name} 適合新手嗎？`, answer: faqTip || `${name} 對新手相對友好，建議先了解基本玩法。` },
+        { question: `${name} 是誰開發的？`, answer: `${name} 由 ${developer} 於 ${game.year} 年開發。` },
+        { question: `${name} 適合什麼類型的玩家？`, answer: faqForWhom },
       ]
     : locale === 'ja'
     ? [
-        { question: `${name} はどんなゲームですか？`, answer: game.descEn },
+        { question: `${name} はどんなゲームですか？`, answer: faqDesc },
         { question: `${name} はどのプラットフォームで遊べますか？`, answer: `${name} は ${platformNames} で遊べます。` },
-        { question: `${name} は初心者向けですか？`, answer: game.tipEn || `${name} は初心者に優しく、すぐに楽しめます。` },
-        { question: `${name} の開発者は？`, answer: `${name} は ${game.developerEn} が ${game.year} 年にリリースしました。` },
-        { question: `${name} はどんな人に向いていますか？`, answer: game.forWhomEn },
+        { question: `${name} は初心者向けですか？`, answer: faqTip || `${name} は初心者に優しく、すぐに楽しめます。` },
+        { question: `${name} の開発者は？`, answer: `${name} は ${developer} が ${game.year} 年にリリースしました。` },
+        { question: `${name} はどんな人に向いていますか？`, answer: faqForWhom },
       ]
     : locale === 'ko'
     ? [
-        { question: `${name}는 어떤 게임인가요?`, answer: game.descEn },
+        { question: `${name}는 어떤 게임인가요?`, answer: faqDesc },
         { question: `${name}는 어떤 플랫폼에서 즐길 수 있나요?`, answer: `${name}는 ${platformNames}에서 플레이할 수 있습니다.` },
-        { question: `${name}는 초보자에게 적합한가요?`, answer: game.tipEn || `${name}는 초보자 친화적인 게임입니다.` },
-        { question: `${name}는 누가 개발했나요?`, answer: `${name}는 ${game.developerEn}이 ${game.year}년에 출시했습니다.` },
-        { question: `${name}는 어떤 플레이어에게 맞나요?`, answer: game.forWhomEn },
+        { question: `${name}는 초보자에게 적합한가요?`, answer: faqTip || `${name}는 초보자 친화적인 게임입니다.` },
+        { question: `${name}는 누가 개발했나요?`, answer: `${name}는 ${developer}이 ${game.year}년에 출시했습니다.` },
+        { question: `${name}는 어떤 플레이어에게 맞나요?`, answer: faqForWhom },
       ]
     : locale === 'de'
     ? [
-        { question: `Was ist ${name}?`, answer: game.descEn },
+        { question: `Was ist ${name}?`, answer: faqDesc },
         { question: `Auf welchen Plattformen ist ${name} verfügbar?`, answer: `${name} ist auf ${platformNames} verfügbar.` },
-        { question: `Ist ${name} für Anfänger geeignet?`, answer: game.tipEn || `${name} ist einsteiger­freundlich.` },
-        { question: `Wer hat ${name} entwickelt?`, answer: `${name} wurde von ${game.developerEn} im Jahr ${game.year} veröffentlicht.` },
-        { question: `Für wen ist ${name} gedacht?`, answer: game.forWhomEn },
+        { question: `Ist ${name} für Anfänger geeignet?`, answer: faqTip || `${name} ist einsteiger­freundlich.` },
+        { question: `Wer hat ${name} entwickelt?`, answer: `${name} wurde von ${developer} im Jahr ${game.year} veröffentlicht.` },
+        { question: `Für wen ist ${name} gedacht?`, answer: faqForWhom },
       ]
     : [
-        { question: `What is ${name}?`, answer: game.descEn },
+        { question: `What is ${name}?`, answer: faqDesc },
         { question: `What platforms is ${name} available on?`, answer: `${name} is available on: ${platformNames}.` },
-        { question: `Is ${name} good for beginners?`, answer: game.tipEn || `${name} is beginner-friendly with a gentle learning curve.` },
-        { question: `Who developed ${name}?`, answer: `${name} was developed by ${game.developerEn} and released in ${game.year}.` },
-        { question: `Who should play ${name}?`, answer: game.forWhomEn },
+        { question: `Is ${name} good for beginners?`, answer: faqTip || `${name} is beginner-friendly with a gentle learning curve.` },
+        { question: `Who developed ${name}?`, answer: `${name} was developed by ${developer} and released in ${game.year}.` },
+        { question: `Who should play ${name}?`, answer: faqForWhom },
       ]
 
   const faq = faqSchema(faqs.filter((f) => f.answer))
@@ -170,7 +186,7 @@ export default async function GameDetailPage({
           </div>
           <p className="text-sm text-[#8a9a7a]">
             {getLoc(locale, '开发商：', 'Developer: ', '開發商：', 'デベロッパー: ', '개발사: ', 'Entwickler: ')}
-            <span className="text-[#e8dcc8]">{isZh ? game.developerZh : game.developerEn}</span>
+            <span className="text-[#e8dcc8]">{developer}</span>
             <span className="mx-2">·</span>
             {game.year}
           </p>
@@ -191,13 +207,13 @@ export default async function GameDetailPage({
               {getLoc(locale, '核心玩法亮点', 'Key Features', '核心玩法亮點', '主な特徴', '주요 특징', 'Highlights')}
             </h2>
             <ul className="space-y-2">
-              {game.features.map((f, i) => (
+              {features.map((f, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span
                     className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full"
                     style={{ backgroundColor: game.color }}
                   />
-                  <span className="text-sm text-[#8a9a7a]">{isZh ? f.zh : f.en}</span>
+                  <span className="text-sm text-[#8a9a7a]">{f}</span>
                 </li>
               ))}
             </ul>
@@ -260,7 +276,7 @@ export default async function GameDetailPage({
             <div className="grid gap-3 sm:grid-cols-2">
               {related.map((r) => {
                 if (!r) return null
-                const rName = isZh ? r.nameZh : r.nameEn
+                const rName = getGameName(r, locale)
                 return (
                   <Link
                     key={r.slug}

@@ -1,3 +1,5 @@
+import { GAME_TRANSLATIONS } from './games-i18n'
+
 export type Platform = 'iOS' | 'Android' | 'PC' | 'Switch' | 'PS' | 'Xbox'
 export type Style = 'casual' | 'strategy' | 'simulation' | 'rpg' | 'multiplayer'
 
@@ -539,4 +541,65 @@ export function getAllGameSlugs(): string[] {
 
 export function getFeaturedGames(): GameData[] {
   return GAMES.filter((g) => g.featured)
+}
+
+// ---- Locale-aware content accessors ----
+// zh / en live on GameData; zh-TW / ja / ko / de live in GAME_TRANSLATIONS.
+// Any missing translation gracefully falls back to English.
+
+type LocaleField = 'name' | 'desc' | 'longDesc' | 'forWhom' | 'tip'
+
+const FIELD_MAP: Record<LocaleField, { zh: keyof GameData; en: keyof GameData }> = {
+  name: { zh: 'nameZh', en: 'nameEn' },
+  desc: { zh: 'descZh', en: 'descEn' },
+  longDesc: { zh: 'longDescZh', en: 'longDescEn' },
+  forWhom: { zh: 'forWhomZh', en: 'forWhomEn' },
+  tip: { zh: 'tipZh', en: 'tipEn' },
+}
+
+function localizedField(game: GameData, field: LocaleField, locale: string): string {
+  const t = GAME_TRANSLATIONS[game.slug]
+  if (locale === 'zh') return game[FIELD_MAP[field].zh] as string
+  if (locale === 'zh-TW') {
+    const key = field === 'name' ? 'nameZhTW' : `${field}ZhTW`
+    return (t?.[key as keyof typeof t] as string) ?? (game[FIELD_MAP[field].zh] as string)
+  }
+  if (locale === 'ja' && t) return (t[`${field}Ja` as keyof typeof t] as string) ?? (game[FIELD_MAP[field].en] as string)
+  if (locale === 'ko' && t) return (t[`${field}Ko` as keyof typeof t] as string) ?? (game[FIELD_MAP[field].en] as string)
+  if (locale === 'de' && t) return (t[`${field}De` as keyof typeof t] as string) ?? (game[FIELD_MAP[field].en] as string)
+  return game[FIELD_MAP[field].en] as string
+}
+
+export function getGameName(game: GameData, locale: string): string {
+  // name has no English-key variant distinction beyond zh/zh-TW; default to nameEn
+  if (locale === 'zh') return game.nameZh
+  if (locale === 'zh-TW') return GAME_TRANSLATIONS[game.slug]?.nameZhTW ?? game.nameZh
+  return game.nameEn
+}
+
+export function getGameDesc(game: GameData, locale: string): string {
+  return localizedField(game, 'desc', locale)
+}
+
+export function getGameLongDesc(game: GameData, locale: string): string {
+  return localizedField(game, 'longDesc', locale)
+}
+
+export function getGameForWhom(game: GameData, locale: string): string {
+  return localizedField(game, 'forWhom', locale)
+}
+
+export function getGameTip(game: GameData, locale: string): string {
+  return localizedField(game, 'tip', locale)
+}
+
+export function getGameFeatures(game: GameData, locale: string): string[] {
+  const t = GAME_TRANSLATIONS[game.slug]
+  if (locale === 'zh') return game.features.map((f) => f.zh)
+  if (locale === 'zh-TW' && t?.featuresZhTW?.length === game.features.length) return t.featuresZhTW
+  if (locale === 'ja' && t?.featuresJa?.length === game.features.length) return t.featuresJa
+  if (locale === 'ko' && t?.featuresKo?.length === game.features.length) return t.featuresKo
+  if (locale === 'de' && t?.featuresDe?.length === game.features.length) return t.featuresDe
+  if (locale === 'zh-TW') return game.features.map((f) => f.zh)
+  return game.features.map((f) => f.en)
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { GAMES, getFeaturedGames, PLATFORM_LABELS, getStyleLabels } from '@/lib/games'
+import { GAMES, getFeaturedGames, PLATFORM_LABELS, getStyleLabels, getGameName, getGameDesc } from '@/lib/games'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
@@ -52,7 +52,6 @@ export default async function GamesPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const isZh = locale === 'zh' || locale === 'zh-TW'
   const styleLabels = getStyleLabels(locale)
 
   const featured = getFeaturedGames()
@@ -98,7 +97,7 @@ export default async function GamesPage({
                   <span className="text-3xl">{game.emoji}</span>
                   <div>
                     <h3 className="font-bold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
-                      {isZh ? game.nameZh : game.nameEn}
+                      {getGameName(game, locale)}
                     </h3>
                     <div className="mt-1 flex flex-wrap gap-1">
                       {game.platforms.map((p) => (
@@ -111,7 +110,7 @@ export default async function GamesPage({
                 </div>
               </div>
               <p className="mb-3 text-sm leading-relaxed text-[#8a9a7a]">
-                {isZh ? game.descZh : game.descEn}
+                {getGameDesc(game, locale)}
               </p>
               <div className="flex flex-wrap gap-1 mb-3">
                 {game.styles.map((s) => (
@@ -157,11 +156,11 @@ export default async function GamesPage({
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-xl">{game.emoji}</span>
                 <span className="font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors text-sm">
-                  {isZh ? game.nameZh : game.nameEn}
+                  {getGameName(game, locale)}
                 </span>
               </div>
               <p className="mb-2 text-xs leading-relaxed text-[#8a9a7a]">
-                {isZh ? game.descZh : game.descEn}
+                {getGameDesc(game, locale)}
               </p>
               <div className="flex flex-wrap gap-1">
                 {game.platforms.map((p) => (

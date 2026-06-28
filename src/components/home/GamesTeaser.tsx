@@ -1,12 +1,20 @@
 import Link from 'next/link'
 import { useLocale } from 'next-intl'
-import { getFeaturedGames, STYLE_LABELS_ZH, STYLE_LABELS_EN } from '@/lib/games'
+import { getFeaturedGames, getStyleLabels, getGameName } from '@/lib/games'
+
+function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
+  if (locale === 'zh') return zh
+  if (locale === 'zh-TW') return zhTW ?? zh
+  if (locale === 'ja') return ja ?? en
+  if (locale === 'ko') return ko ?? en
+  if (locale === 'de') return de ?? en
+  return en
+}
 
 export function GamesTeaser() {
   const locale = useLocale()
-  const isZh = locale === 'zh'
   const base = `/${locale}`
-  const styleLabels = isZh ? STYLE_LABELS_ZH : STYLE_LABELS_EN
+  const styleLabels = getStyleLabels(locale)
   const featured = getFeaturedGames()
 
   return (
@@ -15,17 +23,17 @@ export function GamesTeaser() {
         <div className="mb-8 flex items-end justify-between">
           <div>
             <h2 className="text-2xl font-semibold text-[#e8dcc8]">
-              {isZh ? '热门农场游戏' : 'Popular Farming Games'}
+              {getLoc(locale, '热门农场游戏', 'Popular Farming Games', '熱門農場遊戲', '人気の農場ゲーム', '인기 농장 게임', 'Beliebte Farmspiele')}
             </h2>
             <p className="mt-1 text-sm text-[#8a9a7a]">
-              {isZh ? '15+ 款游戏，找到最适合你的那一款' : '15+ games — find the one that fits you'}
+              {getLoc(locale, '15+ 款游戏，找到最适合你的那一款', '15+ games — find the one that fits you', '15+ 款遊戲，找到最適合你的那一款', '15以上のゲームから、あなたにぴったりの一作を', '15개 이상의 게임 중 당신에게 맞는 게임 찾기', '15+ Spiele — finde das passende für dich')}
             </p>
           </div>
           <Link
             href={`${base}/games`}
             className="text-sm text-[#f0a832] hover:underline whitespace-nowrap"
           >
-            {isZh ? '查看全部 →' : 'View all →'}
+            {getLoc(locale, '查看全部 →', 'View all →', '查看全部 →', 'すべて見る →', '전체 보기 →', 'Alle ansehen →')}
           </Link>
         </div>
 
@@ -38,13 +46,13 @@ export function GamesTeaser() {
             >
               <div className="mb-3 text-3xl">{game.emoji}</div>
               <h3 className="font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors text-sm">
-                {isZh ? game.nameZh : game.nameEn}
+                {getGameName(game, locale)}
               </h3>
               <p className="mt-1 text-xs text-[#8a9a7a]">
                 {game.styles.map((s) => styleLabels[s]).join(' · ')}
               </p>
               <p className="mt-2 text-xs text-[#8a9a7a]/60 group-hover:text-[#f0a832]/60 transition-colors">
-                {isZh ? '查看详情 →' : 'View →'}
+                {getLoc(locale, '查看详情 →', 'View →', '查看詳情 →', '詳細 →', '자세히 →', 'Ansehen →')}
               </p>
             </Link>
           ))}
