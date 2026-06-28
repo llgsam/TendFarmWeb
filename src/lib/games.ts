@@ -571,9 +571,13 @@ function localizedField(game: GameData, field: LocaleField, locale: string): str
 }
 
 export function getGameName(game: GameData, locale: string): string {
-  // name has no English-key variant distinction beyond zh/zh-TW; default to nameEn
+  const t = GAME_TRANSLATIONS[game.slug]
   if (locale === 'zh') return game.nameZh
-  if (locale === 'zh-TW') return GAME_TRANSLATIONS[game.slug]?.nameZhTW ?? game.nameZh
+  if (locale === 'zh-TW') return t?.nameZhTW ?? game.nameZh
+  // ja/ko/de use the official localized title where one exists, else the English name.
+  if (locale === 'ja') return t?.nameJa ?? game.nameEn
+  if (locale === 'ko') return t?.nameKo ?? game.nameEn
+  if (locale === 'de') return t?.nameDe ?? game.nameEn
   return game.nameEn
 }
 

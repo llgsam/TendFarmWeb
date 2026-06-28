@@ -3,6 +3,9 @@
 
 export interface GameTranslation {
   nameZhTW: string
+  // Official localized titles — only set where a real localized release name exists.
+  // Absent → getGameName falls back to the English name.
+  nameJa?: string; nameKo?: string; nameDe?: string
   descZhTW: string; descJa: string; descKo: string; descDe: string
   longDescZhTW: string; longDescJa: string; longDescKo: string; longDescDe: string
   featuresZhTW: string[]; featuresJa: string[]; featuresKo: string[]; featuresDe: string[]
@@ -36,6 +39,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'stardew-valley': {
     nameZhTW: '星露谷物語',
+    nameJa: 'スターデューバレー', nameKo: '스타듀밸리', nameDe: 'Stardew Valley',
     descZhTW: '像素風農場 RPG，耕田、挖礦、釣魚，與小鎮居民結下深厚情誼。內容豐富紮實，深度驚人。',
     descJa: 'ドット絵が温かいファーム系RPG。農場を育て、洞窟を探索し、村人たちと絆を深めよう。やり込み要素満載の名作。',
     descKo: '픽셀 아트 감성의 농장 RPG. 밭을 일구고, 광산을 탐험하며, 마을 사람들과 우정을 쌓는 깊이 있는 힐링 게임.',
@@ -59,6 +63,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'animal-crossing': {
     nameZhTW: '動物森友會：新視野',
+    nameJa: 'あつまれ どうぶつの森', nameKo: '모여봐요 동물의 숲', nameDe: 'Animal Crossing: New Horizons',
     descZhTW: '在無人島上打造專屬的島嶼小天地，與動物鄰居培養深厚情誼，每天都有新鮮事等著你。',
     descJa: '無人島を自分だけの楽園に育て、個性豊かな動物たちと友情を育む、ほっこりスローライフゲーム。',
     descKo: '아무것도 없는 무인도에서 나만의 섬 낙원을 만들고, 개성 넘치는 동물 주민들과 느긋하게 어울리는 힐링 게임.',
@@ -82,6 +87,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'farming-simulator': {
     nameZhTW: 'Farming Simulator 25',
+    nameJa: 'ファーミングシミュレーター 25', nameKo: '파밍 시뮬레이터 25', nameDe: 'Landwirtschafts-Simulator 25',
     descZhTW: '高度寫實的農業模擬遊戲，操駕真實授權農機、管理農場經營，支援多人連線合作。硬核農業迷必玩。',
     descJa: '実在する農業機械ブランドを忠実に再現した本格農業シミュレーター。作物管理から最大16人のマルチプレイまで対応した、ガチ勢向けタイトル。',
     descKo: '실제 농기계 브랜드를 그대로 재현한 하드코어 농업 시뮬레이션. 작물 관리부터 멀티플레이까지 지원하는 농업 게임의 정석.',
@@ -197,6 +203,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'my-time-at-portia': {
     nameZhTW: '波西亞時光',
+    nameJa: 'マイタイム・アット・ポルティア', nameKo: '마이 타임 앳 포르티아', nameDe: 'My Time at Portia',
     descZhTW: '末世後的小鎮重建遊戲，蒐集古代文明殘骸，製造物品，與鎮民結交好友。RPG 與農場玩法的完美結合。',
     descJa: '文明崩壊後の世界で廃墟を発掘し、古代の部品を集めてアイテムをクラフトし、村人と絆を育てる町おこし系RPG。農場ゲームとRPGの要素が絶妙に融合した一作。',
     descKo: '문명 붕괴 후 작은 마을을 재건하는 시뮬레이션 RPG. 고대 문명의 유물을 발굴해 아이템을 제작하고, 마을 사람들과 우정을 쌓아가세요. 농장 게임과 RPG의 환상적인 조합.',
@@ -220,6 +227,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'my-time-at-sandrock': {
     nameZhTW: '沙石鎮時光',
+    nameJa: 'マイタイム・アット・サンドロック', nameKo: '마이 타임 앳 샌드록', nameDe: 'My Time at Sandrock',
     descZhTW: '波西亞時光的精神續作，以荒漠小鎮為舞台，透過製造、建設與任務讓 Sandrock 重煥生機。更豐富的內容、更廣闊的世界。',
     descJa: '「マイタイム アット ポーシャ」の精神的続編。乾いた砂漠の町を舞台に、クラフトと建設でサンドロックを復興させよう。より広大な世界と深みのあるシステムが待っている。',
     descKo: '포샤 타임의 정신적 후속작. 황량한 사막 마을을 배경으로, 더 넓은 세계와 깊어진 시스템 속에서 샌드록을 재건하세요.',
@@ -312,6 +320,7 @@ export const GAME_TRANSLATIONS: Record<string, GameTranslation> = {
   },
   'potion-permit': {
     nameZhTW: 'Potion Permit',
+    nameJa: 'ポーションパーミット', nameKo: '포션 퍼밋', nameDe: 'Potion Permit',
     descZhTW: '以煉藥師身分來到新小鎮，採集材料、調製藥水、為村民治病，是一款充滿創意的醫療主題農場 RPG。',
     descJa: '新しい町で錬金術師として材料を集め、薬を調合し、病める村人たちを癒す――ユニークな医療テーマの農場 RPG。',
     descKo: '연금술사로 새 마을에 도착해 재료를 채집하고 물약을 조합하며 아픈 주민들을 치료하는 독창적인 의료 테마 농장 RPG.',
