@@ -1,0 +1,21 @@
+{
+  "_comment": "质量门控的文章构建队列。每日例程取第一个 status=pending 的条目，写 EN+ZH 文章，置为 done 并 commit+push。全部 done 后例程不再产出（不写低价值长尾词）。tier 仅 P1/P2 高价值词。",
+  "cadence": "1 article (EN+ZH) per day at 21:00",
+  "queue": [
+    { "keyword": "games like stardew valley", "slug": "games-like-stardew-valley", "game": "stardew-valley", "vol": 9900, "comp": 0.01, "tier": "P1", "status": "done" },
+    { "keyword": "farming rpg games", "slug": "farming-rpg-games", "game": "best-games", "vol": 1900, "comp": 0.0, "tier": "P1", "status": "done" },
+    { "keyword": "farming sim games", "slug": "farming-sim-games", "game": "best-games", "vol": 5400, "comp": 0.04, "tier": "P1", "status": "pending" },
+    { "keyword": "free farming games", "slug": "free-farming-games", "game": "best-games", "vol": 1900, "comp": 0.27, "tier": "P1", "status": "pending" },
+    { "keyword": "games like palia", "slug": "games-like-palia", "game": "palia", "vol": 880, "comp": 0.1, "tier": "P2", "status": "pending" },
+    { "keyword": "games like hay day", "slug": "games-like-hay-day", "game": "hay-day", "vol": 590, "comp": 0.16, "tier": "P2", "status": "pending" },
+    { "keyword": "cozy mobile games", "slug": "cozy-mobile-games", "game": "best-games", "vol": 590, "comp": 0.1, "tier": "P2", "status": "pending" },
+    { "keyword": "games like fields of mistria", "slug": "games-like-fields-of-mistria", "game": "best-games", "vol": 170, "comp": 0.0, "tier": "P1", "status": "pending" },
+    { "keyword": "games like wylde flowers", "slug": "games-like-wylde-flowers", "game": "best-games", "vol": 390, "comp": 0.07, "tier": "P2", "status": "pending" },
+    { "keyword": "games like rune factory", "slug": "games-like-rune-factory", "game": "best-games", "vol": 260, "comp": 0.26, "tier": "P2", "status": "pending" },
+    { "keyword": "free cozy games", "slug": "free-cozy-games", "game": "best-games", "vol": 590, "comp": 0.11, "tier": "P2", "status": "pending" },
+    { "keyword": "games like my time at portia", "slug": "games-like-my-time-at-portia", "game": "my-time-at-portia", "vol": 110, "comp": 0.09, "tier": "P2", "status": "pending" },
+    { "keyword": "games like sun haven", "slug": "games-like-sun-haven", "game": "best-games", "vol": 110, "comp": 0.0, "tier": "P2", "status": "pending" },
+    { "keyword": "best cozy games on steam", "slug": "best-cozy-games-on-steam", "game": "best-games", "vol": 110, "comp": 0.01, "tier": "P2", "status": "pending" },
+    { "keyword": "free farming games for pc", "slug": "free-farming-games-for-pc", "game": "best-games", "vol": 170, "comp": 0.17, "tier": "P2", "status": "pending" }
+  ]
+}
