@@ -80,6 +80,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-gifts',
+    href: 'tools/stardew-gifts',
+    titles: {
+      zh: '星露谷物语送礼喜好查询', 'zh-TW': '星露谷物語送禮喜好查詢',
+      ja: 'スターデューバレー 贈り物ガイド', ko: '스타듀밸리 선물 가이드',
+      de: 'Stardew Valley Geschenk-Guide', en: 'Stardew Valley Gift Guide',
+    },
+    descs: {
+      zh: '选村民，立刻查看 TA 最爱的礼物和通用最爱礼物。',
+      'zh-TW': '選村民，立刻查看 TA 最愛的禮物和通用最愛禮物。',
+      ja: '村人を選ぶと大好きな贈り物と一般的な大好き物を即表示。',
+      ko: '주민을 선택하면 좋아하는 선물과 보편적 선물을 즉시 표시.',
+      de: 'Wähle einen Bewohner für seine Lieblingsgeschenke und Favoriten.',
+      en: 'Pick a villager to see their loved gifts and universal loves.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {
