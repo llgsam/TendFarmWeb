@@ -98,6 +98,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-fish',
+    href: 'tools/stardew-fish',
+    titles: {
+      zh: '星露谷物语鱼类查询', 'zh-TW': '星露谷物語魚類查詢',
+      ja: 'スターデューバレー 魚検索', ko: '스타듀밸리 물고기 찾기',
+      de: 'Stardew Valley Fisch-Finder', en: 'Stardew Valley Fish Finder',
+    },
+    descs: {
+      zh: '按季节、地点、天气筛选，立刻看到能钓的鱼、时间和售价。',
+      'zh-TW': '按季節、地點、天氣篩選，立刻看到能釣的魚、時間和售價。',
+      ja: '季節・場所・天気で絞り込み、釣れる魚・時間・売値を即表示。',
+      ko: '계절·장소·날씨로 필터링해 잡을 물고기, 시간, 판매가를 표시.',
+      de: 'Filtere nach Jahreszeit, Ort und Wetter für fangbare Fische.',
+      en: 'Filter by season, location, and weather to see catchable fish.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {
