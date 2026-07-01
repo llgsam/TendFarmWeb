@@ -61,6 +61,27 @@ const LIVE_TOOLS = [
   },
 ]
 
+const DATA_TOOLS = [
+  {
+    key: 'stardew-calendar',
+    href: 'tools/stardew-calendar',
+    titles: {
+      zh: '星露谷物语日历（生日+节日）', 'zh-TW': '星露谷物語日曆（生日+節日）',
+      ja: 'スターデューバレー カレンダー', ko: '스타듀밸리 달력',
+      de: 'Stardew Valley Kalender', en: 'Stardew Valley Calendar',
+    },
+    descs: {
+      zh: '四季全部村民生日和节日速查，附村民生日查询工具。',
+      'zh-TW': '四季全部村民生日和節日速查，附村民生日查詢工具。',
+      ja: '全季節の村人の誕生日とフェスティバル一覧。誕生日検索付き。',
+      ko: '사계절 모든 주민 생일과 축제 일람. 생일 검색 포함.',
+      de: 'Alle Geburtstage und Festivals pro Jahreszeit, mit Geburtstags-Suche.',
+      en: 'All villager birthdays and festivals per season, with a birthday lookup.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
+]
+
 export default function ToolsPage() {
   const t = useTranslations('tools')
   const locale = useLocale()
@@ -88,6 +109,51 @@ export default function ToolsPage() {
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
           {LIVE_TOOLS.map((tool) => {
+            const l = locale as keyof typeof tool.titles
+            const title = tool.titles[l] ?? tool.titles['en']
+            const desc = tool.descs[l] ?? tool.descs['en']
+            const tag = tool.tags[l] ?? tool.tags['en']
+            return (
+              <Link
+                key={tool.key}
+                href={`/${locale}/${tool.href}`}
+                className="group rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-5 transition-colors hover:border-[#f0a832]/40 hover:bg-[#1a2e1a]"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="rounded-full bg-[#2d5a27] px-2 py-0.5 text-xs text-[#8a9a7a]">
+                    {tag}
+                  </span>
+                  <span className="rounded-full bg-[#f0a832]/10 px-2 py-0.5 text-xs font-semibold text-[#f0a832]">
+                    {getLoc('可用', 'Live', '可用', 'ライブ', '라이브', 'Live')}
+                  </span>
+                </div>
+                <h3 className="mb-2 font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
+                  {title}
+                </h3>
+                <p className="text-sm text-[#8a9a7a]">{desc}</p>
+              </Link>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Game Data Lookup */}
+      <section className="mb-14">
+        <h2 className="mb-1 text-xl font-semibold text-[#e8dcc8]">
+          {getLoc('游戏数据查询', 'Game Database', '遊戲數據查詢', 'ゲームデータ検索', '게임 데이터 조회', 'Spiel-Datenbank')}
+        </h2>
+        <p className="mb-4 text-sm text-[#8a9a7a]">
+          {getLoc(
+            '即时查询游戏内数据：生日、节日、礼物、鱼类……',
+            'Look up in-game data instantly: birthdays, festivals, gifts, fish…',
+            '即時查詢遊戲內數據：生日、節日、禮物、魚類……',
+            'ゲーム内データを即座に検索：誕生日、フェスティバル、贈り物、魚…',
+            '게임 내 데이터를 즉시 조회: 생일, 축제, 선물, 물고기…',
+            'Spielinterne Daten sofort nachschlagen: Geburtstage, Festivals, Geschenke, Fische…',
+          )}
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          {DATA_TOOLS.map((tool) => {
             const l = locale as keyof typeof tool.titles
             const title = tool.titles[l] ?? tool.titles['en']
             const desc = tool.descs[l] ?? tool.descs['en']
