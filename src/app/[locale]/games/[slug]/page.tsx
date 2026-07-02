@@ -21,6 +21,23 @@ function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: stri
   return en
 }
 
+// Some games' calculator tool route differs from their game slug.
+const CALC_TOOL_SLUG: Record<string, string> = {
+  'stardew-valley': 'stardew',
+}
+
+// Game Database lookup tools available per game (beyond the calculator).
+const DATA_TOOLS_BY_GAME: Record<
+  string,
+  Array<{ slug: string; zh: string; en: string; zhTW: string; ja: string; ko: string; de: string }>
+> = {
+  'stardew-valley': [
+    { slug: 'stardew-calendar', zh: '📅 日历', en: '📅 Calendar', zhTW: '📅 日曆', ja: '📅 カレンダー', ko: '📅 달력', de: '📅 Kalender' },
+    { slug: 'stardew-gifts', zh: '🎁 送礼指南', en: '🎁 Gift Guide', zhTW: '🎁 送禮指南', ja: '🎁 贈り物ガイド', ko: '🎁 선물 가이드', de: '🎁 Geschenke' },
+    { slug: 'stardew-fish', zh: '🐟 鱼类查询', en: '🐟 Fish Finder', zhTW: '🐟 魚類查詢', ja: '🐟 魚検索', ko: '🐟 물고기 찾기', de: '🐟 Fisch-Finder' },
+  ],
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -249,12 +266,21 @@ export default async function GameDetailPage({
             <div className="flex flex-wrap gap-3">
               {game.hasTools && (
                 <Link
-                  href={`/${locale}/tools/${game.slug}`}
+                  href={`/${locale}/tools/${CALC_TOOL_SLUG[game.slug] ?? game.slug}`}
                   className="rounded-lg border border-[#f0a832]/30 px-4 py-2 text-sm text-[#f0a832] hover:border-[#f0a832]/60 hover:bg-[#f0a832]/5 transition-colors"
                 >
                   {getLoc(locale, `📊 ${name} 计算器`, `📊 ${name} Calculator`, `📊 ${name} 計算器`, `📊 ${name} 計算ツール`, `📊 ${name} 계산기`, `📊 ${name} Rechner`)}
                 </Link>
               )}
+              {DATA_TOOLS_BY_GAME[game.slug]?.map((dt) => (
+                <Link
+                  key={dt.slug}
+                  href={`/${locale}/tools/${dt.slug}`}
+                  className="rounded-lg border border-[#f0a832]/30 px-4 py-2 text-sm text-[#f0a832] hover:border-[#f0a832]/60 hover:bg-[#f0a832]/5 transition-colors"
+                >
+                  {getLoc(locale, dt.zh, dt.en, dt.zhTW, dt.ja, dt.ko, dt.de)}
+                </Link>
+              ))}
               {game.hasGuides && (
                 <Link
                   href={`/${locale}/guides/${game.slug}`}
