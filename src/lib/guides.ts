@@ -178,9 +178,14 @@ const TRANSLATED_LOCALES = ['ja', 'ko', 'de'] as const
 const FALLBACK_LOCALE = 'en'
 
 // The directory whose article set defines the canonical list for a locale.
-// zh/zh-TW list against the zh set; en/ja/ko/de list against the en set (full coverage).
+// zh/zh-TW list against the zh set; en lists the en set; ja/ko/de list only their own
+// translated set (no English fallback), so localized listings never link to English pages.
 function listingLocale(locale: string): string {
-  return locale === 'zh' || locale === 'zh-TW' ? 'zh' : 'en'
+  if (locale === 'zh' || locale === 'zh-TW') return 'zh'
+  // Translated locales (ja/ko/de) list only their own real translations — never
+  // English-fallback articles — so we never link to /<locale>/ URLs serving English.
+  if ((TRANSLATED_LOCALES as readonly string[]).includes(locale)) return locale
+  return 'en'
 }
 
 // Ordered content dirs to try for a specific article — first existing file wins.
@@ -188,7 +193,9 @@ function contentLocaleChain(locale: string): string[] {
   if (locale === 'zh') return ['zh']
   if (locale === 'zh-TW') return ['zh'] // converted Simplified→Traditional at render time
   if (locale === 'en') return ['en']
-  if ((TRANSLATED_LOCALES as readonly string[]).includes(locale)) return [locale, FALLBACK_LOCALE]
+  // No English fallback: an untranslated ja/ko/de slug resolves to null → 404, rather than
+  // serving English content under a localized URL (which Google flags as a duplicate).
+  if ((TRANSLATED_LOCALES as readonly string[]).includes(locale)) return [locale]
   return [FALLBACK_LOCALE]
 }
 
