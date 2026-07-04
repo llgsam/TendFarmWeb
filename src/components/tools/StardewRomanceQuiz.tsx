@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 type Match = 'abigail' | 'leah' | 'penny' | 'emily' | 'sebastian' | 'harvey'
 
@@ -439,12 +438,6 @@ interface Result {
   whyJa: string
   whyKo: string
   whyDe: string
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULTS: Record<Match, Result> = {
@@ -481,18 +474,6 @@ const RESULTS: Record<Match, Result> = {
     whyJa: 'なぜアビゲイルか：彼女は「ただ日々をこなしているだけ」と感じさせない人だから。',
     whyKo: '왜 아비게일인가: 그녀는 "우리 그냥 사는 거잖아"라는 느낌을 절대 주지 않는 사람이기 때문이에요.',
     whyDe: 'Warum Abigail: Sie ist die Einzige, die dich nie das Gefühl haben lässt, einfach nur die Tage abzuhaken.',
-    hookZh:
-      'TendFarm 的冒险型玩家——你们的健康数据每天都在创造新变化：今天多走了几步，农场就出现新的发现。就像和艾比盖尔一起，每天都有点不同。',
-    hookEn:
-      "TendFarm for the adventurer — your health data creates new surprises every day: walk more today, discover something new in the farm. Like being with Abigail, every day is a little different.",
-    hookZhTW:
-      'TendFarm 的冒險型玩家——你們的健康數據每天都在創造新變化：今天多走了幾步，農場就出現新的發現。就像和艾比蓋兒一起，每天都有點不同。',
-    hookJa:
-      '冒険家タイプにぴったりのTendFarm——あなたの健康データが毎日新しい変化を生み出す。今日たくさん歩けば、農場に新しい発見が現れる。アビゲイルと一緒にいるみたいに、毎日が少しずつ違う。',
-    hookKo:
-      '모험가 타입을 위한 TendFarm — 건강 데이터가 매일 새로운 변화를 만들어냅니다. 오늘 더 많이 걸으면 농장에 새로운 발견이 생겨요. 아비게일과 함께하는 것처럼, 매일이 조금씩 달라요.',
-    hookDe:
-      'TendFarm für Abenteurer — deine Gesundheitsdaten erschaffen täglich neue Überraschungen: heute mehr laufen, morgen etwas Neues auf der Farm entdecken. Wie mit Abigail: jeder Tag ist ein bisschen anders.',
   },
   leah: {
     type: 'leah',
@@ -527,18 +508,6 @@ const RESULTS: Record<Match, Result> = {
     whyJa: 'なぜリアか：彼女はあなたを変えようとしない——ただ一緒に成長するだけ。',
     whyKo: '왜 레아인가: 그녀는 당신을 바꾸려 하지 않아요 — 그냥 함께 더 나은 사람이 되어가는 거예요.',
     whyDe: 'Warum Leah: Sie versucht nicht, dich zu verändern — sie wächst einfach an deiner Seite.',
-    hookZh:
-      'TendFarm 为莉亚式的关系设计：不需要解释，不需要操作，你的生活节律自然驱动农场生长。真实的生活，就是最好的农场设计。',
-    hookEn:
-      "TendFarm is built for Leah-types: no explanation needed, no manual input — your real life rhythms drive the farm naturally. Authentic living is the best farm design.",
-    hookZhTW:
-      'TendFarm 為莉亞式的關係設計：不需要解釋，不需要操作，你的生活節律自然驅動農場生長。真實的生活，就是最好的農場設計。',
-    hookJa:
-      'リア型の人のためのTendFarm：説明不要、操作不要、あなたのリアルな生活リズムが農場を自然に育てる。本物の生活が、最高の農場デザイン。',
-    hookKo:
-      '레아 타입을 위한 TendFarm: 설명 필요 없고, 조작 필요 없어요. 실제 생활 리듬이 자연스럽게 농장을 키워요. 진짜 삶이 최고의 농장 디자인이에요.',
-    hookDe:
-      'TendFarm, gebaut für Leah-Typen: keine Erklärung nötig, keine manuelle Eingabe — dein echter Lebensrhythmus treibt die Farm ganz natürlich an. Authentisches Leben ist das beste Farmdesign.',
   },
   penny: {
     type: 'penny',
@@ -573,18 +542,6 @@ const RESULTS: Record<Match, Result> = {
     whyJa: 'なぜペニーか：最悪な日でも、彼女はあなたを「ちゃんと見えている」と感じさせてくれるから。',
     whyKo: '왜 페니인가: 가장 힘든 날에도 당신이 보이고 있다는 느낌을 주는 사람이기 때문이에요.',
     whyDe: 'Warum Penny: Sie ist diejenige, die dich selbst an deinen schlimmsten Tagen gesehen fühlen lässt.',
-    hookZh:
-      'TendFarm 为稳定型玩家而生：规律的睡眠和步数让农场日渐充盈，就像潘妮式的陪伴——不急不躁，每天都多一点好。',
-    hookEn:
-      "TendFarm for the steady one — consistent sleep and steps make the farm gradually richer, like Penny's presence: no rush, just a little better every day.",
-    hookZhTW:
-      'TendFarm 為穩定型玩家而生：規律的睡眠和步數讓農場日漸充盈，就像潘妮式的陪伴——不急不躁，每天都多一點好。',
-    hookJa:
-      '安定型プレイヤーのためのTendFarm：規則正しい睡眠と歩数が農場を少しずつ豊かにしていく。ペニーの存在みたいに——焦らず、毎日ちょっとずつ良くなっていく。',
-    hookKo:
-      '안정형 플레이어를 위한 TendFarm: 규칙적인 수면과 걸음수가 농장을 점점 풍요롭게 만들어요. 페니의 존재처럼 — 서두르지 않고, 매일 조금씩 더 좋아지는 것.',
-    hookDe:
-      'TendFarm für den ruhigen Typ — regelmäßiger Schlaf und Schritte lassen die Farm langsam gedeihen, wie Pennys Gegenwart: kein Hetzen, nur jeden Tag ein kleines bisschen besser.',
   },
   emily: {
     type: 'emily',
@@ -619,18 +576,6 @@ const RESULTS: Record<Match, Result> = {
     whyJa: 'なぜエミリーか：ただ一緒にいるだけじゃなく、あなたの世界の見方を変えてくれるから。',
     whyKo: '왜 에밀리인가: 그냥 함께 있는 게 아니라, 세상을 보는 방식을 바꿔주기 때문이에요.',
     whyDe: 'Warum Emily: Sie begleitet dich nicht nur — sie verändert, wie du alles siehst.',
-    hookZh:
-      'TendFarm 的创意型玩家——你的健康数据产生的农场变化充满了意外性，就像和艾米莉在一起：你永远不知道今天会带来什么惊喜。',
-    hookEn:
-      "TendFarm for the creative — your health data generates farm changes full of surprises, like being with Emily: you never know what today will bring.",
-    hookZhTW:
-      'TendFarm 的創意型玩家——你的健康數據產生的農場變化充滿了意外性，就像和艾米莉在一起：你永遠不知道今天會帶來什麼驚喜。',
-    hookJa:
-      'クリエイティブタイプのためのTendFarm——あなたの健康データが生み出す農場の変化はサプライズ満載。エミリーと一緒みたいに：今日は何が起きるかわからない。',
-    hookKo:
-      '창의적인 플레이어를 위한 TendFarm — 건강 데이터가 만들어내는 농장 변화는 늘 의외성으로 가득해요. 에밀리와 함께하는 것처럼: 오늘은 또 어떤 놀라움이 찾아올지 모르잖아요.',
-    hookDe:
-      'TendFarm für Kreative — deine Gesundheitsdaten erzeugen Farmveränderungen voller Überraschungen, wie das Leben mit Emily: du weißt nie, was der heutige Tag bringen wird.',
   },
   sebastian: {
     type: 'sebastian',
@@ -665,18 +610,6 @@ const RESULTS: Record<Match, Result> = {
     whyJa: 'なぜセバスチャンか：「なぜ」を説明しなくていい、ただ受け入れてくれる人だから。',
     whyKo: '왜 세바스티안인가: \'왜\'를 설명하지 않아도 되는 사람, 그냥 받아들여주기 때문이에요.',
     whyDe: 'Warum Sebastian: Er ist derjenige, dem du nicht erklären musst, warum — er akzeptiert es einfach.',
-    hookZh:
-      'TendFarm 对内向型玩家完美适配：零社交压力，你的健康数据在后台安静运行，农场自己成长。不需要解释，不需要表演。',
-    hookEn:
-      "TendFarm is a perfect fit for introverts: zero social pressure, your health data runs quietly in the background, the farm grows on its own. No explaining, no performing.",
-    hookZhTW:
-      'TendFarm 對內向型玩家完美適配：零社交壓力，你的健康數據在後台安靜運行，農場自己成長。不需要解釋，不需要表演。',
-    hookJa:
-      '内向型プレイヤーにぴったりのTendFarm：ソーシャルプレッシャーゼロ、あなたの健康データはバックグラウンドで静かに動き、農場が自然に育つ。説明もパフォーマンスも不要。',
-    hookKo:
-      '내향형 플레이어에게 완벽한 TendFarm: 소셜 부담 제로, 건강 데이터가 백그라운드에서 조용히 실행되며 농장이 스스로 성장해요. 설명도 필요 없고, 연기도 필요 없어요.',
-    hookDe:
-      'TendFarm ist perfekt für Introvertierte: null sozialer Druck, deine Gesundheitsdaten laufen leise im Hintergrund, die Farm wächst von alleine. Kein Erklären, kein Performen.',
   },
   harvey: {
     type: 'harvey',
@@ -711,18 +644,6 @@ const RESULTS: Record<Match, Result> = {
     whyJa: 'なぜハーヴィーか：みんなが自己アピールに忙しいとき、彼はひそかにあなたのことを考えているから。',
     whyKo: '왜 하비인가: 모두가 자신을 뽐내는 데 바쁠 때, 그는 조용히 당신을 생각하고 있기 때문이에요.',
     whyDe: 'Warum Harvey: Während alle anderen damit beschäftigt sind, sich zu präsentieren, denkt er still an dich.',
-    hookZh:
-      'TendFarm 对哈维式的玩家来说充满温度：你的睡眠好，农场就好；你照顾好自己，农场就回应你。TendFarm 和哈维一样，它记得你，并且在乎。',
-    hookEn:
-      "TendFarm resonates with Harvey-types: sleep well and the farm thrives; take care of yourself and the farm responds. Like Harvey, TendFarm pays attention — and cares.",
-    hookZhTW:
-      'TendFarm 對哈維式的玩家來說充滿溫度：你的睡眠好，農場就好；你照顧好自己，農場就回應你。TendFarm 和哈維一樣，它記得你，並且在乎。',
-    hookJa:
-      'ハーヴィー型プレイヤーに響くTendFarm：よく眠れれば農場も元気になる；自分を大切にすれば農場がそれに応える。TendFarm はハーヴィーと同じ——あなたのことを覚えていて、気にかけている。',
-    hookKo:
-      '하비 타입 플레이어에게 따뜻한 TendFarm: 잘 자면 농장도 좋아지고, 자신을 잘 돌보면 농장이 응답해요. TendFarm은 하비처럼 — 당신을 기억하고, 신경 써요.',
-    hookDe:
-      'TendFarm trifft den Harvey-Typ: gut schlafen, und die Farm gedeiht; auf sich selbst achten, und die Farm antwortet. Wie Harvey erinnert sich TendFarm — und es kümmert sich.',
   },
 }
 
@@ -916,32 +837,6 @@ export function StardewRomanceQuiz({ locale }: Props) {
             )}
           </p>
           <ShareButton text={shareText} locale={locale} />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-5">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">
-            {getLoc('你可能也会喜欢 →', 'You might also love →', '你可能也會喜歡 →', 'あなたにもおすすめ →', '이것도 좋아할 것 같아요 →', 'Das könntest du auch lieben →')} TendFarm
-          </p>
-          <p className="mb-2 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把 Cozy 游戏的季节感带入你的真实生活节奏。',
-              'TendFarm is building a farm rhythm tracker — bringing the seasonal feeling of cozy games into real life.',
-              'TendFarm 正在研發農場節律追蹤功能——把 Cozy 遊戲的季節感帶入你的真實生活節奏。',
-              'TendFarm はファームリズムトラッカーを開発中です——コージーゲームの季節感をリアルな生活リズムに。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 코지 게임의 계절감을 실제 생활 리듬으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — das saisonale Gefühl von Cozy Games ins echte Leben bringen.'
-            )}
-          </p>
-          <p className="mb-4 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(result.hookZh, result.hookEn, result.hookZhTW, result.hookJa, result.hookKo, result.hookDe)}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm を見てみる →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
-          </Link>
         </div>
 
         <div className="text-center">

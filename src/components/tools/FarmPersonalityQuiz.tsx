@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 
 function ShareButton({ text, locale }: { text: string; locale: string }) {
   const [copied, setCopied] = useState(false)
@@ -143,12 +142,6 @@ interface Result {
   descKo: string
   descDe: string
   games: string[]
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULTS: Record<Archetype, Result> = {
@@ -174,18 +167,6 @@ const RESULTS: Record<Archetype, Result> = {
     descDe:
       'Daten und Systeme sind deine Sprache. Du berechnest den Gewinn pro Stunde, bevor du den ersten Samen pflanzt. Deine Scheune ist immer ordentlich, deine Felder immer optimal. Für dich ist Farming ein Rätsel, das es zu lösen gilt.',
     games: ['Hay Day', '星露谷物语 / Stardew Valley', 'Farming Simulator'],
-    hookZh:
-      'TendFarm 为效率型玩家量身定制：步数、睡眠、HRV 都有精确的农场转化公式。终于有一个游戏，让你的现实数据也可以被优化。',
-    hookEn:
-      'TendFarm is built for optimizers: your steps, sleep, and HRV each have an exact formula for farm output. Finally, a game where your real-life data can be min-maxed.',
-    hookZhTW:
-      'TendFarm 為效率型玩家量身定製：步數、睡眠、HRV 都有精確的農場轉化公式。終於有一個遊戲，讓你的現實數據也可以被優化。',
-    hookJa:
-      'TendFarm は効率系プレイヤーのために作られています。歩数・睡眠・HRVそれぞれに農場出力への正確な計算式があります。ついに、リアルデータを最適化できるゲームが登場。',
-    hookKo:
-      'TendFarm은 효율형 플레이어를 위해 만들어졌습니다. 걸음 수, 수면, HRV 각각에 정확한 농장 출력 공식이 있어요. 드디어 현실 데이터도 최적화할 수 있는 게임이 나왔습니다.',
-    hookDe:
-      'TendFarm ist für Optimierer gemacht: Schritte, Schlaf und HRV haben jeweils eine genaue Formel für die Farm-Ausgabe. Endlich ein Spiel, in dem echte Daten min-gemaxt werden können.',
   },
   aesthete: {
     type: 'aesthete',
@@ -209,18 +190,6 @@ const RESULTS: Record<Archetype, Result> = {
     descDe:
       'Deine Farm ist eine Leinwand. Dir ist wichtiger, wie sie aussieht als wie effizient sie ist. Du rückst Möbel so lange, bis es sich richtig anfühlt, und deine Screenshots bekommen die meisten Kommentare.',
     games: ['动物森友会 / Animal Crossing', 'Coral Island', 'Cozy Grove'],
-    hookZh:
-      'TendFarm 的农场随你的生活节律自然生长——规律的作息让农场更有层次，良好的睡眠让收成更充盈。你的生活方式，本身就是最美的农场设计。',
-    hookEn:
-      'TendFarm grows with your natural rhythm. A consistent sleep schedule makes your farm lush. Your lifestyle is the design.',
-    hookZhTW:
-      'TendFarm 的農場隨你的生活節律自然生長——規律的作息讓農場更有層次，良好的睡眠讓收成更充盈。你的生活方式，本身就是最美的農場設計。',
-    hookJa:
-      'TendFarm はあなたの生活リズムに合わせて農場が育ちます。規則正しい生活で農場に深みが増し、良質な睡眠で収穫が豊かに。あなたのライフスタイルそのものが、最高の農場デザインです。',
-    hookKo:
-      'TendFarm의 농장은 당신의 생활 리듬에 맞춰 자연스럽게 성장합니다. 규칙적인 생활이 농장에 깊이를 더하고, 좋은 수면이 수확을 풍성하게 해요. 당신의 라이프스타일 자체가 가장 아름다운 농장 디자인입니다.',
-    hookDe:
-      'TendFarm wächst mit deinem natürlichen Rhythmus. Ein regelmäßiger Schlafplan macht deine Farm üppiger. Dein Lebensstil ist das Design.',
   },
   explorer: {
     type: 'explorer',
@@ -244,18 +213,6 @@ const RESULTS: Record<Archetype, Result> = {
     descDe:
       'Neue Karten, neue Mechaniken, neuer Inhalt — das ist der Grund, warum du das Spiel öffnest. Du bleibst nie lange bei einer Sache, denn es gibt immer etwas Neues zu entdecken. Ein neues Gebiet freizuschalten schlägt jede große Ernte.',
     games: ['My Time at Sandrock', 'Palia', 'Fields of Mistria'],
-    hookZh:
-      'TendFarm 每天都不一样——你的健康数据驱动农场产生新变化。今天多走了几步，今天的作物有不同的成熟节奏。每天打开都有新的发现。',
-    hookEn:
-      'TendFarm changes every day — your health data creates new variations in your farm. Walk more today, and your crops ripen differently. Something new every time you open it.',
-    hookZhTW:
-      'TendFarm 每天都不一樣——你的健康數據驅動農場產生新變化。今天多走了幾步，今天的作物有不同的成熟節奏。每天打開都有新的發現。',
-    hookJa:
-      'TendFarm は毎日変化します——健康データが農場に新しい変化をもたらします。今日たくさん歩いたら、作物の成熟リズムが変わります。毎日開くたびに新しい発見があります。',
-    hookKo:
-      'TendFarm은 매일 달라집니다—건강 데이터가 농장에 새로운 변화를 만들어냅니다. 오늘 더 많이 걸으면 작물의 성숙 리듬이 달라져요. 매일 열 때마다 새로운 발견이 있습니다.',
-    hookDe:
-      'TendFarm verändert sich jeden Tag — deine Gesundheitsdaten bringen neue Variationen in deine Farm. Mehr gelaufen heute? Deine Ernte reift anders. Jeden Tag gibt es etwas Neues zu entdecken.',
   },
   zen: {
     type: 'zen',
@@ -279,18 +236,6 @@ const RESULTS: Record<Archetype, Result> = {
     descDe:
       'Du spielst Farmspiele nicht für Effizienz oder Ästhetik — nur für das Gefühl, dass nichts schiefgehen kann. Keine Fristen, keine Misserfolge. Deine Farm ist die ruhige Ecke im hektischen Alltag.',
     games: ['Cozy Grove', 'Wylde Flowers', '动物森友会 / Animal Crossing'],
-    hookZh:
-      'TendFarm 是终极的禅意农场——你不需要主动操作任何东西，你的步数和睡眠自动驱动农场生长。昨晚睡得好，今天打开 App 就看到农场悄悄变化了。你活着，它就生长。',
-    hookEn:
-      "TendFarm is the ultimate zen farm — you don't actively do anything. Your steps and sleep drive it automatically. Sleep well last night, open the app today and find your farm quietly grew. You live; it grows.",
-    hookZhTW:
-      'TendFarm 是終極的禪意農場——你不需要主動操作任何東西，你的步數和睡眠自動驅動農場生長。昨晚睡得好，今天打開 App 就看到農場悄悄變化了。你活著，它就生長。',
-    hookJa:
-      'TendFarm は究極の禅農場です——あなたは何もしなくていい。歩数と睡眠が自動で農場を育てます。昨夜よく眠れたなら、今日アプリを開けば農場がこっそり変わっています。あなたが生きているだけで、農場は育ちます。',
-    hookKo:
-      'TendFarm은 궁극의 선(禪) 농장입니다——능동적으로 아무것도 안 해도 돼요. 걸음 수와 수면이 자동으로 농장을 키웁니다. 어젯밤 잘 잤다면, 오늘 앱을 열면 농장이 살짝 변해있어요. 당신이 살아있는 것만으로, 농장은 자랍니다.',
-    hookDe:
-      'TendFarm ist die ultimative Zen-Farm — du musst aktiv gar nichts tun. Schritte und Schlaf treiben sie automatisch voran. Gut geschlafen letzte Nacht? Öffne die App und deine Farm hat sich still verändert. Du lebst; sie wächst.',
   },
 }
 
@@ -428,20 +373,6 @@ export function FarmPersonalityQuiz({ locale, initialResult }: Props) {
 
         <div className="mb-6 flex">
           <ShareButton text={shareText} locale={locale} />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-6">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">TendFarm</p>
-          <p className="mb-4 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(result.hookZh, result.hookEn, result.hookZhTW, result.hookJa, result.hookKo, result.hookDe)}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm を見る →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
-          </Link>
         </div>
 
         <div className="text-center">

@@ -14,8 +14,8 @@ export async function generateMetadata({
 
   return {
     title: isZh
-      ? '你的星露谷钓鱼风格测验：传奇猎手 / 蟹笼 / 任务单 / 鱼塘 | TendFarm'
-      : 'Stardew Valley Fishing Style Quiz: Legendary, Crabpot, Completionist, or Pond | TendFarm',
+      ? '你的星露谷钓鱼风格测验：传奇猎手 / 蟹笼 / 任务单 / 鱼塘 | Farming Game Hub'
+      : 'Stardew Valley Fishing Style Quiz: Legendary, Crabpot, Completionist, or Pond | Farming Game Hub',
     description: isZh
       ? '6 个问题测出你的星露谷钓鱼风格——传奇鱼猎手、蟹笼被动派、任务单完成者还是鱼塘专家，附完整攻略指南。'
       : '6 questions to find your Stardew Valley fishing playstyle — Legendary Hunter, Passive Crabpotter, Bundle Completionist, or Fish Pond Expert. Includes a full fishing strategy guide.',

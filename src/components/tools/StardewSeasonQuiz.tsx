@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 type Season = 'spring' | 'summer' | 'fall' | 'winter'
 
@@ -337,12 +336,6 @@ interface Result {
   villagerJa: string
   villagerKo: string
   villagerDe: string
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULTS: Record<Season, Result> = {
@@ -385,18 +378,6 @@ const RESULTS: Record<Season, Result> = {
     villagerJa: 'ペニー——彼女の優しさと未来への希望は、あなたの春の魂と完璧に共鳴する。',
     villagerKo: '페니 — 그녀의 따뜻함과 미래에 대한 희망이 당신의 봄 영혼과 완벽하게 공명해요.',
     villagerDe: 'Penny — ihre Sanftheit und ihre Hoffnung auf die Zukunft spiegelt deine Frühlingsseele perfekt wider.',
-    hookZh:
-      'TendFarm 为春天型人格设计了「萌芽」模式：你每天的新习惯和步数会让农场冒出新的嫩芽，每一个小改变都被记录成农场的生长轨迹——你的希望是可以看见的东西。',
-    hookEn:
-      "TendFarm has a 'Sprout' mode built for spring personalities: every new habit and daily step makes new shoots appear on the farm. Each small change is recorded as a growth milestone — your hope becomes something you can actually see.",
-    hookZhTW:
-      'TendFarm 為春天型人格設計了「萌芽」模式：你每天的新習慣和步數會讓農場冒出新的嫩芽，每一個小改變都被記錄成農場的生長軌跡——你的希望是可以看見的東西。',
-    hookJa:
-      'TendFarmには春タイプのための「芽吹き」モードがあります。毎日の新習慣や歩数が農場に新しい芽を生み出し、小さな変化のひとつひとつが農場の成長記録に刻まれていく——希望が、目に見えるものになる。',
-    hookKo:
-      'TendFarm에는 봄 유형을 위한 「새싹」 모드가 있어요. 매일의 새로운 습관과 걸음 수가 농장에 새싹을 틔우고, 작은 변화 하나하나가 농장의 성장 기록이 됩니다 — 당신의 희망이 눈에 보이는 것이 돼요.',
-    hookDe:
-      'TendFarm hat einen „Keimling"-Modus für Frühlingstypen: Jede neue Gewohnheit und jeder Schritt lässt auf dem Bauernhof neue Triebe sprießen. Jede kleine Veränderung wird als Wachstumsmeilenstein festgehalten — deine Hoffnung wird sichtbar.',
   },
   summer: {
     season: 'summer',
@@ -437,18 +418,6 @@ const RESULTS: Record<Season, Result> = {
     villagerJa: 'エミリー——彼女の情熱、創造力、あふれるエネルギーはまさに夏そのもの。',
     villagerKo: '에밀리 — 그녀의 열정, 창의력, 넘치는 에너지가 바로 여름 그 자체예요.',
     villagerDe: 'Emily — ihre Begeisterung, Kreativität und übersprudelnde Energie ist der Sommer in Person.',
-    hookZh:
-      'TendFarm 的夏日冲刺模式为夏天型人格而生：高步数天数在农场里触发「丰收冲刺」，一天之内产出数倍于平常的作物。你的活力高峰，就是农场的高产季。',
-    hookEn:
-      "TendFarm's summer sprint mode is built for you: high-step days trigger a 'Harvest Rush' on the farm, producing several times the usual output in a single day. Your energy peaks become the farm's peak season.",
-    hookZhTW:
-      'TendFarm 的夏日衝刺模式為夏天型人格而生：高步數天數在農場裡觸發「豐收衝刺」，一天之內產出數倍於平常的作物。你的活力高峰，就是農場的高產季。',
-    hookJa:
-      "TendFarmの夏スプリントモードはあなたのためにある。歩数が多い日は農場で「収穫ラッシュ」が発動し、通常の何倍もの作物が一日で実る。あなたのエネルギーのピークが、農場の最盛期になる。",
-    hookKo:
-      'TendFarm의 여름 스프린트 모드는 여름 유형을 위해 만들어졌어요. 걸음 수가 많은 날에는 농장에서 「수확 러시」가 발동해 하루에 평소의 몇 배 작물이 열려요. 당신의 에너지 피크가 곧 농장의 성수기가 됩니다.',
-    hookDe:
-      'TendFarms Sommer-Sprint-Modus ist für dich gemacht: Tage mit vielen Schritten lösen auf dem Bauernhof einen „Ernte-Rush“ aus, der mehrfachen Ertrag an einem einzigen Tag bringt. Deine Energiespitzen werden zur Hochsaison auf dem Hof.',
   },
   fall: {
     season: 'fall',
@@ -489,18 +458,6 @@ const RESULTS: Record<Season, Result> = {
     villagerJa: 'レア——土地と自然と本物の暮らしへの深い愛情は、秋のあなたとまさに重なり合う。',
     villagerKo: '레아 — 땅과 자연, 진짜 삶에 대한 그녀의 깊은 애정이 가을의 당신과 꼭 닮았어요.',
     villagerDe: 'Leah — ihre tiefe Wertschätzung für die Erde, die Natur und das authentische Leben spiegelt deine Herbstseele haargenau.',
-    hookZh:
-      'TendFarm 最懂秋天型人格：稳定的生活节律在农场里积累出「丰收积分」，不需要每天冲刺——只需要持续、规律地生活，到了时机，农场会给你一个惊喜的大丰收。',
-    hookEn:
-      "TendFarm understands fall personalities best: a steady, consistent life rhythm accumulates 'Harvest Points' on the farm. No need to sprint every day — just live consistently, and when the time is right, the farm gives you a surprise bumper harvest.",
-    hookZhTW:
-      'TendFarm 最懂秋天型人格：穩定的生活節律在農場裡積累出「豐收積分」，不需要每天衝刺——只需要持續、規律地生活，到了時機，農場會給你一個驚喜的大豐收。',
-    hookJa:
-      "TendFarmは秋タイプをもっともよく理解しています。安定した生活リズムが農場に「収穫ポイント」を積み上げていく。毎日全力を出す必要はない——ただ続けて、規則正しく生きていれば、ちょうどいい時に農場が大豊作のサプライズをくれる。",
-    hookKo:
-      'TendFarm은 가을 유형을 가장 잘 이해해요. 꾸준한 생활 리듬이 농장에 「수확 포인트」를 쌓아가요. 매일 전력을 다할 필요 없어요 — 그저 일관되고 규칙적으로 살아가면, 때가 되면 농장이 깜짝 대풍작으로 보답해줄 거예요.',
-    hookDe:
-      'TendFarm versteht Herbsttypen am besten: Ein gleichmäßiger Lebensrhythmus sammelt auf dem Bauernhof „Erntepunkte" an. Kein täglicher Sprint nötig — lebe einfach beständig und regelmäßig, und wenn die Zeit reif ist, beschert dir der Bauernhof eine überraschend üppige Ernte.',
   },
   winter: {
     season: 'winter',
@@ -541,18 +498,6 @@ const RESULTS: Record<Season, Result> = {
     villagerJa: 'セバスチャン——内省的で、本音を大切にし、静かな深みを求める彼は、冬の魂そのもの。',
     villagerKo: '세바스찬 — 내성적이고, 진실하며, 조용한 깊이를 추구하는 그가 바로 겨울 영혼의 완벽한 체현이에요.',
     villagerDe: 'Sebastian — seine Nachdenklichkeit, Authentizität und Liebe zur stillen Tiefe ist die vollendete Winterseele.',
-    hookZh:
-      'TendFarm 的冬日模式为内省型人格定制：深度睡眠数据在农场里解锁神秘的「冬日稀有作物」，安静的夜晚比白天更有产出——这是专属于夜型人和内向者的农场奖励。',
-    hookEn:
-      "TendFarm's winter mode is made for introspective personalities: deep sleep data unlocks mysterious 'winter rare crops' on the farm. Quiet nights outperform busy days — an exclusive reward for night owls and introverts.",
-    hookZhTW:
-      'TendFarm 的冬日模式為內省型人格定製：深度睡眠數據在農場裡解鎖神秘的「冬日稀有作物」，安靜的夜晚比白天更有產出——這是專屬於夜型人和內向者的農場獎勵。',
-    hookJa:
-      "TendFarmの冬モードは内省タイプのために作られています。深い睡眠データが農場で謎の「冬限定レア作物」を解放する。静かな夜が忙しい昼より多く実る——夜型人間や内向型への、農場からの特別なご褒美。",
-    hookKo:
-      'TendFarm의 겨울 모드는 내성적인 유형을 위해 만들어졌어요. 깊은 수면 데이터가 농장에서 신비로운 「겨울 희귀 작물」을 해금해요. 조용한 밤이 바쁜 낮보다 더 많은 걸 만들어내요 — 야행성과 내향인을 위한 농장만의 특별 보상이에요.',
-    hookDe:
-      'TendFarms Wintermodus ist für nachdenkliche Typen gemacht: Tiefe Schlafdaten schalten auf dem Bauernhof mysteriöse „Winter-Raritäten" frei. Stille Nächte übertreffen hektische Tage — eine exklusive Belohnung für Nachteulen und Introvertierten.',
   },
 }
 
@@ -724,32 +669,6 @@ export function StardewSeasonQuiz({ locale }: Props) {
             {getLoc('看看朋友是什么季节 →', 'See what season your friends are →', '看看朋友是什麼季節 →', '友達の季節もチェック →', '친구의 계절도 확인해보세요 →', 'Schau, welche Saison deine Freunde sind →')}
           </p>
           <ShareButton text={shareText} locale={locale} />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-5">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">
-            {getLoc('你可能也会喜欢 →', 'You might also love →', '你可能也會喜歡 →', 'こちらもおすすめ →', '이것도 좋아하실 거예요 →', 'Das könnte dir auch gefallen →')} TendFarm
-          </p>
-          <p className="mb-3 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(result.hookZh, result.hookEn, result.hookZhTW, result.hookJa, result.hookKo, result.hookDe)}
-          </p>
-          <p className="mb-4 text-xs leading-relaxed text-[#4a5a4a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把 Cozy 游戏的季节感带入你的真实生活节奏。',
-              'TendFarm is building a farm rhythm tracker — bringing the seasonal feeling of cozy games into real life.',
-              'TendFarm 正在研發農場節律追蹤功能——把 Cozy 遊戲的季節感帶入你的真實生活節奏。',
-              'TendFarm はファームリズムトラッカーを開発中です——コージーゲームの季節感をリアルな生活リズムに。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 코지 게임의 계절감을 실제 생활 리듬으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — das saisonale Gefühl von Cozy Games ins echte Leben bringen.',
-            )}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm を詳しく →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
-          </Link>
         </div>
 
         <div className="text-center">

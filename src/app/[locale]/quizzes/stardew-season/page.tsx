@@ -16,7 +16,7 @@ export async function generateMetadata({
       ? '你是哪个星露谷季节？春天/夏天/秋天/冬天性格测验'
       : 'Which Stardew Valley Season Are You? — Spring Summer Fall Winter Personality Quiz',
     description: isZh
-      ? '6 个关于性格和生活方式的问题，测出你的星露谷灵魂季节——附专属村民配对、代表作物和 TendFarm 季节模式解析。'
+      ? '6 个关于性格和生活方式的问题，测出你的星露谷灵魂季节——附专属村民配对、代表作物和季节玩法解析。'
       : '6 personality questions to reveal your Stardew Valley soul season — Spring, Summer, Fall, or Winter? Includes villager match, signature crops, and seasonal farm tips.',
     keywords: isZh
       ? ['星露谷季节测验', '你是哪个季节', '星露谷春夏秋冬', '星露谷性格测试', '星露谷四季']

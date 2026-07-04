@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 interface Option {
   zh: string
@@ -159,12 +158,6 @@ interface ResultTier {
   gamesJa: string[]
   gamesKo: string[]
   gamesDe: string[]
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULT_TIERS: ResultTier[] = [
@@ -195,18 +188,6 @@ const RESULT_TIERS: ResultTier[] = [
     gamesJa: ['スターデューバレー', 'あつまれ どうぶつの森', 'Cozy Grove', 'Wylde Flowers', 'Palia'],
     gamesKo: ['스타듀 밸리', '모여봐요 동물의 숲', 'Cozy Grove', 'Wylde Flowers', 'Palia'],
     gamesDe: ['Stardew Valley', 'Animal Crossing: New Horizons', 'Cozy Grove', 'Wylde Flowers', 'Palia'],
-    hookZh:
-      'TendFarm 是终极 cozy 游戏——你不需要主动操作任何东西，你的步数和睡眠在后台悄悄驱动农场成长。今天睡得好，明天打开就看到农场静静地变了。这是有史以来最懒、最舒服的农场。',
-    hookEn:
-      "TendFarm is the ultimate cozy game — you don't actively do anything. Your steps and sleep quietly grow your farm in the background. Sleep well tonight, open the app tomorrow and find your farm has quietly bloomed. The laziest, most comfortable farm ever made.",
-    hookZhTW:
-      'TendFarm 是終極 cozy 遊戲——你不需要主動操作任何東西，你的步數和睡眠在後台悄悄驅動農場成長。今天睡得好，明天打開就看到農場靜靜地變了。這是有史以來最懶、最舒服的農場。',
-    hookJa:
-      'TendFarmはまさに究極のコージーゲーム――能動的な操作は一切不要。あなたの歩数と睡眠がバックグラウンドで農場をそっと育ててくれる。今夜よく眠れば、明日アプリを開いたら農場が静かに変わっている。史上最もゆるくて最も心地よい農場。',
-    hookKo:
-      'TendFarm은 궁극의 코지 게임이에요 — 능동적으로 할 일이 하나도 없어요. 당신의 걸음 수와 수면이 백그라운드에서 조용히 농장을 키워줍니다. 오늘 밤 푹 자면, 내일 앱을 열었을 때 농장이 조용히 달라져 있을 거예요. 역사상 가장 게으르고 가장 편안한 농장.',
-    hookDe:
-      'TendFarm ist das ultimative Cozy Game — du musst aktiv gar nichts tun. Deine Schritte und dein Schlaf lassen die Farm leise im Hintergrund wachsen. Schlaf heute gut, öffne die App morgen und finde deine Farm still erblüht. Die faulste, bequemste Farm, die je existiert hat.',
   },
   {
     minScore: 9,
@@ -235,18 +216,6 @@ const RESULT_TIERS: ResultTier[] = [
     gamesJa: ['スターデューバレー', 'Coral Island', 'My Time at Sandrock', 'Fields of Mistria', 'あつまれ どうぶつの森'],
     gamesKo: ['스타듀 밸리', 'Coral Island', 'My Time at Sandrock', 'Fields of Mistria', '모여봐요 동물의 숲'],
     gamesDe: ['Stardew Valley', 'Coral Island', 'My Time at Sandrock', 'Fields of Mistria', 'Animal Crossing'],
-    hookZh:
-      'TendFarm 正好适合 cozy soul——有一点系统深度（你的健康数据驱动农场），但完全不需要主动打理。是那种「每天打开看一眼就很满足」的游戏。',
-    hookEn:
-      "TendFarm fits a cozy soul perfectly — there's some system depth (your health data drives the farm) but zero active management required. It's the kind of game you open for a look every day and feel genuinely satisfied.",
-    hookZhTW:
-      'TendFarm 正好適合 cozy soul——有一點系統深度（你的健康數據驅動農場），但完全不需要主動打理。是那種「每天打開看一眼就很滿足」的遊戲。',
-    hookJa:
-      'TendFarmはコージーソウルにぴったり――少しシステムの深みがあり（健康データが農場を動かす）、でも能動的な管理は一切不要。毎日ちらっと開くだけで満足できるゲームだ。',
-    hookKo:
-      'TendFarm은 코지 소울에게 딱 맞아요 — 약간의 시스템 깊이가 있고（건강 데이터가 농장을 움직여요）, 능동적으로 관리할 필요가 전혀 없어요. 매일 켜서 한번 보는 것만으로도 만족스러운 게임이에요.',
-    hookDe:
-      'TendFarm passt perfekt zu einem Cozy Soul — es hat etwas Systemtiefe (deine Gesundheitsdaten treiben die Farm an), aber du musst aktiv gar nichts verwalten. Das Spiel, das du täglich kurz öffnest und dabei genuinely zufrieden bist.',
   },
   {
     minScore: 5,
@@ -275,18 +244,6 @@ const RESULT_TIERS: ResultTier[] = [
     gamesJa: ['スターデューバレー', 'My Time at Sandrock', 'Palia', 'Coral Island', 'Hades'],
     gamesKo: ['스타듀 밸리', 'My Time at Sandrock', 'Palia', 'Coral Island', 'Hades'],
     gamesDe: ['Stardew Valley', 'My Time at Sandrock', 'Palia', 'Coral Island', 'Hades'],
-    hookZh:
-      'TendFarm 对均衡型玩家来说像是一个有趣的后台系统——不需要你专注操作，但结合了健康数据驱动的「种田」乐趣，是对你现有游戏库的好补充。',
-    hookEn:
-      'TendFarm works well for balanced gamers as a satisfying background system — no active focus needed, but health-data-driven farming adds an interesting layer alongside your existing games.',
-    hookZhTW:
-      'TendFarm 對均衡型玩家來說像是一個有趣的後台系統——不需要你專注操作，但結合了健康數據驅動的「種田」樂趣，是對你現有遊戲庫的好補充。',
-    hookJa:
-      'TendFarmはバランス型ゲーマーにとって面白いバックグラウンドシステム――能動的な操作は不要だが、健康データ駆動の「農場」要素が既存のゲームライブラリに良いスパイスをくれる。',
-    hookKo:
-      'TendFarm은 균형파 게이머에게 흥미로운 백그라운드 시스템이에요 — 집중적인 조작이 필요 없지만, 건강 데이터로 구동되는 「농사」의 재미가 기존 게임 라이브러리에 좋은 보완이 될 거예요.',
-    hookDe:
-      'TendFarm funktioniert gut für ausgewogene Spieler als befriedigendes Hintergrundsystem — kein aktiver Fokus nötig, aber gesundheitsdatengesteuertes Farming fügt eine interessante Ebene neben deinen bestehenden Spielen hinzu.',
   },
   {
     minScore: 2,
@@ -315,18 +272,6 @@ const RESULT_TIERS: ResultTier[] = [
     gamesJa: ['スターデューバレー（最適化ルート）', 'Hades', 'Dark Souls', 'Farming Simulator', 'Deep Rock Galactic'],
     gamesKo: ['스타듀 밸리（최적화 루트）', 'Hades', 'Dark Souls', 'Farming Simulator', 'Deep Rock Galactic'],
     gamesDe: ['Stardew Valley (optimierte Routen)', 'Hades', 'Dark Souls', 'Farming Simulator', 'Deep Rock Galactic'],
-    hookZh:
-      'TendFarm 对挑战型玩家来说有个有趣的角度：你的 HRV、睡眠评分、步数都有精确的转换公式，驱动农场效率。这是一个可以「优化」的现实挑战——用你的健康数据打高分。',
-    hookEn:
-      "TendFarm has an interesting angle for challengers: your HRV, sleep scores, and step counts each have exact formulas driving farm output. There's a real-life challenge to optimize — use your health data to score higher.",
-    hookZhTW:
-      'TendFarm 對挑戰型玩家來說有個有趣的角度：你的 HRV、睡眠評分、步數都有精確的轉換公式，驅動農場效率。這是一個可以「優化」的現實挑戰——用你的健康數據打高分。',
-    hookJa:
-      'TendFarmはチャレンジャーにとって面白い視点がある：HRV、睡眠スコア、歩数がそれぞれ正確な換算式で農場の効率を左右する。「最適化」できるリアルな挑戦だ――健康データで高スコアを目指そう。',
-    hookKo:
-      'TendFarm은 도전파 게이머에게 흥미로운 포인트가 있어요: HRV, 수면 점수, 걸음 수가 각각 정확한 환산 공식으로 농장 효율을 결정해요. 이건 「최적화」할 수 있는 현실의 도전이에요 — 건강 데이터로 고득점을 노려보세요.',
-    hookDe:
-      'TendFarm hat einen interessanten Winkel für Herausforderer: Dein HRV, Schlaf-Score und Schrittzahl haben genaue Formeln, die die Farmleistung antreiben. Das ist eine echte Herausforderung zum Optimieren — nutze deine Gesundheitsdaten für Höchstpunkte.',
   },
   {
     minScore: 0,
@@ -355,18 +300,6 @@ const RESULT_TIERS: ResultTier[] = [
     gamesJa: ['Dark Souls / Elden Ring', 'Hades', 'Hollow Knight', 'スターデューバレー（最速攻略）', 'Farming Simulator'],
     gamesKo: ['Dark Souls / Elden Ring', 'Hades', 'Hollow Knight', '스타듀 밸리 (최적화 런)', 'Farming Simulator'],
     gamesDe: ['Dark Souls / Elden Ring', 'Hades', 'Hollow Knight', 'Stardew Valley (optimierter Run)', 'Farming Simulator'],
-    hookZh:
-      'TendFarm 对硬核玩家来说是个新挑战：用你的健康数据（步数、睡眠、HRV）来优化农场产出。你现实生活里的行为表现，直接影响游戏成绩。这是最难「作弊」的农场游戏。',
-    hookEn:
-      "TendFarm is a novel challenge for hardcore players: optimize your farm output through real health data — steps, sleep, HRV all feed directly into your farm performance. It's the farming game you literally can't cheat at.",
-    hookZhTW:
-      'TendFarm 對硬核玩家來說是個新挑戰：用你的健康數據（步數、睡眠、HRV）來優化農場產出。你現實生活裡的行為表現，直接影響遊戲成績。這是最難「作弊」的農場遊戲。',
-    hookJa:
-      'TendFarmはハードコアプレイヤーにとって新しい挑戦だ：歩数、睡眠、HRVという健康データで農場の産出を最適化しろ。現実での行動が直接ゲームの成績に影響する。最も「チート」しにくい農場ゲームだ。',
-    hookKo:
-      'TendFarm은 하드코어 플레이어에게 새로운 도전이에요: 건강 데이터（걸음 수, 수면, HRV）로 농장 산출량을 최적화하세요. 현실에서의 행동이 직접 게임 성적에 영향을 미쳐요. 가장 「치트」하기 어려운 농장 게임이에요.',
-    hookDe:
-      'TendFarm ist eine neue Herausforderung für Hardcore-Spieler: Optimiere deine Farmleistung durch Gesundheitsdaten — Schritte, Schlaf, HRV fließen direkt in deine Farmleistung ein. Es ist das Farming-Spiel, bei dem du buchstäblich nicht cheaten kannst.',
   },
 ]
 
@@ -560,32 +493,6 @@ export function CozyGamerQuiz({ locale }: Props) {
             )}
           </p>
           <ShareButton text={shareText} locale={locale} />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-5">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">
-            {getLoc('你可能也会喜欢 →', 'You might also love →', '你可能也會喜歡 →', 'こんなのも好きかも →', '이것도 좋아할 것 같아요 →', 'Das könnte dir auch gefallen →')} TendFarm
-          </p>
-          <p className="mb-3 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(result.hookZh, result.hookEn, result.hookZhTW, result.hookJa, result.hookKo, result.hookDe)}
-          </p>
-          <p className="mb-4 text-xs text-[#4a5a4a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把 Cozy 游戏的季节感带入你的真实生活节奏。',
-              'TendFarm is building a farm rhythm tracker — bringing the seasonal feeling of cozy games into real life.',
-              'TendFarm 正在研發農場節律追蹤功能——把 Cozy 遊戲的季節感帶入你的真實生活節奏。',
-              'TendFarm はファームリズムトラッカーを開発中です——コージーゲームの季節感をリアルな生活リズムに。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 코지 게임의 계절감을 실제 생활 리듬으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — das saisonale Gefühl von Cozy Games ins echte Leben bringen.'
-            )}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm を見てみる →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
-          </Link>
         </div>
 
         <div className="text-center">

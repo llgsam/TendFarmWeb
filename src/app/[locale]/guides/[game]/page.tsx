@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!category) return {}
   const t = await getTranslations({ locale, namespace: 'guides' })
   return {
-    title: `${category.name(locale)} — TendFarm`,
+    title: `${category.name(locale)} — Farming Game Hub`,
     description: category.desc(locale),
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}`,

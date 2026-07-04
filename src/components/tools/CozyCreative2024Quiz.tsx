@@ -593,19 +593,6 @@ export function CozyCreative2024Quiz({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <div className="mb-4 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f] p-4">
-          <p className="text-center text-sm text-[#8a9a7a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把游戏里的创意心流，带入真实日常。',
-              'TendFarm is building a farm rhythm tracker — bringing the creative flow state of games into real daily life.',
-              'TendFarm 正在研發農場節律追蹤功能——把遊戲裡的創意心流，帶入真實日常。',
-              'TendFarmは農場リズムトラッカーを開発中です——ゲームのクリエイティブなフロー状態を、リアルな日常に。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다——게임의 창의적인 몰입 상태를 실제 일상으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — der kreative Flow-Zustand aus Spielen in den echten Alltag bringt.',
-            )}
-          </p>
-        </div>
-
         <div className="flex flex-col gap-3 sm:flex-row">
           <ShareButton text={shareText} locale={locale} />
           <button

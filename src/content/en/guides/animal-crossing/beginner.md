@@ -110,7 +110,3 @@ The museum tracks your completion of:
 - **Art** (forged and real — donated by Redd the fox)
 
 Completing the museum is one of the most satisfying long-term projects in the game. Donate your first catch of every new species immediately.
-
----
-
-> **Animal Crossing taught millions of people to find joy in daily rhythms.** TendFarm takes that idea literally — your real daily activity (steps, sleep, heart rate) drives your farm's growth. The more consistent your life, the more your farm flourishes. [Learn about TendFarm →](/en/tendfarm)

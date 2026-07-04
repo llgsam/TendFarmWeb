@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 type Character = 'abigail' | 'leah' | 'penny' | 'sebastian' | 'elliott'
 
@@ -385,12 +384,6 @@ interface Result {
   traitsJa: string[]
   traitsKo: string[]
   traitsDe: string[]
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULTS: Record<Character, Result> = {
@@ -427,18 +420,6 @@ const RESULTS: Record<Character, Result> = {
     traitsJa: ['冒険好き', '型破り', '今を生きる', 'ちょっと謎めいている'],
     traitsKo: ['모험적', '비주류', '현재 중심적', '약간 미스터리한'],
     traitsDe: ['Abenteuerlustig', 'Nonkonformist', 'Gegenwartsorientiert', 'Ein bisschen geheimnisvoll'],
-    hookZh:
-      '艾比盖尔式的玩家喜欢探索——TendFarm 每天都会根据你的健康数据产生新变化：今天多走了几步，农场就有不一样的收成。每次打开都有新发现，就像进了一个新地下城。',
-    hookEn:
-      "Abigail-types love discovery — TendFarm creates new changes every day based on your health data. Walk more today, get a different harvest. Every time you open it there's something new, like descending into a fresh dungeon floor.",
-    hookZhTW:
-      '艾比蓋爾型的玩家喜歡探索——TendFarm 每天都會根據你的健康資料產生新變化：今天多走了幾步，農場就有不一樣的收成。每次打開都有新發現，就像進了一個新地下城。',
-    hookJa:
-      'アビゲイルタイプは発見が好き——TendFarm はあなたの健康データをもとに毎日新しい変化を生み出します。今日たくさん歩けば、違う収穫がある。開くたびに新しい発見があって、まるで新しいダンジョンに潜るみたい。',
-    hookKo:
-      '애비게일 유형은 발견을 좋아합니다 — TendFarm은 당신의 건강 데이터를 기반으로 매일 새로운 변화를 만들어냅니다. 오늘 더 많이 걸으면, 다른 수확이 생깁니다. 열 때마다 새로운 발견이 있어서, 마치 새 던전 층에 내려가는 것 같아요.',
-    hookDe:
-      'Abigail-Typen lieben Entdeckungen — TendFarm schafft jeden Tag neue Veränderungen basierend auf deinen Gesundheitsdaten. Heute mehr laufen, eine andere Ernte erhalten. Jedes Mal, wenn du es öffnest, gibt es etwas Neues — wie ein neues Dungeon-Stockwerk.',
   },
   leah: {
     type: 'leah',
@@ -473,18 +454,6 @@ const RESULTS: Record<Character, Result> = {
     traitsJa: ['自然が好き', '独立した創造性', '飾らない', '一人の時間が必要'],
     traitsKo: ['자연을 사랑함', '독립적인 창의성', '꾸밈없이 진실됨', '혼자만의 공간이 필요함'],
     traitsDe: ['Naturliebend', 'Unabhängig kreativ', 'Authentisch', 'Braucht Einsamkeit'],
-    hookZh:
-      '莉亚式的玩家在乎真实感——TendFarm 的农场直接反映你真实的生活节律：睡眠好，农场就充盈；户外活动多，土地就更肥沃。没有比这更真实的农场了。',
-    hookEn:
-      "Leah-types value authenticity — TendFarm's farm directly reflects your real life rhythms: sleep well and the farm flourishes; spend time outdoors and the land grows richer. There's no more authentic farm than this.",
-    hookZhTW:
-      '莉亞型的玩家在乎真實感——TendFarm 的農場直接反映你真實的生活節律：睡眠好，農場就充盈；戶外活動多，土地就更肥沃。沒有比這更真實的農場了。',
-    hookJa:
-      'リアタイプは本物感を大切にします——TendFarm の農場はあなたのリアルな生活リズムをそのまま反映します。よく眠れば農場が豊かになり、外で過ごす時間が多いほど土地が豊かになる。これ以上に本物の農場はないと思う。',
-    hookKo:
-      '리아 유형은 진실성을 소중히 여깁니다 — TendFarm의 농장은 당신의 실제 생활 리듬을 직접 반영합니다: 잘 자면 농장이 풍성해지고, 야외에서 많이 보내면 땅이 더 비옥해집니다. 이보다 더 진실한 농장은 없습니다.',
-    hookDe:
-      "Leah-Typen schätzen Authentizität — TendFarms Farm spiegelt direkt deine echten Lebensrhythmen wider: Schlaf gut und die Farm gedeiht; verbringe Zeit draußen und das Land wird reicher. Es gibt keine authentischere Farm als diese.",
   },
   penny: {
     type: 'penny',
@@ -519,18 +488,6 @@ const RESULTS: Record<Character, Result> = {
     traitsJa: ['温かくて思いやりがある', '忍耐強い', '人を中心に考える', '静かに献身的'],
     traitsKo: ['따뜻하고 배려심 깊음', '인내심 있음', '타인 중심적', '조용히 헌신적'],
     traitsDe: ['Warm und fürsorglich', 'Geduldig', 'Auf andere ausgerichtet', 'Still hingebungsvoll'],
-    hookZh:
-      '潘妮式的玩家在乎陪伴和成长——TendFarm 的农场会随着你稳定的生活节律慢慢成长，就像照顾一个你每天关心的东西。规律的睡眠和运动，让农场慢慢变得充盈、美好。',
-    hookEn:
-      "Penny-types value nurturing and growth — TendFarm's farm grows gently with your steady daily rhythms, like caring for something you tend every day. Regular sleep and movement make the farm slowly bloom into something beautiful.",
-    hookZhTW:
-      '潘妮型的玩家在乎陪伴和成長——TendFarm 的農場會隨著你穩定的生活節律慢慢成長，就像照顧一個你每天關心的東西。規律的睡眠和運動，讓農場慢慢變得充盈、美好。',
-    hookJa:
-      'ペニータイプは育てることと成長を大切にします——TendFarm の農場は、毎日コツコツ続ける生活リズムに合わせてゆっくり育ちます。毎日手入れしている何かを大切にするみたいに。規則正しい睡眠と運動が、農場をだんだん美しくしていく。',
-    hookKo:
-      '페니 유형은 돌봄과 성장을 소중히 여깁니다 — TendFarm의 농장은 안정적인 일상 리듬과 함께 천천히 자라납니다, 매일 보살피는 무언가를 돌보는 것처럼요. 규칙적인 수면과 운동이 농장을 서서히 아름답게 만들어갑니다.',
-    hookDe:
-      "Penny-Typen schätzen Pflege und Wachstum — TendFarms Farm wächst sanft mit deinen beständigen täglichen Rhythmen, wie die Pflege von etwas, das du jeden Tag hegst. Regelmäßiger Schlaf und Bewegung lassen die Farm langsam in etwas Schönes erblühen.",
   },
   sebastian: {
     type: 'sebastian',
@@ -565,18 +522,6 @@ const RESULTS: Record<Character, Result> = {
     traitsJa: ['内向的で深い', '非常に選択的', '独立した思考者', '妥協しない本物志向'],
     traitsKo: ['내성적이고 깊은', '매우 선택적', '독립적 사고자', '타협 없는 진실성'],
     traitsDe: ['Introvertiert und tiefgründig', 'Sehr wählerisch', 'Unabhängiger Denker', 'Kompromisslos echt'],
-    hookZh:
-      'TendFarm 对塞巴斯蒂安式的玩家来说是最完美的游戏：完全不需要和任何人互动，你的健康数据在后台默默运转，农场自己成长。不需要解释，不需要表演，只是存在。',
-    hookEn:
-      "TendFarm is the perfect game for Sebastian-types: zero social interaction required. Your health data runs quietly in the background, the farm grows on its own. No explanations, no performance — just existence.",
-    hookZhTW:
-      'TendFarm 對塞巴斯蒂安型的玩家來說是最完美的遊戲：完全不需要和任何人互動，你的健康資料在後台默默運轉，農場自己成長。不需要解釋，不需要表演，只是存在。',
-    hookJa:
-      'TendFarm はセバスチャンタイプに完璧なゲームです：誰とも交流する必要がまったくない。健康データはバックグラウンドで静かに動いて、農場は自分で育つ。説明も、演じることも不要——ただ存在するだけでいい。',
-    hookKo:
-      'TendFarm은 세바스찬 유형에게 완벽한 게임입니다: 누구와도 상호작용이 전혀 필요하지 않습니다. 건강 데이터는 조용히 백그라운드에서 작동하고, 농장은 스스로 자랍니다. 설명도, 연기도 필요 없어요 — 그냥 존재하면 됩니다.',
-    hookDe:
-      'TendFarm ist das perfekte Spiel für Sebastian-Typen: null soziale Interaktion erforderlich. Deine Gesundheitsdaten laufen still im Hintergrund, die Farm wächst von selbst. Keine Erklärungen, keine Vorstellung — nur Existenz.',
   },
   elliott: {
     type: 'elliott',
@@ -611,18 +556,6 @@ const RESULTS: Record<Character, Result> = {
     traitsJa: ['感情豊か', 'ロマンチスト', '深みを求める', '言葉と物語への愛'],
     traitsKo: ['감정이 풍부함', '낭만적', '깊이를 추구함', '언어와 이야기를 사랑함'],
     traitsDe: ['Emotional reich', 'Romantisch', 'Tiefe suchend', 'Verliebt in Worte und Geschichten'],
-    hookZh:
-      'TendFarm 对艾略特式的玩家有一种浪漫的诗意：你的生活节律——你的呼吸、你的步伐、你的睡眠——都在悄悄地塑造一片农场。这是你的生活写的一首无字的诗。',
-    hookEn:
-      "TendFarm holds a certain poetry for Elliott-types: your life's rhythms — your breathing, your steps, your sleep — are quietly shaping a farm. It's a wordless poem written by how you live.",
-    hookZhTW:
-      'TendFarm 對艾略特型的玩家有一種浪漫的詩意：你的生活節律——你的呼吸、你的步伐、你的睡眠——都在悄悄地塑造一片農場。這是你的生活寫的一首無字的詩。',
-    hookJa:
-      'TendFarm にはエリオットタイプを引き寄せる詩的な何かがあります：あなたの人生のリズム——呼吸、歩み、眠り——が静かに農場を形作っている。あなたの生き方が書いた、言葉のない詩。',
-    hookKo:
-      'TendFarm에는 엘리엇 유형을 위한 낭만적인 시적 감각이 있습니다: 당신의 삶의 리듬 — 숨결, 발걸음, 수면 — 이 조용히 농장을 빚어가고 있습니다. 당신이 살아가는 방식이 쓴 말 없는 시입니다.',
-    hookDe:
-      "TendFarm hält eine gewisse Poesie für Elliott-Typen bereit: deine Lebensrhythmen — dein Atem, deine Schritte, dein Schlaf — formen still eine Farm. Es ist ein wortloses Gedicht, geschrieben davon, wie du lebst.",
   },
 }
 
@@ -812,32 +745,6 @@ export function StardewCharacterQuiz({ locale }: Props) {
             )}
           </p>
           <ShareButton text={shareText} locale={locale} />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-5">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">
-            {getLoc('你可能也会喜欢 →', 'You might also love →', '你可能也會喜歡 →', '気に入るかも →', '좋아하실 수도 있어요 →', 'Das könnte dir auch gefallen →')} TendFarm
-          </p>
-          <p className="mb-3 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(result.hookZh, result.hookEn, result.hookZhTW, result.hookJa, result.hookKo, result.hookDe)}
-          </p>
-          <p className="mb-4 text-xs leading-relaxed text-[#4a5a4a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把 Cozy 游戏的季节感带入你的真实生活节奏。',
-              'TendFarm is building a farm rhythm tracker — bringing the seasonal feeling of cozy games into real life.',
-              'TendFarm 正在研發農場節律追蹤功能——把 Cozy 遊戲的季節感帶入你的真實生活節奏。',
-              'TendFarm はファームリズムトラッカーを開発中です——コージーゲームの季節感をリアルな生活リズムに。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 코지 게임의 계절감을 실제 생활 리듬으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — das saisonale Gefühl von Cozy Games ins echte Leben bringen.',
-            )}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm を知る →', 'TendFarm 알아보기 →', 'TendFarm kennenlernen →')}
-          </Link>
         </div>
 
         <div className="text-center">

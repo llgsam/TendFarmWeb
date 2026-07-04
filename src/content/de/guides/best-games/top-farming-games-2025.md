@@ -183,7 +183,3 @@ Moderne mobile Neuauflage des Facebook-Klassikers. Leicht, simpel, in Ordnung.
 Immer noch unsicher? **Mach unser Farm-Persönlichkeitsquiz** — 6 Fragen, persönliche Empfehlung.
 
 [→ Zum Quiz](/en/quizzes/farm-personality)
-
----
-
-> **Auf der Suche nach etwas anderem?** TendFarm ist ein Farming-Spiel in Entwicklung, bei dem deine echten Gesundheitsdaten — Schritte, Schlaf, Herzfrequenz — das Wachstum deiner Farm antreiben. Je beständiger dein Leben, desto schneller blüht deine Farm auf. [Mehr erfahren →](/en/tendfarm)

@@ -14,8 +14,8 @@ export async function generateMetadata({
 
   return {
     title: isZh
-      ? '哪款最难解释的 Cozy 游戏最适合你？橡皮鸭 / 甜甜圈县城 | TendFarm'
-      : 'Which Impossible-to-Explain Cozy Game? Placid Plastic Duck / Donut County | TendFarm',
+      ? '哪款最难解释的 Cozy 游戏最适合你？橡皮鸭 / 甜甜圈县城 | Farming Game Hub'
+      : 'Which Impossible-to-Explain Cozy Game? Placid Plastic Duck / Donut County | Farming Game Hub',
     description: isZh
       ? '6 个问题找到你的奇异 Cozy 游戏——安静橡皮鸭模拟器、甜甜圈县城、Mail Time 或 Loddlenaut。'
       : 'Placid Plastic Duck Simulator, Donut County, Mail Time, or Loddlenaut — 6 questions to find which impossible-to-explain cozy game is perfect for you.',

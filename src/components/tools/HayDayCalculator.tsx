@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import Link from 'next/link'
 
 interface Crop {
   nameZh: string
@@ -223,26 +222,6 @@ export function HayDayCalculator({ locale }: Props) {
           '* Daten aus dem Hay Day Fandom Wiki. Preise können sich durch Updates ändern.'
         )}
       </p>
-
-      {/* TendFarm Hook */}
-      <div className="mt-10 rounded-xl border border-[#2d5a27] bg-[#1a2e1a] p-6">
-        <p className="text-sm text-[#8a9a7a]">
-          {getLoc(
-            'Hay Day 讲究按时登录收获——但有一款游戏更进一步：它读取你真实的步数和睡眠，让你的现实生活节律直接驱动农场产出。',
-            'Hay Day rewards consistent logins — but one game goes further: it reads your real steps and sleep so your actual daily rhythm drives your farm output.',
-            'Hay Day 講究按時登入收穫——但有一款遊戲更進一步：它讀取你真實的步數和睡眠，讓你的現實生活節律直接驅動農場產出。',
-            'Hay Dayは定期ログインが大事ですが、さらに一歩進んだゲームがあります：実際の歩数と睡眠を読み取り、あなたの日常リズムで農場を動かします。',
-            'Hay Day는 꾸준한 접속이 중요하지만, 한 단계 더 나아간 게임이 있습니다: 실제 걸음 수와 수면을 읽어 당신의 실제 생활 리듬으로 농장을 운영합니다.',
-            'Hay Day belohnt regelmäßige Logins — aber ein Spiel geht weiter: Es liest deine echten Schritte und Schlafmuster, sodass dein Alltag die Farm antreibt.'
-          )}
-        </p>
-        <Link
-          href={`/${locale}/gameplay`}
-          className="mt-3 inline-block text-sm font-semibold text-[#f0a832] hover:underline"
-        >
-          {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm について →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
-        </Link>
-      </div>
     </div>
   )
 }

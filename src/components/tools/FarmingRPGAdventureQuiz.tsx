@@ -486,22 +486,6 @@ export function FarmingRPGAdventureQuiz({ locale }: { locale: string }) {
           <ShareButton text={shareText} locale={locale} />
         </div>
 
-        <div className="mb-6 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a]/40 p-4 text-center">
-          <p className="mb-1 text-xs text-[#8a9a7a]">
-            {getLoc('想找更多农场游戏推荐？', 'Want more farming game recommendations?', '想找更多農場遊戲推薦？', 'もっと農場ゲームのおすすめを見たい？', '더 많은 농장 게임 추천을 원하세요?', 'Möchtest du mehr Farming-Spiel-Empfehlungen?')}
-          </p>
-          <p className="text-sm text-[#e8dcc8]">
-            {getLoc(
-              '试试 TendFarm App — 根据你的心情和时间，每天推荐最适合的农场游戏',
-              'Try TendFarm App — daily farming game picks matched to your mood and schedule',
-              '試試 TendFarm App — 根據你的心情和時間，每天推薦最適合的農場遊戲',
-              'TendFarm Appを試して——気分とスケジュールに合わせた毎日の農場ゲームおすすめ',
-              'TendFarm 앱을 써보세요 — 기분과 일정에 맞는 매일의 농장 게임 추천',
-              'Probiere die TendFarm App — tägliche Farming-Spiel-Empfehlungen passend zu deiner Stimmung'
-            )}
-          </p>
-        </div>
-
         <button
           onClick={reset}
           className="w-full rounded-xl border border-[#2d3d2d] py-2.5 text-sm text-[#8a9a7a] transition-colors hover:border-[#4d5d4d] hover:text-[#e8dcc8]"

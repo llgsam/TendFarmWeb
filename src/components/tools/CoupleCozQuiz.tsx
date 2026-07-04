@@ -690,19 +690,6 @@ export function CoupleCozQuiz({ locale }: { locale: string }) {
           </div>
         </div>
 
-        <div className="mb-4 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f] p-4">
-          <p className="text-center text-sm text-[#8a9a7a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把游戏里共同创造的慢生活带入真实日常。',
-              'TendFarm is building a farm rhythm tracker — bringing the shared slow-living you create in cozy games into real daily life.',
-              'TendFarm 正在研發農場節律追蹤功能——把遊戲裡共同創造的慢生活帶入真實日常。',
-              'TendFarmは農場リズムトラッカーを開発中——cozyゲームで二人が作り上げたスローライフを、リアルな日常に持ち込みます。',
-              'TendFarm은 농장 리듬 트래커를 개발 중이에요. 코지 게임에서 함께 만들어가는 슬로우 라이프를 실제 일상으로 가져옵니다.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — der das gemeinsame Slow-Living aus Cozy-Games in den echten Alltag bringt.',
-            )}
-          </p>
-        </div>
-
         <div className="flex flex-col gap-3 sm:flex-row">
           <ShareButton text={shareText} locale={locale} />
           <button

@@ -593,19 +593,6 @@ export function CozyHiddenGemsQuiz({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <div className="mb-4 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f] p-4">
-          <p className="text-center text-sm text-[#8a9a7a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把游戏里的生活节奏带入真实日常。',
-              'TendFarm is building a farm rhythm tracker — bringing the rhythm of game life into real daily life.',
-              'TendFarm 正在研發農場節律追蹤功能——把遊戲裡的生活節奏帶入真實日常。',
-              'TendFarmはファームリズムトラッカーを開発中です——ゲームの生活リズムをリアルな日常に取り入れよう。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다——게임 속 생활 리듬을 실제 일상으로 가져와요.',
-              'TendFarm baut einen Farm-Rhythmus-Tracker — der Rhythmus des Spiellebens in den echten Alltag gebracht.'
-            )}
-          </p>
-        </div>
-
         <div className="flex flex-col gap-3 sm:flex-row">
           <ShareButton text={shareText} locale={locale} />
           <button

@@ -602,29 +602,6 @@ export function NaturePhotographyQuiz({ locale }: { locale: string }) {
           <ShareButton text={shareText} locale={locale} />
         </div>
 
-        <div className="mb-6 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a]/40 p-4 text-center">
-          <p className="mb-1 text-xs text-[#8a9a7a]">
-            {getLoc(
-              '想每天发现最适合你的游戏？',
-              'Want daily game picks matched to your mood?',
-              '想每天發現最適合你的遊戲？',
-              '毎日あなたに合ったゲームを見つけたい？',
-              '매일 나에게 맞는 게임을 발견하고 싶다면?',
-              'Täglich Spieletipps passend zu deiner Stimmung?',
-            )}
-          </p>
-          <p className="text-sm text-[#e8dcc8]">
-            {getLoc(
-              '试试 TendFarm App — 每天根据你的状态，推荐一款最适合你的农场与自然游戏',
-              'Try TendFarm App — personalized farming and nature game picks every day based on how you feel',
-              '試試 TendFarm App — 每天根據你的狀態，推薦一款最適合你的農場與自然遊戲',
-              'TendFarm App を試してみて——毎日あなたの気分に合わせた農場・自然ゲームをおすすめ',
-              'TendFarm App을 써보세요 — 매일 당신의 기분에 맞는 농장·자연 게임을 추천해드려요',
-              'Probiere die TendFarm App — täglich personalisierte Farming- und Naturspieltipps passend zu deiner Stimmung',
-            )}
-          </p>
-        </div>
-
         <button
           onClick={reset}
           className="w-full rounded-xl border border-[#2d3d2d] py-2.5 text-sm text-[#8a9a7a] transition-colors hover:border-[#4d5d4d] hover:text-[#e8dcc8]"

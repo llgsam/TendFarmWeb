@@ -585,29 +585,6 @@ export function CozyIndieFarmQuiz({ locale }: { locale: string }) {
           <ShareButton text={shareText} locale={locale} />
         </div>
 
-        <div className="mb-6 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a]/40 p-4 text-center">
-          <p className="mb-1 text-xs text-[#8a9a7a]">
-            {getLoc(
-              '想发现更多隐藏的好农场游戏？',
-              'Want to discover more hidden farming gems?',
-              '想發現更多隱藏的好農場遊戲？',
-              '隠れた名作ファームゲームをもっと発見したいですか？',
-              '숨겨진 농장 게임 명작을 더 발견하고 싶으신가요?',
-              'Willst du noch mehr versteckte Farming-Perlen entdecken?',
-            )}
-          </p>
-          <p className="text-sm text-[#e8dcc8]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把 Cozy 游戏的季节感带入你的真实生活节奏。',
-              'TendFarm is building a farm rhythm tracker — bringing the seasonal feeling of cozy games into real life.',
-              'TendFarm 正在研發農場節律追蹤功能——把 Cozy 遊戲的季節感帶入你的真實生活節奏。',
-              'TendFarm はファームリズムトラッカーを開発中です——コージーゲームの季節感をリアルな生活リズムに。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 코지 게임의 계절감을 실제 생활 리듬으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — das saisonale Gefühl von Cozy Games ins echte Leben bringen.',
-            )}
-          </p>
-        </div>
-
         <button
           onClick={reset}
           className="w-full rounded-xl border border-[#2d3d2d] py-2.5 text-sm text-[#8a9a7a] transition-colors hover:border-[#4d5d4d] hover:text-[#e8dcc8]"

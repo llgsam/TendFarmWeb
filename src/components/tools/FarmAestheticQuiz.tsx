@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 type Aesthetic = 'cottagecore' | 'dark-moody' | 'bright-cheerful' | 'zen-minimal' | 'cozy-rustic'
 
@@ -385,12 +384,6 @@ interface Result {
   gamesJa: string[]
   gamesKo: string[]
   gamesDe: string[]
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULTS: Record<Aesthetic, Result> = {
@@ -427,18 +420,6 @@ const RESULTS: Record<Aesthetic, Result> = {
     gamesJa: ['Stardew Valley（季節の装飾）', 'Wylde Flowers', 'Cozy Grove', 'Garden Story'],
     gamesKo: ['Stardew Valley (계절 데코)', 'Wylde Flowers', 'Cozy Grove', 'Garden Story'],
     gamesDe: ['Stardew Valley (Saisondekorationen)', 'Wylde Flowers', 'Cozy Grove', 'Garden Story'],
-    hookZh:
-      'TendFarm 为 Cottagecore 玩家提供了最真实的「自然生长」体验：你的睡眠、步数和节律驱动农场随季节变化，野花和蜂蜜会在对的时机出现。不是你控制农场，是你的生活方式在滋养它。',
-    hookEn:
-      "TendFarm gives Cottagecore players the most authentic 'natural growth' experience: your sleep, steps, and rhythms drive the farm's seasonal changes. Wildflowers and honey appear at the right moment. You don't control the farm — your lifestyle nourishes it.",
-    hookZhTW:
-      'TendFarm 為 Cottagecore 玩家提供最真實的「自然生長」體驗：你的睡眠、步數和節律驅動農場隨季節變化，野花和蜂蜜在對的時機出現。不是你控制農場，是你的生活方式在滋養它。',
-    hookJa:
-      'TendFarmはCottagecore好きに最高の体験を。睡眠・歩数・リズムで農場が季節とともに変化し、野の花や蜂蜜が自然のタイミングで現れる。農場を制御するのではなく、あなたの生活が育てる。',
-    hookKo:
-      'TendFarm은 코티지코어 플레이어를 위한 가장 진짜 같은 경험을 제공합니다. 수면, 걸음 수, 리듬이 농장의 계절 변화를 이끌고, 들꽃과 꿀이 적절한 시기에 나타납니다. 농장을 통제하는 게 아니라 당신의 생활방식이 그것을 키웁니다.',
-    hookDe:
-      'TendFarm gibt Cottagecore-Spielern das authentischste Erlebnis: Schlaf, Schritte und Rhythmen steuern die saisonalen Veränderungen. Wildblumen und Honig erscheinen zum richtigen Moment. Du kontrollierst die Farm nicht — dein Lebensstil nährt sie.',
   },
   'dark-moody': {
     type: 'dark-moody',
@@ -473,18 +454,6 @@ const RESULTS: Record<Aesthetic, Result> = {
     gamesJa: ['Stardew Valley（鉱山シーズン・ハロウィン）', 'Spiritfarer', 'Palia（ナイトモード）', 'ゴシック農場Mod'],
     gamesKo: ['Stardew Valley (광산 시즌, 할로윈)', 'Spiritfarer', 'Palia (야간 모드)', '고딕 농장 Mod'],
     gamesDe: ['Stardew Valley (Minen-Saison, Halloween)', 'Spiritfarer', 'Palia (Nachtmodus)', 'Gothic-Farm-Mods'],
-    hookZh:
-      'TendFarm 对暗调玩家而言有独特的魔力：夜间步数、深度睡眠数据，在农场里会转化成神秘的夜间作物和稀有的月光收获。你的农场在你睡着的时候，也在悄悄生长。',
-    hookEn:
-      "TendFarm has a unique magic for dark aesthetic players: your nighttime steps and deep sleep data transform into rare night-harvest crops and moonlit yields. Your farm grows quietly while you sleep.",
-    hookZhTW:
-      'TendFarm 對暗調玩家有獨特魔力：夜間步數、深度睡眠數據，在農場裡會轉化成神秘的夜間作物和稀有的月光收穫。你的農場在你睡著的時候，也在悄悄生長。',
-    hookJa:
-      'TendFarmはダーク派に独自の魔法を。夜間の歩数と深い睡眠が、神秘的な夜作物と月光の収穫に変わる。眠っている間も農場はひっそりと育ち続ける。',
-    hookKo:
-      'TendFarm은 다크 유저에게 독특한 마법을 선사합니다. 야간 걸음 수와 깊은 수면이 신비로운 야간 작물과 달빛 수확으로 변환됩니다. 당신이 자는 동안에도 농장은 조용히 자랍니다.',
-    hookDe:
-      'TendFarm hat für Dark-Aesthetic-Spieler eine besondere Magie: Nächtliche Schritte und Tiefschlaf werden zu seltenen Nacht-Ernten und Mondlicht-Pflanzen. Deine Farm wächst still, während du schläfst.',
   },
   'bright-cheerful': {
     type: 'bright-cheerful',
@@ -519,18 +488,6 @@ const RESULTS: Record<Aesthetic, Result> = {
     gamesJa: ['あつまれ どうぶつの森', 'Coral Island', 'Stardew Valley（春夏デコ）', 'Harvestella'],
     gamesKo: ['모여봐요 동물의 숲', 'Coral Island', 'Stardew Valley (봄/여름 배치)', 'Harvestella'],
     gamesDe: ['Animal Crossing: New Horizons', 'Coral Island', 'Stardew Valley (Frühling/Sommer)', 'Harvestella'],
-    hookZh:
-      'TendFarm 的彩虹模式为 Bright & Cheerful 玩家而生：日照步数在农场里会触发特殊的阳光花田，快乐的运动节律让农场配色更丰富。你越活泼，农场越缤纷。',
-    hookEn:
-      "TendFarm's bright mode is made for Cheerful players: outdoor steps trigger special sunlit flower fields, and an active rhythm makes the farm's colors richer. The more vibrant your life, the more colorful your farm.",
-    hookZhTW:
-      'TendFarm 的彩虹模式為 Bright & Cheerful 玩家而生：日照步數在農場裡會觸發特殊的陽光花田，快樂的運動節律讓農場配色更豐富。你越活潑，農場越繽紛。',
-    hookJa:
-      'TendFarmのブライトモードはチアフルなプレイヤーのために。屋外の歩数で特別な花畑が咲き、活発なリズムが農場の色をより豊かにする。生き生きするほど農場もカラフルになる。',
-    hookKo:
-      'TendFarm의 밝은 모드는 명랑한 플레이어를 위해 만들어졌습니다. 야외 걸음 수로 특별한 꽃밭이 피어나고, 활동적인 리듬이 농장의 색을 더 풍부하게 만듭니다. 당신이 활발할수록 농장도 더 화려해집니다.',
-    hookDe:
-      'TendFarms Bright-Modus ist für fröhliche Spieler gemacht: Outdoor-Schritte lösen besondere Blumenfelder aus, und ein aktiver Rhythmus macht die Farm noch bunter. Je lebhafter du bist, desto farbenfroher die Farm.',
   },
   'zen-minimal': {
     type: 'zen-minimal',
@@ -565,18 +522,6 @@ const RESULTS: Record<Aesthetic, Result> = {
     gamesJa: ['Stardew Valley（和風レイアウトMod）', 'Sakuna: Of Rice and Ruin', 'Nour', '天穂のサクナヒメ'],
     gamesKo: ['Stardew Valley (일본풍 배치 Mod)', 'Sakuna: Of Rice and Ruin', 'Nour', '천수의 사쿠나히메'],
     gamesDe: ['Stardew Valley (japanische Layout-Mods)', 'Sakuna: Of Rice and Ruin', 'Nour', 'Wabi-Sabi-Farm-Builds'],
-    hookZh:
-      'TendFarm 对极简主义者来说是完美的：你什么都不需要主动做，农场就在你的日常节律里默默成长。冥想、散步、早睡——每一个习惯都在为你的农场添砖加瓦，不动声色地。',
-    hookEn:
-      "TendFarm is perfect for minimalists: you don't need to do anything actively — the farm grows quietly from your daily rhythms. Meditation, walks, early sleep — every habit builds your farm without fanfare.",
-    hookZhTW:
-      'TendFarm 對極簡主義者來說是完美的：你什麼都不需要主動做，農場就在你的日常節律裡默默成長。冥想、散步、早睡——每一個習慣都在為你的農場添磚加瓦，不動聲色地。',
-    hookJa:
-      'TendFarmはミニマリストに最適。何も積極的にしなくていい——農場は日常のリズムの中で静かに育つ。瞑想、散歩、早寝——すべての習慣がさりげなく農場を育てる。',
-    hookKo:
-      'TendFarm은 미니멀리스트에게 완벽합니다. 아무것도 적극적으로 할 필요 없이 농장은 일상의 리듬 속에서 조용히 자랍니다. 명상, 산책, 일찍 자기——모든 습관이 소리 없이 농장을 키웁니다.',
-    hookDe:
-      'TendFarm ist perfekt für Minimalisten: Du musst nichts aktiv tun — die Farm wächst still aus deinen täglichen Rhythmen. Meditation, Spaziergänge, früh schlafen — jede Gewohnheit baut die Farm lautlos auf.',
   },
   'cozy-rustic': {
     type: 'cozy-rustic',
@@ -611,18 +556,6 @@ const RESULTS: Record<Aesthetic, Result> = {
     gamesJa: ['Stardew Valley（秋冬シーズン）', 'Hay Day', 'My Time at Portia', 'Farming Simulator（農場建設）'],
     gamesKo: ['Stardew Valley (가을/겨울 배치)', 'Hay Day', 'My Time at Portia', 'Farming Simulator (홈스테드 모드)'],
     gamesDe: ['Stardew Valley (Herbst/Winter-Builds)', 'Hay Day', 'My Time at Portia', 'Farming Simulator (Gehöftmodus)'],
-    hookZh:
-      'TendFarm 为 Cozy Rustic 玩家设计了最温暖的体验：稳定的作息和步数让农场呈现丰收的秋日色调；好好睡觉，明天醒来农场就多一点暖意。你的生活节律，就是农场的四季。',
-    hookEn:
-      "TendFarm creates the warmest experience for Cozy Rustic players: a stable routine and daily steps give the farm a rich harvest palette; sleep well and wake to a warmer farm. Your life rhythms are the farm's seasons.",
-    hookZhTW:
-      'TendFarm 為 Cozy Rustic 玩家設計了最溫暖的體驗：穩定的作息和步數讓農場呈現豐收的秋日色調；好好睡覺，明天醒來農場就多一點暖意。你的生活節律，就是農場的四季。',
-    hookJa:
-      'TendFarmはCozy Rusticプレイヤーに最も温かい体験を。安定した生活と歩数で農場が秋の収穫色に染まる。よく眠れば、翌朝の農場はより温かい。あなたの生活リズムが農場の四季になる。',
-    hookKo:
-      'TendFarm은 코지 러스틱 플레이어를 위한 가장 따뜻한 경험을 만듭니다. 안정된 생활과 걸음 수로 농장이 풍요로운 가을 색조를 띕니다. 잘 자면 아침 농장은 더 따뜻해집니다. 당신의 생활 리듬이 농장의 사계절입니다.',
-    hookDe:
-      'TendFarm schafft das wärmste Erlebnis für Cozy-Rustic-Spieler: Stabiler Alltag und Schritte geben der Farm eine reiche Herbstfarbpalette. Gut schlafen, warm aufwachen. Deine Lebensrhythmen sind die Jahreszeiten der Farm.',
   },
 }
 
@@ -857,37 +790,6 @@ export function FarmAestheticQuiz({ locale }: Props) {
             aestheticName={getLoc({ zh: result.nameZh, zhTW: result.nameZhTW, ja: result.nameJa, ko: result.nameKo, de: result.nameDe, en: result.nameEn })}
             locale={locale}
           />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-5">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">
-            {getLoc({
-              zh: '你可能也会喜欢 →',
-              zhTW: '你可能也會喜歡 →',
-              ja: '気に入るかも →',
-              ko: '마음에 들 수도 있어요 →',
-              de: 'Das könnte dir auch gefallen →',
-              en: 'You might also love →',
-            })}{' '}
-            TendFarm
-          </p>
-          <p className="mb-4 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc({ zh: result.hookZh, zhTW: result.hookZhTW, ja: result.hookJa, ko: result.hookKo, de: result.hookDe, en: result.hookEn })}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc({
-              zh: '了解 TendFarm →',
-              zhTW: '了解 TendFarm →',
-              ja: 'TendFarmを知る →',
-              ko: 'TendFarm 알아보기 →',
-              de: 'TendFarm entdecken →',
-              en: 'Learn about TendFarm →',
-            })}
-          </Link>
         </div>
 
         <div className="text-center">

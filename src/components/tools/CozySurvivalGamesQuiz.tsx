@@ -508,19 +508,6 @@ export function CozySurvivalGamesQuiz({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <div className="mb-4 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f] p-4">
-          <p className="text-center text-sm text-[#8a9a7a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把游戏里的生活节奏带入真实日常。',
-              'TendFarm is building a farm rhythm tracker — bringing the rhythm of game life into real daily life.',
-              'TendFarm 正在研發農場節律追蹤功能——把遊戲裡的生活節奏帶入真實日常。',
-              'TendFarm はファームリズムトラッカーを開発中——ゲームの生活リズムをリアルな日常へ。',
-              'TendFarm은 농장 리듬 트래커를 개발 중 — 게임의 생활 리듬을 실제 일상으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — den Spielrhythmus ins echte Leben bringen.'
-            )}
-          </p>
-        </div>
-
         <div className="flex flex-col gap-3 sm:flex-row">
           <ShareButton text={shareText} locale={locale} />
           <button

@@ -589,19 +589,6 @@ export function CozyAtmosphereQuiz({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <div className="mb-4 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f] p-4">
-          <p className="text-center text-sm text-[#8a9a7a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把各种游戏里的专注节奏带入真实日常。',
-              'TendFarm is building a farm rhythm tracker — bringing the focused rhythms of games into real daily life.',
-              'TendFarm 正在研發農場節律追蹤功能——把各種遊戲裡的專注節奏帶入真實日常。',
-              'TendFarmは農場リズムトラッカーを開発中です——ゲームの集中リズムを日常生活に取り入れます。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다——게임의 집중 리듬을 실제 일상으로 가져옵니다.',
-              'TendFarm entwickelt einen Farmrhythmus-Tracker — die fokussierten Rhythmen aus Spielen ins echte tägliche Leben bringen.'
-            )}
-          </p>
-        </div>
-
         <div className="flex flex-col gap-3 sm:flex-row">
           <ShareButton text={shareText} locale={locale} />
           <button

@@ -110,7 +110,3 @@ Das Museum verfolgt deinen Sammelfortschritt bei:
 - **Kunst** (gefälscht und echt — gespendet vom Fuchs Schlepp)
 
 Das Museum zu vervollständigen ist eines der befriedigendsten Langzeitprojekte des Spiels. Spende von jeder neuen Art sofort dein erstes Exemplar.
-
----
-
-> **Animal Crossing hat Millionen Menschen beigebracht, Freude in täglichen Rhythmen zu finden.** TendFarm nimmt diese Idee wörtlich — deine echte tägliche Aktivität (Schritte, Schlaf, Herzfrequenz) treibt das Wachstum deiner Farm an. Je beständiger dein Leben, desto prächtiger blüht deine Farm. [Mehr über TendFarm erfahren →](/de/tendfarm)

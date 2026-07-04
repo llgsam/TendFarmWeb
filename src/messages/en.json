@@ -6,8 +6,7 @@
     },
     "hero": {
       "title": "Your healthy life, growing here",
-      "subtitle": "Sleep well, harvest more. Move more, crops ripen early. TendFarm turns your real-life rhythm into a self-growing farm.",
-      "cta": "Join the waitlist"
+      "subtitle": "Sleep well, harvest more. Move more, crops ripen early."
     },
     "concepts": {
       "title": "Health data drives your farm",
@@ -27,239 +26,28 @@
     "guidesTeaser": {
       "title": "Do you play these games?",
       "cta": "Visit the guides center"
-    },
-    "waitlist": {
-      "title": "Join the waitlist",
-      "subtitle": "Get first access to the TestFlight beta",
-      "placeholder": "your@email.com",
-      "button": "Join now",
-      "success": "You're in! We'll notify you when the beta opens.",
-      "duplicate": "You're already on the waitlist.",
-      "error": "Submission failed, please try again."
     }
   },
   "nav": {
     "games": "All Games",
     "tools": "Tools",
     "quizzes": "Quizzes",
-    "guides": "Best Games",
-    "tendfarm": "TendFarm App"
+    "guides": "Best Games"
   },
   "footer": {
     "tagline": "The farming game community hub",
     "privacy": "Privacy Policy",
     "contact": "Contact"
   },
-  "waitlist": {
-    "title": "Join the waitlist",
-    "subtitle": "Get first access to the TestFlight beta",
-    "placeholder": "your@email.com",
-    "button": "Join now",
-    "success": "You're in! We'll notify you when the beta opens.",
-    "duplicate": "You're already on the waitlist.",
-    "error": "Submission failed, please try again."
-  },
-  "philosophy": {
-    "meta": {
-      "title": "Philosophy — TendFarm",
-      "description": "Learn how TendFarm turns your Activity, sleep, HRV, and daily rhythm into farm growth speed and harvest."
-    },
-    "hero": {
-      "title": "Your Healthy Life, Manifested as a Farm",
-      "subtitle": "TendFarm is a healthy-life manifestation farm: it turns your Activity, sleep, HRV, and long-term daily rhythm into farm growth speed, harvest abundance, fuel efficiency, and level progression."
-    },
-    "principlesTitle": "Design Principles",
-    "principles": [
-      {
-        "title": "Health data doesn't give coins directly",
-        "desc": "Activity affects growth speed, sleep affects harvest abundance, HRV affects fuel efficiency. Health data influences output through efficiency, not direct exchange."
-      },
-      {
-        "title": "Casual users need no planning",
-        "desc": "The system auto-configures default crops. Power users can enter the field-planning screen to optimize output around their own rhythm."
-      },
-      {
-        "title": "Daily rhythm is your conversion rate",
-        "desc": "Life rhythm is the efficiency multiplier that converts health data into farm effects — up to 12% boost. It's not decoration; it's productivity."
-      },
-      {
-        "title": "Automation means offline management",
-        "desc": "Your farm keeps running even when the app is closed. When automation fails, players can step in manually to cover the gap."
-      }
-    ],
-    "mapping": {
-      "title": "Health Data → Farm Effects",
-      "headers": [
-        "Health Input",
-        "Mediator",
-        "Farm Effect"
-      ],
-      "rows": [
-        {
-          "input": "Activity (steps / workouts)",
-          "via": "Sunlight",
-          "output": "Crops in active time slots ripen early"
-        },
-        {
-          "input": "Vitals / Sleep",
-          "via": "Morning Dew",
-          "output": "More abundant harvest (up to +20%)"
-        },
-        {
-          "input": "HRV / Recovery trend",
-          "via": "Fuel efficiency",
-          "output": "Auto-harvester uses less fuel"
-        },
-        {
-          "input": "Daily rhythm (regularity)",
-          "via": "Health conversion rate",
-          "output": "All effects boosted ×1.00~1.12"
-        },
-        {
-          "input": "Long-term health data",
-          "via": "LifeExp",
-          "output": "Farm level / world unlocks"
-        }
-      ]
-    }
-  },
-  "lifestyle": {
-    "meta": {
-      "title": "Healthy Living — TendFarm",
-      "description": "Learn how circadian rhythm, HRV, sleep quality, and regular activity affect your body and your TendFarm."
-    },
-    "hero": {
-      "title": "Healthy Living Starts with Understanding"
-    },
-    "sections": [
-      {
-        "id": "circadian-rhythm",
-        "title": "What Is Circadian Rhythm?",
-        "body": "Circadian rhythm is your body's built-in 24-hour biological clock, regulating sleep, hormone secretion, body temperature, and metabolic pace. A regular schedule — consistent wake times, meal times, and exercise windows — keeps this clock on time, delivering better sleep quality, more stable energy, and faster physical recovery. In TendFarm, your daily rhythm directly determines how efficiently health data converts into farm effects: the more consistent your rhythm, the more farm value every step, sleep session, and HRV reading generates."
-      },
-      {
-        "id": "hrv",
-        "title": "What Is HRV and Why Does It Matter?",
-        "body": "HRV (Heart Rate Variability) measures the variation in time between consecutive heartbeats. Higher HRV generally indicates a more adaptable autonomic nervous system, stronger recovery capacity, and better stress resilience. HRV is influenced by sleep quality, exercise intensity, alcohol, stress, and schedule regularity. Apple Watch calculates HRV using resting heart rate and overnight sleep data. In TendFarm, HRV affects the fuel efficiency of the auto-harvester — the higher your HRV, the less fuel harvesting consumes."
-      },
-      {
-        "id": "sleep-quality",
-        "title": "How Sleep Quality Affects Your Day",
-        "body": "Sleep consists of three stages: light sleep, deep sleep, and REM. Deep sleep handles physical repair; REM handles memory consolidation and emotional regulation. Adults need 7–9 hours of sleep per night, with deep sleep comprising 15–25%. A consistent bedtime and wake time is the single most effective way to improve sleep quality. In TendFarm, the previous night's sleep quality condenses into 'Morning Dew' that makes the day's harvest more abundant — the better you sleep, the fuller the next day's yield."
-      },
-      {
-        "id": "activity",
-        "title": "How to Build a Stable Activity Rhythm",
-        "body": "Research shows that walking 7,000–10,000 steps per day is associated with significantly reduced all-cause mortality. More important than step count is regularity: being active at the same time each day reinforces your circadian clock, improving sleep quality and daytime energy. High-intensity exercise isn't required — walking, cycling, and stair-climbing all count. In TendFarm, whatever time slot you're active in, crops in that slot grow faster — your morning run helps morning crops ripen early."
-      },
-      {
-        "id": "apple-watch",
-        "title": "How to Read Your Apple Watch Health Data",
-        "body": "Apple Watch's Fitness app summarizes daily steps, active calories, workout minutes, and stand hours; the Health app shows sleep analysis, heart rate trends, and HRV. Key metrics: resting heart rate (lower is better, typically 50–70 bpm), HRV (higher is better, varies by individual), deep sleep percentage (aim for 15%+), and active calories (aim to close your daily rings). TendFarm reads these automatically — no manual input required."
-      }
-    ]
-  },
-  "gameplay": {
-    "meta": {
-      "title": "Gameplay — TendFarm",
-      "description": "Discover TendFarm's core game loop: fields, water tanks, harvests, and sell-offs — all driven by your health data."
-    },
-    "hero": {
-      "title": "Plant Once, Live to Harvest"
-    },
-    "loop": {
-      "title": "Core Loop",
-      "steps": [
-        "Field needs water",
-        "Auto-water",
-        "Growing (activity speeds up)",
-        "Ready to harvest",
-        "Auto-harvest",
-        "Store & sell",
-        "Coins & upgrades"
-      ]
-    },
-    "crops": {
-      "title": "Crop Overview",
-      "list": [
-        {
-          "name": "Dawn Bean",
-          "cycle": "6 min",
-          "desc": "Tutorial crop — experience your first harvest fast"
-        },
-        {
-          "name": "Wheat Sprout",
-          "cycle": "45 min",
-          "desc": "High-frequency daytime crop, great for active checkers"
-        },
-        {
-          "name": "Cotton Puff",
-          "cycle": "2.5 hr",
-          "desc": "Steady set-and-forget, the everyday favourite"
-        },
-        {
-          "name": "Night Berry",
-          "cycle": "8 hr",
-          "desc": "Grows while you sleep — ready when you wake up"
-        },
-        {
-          "name": "Energy Grass",
-          "cycle": "2 hr",
-          "desc": "High fuel by-product, keeps your auto-harvester fuelled"
-        }
-      ]
-    },
-    "week": {
-      "title": "First 7 Days Experience",
-      "days": [
-        {
-          "day": "Day 1",
-          "exp": "First harvest and sell-off"
-        },
-        {
-          "day": "Day 2",
-          "exp": "Upgrade barn and water tank, unlock second field"
-        },
-        {
-          "day": "Day 3",
-          "exp": "Unlock auto-harvester and fuel system"
-        },
-        {
-          "day": "Day 4–5",
-          "exp": "Experiment with crop configs, optimise output"
-        },
-        {
-          "day": "Day 6–7",
-          "exp": "Daily rhythm feedback kicks in, first Aura glimpse"
-        }
-      ]
-    }
-  },
   "tools": {
     "meta": {
-      "title": "Tools — TendFarm",
-      "description": "Hay Day crop profit calculator, Stardew Valley crop profit calculator, and TendFarm health rhythm tools."
+      "title": "Tools — Farming Game Hub",
+      "description": "Hay Day crop profit calculator and Stardew Valley crop profit calculator, plus in-game data lookup tools."
     },
     "hero": {
-      "title": "Game Tools & TendFarm Tools",
-      "subtitle": "Hay Day and Stardew Valley crop profit calculators are live. TendFarm health rhythm tools coming soon."
-    },
-    "coming": [
-      {
-        "title": "Circadian Rhythm Quiz",
-        "desc": "8 questions to reveal your rhythm level and matching farm state."
-      },
-      {
-        "title": "Farm Efficiency Simulator",
-        "desc": "Enter your health data to predict how much more your farm can harvest today."
-      },
-      {
-        "title": "Crop Config Recommender",
-        "desc": "Based on your lifestyle habits, get the field layout template that fits you best."
-      }
-    ],
-    "notify": "Notify me when tools launch",
-    "comingSoon": "Coming Soon"
+      "title": "Game Tools",
+      "subtitle": "Hay Day and Stardew Valley crop profit calculators are live."
+    }
   },
   "guides": {
     "title": "Farm Game Guides",
@@ -281,11 +69,6 @@
         "name": "Animal Crossing: New Horizons",
         "desc": "Nintendo's cozy island life game"
       }
-    },
-    "tendfarmHook": {
-      "title": "Did you know?",
-      "body": "There's a farm game driven by your real steps, sleep, and HRV. The more consistent your daily rhythm, the more abundant your harvest.",
-      "cta": "Learn about TendFarm →"
     }
   }
 }

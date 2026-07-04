@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import Link from 'next/link'
 
 interface Crop {
   nameZh: string
@@ -268,26 +267,6 @@ export function StardewCalculator({ locale }: Props) {
             '* Erdbeer-Samen nur beim Egg Festival (Frühling Tag 13). Handwerker-Skill: +40% für Verarbeitetes.'
           )}
         </p>
-      </div>
-
-      {/* TendFarm Hook */}
-      <div className="mt-10 rounded-xl border border-[#2d5a27] bg-[#1a2e1a] p-6">
-        <p className="text-sm text-[#8a9a7a]">
-          {getLoc(
-            '星露谷里，你精心规划作物来最大化金币产出。有一款游戏让这个逻辑更进一步——它用你真实的睡眠和步数来驱动收成。睡得好，作物更充盈；动得多，提前成熟。',
-            "Stardew Valley rewards careful crop planning. One game takes this further — it uses your real sleep and steps to drive harvest yield. Sleep well, harvest more; move more, crops ripen early.",
-            '星露谷裡，你精心規劃作物來最大化金幣產出。有一款遊戲讓這個邏輯更進一步——它用你真實的睡眠和步數來驅動收成。睡得好，作物更充盈；動得多，提前成熟。',
-            'スターデューバレーは丁寧な作物計画が重要です。一歩進んだゲームがあります――本当の睡眠と歩数が収穫量を左右します。よく眠れば豊作、よく動けば早熟。',
-            '스타듀 밸리는 작물 계획이 중요하죠. 한 단계 더 나아간 게임이 있습니다 — 실제 수면과 걸음 수로 수확량을 결정해요. 잘 자면 풍작, 많이 움직이면 빨리 익어요.',
-            'Stardew Valley belohnt sorgfältige Planung. Ein Spiel geht weiter — dein echter Schlaf und deine Schritte bestimmen die Ernte. Gut schlafen, mehr ernten; mehr laufen, früher reif.'
-          )}
-        </p>
-        <Link
-          href={`/${locale}/gameplay`}
-          className="mt-3 inline-block text-sm font-semibold text-[#f0a832] hover:underline"
-        >
-          {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm について →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
-        </Link>
       </div>
     </div>
   )

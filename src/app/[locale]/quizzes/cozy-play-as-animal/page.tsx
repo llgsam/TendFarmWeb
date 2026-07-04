@@ -14,8 +14,8 @@ export async function generateMetadata({
 
   return {
     title: isZh
-      ? '你该玩哪款以动物为主角的 Cozy 游戏？Stray / Cattails / Snufkin | TendFarm'
-      : 'Which Game Where You Play as an Animal? Stray, Cattails, Snufkin | TendFarm',
+      ? '你该玩哪款以动物为主角的 Cozy 游戏？Stray / Cattails / Snufkin | Farming Game Hub'
+      : 'Which Game Where You Play as an Animal? Stray, Cattails, Snufkin | Farming Game Hub',
     description: isZh
       ? '6 个问题，从 Stray（赛博猫）、Cattails：野木故事（猫族领地）、Snufkin（姆明谷）、Pupperazzi（狗狗摄影）中找到你的动物主角游戏。'
       : 'Stray, Cattails: Wildwood Story, Snufkin: Melody of Moominvalley, or Pupperazzi — 6 questions to find which game where you play as an animal is perfect for you.',

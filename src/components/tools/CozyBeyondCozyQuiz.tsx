@@ -585,19 +585,6 @@ export function CozyBeyondCozyQuiz({ locale }: { locale: string }) {
           </p>
         </div>
 
-        <div className="mb-4 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f] p-4">
-          <p className="text-center text-sm text-[#8a9a7a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把游戏里的那种沉浸心流带入真实日常。',
-              'TendFarm is building a farm rhythm tracker — bringing the focused flow state of games into real daily life.',
-              'TendFarm 正在研發農場節律追蹤功能——把遊戲裡的那種沉浸心流帶入真實日常。',
-              'TendFarmはファームリズムトラッカーを開発中——ゲームの没入フロー状態をリアルな日常へ。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 게임의 몰입 플로우 상태를 실제 일상으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — der konzentrierte Flow-Zustand aus Spielen in den echten Alltag bringen.',
-            )}
-          </p>
-        </div>
-
         <div className="flex flex-col gap-3 sm:flex-row">
           <ShareButton text={shareText} locale={locale} />
           <button

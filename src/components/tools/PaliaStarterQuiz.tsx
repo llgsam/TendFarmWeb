@@ -653,14 +653,6 @@ export function PaliaStarterQuiz({ locale }: { locale: string }) {
     const skillLabel = getLoc('核心技能：', 'Core skill: ', '核心技能：', 'メインスキル：', '핵심 스킬: ', 'Hauptfähigkeit: ')
     const tipsLabel = getLoc('新手建议', 'Beginner tips for your path', '新手建議', 'スターターヒント', '입문자 팁', 'Einsteigertipps für deinen Weg')
     const retakeLabel = getLoc('重新测试', 'Retake Quiz', '重新測試', 'もう一度やる', '다시 테스트하기', 'Nochmal machen')
-    const promoText = getLoc(
-      'TendFarm 正在研发农场节律追踪功能——把 Cozy 游戏的季节感带入你的真实生活节奏。',
-      'TendFarm is building a farm rhythm tracker — bringing the seasonal feeling of cozy games into real life.',
-      'TendFarm 正在研發農場節律追蹤功能——把 Cozy 遊戲的季節感帶入你的真實生活節奏。',
-      'TendFarm はファームリズムトラッカーを開発中です——コージーゲームの季節感をリアルな生活リズムに。',
-      'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 코지 게임의 계절감을 실제 생활 리듬으로.',
-      'TendFarm entwickelt einen Farm-Rhythmus-Tracker — das saisonale Gefühl von Cozy Games ins echte Leben bringen.',
-    )
 
     return (
       <div>
@@ -691,10 +683,6 @@ export function PaliaStarterQuiz({ locale }: { locale: string }) {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="mb-4 rounded-xl border border-[#2d3d2d] bg-[#0f1a0f] p-4">
-          <p className="text-center text-sm text-[#8a9a7a]">{promoText}</p>
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row">

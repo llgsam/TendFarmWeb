@@ -14,8 +14,8 @@ export async function generateMetadata({
 
   return {
     title: isZh
-      ? '哪款被低估的 Cozy 游戏隐藏宝石最适合你？| TendFarm'
-      : 'Which Underrated Cozy Hidden Gem Should You Play? | TendFarm',
+      ? '哪款被低估的 Cozy 游戏隐藏宝石最适合你？| Farming Game Hub'
+      : 'Which Underrated Cozy Hidden Gem Should You Play? | Farming Game Hub',
     description: isZh
       ? '四款严重被低估的 Cozy 游戏：熊与早餐、美子的夜市、向东方、Potionomics。6 个问题找到你的隐藏宝石。'
       : 'Bear and Breakfast, Mineko\'s Night Market, Eastward, or Potionomics — 6 questions to find which underrated cozy hidden gem matches your style.',

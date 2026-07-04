@@ -6,8 +6,7 @@
     },
     "hero": {
       "title": "Dein gesundes Leben wächst hier",
-      "subtitle": "Gut schlafen, mehr ernten. Mehr bewegen, früher ernten. TendFarm verwandelt deinen Lebensrhythmus in eine Farm, die von selbst wächst.",
-      "cta": "Warteliste beitreten"
+      "subtitle": "Gut schlafen, mehr ernten. Mehr bewegen, früher ernten."
     },
     "concepts": {
       "title": "Gesundheitsdaten treiben deine Farm an",
@@ -27,239 +26,28 @@
     "guidesTeaser": {
       "title": "Spielst du diese Spiele?",
       "cta": "Zum Guides-Center"
-    },
-    "waitlist": {
-      "title": "Warteliste beitreten",
-      "subtitle": "Erhalte frühen Zugang zur TestFlight-Beta",
-      "placeholder": "deine@email.de",
-      "button": "Jetzt beitreten",
-      "success": "Du bist dabei! Wir benachrichtigen dich, wenn die Beta öffnet.",
-      "duplicate": "Du stehst bereits auf der Warteliste.",
-      "error": "Übermittlung fehlgeschlagen, bitte versuche es erneut."
     }
   },
   "nav": {
     "games": "Alle Spiele",
     "tools": "Tools",
     "quizzes": "Quizze",
-    "guides": "Beste Spiele",
-    "tendfarm": "TendFarm App"
+    "guides": "Beste Spiele"
   },
   "footer": {
     "tagline": "Der Farming-Game-Community-Hub",
     "privacy": "Datenschutz",
     "contact": "Kontakt"
   },
-  "waitlist": {
-    "title": "Warteliste beitreten",
-    "subtitle": "Erhalte frühen Zugang zur TestFlight-Beta",
-    "placeholder": "deine@email.de",
-    "button": "Jetzt beitreten",
-    "success": "Du bist dabei! Wir benachrichtigen dich, wenn die Beta öffnet.",
-    "duplicate": "Du stehst bereits auf der Warteliste.",
-    "error": "Übermittlung fehlgeschlagen, bitte versuche es erneut."
-  },
-  "philosophy": {
-    "meta": {
-      "title": "Philosophie — TendFarm",
-      "description": "Erfahre, wie TendFarm Aktivität, Schlaf, HRV und deinen Tagesrhythmus in Farmwachstum und Ernte umwandelt."
-    },
-    "hero": {
-      "title": "Dein gesundes Leben, als Farm manifestiert",
-      "subtitle": "TendFarm ist eine Farm, die dein gesundes Leben manifestiert: Sie verwandelt Aktivität, Schlaf, HRV und deinen langfristigen Tagesrhythmus in Wachstumsgeschwindigkeit, Erntefülle, Kraftstoffeffizienz und Level-Fortschritt."
-    },
-    "principlesTitle": "Designprinzipien",
-    "principles": [
-      {
-        "title": "Gesundheitsdaten geben nicht direkt Münzen",
-        "desc": "Aktivität beeinflusst die Wachstumsgeschwindigkeit, Schlaf die Erntefülle, HRV die Kraftstoffeffizienz. Gesundheitsdaten beeinflussen den Output über Effizienz, nicht durch direkten Austausch."
-      },
-      {
-        "title": "Gelegenheitsspieler brauchen keine Planung",
-        "desc": "Das System konfiguriert automatisch Standardpflanzen. Fortgeschrittene Spieler können den Feldplanungsbildschirm aufrufen, um den Output um ihren eigenen Rhythmus herum zu optimieren."
-      },
-      {
-        "title": "Tagesrhythmus ist deine Umwandlungsrate",
-        "desc": "Der Lebensrhythmus ist der Effizienzfaktor, der Gesundheitsdaten in Farmeffekte umwandelt — bis zu 12% Steigerung. Er ist kein Dekor, er ist Produktivität."
-      },
-      {
-        "title": "Automatisierung bedeutet Offline-Management",
-        "desc": "Deine Farm läuft auch weiter, wenn die App geschlossen ist. Wenn die Automatisierung versagt, können Spieler manuell eingreifen."
-      }
-    ],
-    "mapping": {
-      "title": "Gesundheitsdaten → Farmeffekte",
-      "headers": [
-        "Gesundheitseingabe",
-        "Vermittler",
-        "Farmeffekt"
-      ],
-      "rows": [
-        {
-          "input": "Aktivität (Schritte/Workouts)",
-          "via": "Sonnenlicht",
-          "output": "Pflanzen in aktiven Zeitfenstern reifen früher"
-        },
-        {
-          "input": "Vitalwerte/Schlaf",
-          "via": "Morgentau",
-          "output": "Reichhaltigere Ernte (bis zu +20%)"
-        },
-        {
-          "input": "HRV/Erholungstrend",
-          "via": "Kraftstoffeffizienz",
-          "output": "Auto-Ernter verbraucht weniger Kraftstoff"
-        },
-        {
-          "input": "Tagesrhythmus (Regelmäßigkeit)",
-          "via": "Gesundheitsumwandlungsrate",
-          "output": "Alle Effekte verstärkt ×1,00–1,12"
-        },
-        {
-          "input": "Langfristige Gesundheitsdaten",
-          "via": "LifeExp",
-          "output": "Farm-Level/Weltfreischaltungen"
-        }
-      ]
-    }
-  },
-  "lifestyle": {
-    "meta": {
-      "title": "Gesund leben — TendFarm",
-      "description": "Erfahre, wie zirkadiane Rhythmen, HRV, Schlafqualität und regelmäßige Aktivität deinen Körper und deine TendFarm beeinflussen."
-    },
-    "hero": {
-      "title": "Gesundes Leben beginnt mit Verstehen"
-    },
-    "sections": [
-      {
-        "id": "circadian-rhythm",
-        "title": "Was ist der zirkadiane Rhythmus?",
-        "body": "Der zirkadiane Rhythmus ist deine körpereigene 24-Stunden-Uhr, die Schlaf, Hormonausschüttung, Körpertemperatur und Stoffwechseltempo reguliert. Ein regelmäßiger Tagesablauf — einheitliche Aufwachzeiten, Mahlzeiten und Bewegungsfenster — hält diese Uhr auf Kurs und liefert bessere Schlafqualität, stabilere Energie und schnellere körperliche Erholung. In TendFarm bestimmt dein Tagesrhythmus direkt, wie effizient Gesundheitsdaten in Farmeffekte umgewandelt werden: Je beständiger dein Rhythmus, desto mehr Farmwert erzeugen jeder Schritt, jede Schlafphase und jede HRV-Messung."
-      },
-      {
-        "id": "hrv",
-        "title": "Was ist HRV und warum ist es wichtig?",
-        "body": "HRV (Herzratenvariabilität) misst die Variation der Zeitabstände zwischen aufeinanderfolgenden Herzschlägen. Eine höhere HRV weist im Allgemeinen auf ein anpassungsfähigeres autonomes Nervensystem, stärkere Erholungsfähigkeit und bessere Stressresistenz hin. HRV wird durch Schlafqualität, Trainingsintensität, Alkohol, Stress und Regelmäßigkeit des Tagesablaufs beeinflusst. Apple Watch berechnet die HRV anhand der Ruheherzfrequenz und der nächtlichen Schlafdaten. In TendFarm beeinflusst die HRV die Kraftstoffeffizienz des Auto-Ernters — je höher deine HRV, desto weniger Kraftstoff verbraucht die Ernte."
-      },
-      {
-        "id": "sleep-quality",
-        "title": "Wie Schlafqualität deinen Tag beeinflusst",
-        "body": "Schlaf besteht aus drei Phasen: Leichtschlaf, Tiefschlaf und REM. Der Tiefschlaf kümmert sich um die körperliche Erholung; REM um Gedächtniskonsolidierung und emotionale Regulation. Erwachsene brauchen 7–9 Stunden Schlaf pro Nacht, wobei der Tiefschlaf 15–25% ausmacht. Eine einheitliche Schlafens- und Aufwachzeit ist die wirksamste einzelne Methode zur Verbesserung der Schlafqualität. In TendFarm verdichtet sich die Schlafqualität der Vornacht in 'Morgentau', der die Tagesernte reichhaltiger macht — je besser du schläfst, desto voller die Ernte des nächsten Tages."
-      },
-      {
-        "id": "activity",
-        "title": "Wie man einen stabilen Aktivitätsrhythmus aufbaut",
-        "body": "Forschungen zeigen, dass täglich 7.000–10.000 Schritte gehen mit einer deutlich reduzierten Gesamtmortalität verbunden ist. Wichtiger als die Schrittzahl ist die Regelmäßigkeit: Täglich zur gleichen Zeit aktiv zu sein stärkt die zirkadiane Uhr, verbessert die Schlafqualität und die Tagesenergie. Hochintensives Training ist nicht erforderlich — Spazierengehen, Radfahren und Treppensteigen zählen alle. In TendFarm wachsen Pflanzen in dem Zeitfenster, in dem du aktiv bist, schneller — dein Morgenlauf lässt Morgenpflanzen früher reifen."
-      },
-      {
-        "id": "apple-watch",
-        "title": "So liest du deine Apple Watch Gesundheitsdaten",
-        "body": "Die Fitness-App der Apple Watch fasst tägliche Schritte, aktive Kalorien, Trainingsminuten und Standstunden zusammen; die Gesundheits-App zeigt Schlafanalysen, Herzfrequenztrends und HRV. Wichtige Kennzahlen: Ruheherzfrequenz (niedriger ist besser, typischerweise 50–70 bpm), HRV (höher ist besser, individuell verschieden), Tiefschlafanteil (Ziel: 15%+) und aktive Kalorien (Ziel: tägliche Ringe schließen). TendFarm liest diese automatisch aus — keine manuelle Eingabe erforderlich."
-      }
-    ]
-  },
-  "gameplay": {
-    "meta": {
-      "title": "Gameplay — TendFarm",
-      "description": "Entdecke TendFarms Kern-Spielschleife: Felder, Wassertanks, Ernten und Verkäufe — alles angetrieben von deinen Gesundheitsdaten."
-    },
-    "hero": {
-      "title": "Einmal pflanzen, ein Leben lang ernten"
-    },
-    "loop": {
-      "title": "Kern-Schleife",
-      "steps": [
-        "Feld braucht Wasser",
-        "Auto-Bewässerung",
-        "Wächst (Aktivität beschleunigt)",
-        "Erntereif",
-        "Auto-Ernte",
-        "Einlagern & Verkaufen",
-        "Münzen & Upgrades"
-      ]
-    },
-    "crops": {
-      "title": "Pflanzenübersicht",
-      "list": [
-        {
-          "name": "Morgenbohne",
-          "cycle": "6 Min",
-          "desc": "Tutorial-Pflanze — erlebe deine erste Ernte schnell"
-        },
-        {
-          "name": "Weizensprössling",
-          "cycle": "45 Min",
-          "desc": "Hochfrequente Tagespflanze, ideal für häufige Prüfer"
-        },
-        {
-          "name": "Baumwollpuff",
-          "cycle": "2,5 Std",
-          "desc": "Stabile Setz-und-vergiss-Pflanze, der tägliche Favorit"
-        },
-        {
-          "name": "Nachtbeere",
-          "cycle": "8 Std",
-          "desc": "Wächst während du schläfst — beim Aufwachen erntefertig"
-        },
-        {
-          "name": "Energiegras",
-          "cycle": "2 Std",
-          "desc": "Hohe Kraftstoff-Nebenprodukte, hält deinen Auto-Ernter betankt"
-        }
-      ]
-    },
-    "week": {
-      "title": "Erfahrung der ersten 7 Tage",
-      "days": [
-        {
-          "day": "Tag 1",
-          "exp": "Erste Ernte und Verkauf"
-        },
-        {
-          "day": "Tag 2",
-          "exp": "Scheune und Wassertank upgraden, zweites Feld freischalten"
-        },
-        {
-          "day": "Tag 3",
-          "exp": "Auto-Ernter und Kraftstoffsystem freischalten"
-        },
-        {
-          "day": "Tag 4–5",
-          "exp": "Pflanzenkonfigurationen ausprobieren, Output optimieren"
-        },
-        {
-          "day": "Tag 6–7",
-          "exp": "Tagesrhythmus-Feedback setzt ein, erste Aura-Sichtung"
-        }
-      ]
-    }
-  },
   "tools": {
     "meta": {
-      "title": "Tools — TendFarm",
-      "description": "Hay Day Ertragsrechner, Stardew Valley Ertragsrechner und TendFarm Gesundheitsrhythmus-Tools."
+      "title": "Tools — Farming Game Hub",
+      "description": "Hay Day Ertragsrechner, Stardew Valley Ertragsrechner und Spieldaten-Nachschlagewerkzeuge."
     },
     "hero": {
-      "title": "Spiel-Tools & TendFarm-Tools",
-      "subtitle": "Hay Day und Stardew Valley Ertragsrechner sind live. TendFarm Gesundheitsrhythmus-Tools kommen bald."
-    },
-    "coming": [
-      {
-        "title": "Zirkadianer Rhythmus-Quiz",
-        "desc": "8 Fragen enthüllen dein Rhythmus-Level und den entsprechenden Farm-Zustand."
-      },
-      {
-        "title": "Farm-Effizienz-Simulator",
-        "desc": "Gib deine Gesundheitsdaten ein, um vorherzusagen, wie viel mehr deine Farm heute ernten kann."
-      },
-      {
-        "title": "Pflanzenkonfigurations-Empfehler",
-        "desc": "Basierend auf deinen Lebensgewohnheiten erhältst du das passende Feldlayout-Template."
-      }
-    ],
-    "notify": "Benachrichtige mich, wenn Tools verfügbar sind",
-    "comingSoon": "Demnächst verfügbar"
+      "title": "Spiel-Tools",
+      "subtitle": "Hay Day und Stardew Valley Ertragsrechner sind live."
+    }
   },
   "guides": {
     "title": "Farming-Spiel-Guides",
@@ -281,11 +69,6 @@
         "name": "Animal Crossing: New Horizons",
         "desc": "Nintendos gemütliches Insellebens-Spiel"
       }
-    },
-    "tendfarmHook": {
-      "title": "Wusstest du das?",
-      "body": "Es gibt ein Farming-Spiel, das von deinen echten Schritten, deinem Schlaf und deiner HRV angetrieben wird. Je beständiger dein Tagesrhythmus, desto reichhaltiger deine Ernte.",
-      "cta": "Mehr über TendFarm →"
     }
   }
 }

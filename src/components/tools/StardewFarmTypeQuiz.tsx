@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 type FarmType = 'standard' | 'forest' | 'riverland' | 'hill-top' | 'beach'
 
@@ -391,12 +390,6 @@ interface Result {
   tipJa: string
   tipKo: string
   tipDe: string
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULTS: Record<FarmType, Result> = {
@@ -439,18 +432,6 @@ const RESULTS: Record<FarmType, Result> = {
     tipJa: '中盤の目標：温室を解放したら古代の果物でいっぱいにして、発酵樽と組み合わせれば年間100万G以上稼げます。',
     tipKo: '중반 목표: 온실을 해금한 후 고대 과일로 가득 채우고, 술통과 결합하면 연간 100만 골드 이상을 벌 수 있어요.',
     tipDe: 'Mittelspiel-Ziel: Gewächshaus freischalten und mit alten Früchten füllen — mit Fässern über 1 Million Gold pro Jahr.',
-    hookZh:
-      'TendFarm 的标准模式为效率型玩家而设计：你的日常步数直接决定作物的丰收节奏，越规律的生活，农场产出越稳定——把现实生活的规律转化为游戏里的农业帝国。',
-    hookEn:
-      "TendFarm's standard mode is built for efficiency players: your daily steps directly drive harvest rhythms. The more consistent your real-life routine, the more stable your farm output — turn real-world habits into an in-game agricultural empire.",
-    hookZhTW:
-      'TendFarm 的標準模式為效率型玩家而設計：你的日常步數直接決定作物的豐收節奏，越規律的生活，農場產出越穩定——把現實生活的規律轉化為遊戲裡的農業帝國。',
-    hookJa:
-      'TendFarmのスタンダードモードは効率重視のプレイヤーのために作られています：あなたの日々の歩数が直接農場の収穫リズムを決めます。生活が規則正しいほど農場の生産も安定——現実の習慣をゲームの農業帝国に変換しましょう。',
-    hookKo:
-      'TendFarm의 표준 모드는 효율 지향 플레이어를 위해 설계되었습니다: 일상의 걸음 수가 작물 수확 리듬을 직접 결정합니다. 생활이 규칙적일수록 농장 생산량이 안정적입니다 — 현실 생활의 규칙성을 게임 속 농업 제국으로 전환하세요.',
-    hookDe:
-      'TendFarms Standard-Modus ist für Effizienz-Spieler gebaut: Deine täglichen Schritte bestimmen direkt den Ernte-Rhythmus. Je regelmäßiger dein echtes Leben, desto stabiler deine Farm-Produktion — wandle echte Gewohnheiten in ein Spiel-Imperium um.',
   },
   forest: {
     type: 'forest',
@@ -491,18 +472,6 @@ const RESULTS: Record<FarmType, Result> = {
     tipJa: 'まずオークとカエデの木を植えて樹液を集めましょう。ハチ小屋と果樹を組み合わせれば、作物を一粒も植えなくても豊かな生活が送れます。',
     tipKo: '오크와 단풍나무를 먼저 심어 수지를 모으세요. 꿀벌 집과 과일나무를 결합하면 작물 하나 심지 않아도 풍요롭게 살 수 있어요.',
     tipDe: 'Pflanze Eichen und Ahornbäume für Harz. Kombiniert mit Bienenhäusern und Obstbäumen kannst du ohne eine einzige Nutzpflanze gut leben.',
-    hookZh:
-      'TendFarm 特别适合森林农场玩家：你的户外步数在农场里会激活野生采集物的刷新，步行越多，农场边缘越丰饶——你的日常散步就是在给农场「浇水」。',
-    hookEn:
-      "TendFarm is perfect for Forest Farm players: your outdoor steps activate wild forage spawns on the farm's edges. The more you walk, the more abundant your farm's edges become — your daily stroll is your version of watering crops.",
-    hookZhTW:
-      'TendFarm 特別適合森林農場玩家：你的戶外步數在農場裡會激活野生採集物的刷新，步行越多，農場邊緣越豐饒——你的日常散步就是在給農場「澆水」。',
-    hookJa:
-      'TendFarmはフォレストファームプレイヤーに最適です：屋外での歩数が農場の端の野生採集物をアクティブにします。歩けば歩くほど農場の縁が豊かになる——日々の散歩が農場への「水やり」になります。',
-    hookKo:
-      'TendFarm은 숲 농장 플레이어에게 완벽합니다: 야외 걸음 수가 농장 가장자리의 야생 채집물 리스폰을 활성화합니다. 더 많이 걸을수록 농장 가장자리가 더 풍요로워집니다 — 일상 산책이 곧 농장에 "물 주기"입니다.',
-    hookDe:
-      'TendFarm ist perfekt für Wald-Farm-Spieler: Deine Outdoor-Schritte aktivieren wilde Sammel-Spawns an den Rändern. Je mehr du gehst, desto üppiger werden die Ränder — dein täglicher Spaziergang ist dein Gießen.',
   },
   riverland: {
     type: 'riverland',
@@ -543,18 +512,6 @@ const RESULTS: Record<FarmType, Result> = {
     tipJa: 'まずチョウザメの魚池を作ってキャビアを生産しましょう（1個500G）。古代の果実ワインも加えれば、年間100万G超えが楽勝です。',
     tipKo: '철갑상어 어항을 먼저 만들어 캐비아를 생산하세요 (캐비아 하나당 500골드). 고대 과일 와인까지 더하면 연간 100만 골드 돌파가 쉬워요.',
     tipDe: 'Baue zuerst einen Störteich für Kaviar (500G pro Stück). Füge alten Fruchtwein hinzu und du schaffst mühelos über 1 Million Gold pro Jahr.',
-    hookZh:
-      'TendFarm 的水系节律与河地农场天然契合：你的睡眠质量决定鱼塘的产出，深度睡眠越多，鲟鱼产鱼子酱的频率越高——用真实的休息换取游戏里的顶级渔获。',
-    hookEn:
-      "TendFarm's water rhythms naturally match the Riverland Farm: your sleep quality determines fish pond output. More deep sleep means sturgeons produce caviar more often — trade real rest for the game's top-tier catch.",
-    hookZhTW:
-      'TendFarm 的水系節律與河地農場天然契合：你的睡眠質量決定魚塘的產出，深度睡眠越多，鱘魚產魚子醬的頻率越高——用真實的休息換取遊戲裡的頂級漁獲。',
-    hookJa:
-      'TendFarmの水系リズムはリバーランドファームと相性抜群：睡眠の質が魚池の生産量を決めます。深い眠りが多いほど、チョウザメがキャビアを産む頻度が上がる——現実の休息がゲーム最高の漁獲に変わります。',
-    hookKo:
-      'TendFarm의 수계 리듬은 강변 농장과 완벽히 맞습니다: 수면의 질이 어항의 생산량을 결정합니다. 깊은 수면이 많을수록 철갑상어가 캐비아를 생산하는 빈도가 높아집니다 — 실제 휴식으로 게임 최고의 어획물을 얻으세요.',
-    hookDe:
-      'TendFarms Wasserrhythmus passt perfekt zur Flussland-Farm: Deine Schlafqualität bestimmt die Fischteich-Produktion. Mehr Tiefschlaf bedeutet, Stör produziert öfter Kaviar — tausche echte Erholung gegen den besten Fang im Spiel.',
   },
   'hill-top': {
     type: 'hill-top',
@@ -595,18 +552,6 @@ const RESULTS: Record<FarmType, Result> = {
     tipJa: '早めに爆発物を解放して採石場を素早く整理しましょう。中盤はクリスタラリウムにダイヤモンドをセットすれば、最も効率的なパッシブ収益の一つになります。',
     tipKo: '초반에 폭발물을 해금해서 채석장을 빠르게 정리하세요. 중반에는 크리스탈라리움에 다이아몬드를 복제하면 가장 효율적인 패시브 수익 중 하나가 됩니다.',
     tipDe: 'Schalte früh Bomben frei und räume den Steinbruch schnell. Mid-game: Kristallarien mit Diamanten für eines der effizientesten passiven Einkommen.',
-    hookZh:
-      'TendFarm 的矿物节律为山顶玩家定制：你每天的步数在农场里会解锁稀有矿石的刷新，探索得越多，采石场出产越丰厚——把你的日常行走转化为游戏里的矿石财富。',
-    hookEn:
-      "TendFarm's mineral rhythm is built for hill-top players: your daily steps unlock rare ore spawns in the quarry. The more you explore in real life, the richer your quarry becomes — turn your walks into in-game mineral wealth.",
-    hookZhTW:
-      'TendFarm 的礦物節律為山頂玩家定制：你每天的步數在農場裡會解鎖稀有礦石的刷新，探索得越多，採石場出產越豐厚——把你的日常行走轉化為遊戲裡的礦石財富。',
-    hookJa:
-      'TendFarmの鉱物リズムはヒルトッププレイヤーのために作られています：あなたの日々の歩数が農場の採石場でのレアな鉱石スポーンを解放します。現実で探索するほど採石場が豊かになる——日々の歩きが鉱石の富に変わります。',
-    hookKo:
-      'TendFarm의 광물 리듬은 언덕 꼭대기 플레이어를 위해 맞춤 설계되었습니다: 일상의 걸음 수가 농장 채석장의 희귀 광물 리스폰을 해금합니다. 현실에서 더 많이 탐험할수록 채석장이 더 풍요로워집니다 — 일상 걷기가 게임 속 광물 재산으로 바뀝니다.',
-    hookDe:
-      'TendFarms Mineral-Rhythmus ist für Hügelkuppen-Spieler gebaut: Deine täglichen Schritte schalten seltene Erz-Spawns im Steinbruch frei. Je mehr du in der Realität erkundest, desto reicher dein Steinbruch — wandle Spaziergänge in Mineralreichtum um.',
   },
   beach: {
     type: 'beach',
@@ -647,18 +592,6 @@ const RESULTS: Record<FarmType, Result> = {
     tipJa: '砂地に肥料は使えませんが、スプリンクラーで補えます。肥料不要の秋のブドウとカボチャは序盤の最適解です。',
     tipKo: '모래땅에는 비료를 쓸 수 없지만 스프링클러로 보완할 수 있어요. 비료가 필요 없는 가을 포도와 호박이 초반 최선의 선택입니다.',
     tipDe: 'Sandboden verträgt keinen Dünger, aber Sprinkler können das ausgleichen. Herbsttrauben und Kürbisse brauchen keinen Dünger — perfekt für den Anfang auf Sand.',
-    hookZh:
-      'TendFarm 最适合海滩农场玩家中的「挑战型」人格：你的不规律睡眠和非标准步数，在农场里会产生罕见的潮汐事件——正是这种不可预测性，让你的农场每天都有新发现。',
-    hookEn:
-      "TendFarm suits Beach Farm challenge-seekers best: your irregular sleep and non-standard steps create rare tidal events on the farm — that unpredictability means something new washes up every day.",
-    hookZhTW:
-      'TendFarm 最適合海灘農場玩家中的「挑戰型」人格：你的不規律睡眠和非標準步數，在農場裡會產生罕見的潮汐事件——正是這種不可預測性，讓你的農場每天都有新發現。',
-    hookJa:
-      'TendFarmはビーチファームの「チャレンジャー型」プレイヤーに最も合っています：不規則な睡眠や標準外の歩数が農場にレアな潮汐イベントを生み出します——その予測不能さが、毎日新しい発見を農場にもたらします。',
-    hookKo:
-      'TendFarm은 해변 농장의 "도전형" 성격에 가장 잘 맞습니다: 불규칙한 수면과 비표준 걸음 수가 농장에 희귀한 조류 이벤트를 만들어냅니다 — 바로 그 예측 불가능성이 농장에 매일 새로운 발견을 가져다줍니다.',
-    hookDe:
-      'TendFarm passt am besten zu den Herausforderungs-Spielern unter den Strand-Farm-Fans: Dein unregelmäßiger Schlaf und atypische Schrittzahlen erzeugen seltene Gezeiten-Events auf der Farm — genau diese Unvorhersehbarkeit sorgt täglich für neue Entdeckungen.',
   },
 }
 
@@ -869,39 +802,6 @@ export function StardewFarmTypeQuiz({ locale }: Props) {
             )}
           </p>
           <ShareButton text={shareText} locale={locale} />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-5">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">
-            {getLoc('你可能也会喜欢 →', 'You might also love →', '你可能也會喜歡 →', 'こちらもおすすめ →', '이것도 좋아할 수 있어요 →', 'Das könnte dir auch gefallen →')} TendFarm
-          </p>
-          <p className="mb-4 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(
-              result.hookZh,
-              result.hookEn,
-              result.hookZhTW,
-              result.hookJa,
-              result.hookKo,
-              result.hookDe,
-            )}
-          </p>
-          <p className="mb-4 text-xs leading-relaxed text-[#4a5a4a]">
-            {getLoc(
-              'TendFarm 正在研发农场节律追踪功能——把 Cozy 游戏的季节感带入你的真实生活节奏。',
-              'TendFarm is building a farm rhythm tracker — bringing the seasonal feeling of cozy games into real life.',
-              'TendFarm 正在研發農場節律追蹤功能——把 Cozy 遊戲的季節感帶入你的真實生活節奏。',
-              'TendFarm はファームリズムトラッカーを開発中です——コージーゲームの季節感をリアルな生活リズムに。',
-              'TendFarm은 농장 리듬 트래커를 개발 중입니다 — 코지 게임의 계절감을 실제 생활 리듬으로.',
-              'TendFarm entwickelt einen Farm-Rhythmus-Tracker — das saisonale Gefühl von Cozy Games ins echte Leben bringen.',
-            )}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarm を詳しく見る →', 'TendFarm 알아보기 →', 'TendFarm entdecken →')}
-          </Link>
         </div>
 
         <div className="text-center">

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 
 function ShareButton({ text, locale }: { text: string; locale: string }) {
   const [copied, setCopied] = useState(false)
@@ -379,12 +378,6 @@ interface GameResult {
   featuresDe: string[]
   platformsEn: string
   priceEn: string
-  hookZh: string
-  hookEn: string
-  hookZhTW: string
-  hookJa: string
-  hookKo: string
-  hookDe: string
 }
 
 const RESULTS: Record<GameId, GameResult> = {
@@ -453,18 +446,6 @@ const RESULTS: Record<GameId, GameResult> = {
     ],
     platformsEn: 'PC, Mac, Switch, PS4/5, Xbox, iOS, Android',
     priceEn: '~$15 USD',
-    hookZh:
-      '星露谷玩家往往是数据驱动型或剧情导向型玩家——这和 TendFarm 用健康数据驱动农场的理念高度契合。如果你喜欢把现实数据变成游戏成就，TendFarm 是你的下一步。',
-    hookEn:
-      "Stardew players tend to be data-driven or story-driven — which aligns perfectly with TendFarm's model of turning health data into farm progress. If you love seeing real metrics become in-game achievements, TendFarm is your next obsession.",
-    hookZhTW:
-      '星露谷玩家往往是數據驅動型或劇情導向型玩家——這和 TendFarm 用健康數據驅動農場的理念高度契合。如果你喜歡把現實數據變成遊戲成就，TendFarm 是你的下一步。',
-    hookJa:
-      'スターデューバレーのプレイヤーはデータ分析や物語の進行を楽しむ傾向があります——TendFarmの「健康データで農場を育てる」というコンセプトとぴったり合います。ステップ数や睡眠が実績に変わる体験が好きなら、TendFarmは次の習慣になるはずです。',
-    hookKo:
-      '스타듀 밸리 플레이어들은 데이터 분석이나 스토리 진행을 즐기는 경향이 있어요 — TendFarm의 "건강 데이터로 농장을 키운다"는 개념과 딱 맞아떨어집니다. 실제 수치가 게임 성과로 바뀌는 걸 좋아한다면, TendFarm이 다음 습관이 될 거예요.',
-    hookDe:
-      "Stardew-Spieler sind oft daten- oder storyfokussiert — was perfekt zu TendFarms Ansatz passt, Gesundheitsdaten in Fortschritte auf der Farm umzuwandeln. Wenn du liebst, wie echte Metriken zu Ingame-Erfolgen werden, wird TendFarm deine nächste Obsession.",
   },
   'animal-crossing': {
     id: 'animal-crossing',
@@ -531,18 +512,6 @@ const RESULTS: Record<GameId, GameResult> = {
     ],
     platformsEn: 'Nintendo Switch only',
     priceEn: '~$60 USD (Switch game)',
-    hookZh:
-      '动森玩家珍视生活节律和自然节奏——这正是 TendFarm 的核心：你的睡眠和步数驱动农场的自然生长。如果你喜欢和生活节奏同步的游戏，TendFarm 把这个体验带进了健康管理。',
-    hookEn:
-      'Animal Crossing players value natural rhythms and life pacing — which is exactly what TendFarm is built on. Your sleep and steps drive your farm naturally. If you love a game that syncs with your real life, TendFarm takes that experience into health.',
-    hookZhTW:
-      '動森玩家珍視生活節律和自然節奏——這正是 TendFarm 的核心：你的睡眠和步數驅動農場的自然生長。如果你喜歡和生活節奏同步的遊戲，TendFarm 把這個體驗帶進了健康管理。',
-    hookJa:
-      'あつ森プレイヤーは自然なリズムと生活のペースを大切にします——それはまさにTendFarmが目指すもの。睡眠や歩数が農場を自然に育てます。現実の生活とシンクロするゲームが好きなら、TendFarmはその体験を健康管理に持ち込みます。',
-    hookKo:
-      '동물의 숲 플레이어들은 자연스러운 리듬과 생활 페이스를 소중히 여기는데 — 그게 바로 TendFarm의 핵심이에요. 수면과 걸음 수가 자연스럽게 농장을 성장시킵니다. 현실 생활과 싱크가 맞는 게임을 좋아한다면, TendFarm이 그 경험을 건강 관리로 가져다줄 거예요.',
-    hookDe:
-      'Animal-Crossing-Spieler schätzen natürliche Rhythmen und Lebenstakt — genau das ist die Basis von TendFarm. Dein Schlaf und deine Schritte lassen deine Farm natürlich wachsen. Wenn du ein Spiel liebst, das mit deinem echten Leben synchron läuft, bringt TendFarm dieses Erlebnis in die Gesundheit.',
   },
   'hay-day': {
     id: 'hay-day',
@@ -609,18 +578,6 @@ const RESULTS: Record<GameId, GameResult> = {
     ],
     platformsEn: 'iOS and Android (mobile only)',
     priceEn: 'Free (in-app purchases)',
-    hookZh:
-      '如果你喜欢随时打开、没有负担的游戏体验，TendFarm 也是如此——你的步数和睡眠在后台悄悄驱动农场成长，不需要主动操作，早上打开 App 就看到成果。',
-    hookEn:
-      "If you love low-commitment, open-anytime gaming, TendFarm delivers that too — your steps and sleep quietly drive your farm in the background. No active management needed; open the app in the morning and see what grew.",
-    hookZhTW:
-      '如果你喜歡隨時打開、沒有負擔的遊戲體驗，TendFarm 也是如此——你的步數和睡眠在背景悄悄驅動農場成長，不需要主動操作，早上打開 App 就看到成果。',
-    hookJa:
-      'いつでも開けて気軽に遊べるゲームが好きなら、TendFarmも同じです——歩数や睡眠がバックグラウンドで農場をこっそり育ててくれます。アクティブな操作は不要で、朝アプリを開けば成長した農場が迎えてくれます。',
-    hookKo:
-      '언제든 부담 없이 열 수 있는 게임을 좋아한다면, TendFarm도 마찬가지예요. 걸음 수와 수면이 백그라운드에서 조용히 농장을 성장시켜줍니다. 직접 조작 없이도, 아침에 앱을 열면 자란 농장을 볼 수 있어요.',
-    hookDe:
-      'Wenn du ein Spiel liebst, das du jederzeit entspannt öffnen kannst, dann passt TendFarm genauso — deine Schritte und dein Schlaf lassen deine Farm im Hintergrund wachsen. Kein aktives Spielen nötig; morgens die App öffnen und sehen, was gewachsen ist.',
   },
   palia: {
     id: 'palia',
@@ -687,18 +644,6 @@ const RESULTS: Record<GameId, GameResult> = {
     ],
     platformsEn: 'PC (Steam) and Nintendo Switch',
     priceEn: 'Free to play',
-    hookZh:
-      'Palia 玩家喜欢在游戏里建立真实连接——TendFarm 的下一步是把你现实中的健康旅程变得同样有社区感。你的农场进度反映你真实的生活节律，这比任何 MMO 都更贴近你。',
-    hookEn:
-      'Palia players value genuine connection through games — TendFarm takes that further by making your real-life health journey feel like a shared story. Your farm reflects your actual daily rhythms, more personal than any MMO.',
-    hookZhTW:
-      'Palia 玩家喜歡在遊戲裡建立真實連結——TendFarm 的下一步是把你現實中的健康旅程變得同樣有社群感。你的農場進度反映你真實的生活節律，這比任何 MMO 都更貼近你。',
-    hookJa:
-      'Paliaプレイヤーはゲームを通じたリアルなつながりを大切にします——TendFarmはさらに一歩進んで、あなたの現実の健康の旅をコミュニティ感のあるものにします。農場の進捗が実際の日常リズムを反映し、どんなMMOより自分に近い体験になります。',
-    hookKo:
-      '팔리아 플레이어들은 게임을 통한 진짜 연결을 소중히 여기는데 — TendFarm은 한 걸음 더 나아가 당신의 현실 속 건강 여정도 같은 커뮤니티 감각으로 만들어 줍니다. 농장 진행 상황이 실제 일상 리듬을 반영해, 어떤 MMO보다 자신에게 가깝게 느껴질 거예요.',
-    hookDe:
-      'Palia-Spieler schätzen echte Verbindungen durch Spiele — TendFarm geht noch weiter und macht deinen realen Gesundheitsweg genauso gemeinschaftlich. Dein Farm-Fortschritt spiegelt deinen echten Alltag wider, persönlicher als jedes MMO.',
   },
   'farming-sim': {
     id: 'farming-sim',
@@ -765,18 +710,6 @@ const RESULTS: Record<GameId, GameResult> = {
     ],
     platformsEn: 'PC, Mac, PS4/5, Xbox',
     priceEn: '~$40 USD',
-    hookZh:
-      '模拟农场玩家享受精确系统和可量化的成果——TendFarm 把这种满足感带进健康领域：你的步数、睡眠、HRV 都有精确的公式转化为农场产出。终于有一个游戏让你的现实数据也可以被优化。',
-    hookEn:
-      "Farming Simulator players love precise systems and measurable outcomes — TendFarm brings that satisfaction to health: your steps, sleep, and HRV each convert to farm output via exact formulas. Finally, a game where your real-life metrics can be min-maxed.",
-    hookZhTW:
-      '模擬農場玩家享受精確系統和可量化的成果——TendFarm 把這種滿足感帶進健康領域：你的步數、睡眠、HRV 都有精確的公式轉化為農場產出。終於有一個遊戲讓你的現實數據也可以被優化。',
-    hookJa:
-      'ファーミングシミュレータープレイヤーは正確なシステムと数値化できる成果を好みます——TendFarmはその満足感を健康領域に持ち込みます。歩数、睡眠、HRVがそれぞれ正確な計算式で農場の成果に変換されます。現実のデータも最適化できる体験の始まりです。',
-    hookKo:
-      '파밍 시뮬레이터 플레이어들은 정밀한 시스템과 측정 가능한 성과를 즐기는데 — TendFarm은 그 만족감을 건강 영역으로 가져옵니다. 걸음 수, 수면, HRV가 각각 정확한 공식으로 농장 산출물로 변환됩니다. 드디어 현실 데이터도 최적화할 수 있어요.',
-    hookDe:
-      'Farming-Simulator-Spieler lieben präzise Systeme und messbare Ergebnisse — TendFarm bringt diese Befriedigung in die Gesundheit: deine Schritte, dein Schlaf und deine HRV fließen nach genauen Formeln in den Farm-Output. Endlich ein Spiel, in dem deine echten Werte optimiert werden können.',
   },
 }
 
@@ -954,22 +887,6 @@ export function WhichFarmingGameQuiz({ locale, initialResult }: Props) {
 
         <div className="mb-6">
           <ShareButton text={shareText} locale={locale} />
-        </div>
-
-        {/* TendFarm Hook */}
-        <div className="mb-8 rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] p-5">
-          <p className="mb-1 text-xs font-semibold text-[#f0a832]">
-            {getLoc('你可能也会喜欢 →', 'You might also love →', '你可能也會喜歡 →', 'こちらも気になりませんか →', '이것도 좋아할지도 →', 'Das könnte dich auch begeistern →')} TendFarm
-          </p>
-          <p className="mb-4 text-sm leading-relaxed text-[#8a9a7a]">
-            {getLoc(result.hookZh, result.hookEn, result.hookZhTW, result.hookJa, result.hookKo, result.hookDe)}
-          </p>
-          <Link
-            href={`/${locale}/gameplay`}
-            className="inline-block rounded-lg bg-[#f0a832] px-5 py-2 text-sm font-semibold text-[#0f1a0f] transition-colors hover:bg-[#f0a832]/80"
-          >
-            {getLoc('了解 TendFarm →', 'Learn about TendFarm →', '了解 TendFarm →', 'TendFarmについて →', 'TendFarm 알아보기 →', 'Mehr über TendFarm →')}
-          </Link>
         </div>
 
         <div className="text-center">

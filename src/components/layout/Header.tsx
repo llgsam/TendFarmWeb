@@ -25,7 +25,7 @@ export function Header() {
         <Link href={base} className="flex items-center gap-2.5">
           <Image
             src="/logo.png"
-            alt="TendFarm"
+            alt="Farming Game Hub"
             width={30}
             height={30}
             className=""
