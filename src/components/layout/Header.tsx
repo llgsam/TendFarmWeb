@@ -52,9 +52,6 @@ export function Header() {
           <Link href={`${base}/guides/best-games`} className="text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {t('guides')}
           </Link>
-          <Link href={`${base}/tendfarm`} className="rounded border border-[#f0a832]/30 px-2 py-0.5 text-[#f0a832]/70 hover:text-[#f0a832] hover:border-[#f0a832]/60 transition-colors">
-            {t('tendfarm')}
-          </Link>
         </nav>
 
         {/* Right side: CTA + language */}

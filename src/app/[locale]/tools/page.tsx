@@ -1,6 +1,5 @@
 import { useTranslations, useLocale } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
-import { WaitlistForm } from '@/components/ui/WaitlistForm'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
@@ -122,7 +121,6 @@ export default function ToolsPage() {
   const t = useTranslations('tools')
   const locale = useLocale()
   const isZh = locale === 'zh' || locale === 'zh-TW'
-  const wt = useTranslations('waitlist')
 
   const getLoc = (zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string => {
     if (locale === 'zh') return zh
@@ -252,35 +250,6 @@ export default function ToolsPage() {
             {getLoc('告诉我们 →', 'Let us know →', '告訴我們 →', '教えてください →', '알려주세요 →', 'Lass es uns wissen →')}
           </a>
         </p>
-      </div>
-
-      {/* TendFarm App waitlist */}
-      <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a] p-8 text-center">
-        <p className="mb-1 text-xs uppercase tracking-widest text-[#f0a832]">TendFarm App</p>
-        <h2 className="mb-2 text-xl font-semibold text-[#e8dcc8]">
-          {getLoc('用健康数据驱动你的农场', 'Power your farm with health data', '用健康數據驅動你的農場', '健康データで農場を動かそう', '건강 데이터로 농장을 강화하세요', 'Stärke deine Farm mit Gesundheitsdaten')}
-        </h2>
-        <p className="mb-6 text-sm text-[#8a9a7a]">
-          {getLoc(
-            '一款 iOS 农场 App，正在开发中。加入候补名单，第一批体验 Beta 版本。',
-            'An iOS farming app in development. Join the waitlist for early Beta access.',
-            '一款 iOS 農場 App，正在開發中。加入候補名單，第一批體驗 Beta 版本。',
-            '開発中のiOS農場アプリ。ウェイトリストに参加してBeta版をいち早く体験。',
-            '개발 중인 iOS 농장 앱. 대기자 명단에 합류해 베타를 가장 먼저 경험하세요.',
-            'Eine iOS-Farm-App in Entwicklung. Tritt der Warteliste bei für frühen Beta-Zugang.'
-          )}
-        </p>
-        <div className="mx-auto max-w-md">
-          <WaitlistForm
-            locale={locale}
-            sourcePage="tools"
-            successMessage={wt('success')}
-            duplicateMessage={wt('duplicate')}
-            errorMessage={wt('error')}
-            buttonText={wt('button')}
-            placeholder={wt('placeholder')}
-          />
-        </div>
       </div>
     </div>
   )
