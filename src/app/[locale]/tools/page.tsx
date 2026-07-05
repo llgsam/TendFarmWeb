@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
+import { ToolsBrowser } from '@/components/tools/ToolsBrowser'
 
 export async function generateMetadata({
   params,
@@ -156,7 +157,6 @@ const DATA_TOOLS = [
 export default function ToolsPage() {
   const t = useTranslations('tools')
   const locale = useLocale()
-  const isZh = locale === 'zh' || locale === 'zh-TW'
 
   const getLoc = (zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string => {
     if (locale === 'zh') return zh
@@ -172,85 +172,23 @@ export default function ToolsPage() {
       <h1 className="mb-3 text-4xl font-bold text-[#e8dcc8]">{t('hero.title')}</h1>
       <p className="mb-12 text-lg text-[#8a9a7a]">{t('hero.subtitle')}</p>
 
-      {/* Live Game Calculators */}
-      <section className="mb-14">
-        <h2 className="mb-4 text-xl font-semibold text-[#e8dcc8]">
-          {getLoc('游戏数值计算器', 'Game Calculators', '遊戲數值計算器', 'ゲーム計算ツール', '게임 계산기', 'Spiel-Rechner')}
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {LIVE_TOOLS.map((tool) => {
-            const l = locale as keyof typeof tool.titles
-            const title = tool.titles[l] ?? tool.titles['en']
-            const desc = tool.descs[l] ?? tool.descs['en']
-            const tag = tool.tags[l] ?? tool.tags['en']
-            return (
-              <Link
-                key={tool.key}
-                href={`/${locale}/${tool.href}`}
-                className="group rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-5 transition-colors hover:border-[#f0a832]/40 hover:bg-[#1a2e1a]"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="rounded-full bg-[#2d5a27] px-2 py-0.5 text-xs text-[#8a9a7a]">
-                    {tag}
-                  </span>
-                  <span className="rounded-full bg-[#f0a832]/10 px-2 py-0.5 text-xs font-semibold text-[#f0a832]">
-                    {getLoc('可用', 'Live', '可用', 'ライブ', '라이브', 'Live')}
-                  </span>
-                </div>
-                <h3 className="mb-2 font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
-                  {title}
-                </h3>
-                <p className="text-sm text-[#8a9a7a]">{desc}</p>
-              </Link>
-            )
-          })}
-        </div>
-      </section>
-
-      {/* Game Data Lookup */}
-      <section className="mb-14">
-        <h2 className="mb-1 text-xl font-semibold text-[#e8dcc8]">
-          {getLoc('游戏数据查询', 'Game Database', '遊戲數據查詢', 'ゲームデータ検索', '게임 데이터 조회', 'Spiel-Datenbank')}
-        </h2>
-        <p className="mb-4 text-sm text-[#8a9a7a]">
-          {getLoc(
-            '即时查询游戏内数据：生日、节日、礼物、鱼类……',
-            'Look up in-game data instantly: birthdays, festivals, gifts, fish…',
-            '即時查詢遊戲內數據：生日、節日、禮物、魚類……',
-            'ゲーム内データを即座に検索：誕生日、フェスティバル、贈り物、魚…',
-            '게임 내 데이터를 즉시 조회: 생일, 축제, 선물, 물고기…',
-            'Spielinterne Daten sofort nachschlagen: Geburtstage, Festivals, Geschenke, Fische…',
-          )}
-        </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          {DATA_TOOLS.map((tool) => {
-            const l = locale as keyof typeof tool.titles
-            const title = tool.titles[l] ?? tool.titles['en']
-            const desc = tool.descs[l] ?? tool.descs['en']
-            const tag = tool.tags[l] ?? tool.tags['en']
-            return (
-              <Link
-                key={tool.key}
-                href={`/${locale}/${tool.href}`}
-                className="group rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-5 transition-colors hover:border-[#f0a832]/40 hover:bg-[#1a2e1a]"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="rounded-full bg-[#2d5a27] px-2 py-0.5 text-xs text-[#8a9a7a]">
-                    {tag}
-                  </span>
-                  <span className="rounded-full bg-[#f0a832]/10 px-2 py-0.5 text-xs font-semibold text-[#f0a832]">
-                    {getLoc('可用', 'Live', '可用', 'ライブ', '라이브', 'Live')}
-                  </span>
-                </div>
-                <h3 className="mb-2 font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
-                  {title}
-                </h3>
-                <p className="text-sm text-[#8a9a7a]">{desc}</p>
-              </Link>
-            )
-          })}
-        </div>
-      </section>
+      <ToolsBrowser
+        locale={locale}
+        liveTools={LIVE_TOOLS}
+        dataTools={DATA_TOOLS}
+        allLabel={getLoc('全部游戏', 'All Games', '全部遊戲', '全ゲーム', '전체 게임', 'Alle Spiele')}
+        liveLabel={getLoc('可用', 'Live', '可用', 'ライブ', '라이브', 'Live')}
+        calcLabel={getLoc('游戏数值计算器', 'Game Calculators', '遊戲數值計算器', 'ゲーム計算ツール', '게임 계산기', 'Spiel-Rechner')}
+        dataLabel={getLoc('游戏数据查询', 'Game Database', '遊戲數據查詢', 'ゲームデータ検索', '게임 데이터 조회', 'Spiel-Datenbank')}
+        dataSubtitle={getLoc(
+          '即时查询游戏内数据：生日、节日、礼物、鱼类……',
+          'Look up in-game data instantly: birthdays, festivals, gifts, fish…',
+          '即時查詢遊戲內數據：生日、節日、禮物、魚類……',
+          'ゲーム内データを即座に検索：誕生日、フェスティバル、贈り物、魚…',
+          '게임 내 데이터를 즉시 조회: 생일, 축제, 선물, 물고기…',
+          'Spielinterne Daten sofort nachschlagen: Geburtstage, Festivals, Geschenke, Fische…',
+        )}
+      />
 
       {/* Cross-link to Quizzes (quizzes live in their own section, not as a "tool") */}
       <Link
