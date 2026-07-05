@@ -1,0 +1,81 @@
+{
+  "_comment": "星露谷/农场游戏『数据工具』的 SEO 驱动构建路线图。与 article-queue.json 平行：每日例程取 queue 里第一个 status=pending 的条目构建（节奏 1-2 个/天），完成后 status→done、把工具移入 shipped 并更新 covers[]。优先级按 cluster_vol（同一工具能吃下的关键词簇的 US 月搜索量合计）排序。vol = US 月搜索量（clickstream，get_keyword_data cli）。所有数据工具沿用同一范式：tools/<key>/page.tsx（6 语言 SEO）+ Stardew<X>Finder.tsx 客户端组件 + stardew<X>Data.ts（6 语言数据，源自各语言官方 wiki）+ 在 tools/page.tsx 的 DATA_TOOLS 注册 + 相关工具互链。",
+  "cadence": "1-2 tools per day, SEO-prioritized",
+  "market": "us / usd",
+  "updated": "2026-07-05",
+
+  "shipped": [
+    { "tool": "stardew-bundles", "route": "tools/stardew-bundles", "primary_kw": "stardew valley bundles", "vol": 8100, "covers": ["stardew valley bundles", "stardew bundles", "stardew valley community center bundles", "community center bundles"], "status": "done", "notes": "31 standard bundles, 7 rooms, 6 langs; room browse + item reverse-lookup; data scraped from per-language wiki" },
+    { "tool": "hay-day-calculator", "route": "tools/hay-day", "primary_kw": "hay day crops", "vol": null, "covers": ["hay day crop profit"], "status": "done" },
+    { "tool": "stardew-crop-calculator", "route": "tools/stardew", "primary_kw": "stardew valley crops", "vol": 2400, "covers": ["stardew valley crops", "stardew best crops", "stardew valley profit calculator", "stardew valley best crops"], "status": "done" },
+    { "tool": "stardew-calendar", "route": "tools/stardew-calendar", "primary_kw": "stardew valley calendar", "vol": 8100, "covers": ["stardew valley calendar", "stardew valley birthdays", "stardew valley festivals"], "status": "done" },
+    { "tool": "stardew-fish-finder", "route": "tools/stardew-fish", "primary_kw": "stardew valley fish", "vol": 22200, "covers": ["stardew valley fish", "stardew valley fishing"], "status": "done" },
+    { "tool": "stardew-gift-guide", "route": "tools/stardew-gifts", "primary_kw": "stardew valley gifts", "vol": 12100, "covers": ["stardew valley gifts", "stardew valley loved gifts"], "status": "done" }
+  ],
+
+  "queue": [
+    { "tool": "stardew-museum", "route": "tools/stardew-museum", "primary_kw": "stardew museum", "vol": 8100, "cluster_vol": 11500,
+      "cluster": ["stardew museum=8100", "stardew artifacts=1600", "stardew valley minerals=1000", "stardew valley geodes=480", "stardew geodes=320"],
+      "effort": "L", "priority": "P1", "status": "pending",
+      "notes": "矿物+宝石+化石收藏清单（~95 项）+ 来源（矿层/挖掘/怪物掉落/晶洞）+ 捐赠里程碑奖励。可加本地『已捐赠』进度勾选。" },
+
+    { "tool": "stardew-cooking", "route": "tools/stardew-cooking", "primary_kw": "stardew valley recipes", "vol": 1900, "cluster_vol": 6480,
+      "cluster": ["stardew valley cooking=2400", "stardew valley recipes=1900", "stardew recipes=1300", "stardew cooking=880"],
+      "effort": "L", "priority": "P2", "status": "pending",
+      "notes": "料理食谱查询（~80 道）：按食材/来源/回血增益筛选；每道菜列食材数量、解锁来源、buff。数据量最大。" },
+
+    { "tool": "stardew-mines", "route": "tools/stardew-mines", "primary_kw": "stardew valley mines", "vol": 4400, "cluster_vol": 4400,
+      "cluster": ["stardew valley mines=4400"],
+      "effort": "M", "priority": "P2", "status": "pending",
+      "notes": "矿洞层数速查：每 10 层的矿石/怪物/电梯，冰层/岩浆层过渡，骷髅洞穴与危险矿洞要点。" },
+
+    { "tool": "stardew-villagers", "route": "tools/stardew-villagers", "primary_kw": "stardew valley marriage", "vol": 3600, "cluster_vol": 5500,
+      "cluster": ["stardew valley marriage=3600", "stardew valley villagers=1900"],
+      "effort": "M", "priority": "P2", "status": "pending",
+      "notes": "村民档案中枢：可结婚对象、生日、最爱礼物摘要、爱心事件门槛。串联已有 gifts/calendar 工具。" },
+
+    { "tool": "stardew-secret-notes", "route": "tools/stardew-secret-notes", "primary_kw": "stardew valley secret notes", "vol": 2400, "cluster_vol": 2400,
+      "cluster": ["stardew valley secret notes=2400"],
+      "effort": "S", "priority": "P2", "status": "pending",
+      "notes": "全 26 张秘密纸条内容 + 解谜/奖励（含侏儒密码、抓娃娃机等）。数据量小、可快速上。" },
+
+    { "tool": "stardew-animals", "route": "tools/stardew-animals", "primary_kw": "stardew valley animals", "vol": 1900, "cluster_vol": 1900,
+      "cluster": ["stardew valley animals=1900"],
+      "effort": "M", "priority": "P3", "status": "pending",
+      "notes": "牲畜产物/售价/建筑成本/好感度；配合工匠加工（蛋→蛋黄酱、奶→奶酪）利润。" },
+
+    { "tool": "stardew-grange-display", "route": "tools/stardew-grange-display", "primary_kw": "stardew valley grange display", "vol": 1300, "cluster_vol": 1300,
+      "cluster": ["stardew valley grange display=1300"],
+      "effort": "S", "priority": "P3", "status": "pending",
+      "notes": "秋季集市展台评分计算器：选 9 件物品即时算分，冲 90+ 拿奖。互动性强、易传播。" },
+
+    { "tool": "stardew-forage", "route": "tools/stardew-forage", "primary_kw": "stardew valley foraging", "vol": 720, "cluster_vol": 1440,
+      "cluster": ["stardew valley foraging=720", "stardew valley forage=720"],
+      "effort": "S", "priority": "P3", "status": "pending",
+      "notes": "按季节/地点查可采集物 + 售价；与鱼类查询同构，可快速复用组件。" },
+
+    { "tool": "stardew-perfection-tracker", "route": "tools/stardew-perfection", "primary_kw": "stardew valley perfection tracker", "vol": 720, "cluster_vol": 720,
+      "cluster": ["stardew valley perfection tracker=720", "stardew perfection=1300"],
+      "effort": "M", "priority": "P3", "status": "pending",
+      "notes": "完美通关清单（本地勾选进度）：烹饪/制作/送礼/图鉴/黄金核桃等各项完成度。" }
+  ],
+
+  "big_interactive": [
+    { "_comment": "以下为最高原始搜索量的簇，但需要重型交互（网格/覆盖范围可视化），不是简单『数据文件 + 查询』范式，单独排期，建议在若干快速工具之后再啃。",
+      "cluster_vol": 59100,
+      "candidates": [
+        { "tool": "stardew-sprinkler-planner", "primary_kw": "stardew valley sprinklers", "vol": 12100, "with": ["stardew valley scarecrow=1600"], "effort": "L", "notes": "洒水器/稻草人覆盖范围可视化网格。" },
+        { "tool": "stardew-farm-planner", "primary_kw": "stardew valley planner", "vol": 9900, "with": ["stardew planner=9900", "stardew valley farm planner=5400", "stardew farm layout=5400"], "effort": "XL", "notes": "拖拽式农场布局规划器（网格编辑器），最大工程。" },
+        { "tool": "stardew-greenhouse-layout", "primary_kw": "stardew valley greenhouse", "vol": 14800, "effort": "M", "notes": "温室布局意图为主；可做温室专属网格或并入 planner / 或先做温室指南文章截流。" }
+      ]
+    }
+  ],
+
+  "deferred": [
+    { "kw": "stardew valley ancient fruit", "vol": 4400, "reason": "利润角度，宜增强现有作物计算器而非新工具" },
+    { "kw": "stardew valley wine", "vol": 2900, "reason": "工匠加工利润，并入作物计算器" },
+    { "kw": "stardew valley luck", "vol": 430, "reason": "每日运气为 RNG/存档相关，无法做成静态工具" },
+    { "kw": "stardew traveling cart", "vol": 1000, "reason": "旅行商人库存为 RNG，静态工具价值低" },
+    { "kw": "stardew valley tailoring", "vol": 1000, "reason": "低量，暂缓（可作缝纫配方长尾）" }
+  ]
+}

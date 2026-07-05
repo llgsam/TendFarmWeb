@@ -115,6 +115,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-bundles',
+    href: 'tools/stardew-bundles',
+    titles: {
+      zh: '星露谷物语收集包速查', 'zh-TW': '星露谷物語收集包速查',
+      ja: 'スターデューバレー バンドル一覧', ko: '스타듀밸리 꾸러미 목록',
+      de: 'Stardew Valley Bündel', en: 'Stardew Valley Bundles',
+    },
+    descs: {
+      zh: '按房间查社区中心每个收集包的物品、数量、品质和奖励，支持物品反查。',
+      'zh-TW': '按房間查社區中心每個收集包的物品、數量、品質和獎勵，支援物品反查。',
+      ja: 'コミュニティセンターのバンドル別に必要アイテム・数量・品質・報酬を確認、逆引きも。',
+      ko: '커뮤니티 센터 꾸러미별 필요 아이템·수량·품질·보상 확인, 역검색 지원.',
+      de: 'Alle Gemeindezentrum-Bündel: Gegenstände, Mengen, Qualität, Belohnungen.',
+      en: 'Community Center bundles by room: items, quantities, quality, rewards, and reverse item lookup.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {
