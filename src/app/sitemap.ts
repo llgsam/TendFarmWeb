@@ -58,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static, fully-localized pages. ('/guides' is a redirect to /guides/best-games,
   // so it's omitted; the comparison hub is listed via the guide categories below.)
   add('', LOCALES, 1.0, 'daily')
-  for (const p of ['/games', '/tools', '/tools/hay-day', '/tools/stardew', '/tools/stardew-calendar', '/tools/stardew-gifts', '/tools/stardew-fish', '/tools/stardew-bundles', '/quizzes']) {
+  for (const p of ['/games', '/tools', '/tools/hay-day', '/tools/stardew', '/tools/stardew-calendar', '/tools/stardew-gifts', '/tools/stardew-fish', '/tools/stardew-bundles', '/tools/stardew-museum', '/quizzes']) {
     add(p)
   }
 

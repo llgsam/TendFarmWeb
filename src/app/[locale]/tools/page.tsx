@@ -133,6 +133,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-museum',
+    href: 'tools/stardew-museum',
+    titles: {
+      zh: '星露谷物语博物馆收藏', 'zh-TW': '星露谷物語博物館收藏',
+      ja: 'スターデューバレー 博物館コレクション', ko: '스타듀밸리 박물관 컬렉션',
+      de: 'Stardew Valley Museum', en: 'Stardew Valley Museum',
+    },
+    descs: {
+      zh: '全部 95 项矿物、宝石和化石的来源，按类别筛选，附全部捐赠里程碑奖励。',
+      'zh-TW': '全部 95 項礦物、寶石和化石的來源，按類別篩選，附全部捐贈里程碑獎勵。',
+      ja: '全95件の鉱物・宝石・発掘品の入手先。カテゴリ別、寄贈報酬付き。',
+      ko: '광물·보석·유물 95종의 입수처, 카테고리별, 기증 보상 포함.',
+      de: 'Alle 95 Mineralien, Edelsteine und Artefakte mit Fundort und Spendenbelohnungen.',
+      en: 'All 95 minerals, gems, and artifacts with sources, by category, plus every donation reward.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {

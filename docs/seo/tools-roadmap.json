@@ -6,6 +6,7 @@
 
   "shipped": [
     { "tool": "stardew-bundles", "route": "tools/stardew-bundles", "primary_kw": "stardew valley bundles", "vol": 8100, "covers": ["stardew valley bundles", "stardew bundles", "stardew valley community center bundles", "community center bundles"], "status": "done", "notes": "31 standard bundles, 7 rooms, 6 langs; room browse + item reverse-lookup; data scraped from per-language wiki" },
+    { "tool": "stardew-museum", "route": "tools/stardew-museum", "primary_kw": "stardew museum", "vol": 8100, "covers": ["stardew museum", "stardew artifacts", "stardew valley minerals", "stardew valley geodes"], "status": "done", "notes": "95 donatable items (42 artifacts + 53 minerals) with localized sources, 4 category filters + search, 14 donation milestone rewards; 6 langs scraped from per-language wiki" },
     { "tool": "hay-day-calculator", "route": "tools/hay-day", "primary_kw": "hay day crops", "vol": null, "covers": ["hay day crop profit"], "status": "done" },
     { "tool": "stardew-crop-calculator", "route": "tools/stardew", "primary_kw": "stardew valley crops", "vol": 2400, "covers": ["stardew valley crops", "stardew best crops", "stardew valley profit calculator", "stardew valley best crops"], "status": "done" },
     { "tool": "stardew-calendar", "route": "tools/stardew-calendar", "primary_kw": "stardew valley calendar", "vol": 8100, "covers": ["stardew valley calendar", "stardew valley birthdays", "stardew valley festivals"], "status": "done" },
@@ -14,11 +15,6 @@
   ],
 
   "queue": [
-    { "tool": "stardew-museum", "route": "tools/stardew-museum", "primary_kw": "stardew museum", "vol": 8100, "cluster_vol": 11500,
-      "cluster": ["stardew museum=8100", "stardew artifacts=1600", "stardew valley minerals=1000", "stardew valley geodes=480", "stardew geodes=320"],
-      "effort": "L", "priority": "P1", "status": "pending",
-      "notes": "矿物+宝石+化石收藏清单（~95 项）+ 来源（矿层/挖掘/怪物掉落/晶洞）+ 捐赠里程碑奖励。可加本地『已捐赠』进度勾选。" },
-
     { "tool": "stardew-cooking", "route": "tools/stardew-cooking", "primary_kw": "stardew valley recipes", "vol": 1900, "cluster_vol": 6480,
       "cluster": ["stardew valley cooking=2400", "stardew valley recipes=1900", "stardew recipes=1300", "stardew cooking=880"],
       "effort": "L", "priority": "P2", "status": "pending",
