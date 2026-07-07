@@ -55,3 +55,24 @@ export const VILLAGERS: Villager[] = [
   { key: 'willy', icon: 'Willy.png', name: { en: 'Willy', zh: '威利', zhTW: '威利', ja: 'ウィリー', ko: '윌리', de: 'Willy' }, marriageable: false, gender: 'male', birthday: { season: 'summer', day: 24 }, region: { en: 'Fish Shop (The Beach)', zh: '鱼店（沙滩）', zhTW: '魚店（沙灘）', ja: '釣具店（ビーチ）', ko: '생선 가게 (해변)', de: 'Anglerbedarf (Der Strand)' }, lovedGifts: [{ en: 'Catfish', zh: '鲶鱼', zhTW: '鲶魚', ja: 'ナマズ', ko: '메기', de: 'Katzenfisch' }, { en: 'Diamond', zh: '钻石', zhTW: '鑽石', ja: 'ダイヤモンド', ko: '다이아몬드', de: 'Diamant' }, { en: 'Gold Bar', zh: '金锭', zhTW: '金錠', ja: '金ののべ棒', ko: '금 주괴', de: 'Goldbarren' }, { en: 'Iridium Bar', zh: '铱锭', zhTW: '銥錠', ja: 'イリジウムののべ棒', ko: '이리듐 주괴', de: 'Iridiumbarren' }, { en: 'Jewels Of The Sea', zh: '海之宝石', zhTW: '海之寶石', ja: '海の宝石', ko: '바다의 보석', de: 'Juwelen des Meeres' }, { en: 'Mead', zh: '蜜蜂酒', zhTW: '蜜蜂酒', ja: 'はちみつ酒', ko: '벌꿀 술', de: 'Met' }], personality: null, spousePerk: null, heartEventHint: null },
   { key: 'wizard', icon: 'Wizard.png', name: { en: 'Wizard', zh: '法师', zhTW: '法師', ja: '魔術師', ko: '마법사', de: 'Zauberer' }, marriageable: false, gender: 'male', birthday: { season: 'winter', day: 17 }, region: { en: 'Wizard\'s Tower (Cindersap Forest)', zh: '法师塔（煤矿森林）', zhTW: '法師塔（煤礦森林）', ja: '魔術師の塔（シンダーサップの森）', ko: '마법사의 탑 (잉걸불 수액 숲)', de: 'Turm des Zauberers (Zundersaftwald)' }, lovedGifts: [{ en: 'Book of Mysteries', zh: '谜之书', zhTW: '謎之書', ja: 'ミステリーの本', ko: '미스테리의 책', de: 'Buch der Mysterien' }, { en: 'Purple Mushroom', zh: '紫蘑菇', zhTW: '紫蘑菇', ja: 'むらさきキノコ', ko: '보라색 버섯', de: 'Violetter Pilz' }, { en: 'Solar Essence', zh: '太阳精华', zhTW: '太陽精華', ja: '光の結晶', ko: '태양 정수', de: 'Solar-Essenz' }, { en: 'Super Cucumber', zh: '大海参', zhTW: '大海參', ja: 'スーパーナマコ', ko: '슈퍼해삼', de: 'Super-Seegurke' }, { en: 'Void Essence', zh: '虚空精华', zhTW: '虛空精華', ja: '闇の結晶', ko: '공허 정수', de: 'Schattenessenz' }], personality: null, spousePerk: null, heartEventHint: null },
 ]
+
+export function pickVil(l: VilLoc, locale: string): string {
+  if (locale === 'zh') return l.zh
+  if (locale === 'zh-TW') return l.zhTW
+  if (locale === 'ja') return l.ja
+  if (locale === 'ko') return l.ko
+  if (locale === 'de') return l.de
+  return l.en
+}
+
+export interface VillagerFilter { marriageableOnly: boolean; season: Season | 'all'; query: string; locale: string }
+
+export function filterVillagers(f: VillagerFilter): Villager[] {
+  const q = f.query.trim().toLowerCase()
+  return VILLAGERS.filter((v) => {
+    if (f.marriageableOnly && !v.marriageable) return false
+    if (f.season !== 'all' && v.birthday.season !== f.season) return false
+    if (q && !pickVil(v.name, f.locale).toLowerCase().includes(q)) return false
+    return true
+  })
+}
