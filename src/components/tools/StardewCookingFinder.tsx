@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { COOK_RECIPES, filterRecipes, allIngredients, pickCook, type CookRecipe, type BuffType, type SourceCat, type CookLoc } from './stardewCookingData'
+import { filterRecipes, allIngredients, pickCook, type CookRecipe, type BuffType, type SourceCat, type CookLoc } from './stardewCookingData'
 
 const BUFFS: { key: BuffType; label: CookLoc }[] = [
   { key: 'farming', label: { en: 'Farming', zh: '耕种', zhTW: '耕種', ja: '農業', ko: '농사', de: 'Landbau' } },
@@ -92,9 +92,14 @@ function RecipeCard({
       <p className="mb-1 text-sm text-[#8a9a7a]">⚡ {r.energy} · ❤️ {r.health} · 💰 {r.sellPrice}g</p>
       {r.buffs.length > 0 && (
         <p className="text-sm text-[#f0a832]">
-          ✨ {r.buffs.map((b) => `${b.type} +${b.amount}`).join(', ')}{r.buffDuration ? ` (${r.buffDuration})` : ''}
+          ✨ {r.buffs.map((b) => `${BUFF_LABEL(b.type, t)} +${b.amount}`).join(', ')}{r.buffDuration ? ` (${r.buffDuration})` : ''}
         </p>
       )}
     </div>
   )
+}
+
+function BUFF_LABEL(type: BuffType, t: (l: CookLoc) => string) {
+  const m = BUFFS.find((x) => x.key === type)
+  return m ? t(m.label) : type
 }
