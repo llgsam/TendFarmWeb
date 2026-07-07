@@ -16,15 +16,13 @@
       "cluster": ["stardew valley marriage=3600", "stardew valley villagers=1900"],
       "effort": "M", "priority": "P2", "status": "done",
       "covers": ["stardew valley marriage", "stardew valley villagers", "stardew valley marriage candidates"],
-      "notes": "村民档案中枢：可结婚对象、生日、最爱礼物摘要、爱心事件门槛。串联已有 gifts/calendar 工具。" }
+      "notes": "村民档案中枢：可结婚对象、生日、最爱礼物摘要、爱心事件门槛。串联已有 gifts/calendar 工具。" },
+    { "tool": "stardew-cooking", "route": "tools/stardew-cooking", "primary_kw": "stardew valley recipes", "vol": 1900,
+      "covers": ["stardew valley recipes", "stardew valley cooking", "stardew recipes", "stardew cooking"], "status": "done",
+      "notes": "料理食谱查询（~80 道）：按食材/来源/回血增益筛选；每道菜列食材数量、解锁来源、buff。数据量最大。" }
   ],
 
   "queue": [
-    { "tool": "stardew-cooking", "route": "tools/stardew-cooking", "primary_kw": "stardew valley recipes", "vol": 1900, "cluster_vol": 6480,
-      "cluster": ["stardew valley cooking=2400", "stardew valley recipes=1900", "stardew recipes=1300", "stardew cooking=880"],
-      "effort": "L", "priority": "P2", "status": "pending",
-      "notes": "料理食谱查询（~80 道）：按食材/来源/回血增益筛选；每道菜列食材数量、解锁来源、buff。数据量最大。" },
-
     { "tool": "stardew-mines", "route": "tools/stardew-mines", "primary_kw": "stardew valley mines", "vol": 4400, "cluster_vol": 4400,
       "cluster": ["stardew valley mines=4400"],
       "effort": "M", "priority": "P2", "status": "pending",

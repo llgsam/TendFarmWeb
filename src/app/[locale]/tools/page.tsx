@@ -170,6 +170,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-cooking',
+    href: 'tools/stardew-cooking',
+    titles: {
+      zh: '星露谷物语料理食谱查询', 'zh-TW': '星露谷物語料理食譜查詢',
+      ja: 'スターデューバレー 料理レシピ検索', ko: '스타듀밸리 요리 레시피',
+      de: 'Stardew Valley Kochrezepte', en: 'Stardew Valley Cooking Recipes',
+    },
+    descs: {
+      zh: '按食材反查、按增益和来源筛选料理，含食材数量、解锁方式、回复量、buff 时长和售价。',
+      'zh-TW': '按食材反查、按增益和來源篩選料理，含食材數量、解鎖方式、回復量、buff 時長和售價。',
+      ja: '食材で逆引き、バフ・入手方法で料理を絞り込み。材料数・回復量・売値付き。',
+      ko: '재료로 역검색, 버프·출처로 요리 필터. 재료 수량·회복량·판매가 포함.',
+      de: 'Rezepte per Rückwärtssuche nach Zutat, Buff und Quelle — mit Mengen, Erholung und Preis.',
+      en: 'Reverse-lookup recipes by ingredient, filter by buff and source — with quantities, restore, buffs, and price.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {
