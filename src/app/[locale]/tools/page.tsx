@@ -152,6 +152,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-villagers',
+    href: 'tools/stardew-villagers',
+    titles: {
+      zh: '星露谷物语结婚对象对比', 'zh-TW': '星露谷物語結婚對象對比',
+      ja: 'スターデューバレー 結婚候補比較', ko: '스타듀밸리 결혼 후보 비교',
+      de: 'Stardew Valley Heiratskandidaten', en: 'Stardew Valley Marriage Candidates',
+    },
+    descs: {
+      zh: '12 位可结婚村民并排对比：生日、最爱礼物、性格、婚后与爱心事件，帮你决定娶谁/嫁谁。',
+      'zh-TW': '12 位可結婚村民並排對比：生日、最愛禮物、性格、婚後與愛心事件，幫你決定娶誰/嫁誰。',
+      ja: '結婚候補12人を誕生日・贈り物・性格・結婚後で並べて比較。',
+      ko: '결혼 후보 12명을 생일·선물·성격·결혼 후로 나란히 비교.',
+      de: 'Vergleiche alle 12 Heiratskandidaten: Geburtstage, Geschenke, Charakter, Ehe.',
+      en: 'Compare all 12 marriage candidates — birthdays, gifts, personality, marriage perks.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {
