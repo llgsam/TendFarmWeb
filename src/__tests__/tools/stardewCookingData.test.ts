@@ -10,6 +10,7 @@ describe('cooking data integrity', () => {
     expect(COOK_RECIPES.length).toBeGreaterThanOrEqual(70)
     const keys = COOK_RECIPES.map((r) => r.key)
     expect(new Set(keys).size).toBe(keys.length)
+    expect(new Set(COOK_RECIPES.map((r) => r.icon)).size).toBe(COOK_RECIPES.length)
   })
 
   it('every recipe fully localized with ≥1 ingredient and valid sourceCat', () => {
@@ -33,9 +34,10 @@ describe('cooking data integrity', () => {
     }
   })
 
-  it('known fact: Salad restores energy and is a shop recipe', () => {
+  it('known fact: Salad restores energy', () => {
     const salad = COOK_RECIPES.find((r) => r.key === 'salad')
     expect(salad).toBeTruthy()
     expect(salad!.energy).toBeGreaterThan(0)
+    expect(salad!.sourceCat).toBe('friendship')
   })
 })
