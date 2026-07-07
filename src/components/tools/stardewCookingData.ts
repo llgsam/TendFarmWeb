@@ -105,3 +105,37 @@ export const COOK_RECIPES: CookRecipe[] = [
   { key: "trout-soup", icon: "Trout_Soup.png", name: { en: "Trout Soup", zh: "鳟鱼汤", zhTW: "鱒魚湯", ja: "マスのスープ", ko: "송어 스프", de: "Forellensuppe" }, ingredients: [{ key: "rainbow-trout", name: { en: "Rainbow Trout", zh: "虹鳟鱼", zhTW: "虹鱒魚", ja: "ニジマス", ko: "무지개송어", de: "Regenbogenforelle" }, qty: 1 }, { key: "green-algae", name: { en: "Green Algae", zh: "绿藻", zhTW: "綠藻", ja: "緑の藻", ko: "녹조류", de: "Grünalge" }, qty: 1 }], source: { en: "The Queen of Sauce 14 Fall, Year 1", zh: "酱料女皇 奇数年秋季14日", zhTW: "醬料女皇 奇數年秋季14日", ja: "ソースの女王 １年目 秋 14日", ko: "소스의 여왕 1년차 가을 14일", de: "Die Königin der Soßen 14. Herbst, Jahr 1" }, sourceCat: "tv", energy: 100, health: 45, buffs: [{ type: "fishing", amount: 1 }], buffDuration: "4m 39s", sellPrice: 100 },
   { key: "vegetable-medley", icon: "Vegetable_Medley.png", name: { en: "Vegetable Medley", zh: "蔬菜杂烩", zhTW: "蔬菜雜燴", ja: "野菜のシチュー", ko: "야채의 메들리", de: "Gemüseeintopf" }, ingredients: [{ key: "tomato", name: { en: "Tomato", zh: "西红柿", zhTW: "西紅柿", ja: "トマト", ko: "토마토", de: "Tomate" }, qty: 1 }, { key: "beet", name: { en: "Beet", zh: "甜菜", zhTW: "甜菜", ja: "ビーツ", ko: "사탕무", de: "Rübe" }, qty: 1 }], source: { en: "Caroline (Mail - 7+)", zh: "卡洛琳（邮件 - 7+）", zhTW: "卡洛琳（郵件 - 7+）", ja: "キャロライン（手紙 - 7+）", ko: "캐롤라인 (우편 - 7 이상)", de: "Caroline (per Brief - 7+)" }, sourceCat: "friendship", energy: 165, health: 74, buffs: [], buffDuration: null, sellPrice: 120 },
 ]
+
+export function pickCook(l: CookLoc, locale: string): string {
+  if (locale === 'zh') return l.zh
+  if (locale === 'zh-TW') return l.zhTW
+  if (locale === 'ja') return l.ja
+  if (locale === 'ko') return l.ko
+  if (locale === 'de') return l.de
+  return l.en
+}
+
+export function allIngredients(locale: string): { key: string; name: string }[] {
+  const map = new Map<string, string>()
+  for (const r of COOK_RECIPES) {
+    for (const ing of r.ingredients) {
+      if (!map.has(ing.key)) map.set(ing.key, pickCook(ing.name, locale))
+    }
+  }
+  return [...map.entries()]
+    .map(([key, name]) => ({ key, name }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+}
+
+export interface RecipeFilter { ingredientKey: string; buff: BuffType | 'all'; sourceCat: SourceCat | 'all'; query: string; locale: string }
+
+export function filterRecipes(f: RecipeFilter): CookRecipe[] {
+  const q = f.query.trim().toLowerCase()
+  return COOK_RECIPES.filter((r) => {
+    if (f.ingredientKey && !r.ingredients.some((i) => i.key === f.ingredientKey)) return false
+    if (f.buff !== 'all' && !r.buffs.some((b) => b.type === f.buff)) return false
+    if (f.sourceCat !== 'all' && r.sourceCat !== f.sourceCat) return false
+    if (q && !pickCook(r.name, f.locale).toLowerCase().includes(q)) return false
+    return true
+  })
+}
