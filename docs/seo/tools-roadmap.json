@@ -17,7 +17,8 @@
       "notes": "村民档案中枢：可结婚对象、生日、最爱礼物摘要、爱心事件门槛。串联已有 gifts/calendar 工具。" },
     { "tool": "stardew-cooking", "route": "tools/stardew-cooking", "primary_kw": "stardew valley recipes", "vol": 1900,
       "covers": ["stardew valley recipes", "stardew valley cooking", "stardew recipes", "stardew cooking"], "status": "done",
-      "notes": "料理食谱查询（~80 道）：按食材/来源/回血增益筛选；每道菜列食材数量、解锁来源、buff。数据量最大。" }
+      "notes": "料理食谱查询（~80 道）：按食材/来源/回血增益筛选；每道菜列食材数量、解锁来源、buff。数据量最大。" },
+    { "tool": "stardew-sprinkler-planner", "route": "tools/stardew-sprinklers", "primary_kw": "stardew valley sprinklers", "vol": 12100, "covers": ["stardew valley sprinklers", "stardew valley scarecrow", "stardew sprinkler layout"], "status": "done", "notes": "Interactive coverage grid: 3 sprinkler tiers +pressure nozzle, scarecrows, live watered/protected overlays, optimal-pattern presets, localStorage + URL share; shared gridCoverage engine reused by greenhouse next." }
   ],
 
   "queue": [
@@ -56,7 +57,7 @@
     { "_comment": "以下为最高原始搜索量的簇，但需要重型交互（网格/覆盖范围可视化），不是简单『数据文件 + 查询』范式，单独排期，建议在若干快速工具之后再啃。",
       "cluster_vol": 59100,
       "candidates": [
-        { "tool": "stardew-sprinkler-planner", "primary_kw": "stardew valley sprinklers", "vol": 12100, "with": ["stardew valley scarecrow=1600"], "effort": "L", "notes": "洒水器/稻草人覆盖范围可视化网格。" },
+        { "tool": "stardew-sprinkler-planner", "primary_kw": "stardew valley sprinklers", "vol": 12100, "with": ["stardew valley scarecrow=1600"], "effort": "L", "status": "done", "notes": "洒水器/稻草人覆盖范围可视化网格。" },
         { "tool": "stardew-farm-planner", "primary_kw": "stardew valley planner", "vol": 9900, "with": ["stardew planner=9900", "stardew valley farm planner=5400", "stardew farm layout=5400"], "effort": "XL", "notes": "拖拽式农场布局规划器（网格编辑器），最大工程。" },
         { "tool": "stardew-greenhouse-layout", "primary_kw": "stardew valley greenhouse", "vol": 14800, "effort": "M", "notes": "温室布局意图为主；可做温室专属网格或并入 planner / 或先做温室指南文章截流。" }
       ]
