@@ -188,6 +188,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-sprinklers',
+    href: 'tools/stardew-sprinklers',
+    titles: {
+      zh: '星露谷物语洒水器规划器', 'zh-TW': '星露谷物語灑水器規劃器',
+      ja: 'スターデューバレー スプリンクラープランナー', ko: '스타듀밸리 스프링클러 플래너',
+      de: 'Stardew Valley Sprinkler-Planer', en: 'Stardew Valley Sprinkler Planner',
+    },
+    descs: {
+      zh: '在网格上放洒水器和稻草人，实时看浇水/保护范围，一键铺最优图案，可分享链接。',
+      'zh-TW': '在網格上放灑水器和稻草人，即時看澆水/保護範圍，一鍵鋪最優圖案，可分享連結。',
+      ja: 'グリッドにスプリンクラー・カカシを配置、給水/保護範囲を即時表示、最適配置ワンクリック。',
+      ko: '그리드에 스프링클러·허수아비 배치, 급수/보호 범위 실시간, 최적 배치 원클릭.',
+      de: 'Sprinkler und Vogelscheuchen im Raster platzieren, Reichweite live, optimale Muster per Klick.',
+      en: 'Place sprinklers and scarecrows on a grid, see coverage live, fill optimal patterns, share a link.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {
