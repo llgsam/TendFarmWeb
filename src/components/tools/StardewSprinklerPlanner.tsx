@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { TileGrid } from './TileGrid'
 import {
   wateredTiles, protectedTiles, computeMetrics, key,
@@ -41,6 +41,9 @@ export function StardewSprinklerPlanner({ locale }: { locale: string }) {
   const [brush, setBrush] = useState<Brush>('iridium')
   const [nozzle, setNozzle] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [wInput, setWInput] = useState(String(dims.w))
+  const [hInput, setHInput] = useState(String(dims.h))
+  const restoredRef = useRef(false)
 
   const L = (en: string, zh: string, zhTW: string, ja: string, ko: string, de: string) => pick({ en, zh, zhTW, ja, ko, de }, locale)
 
@@ -48,17 +51,26 @@ export function StardewSprinklerPlanner({ locale }: { locale: string }) {
   useEffect(() => {
     const token = new URLSearchParams(window.location.search).get('l')
     const fromUrl = token ? decodeLayout(token) : null
-    if (fromUrl) { setDims(fromUrl.dims); setPlaced(fromUrl.placed); return }
+    if (fromUrl) { setDims(fromUrl.dims); setPlaced(fromUrl.placed); restoredRef.current = true; return }
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
       if (saved) { const l = decodeLayout(saved); if (l) { setDims(l.dims); setPlaced(l.placed) } }
     } catch { /* ignore */ }
+    restoredRef.current = true
   }, [])
 
-  // Autosave to localStorage on change.
+  // Autosave to localStorage on change. Skip the very first run (mount), which
+  // would otherwise write stale default state before the restore effect flushes.
   useEffect(() => {
+    if (!restoredRef.current) return
     try { localStorage.setItem(STORAGE_KEY, encodeLayout({ dims, placed })) } catch { /* ignore */ }
   }, [dims, placed])
+
+  // Keep local input strings in sync when dims changes for another reason (preset/restore/resize).
+  useEffect(() => {
+    setWInput(String(dims.w))
+    setHInput(String(dims.h))
+  }, [dims.w, dims.h])
 
   const watered = useMemo(() => wateredTiles(placed, dims), [placed, dims])
   const prot = useMemo(() => protectedTiles(placed, dims), [placed, dims])
@@ -86,6 +98,16 @@ export function StardewSprinklerPlanner({ locale }: { locale: string }) {
     const h = Math.max(5, Math.min(40, patch.h ?? dims.h))
     setDims({ w, h })
     setPlaced((prev) => prev.filter((p) => p.x < w && p.y < h))
+  }
+  const commitWInput = () => {
+    const n = Number.parseInt(wInput, 10)
+    if (Number.isFinite(n)) { resize({ w: n }); return }
+    setWInput(String(dims.w))
+  }
+  const commitHInput = () => {
+    const n = Number.parseInt(hInput, 10)
+    if (Number.isFinite(n)) { resize({ h: n }); return }
+    setHInput(String(dims.h))
   }
   const share = async () => {
     const url = `${window.location.origin}${window.location.pathname}?l=${encodeLayout({ dims, placed })}`
@@ -136,10 +158,12 @@ export function StardewSprinklerPlanner({ locale }: { locale: string }) {
         </button>
         <span className="flex items-center gap-1 text-sm text-[#8a9a7a]">
           {L('Size', '尺寸', '尺寸', 'サイズ', '크기', 'Größe')}:
-          <input type="number" min={5} max={40} value={dims.w} onChange={(e) => resize({ w: Number(e.target.value) })}
+          <input type="number" min={5} max={40} value={wInput} onChange={(e) => setWInput(e.target.value)}
+            onBlur={commitWInput} onKeyDown={(e) => { if (e.key === 'Enter') commitWInput() }}
             className="w-16 rounded border border-[#2d3d2d] bg-[#0f1a0f] px-2 py-1 text-[#e8dcc8]" />
           ×
-          <input type="number" min={5} max={40} value={dims.h} onChange={(e) => resize({ h: Number(e.target.value) })}
+          <input type="number" min={5} max={40} value={hInput} onChange={(e) => setHInput(e.target.value)}
+            onBlur={commitHInput} onKeyDown={(e) => { if (e.key === 'Enter') commitHInput() }}
             className="w-16 rounded border border-[#2d3d2d] bg-[#0f1a0f] px-2 py-1 text-[#e8dcc8]" />
         </span>
       </div>
@@ -150,7 +174,7 @@ export function StardewSprinklerPlanner({ locale }: { locale: string }) {
         <span>🌱 {L('Crops watered', '作物已浇', '作物已澆', '給水作物', '급수 작물', 'Bewässerte Feldfrüchte')}: {metrics.cropsWatered}/{metrics.cropTotal}</span>
         <span className={metrics.cropsUnwatered ? 'text-red-400' : ''}>⚠️ {L('Dry crops', '漏浇作物', '漏澆作物', '未給水作物', '미급수 작물', 'Trockene Feldfrüchte')}: {metrics.cropsUnwatered}</span>
         <span>🎃 {L('Protected', '受保护', '受保護', '保護', '보호', 'Geschützt')}: {metrics.protectedCount}</span>
-        <span>📊 {L('Coverage', '覆盖率', '覆蓋率', 'カバー率', '커버리지', 'Abdeckung')}: {metrics.coveragePct}%</span>
+        <span>📊 {L('Crop coverage', '作物覆盖率', '作物覆蓋率', '作物カバー率', '작물 커버리지', 'Feldfrucht-Abdeckung')}: {metrics.coveragePct}%</span>
       </div>
 
       <TileGrid dims={dims} cellContent={cellContent} onCellClick={placeAt} />
