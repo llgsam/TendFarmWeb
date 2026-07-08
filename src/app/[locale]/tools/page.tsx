@@ -152,6 +152,42 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-villagers',
+    href: 'tools/stardew-villagers',
+    titles: {
+      zh: '星露谷物语结婚对象对比', 'zh-TW': '星露谷物語結婚對象對比',
+      ja: 'スターデューバレー 結婚候補比較', ko: '스타듀밸리 결혼 후보 비교',
+      de: 'Stardew Valley Heiratskandidaten', en: 'Stardew Valley Marriage Candidates',
+    },
+    descs: {
+      zh: '12 位可结婚村民并排对比：生日、最爱礼物、性格、婚后与爱心事件，帮你决定娶谁/嫁谁。',
+      'zh-TW': '12 位可結婚村民並排對比：生日、最愛禮物、性格、婚後與愛心事件，幫你決定娶誰/嫁誰。',
+      ja: '結婚候補12人を誕生日・贈り物・性格・結婚後で並べて比較。',
+      ko: '결혼 후보 12명을 생일·선물·성격·결혼 후로 나란히 비교.',
+      de: 'Vergleiche alle 12 Heiratskandidaten: Geburtstage, Geschenke, Charakter, Ehe.',
+      en: 'Compare all 12 marriage candidates — birthdays, gifts, personality, marriage perks.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
+  {
+    key: 'stardew-cooking',
+    href: 'tools/stardew-cooking',
+    titles: {
+      zh: '星露谷物语料理食谱查询', 'zh-TW': '星露谷物語料理食譜查詢',
+      ja: 'スターデューバレー 料理レシピ検索', ko: '스타듀밸리 요리 레시피',
+      de: 'Stardew Valley Kochrezepte', en: 'Stardew Valley Cooking Recipes',
+    },
+    descs: {
+      zh: '按食材反查、按增益和来源筛选料理，含食材数量、解锁方式、回复量、buff 时长和售价。',
+      'zh-TW': '按食材反查、按增益和來源篩選料理，含食材數量、解鎖方式、回復量、buff 時長和售價。',
+      ja: '食材で逆引き、バフ・入手方法で料理を絞り込み。材料数・回復量・売値付き。',
+      ko: '재료로 역검색, 버프·출처로 요리 필터. 재료 수량·회복량·판매가 포함.',
+      de: 'Rezepte per Rückwärtssuche nach Zutat, Buff und Quelle — mit Mengen, Erholung und Preis.',
+      en: 'Reverse-lookup recipes by ingredient, filter by buff and source — with quantities, restore, buffs, and price.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {

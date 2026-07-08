@@ -2,7 +2,7 @@
   "_comment": "星露谷/农场游戏『数据工具』的 SEO 驱动构建路线图。与 article-queue.json 平行：每日例程取 queue 里第一个 status=pending 的条目构建（节奏 1-2 个/天），完成后 status→done、把工具移入 shipped 并更新 covers[]。优先级按 cluster_vol（同一工具能吃下的关键词簇的 US 月搜索量合计）排序。vol = US 月搜索量（clickstream，get_keyword_data cli）。所有数据工具沿用同一范式：tools/<key>/page.tsx（6 语言 SEO）+ Stardew<X>Finder.tsx 客户端组件 + stardew<X>Data.ts（6 语言数据，源自各语言官方 wiki）+ 在 tools/page.tsx 的 DATA_TOOLS 注册 + 相关工具互链。",
   "cadence": "1-2 tools per day, SEO-prioritized",
   "market": "us / usd",
-  "updated": "2026-07-05",
+  "updated": "2026-07-08",
 
   "shipped": [
     { "tool": "stardew-bundles", "route": "tools/stardew-bundles", "primary_kw": "stardew valley bundles", "vol": 8100, "covers": ["stardew valley bundles", "stardew bundles", "stardew valley community center bundles", "community center bundles"], "status": "done", "notes": "31 standard bundles, 7 rooms, 6 langs; room browse + item reverse-lookup; data scraped from per-language wiki" },
@@ -11,24 +11,20 @@
     { "tool": "stardew-crop-calculator", "route": "tools/stardew", "primary_kw": "stardew valley crops", "vol": 2400, "covers": ["stardew valley crops", "stardew best crops", "stardew valley profit calculator", "stardew valley best crops"], "status": "done" },
     { "tool": "stardew-calendar", "route": "tools/stardew-calendar", "primary_kw": "stardew valley calendar", "vol": 8100, "covers": ["stardew valley calendar", "stardew valley birthdays", "stardew valley festivals"], "status": "done" },
     { "tool": "stardew-fish-finder", "route": "tools/stardew-fish", "primary_kw": "stardew valley fish", "vol": 22200, "covers": ["stardew valley fish", "stardew valley fishing"], "status": "done" },
-    { "tool": "stardew-gift-guide", "route": "tools/stardew-gifts", "primary_kw": "stardew valley gifts", "vol": 12100, "covers": ["stardew valley gifts", "stardew valley loved gifts"], "status": "done" }
+    { "tool": "stardew-gift-guide", "route": "tools/stardew-gifts", "primary_kw": "stardew valley gifts", "vol": 12100, "covers": ["stardew valley gifts", "stardew valley loved gifts"], "status": "done" },
+    { "tool": "stardew-villagers", "route": "tools/stardew-villagers", "primary_kw": "stardew valley marriage", "vol": 3600, "status": "done",
+      "covers": ["stardew valley marriage", "stardew valley villagers", "stardew valley marriage candidates"],
+      "notes": "村民档案中枢：可结婚对象、生日、最爱礼物摘要、爱心事件门槛。串联已有 gifts/calendar 工具。" },
+    { "tool": "stardew-cooking", "route": "tools/stardew-cooking", "primary_kw": "stardew valley recipes", "vol": 1900,
+      "covers": ["stardew valley recipes", "stardew valley cooking", "stardew recipes", "stardew cooking"], "status": "done",
+      "notes": "料理食谱查询（~80 道）：按食材/来源/回血增益筛选；每道菜列食材数量、解锁来源、buff。数据量最大。" }
   ],
 
   "queue": [
-    { "tool": "stardew-cooking", "route": "tools/stardew-cooking", "primary_kw": "stardew valley recipes", "vol": 1900, "cluster_vol": 6480,
-      "cluster": ["stardew valley cooking=2400", "stardew valley recipes=1900", "stardew recipes=1300", "stardew cooking=880"],
-      "effort": "L", "priority": "P2", "status": "pending",
-      "notes": "料理食谱查询（~80 道）：按食材/来源/回血增益筛选；每道菜列食材数量、解锁来源、buff。数据量最大。" },
-
     { "tool": "stardew-mines", "route": "tools/stardew-mines", "primary_kw": "stardew valley mines", "vol": 4400, "cluster_vol": 4400,
       "cluster": ["stardew valley mines=4400"],
       "effort": "M", "priority": "P2", "status": "pending",
       "notes": "矿洞层数速查：每 10 层的矿石/怪物/电梯，冰层/岩浆层过渡，骷髅洞穴与危险矿洞要点。" },
-
-    { "tool": "stardew-villagers", "route": "tools/stardew-villagers", "primary_kw": "stardew valley marriage", "vol": 3600, "cluster_vol": 5500,
-      "cluster": ["stardew valley marriage=3600", "stardew valley villagers=1900"],
-      "effort": "M", "priority": "P2", "status": "pending",
-      "notes": "村民档案中枢：可结婚对象、生日、最爱礼物摘要、爱心事件门槛。串联已有 gifts/calendar 工具。" },
 
     { "tool": "stardew-secret-notes", "route": "tools/stardew-secret-notes", "primary_kw": "stardew valley secret notes", "vol": 2400, "cluster_vol": 2400,
       "cluster": ["stardew valley secret notes=2400"],
