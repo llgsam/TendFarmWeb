@@ -26,10 +26,15 @@ describe('BundleReferenceTable', () => {
     expect(screen.getByText('春季采集收集包')).toBeInTheDocument()
   })
 
-  it('shows an item reward with ×qty and a gold reward with g', () => {
+  it('shows an item reward with ×qty (Spring Foraging → Spring Seeds ×30)', () => {
     render(<BundleReferenceTable locale="en" />)
     expect(screen.getByText(/Spring Seeds ×30/)).toBeInTheDocument()
-    // Vault bundles have both reward items and gold, but item rewards are prioritized
+  })
+
+  it('shows the gold cost in Items Needed and the item reward for a Vault bundle', () => {
+    render(<BundleReferenceTable locale="en" />)
+    // Vault bundles require gold (rendered as e.g. "2500g" in Items Needed) and reward an item
+    expect(screen.getAllByText(/\d+g/).length).toBeGreaterThan(0)
     expect(screen.getByText(/Chocolate Cake ×3/)).toBeInTheDocument()
   })
 
