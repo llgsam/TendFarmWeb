@@ -11,6 +11,10 @@ describe('museumSummary', () => {
   it('states the artifact count', () => {
     expect(museumSummary('en')).toContain(String(artifacts))
   })
+  it('states the minerals count', () => {
+    const minerals = MUSEUM_ITEMS.length - artifacts
+    expect(museumSummary('en')).toContain(String(minerals))
+  })
   it('uses the zh template', () => {
     expect(museumSummary('zh')).toContain('博物馆')
   })

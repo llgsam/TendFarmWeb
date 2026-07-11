@@ -45,7 +45,7 @@ const MUSEUM_FAQS: Record<'en' | 'zh', Faq[]> = {
     },
     {
       q: 'Where is the Museum in Stardew Valley?',
-      a: 'The Museum is in Pelican Town, just north of the town square, in the same building as the Library. Talk to Gunther at the counter and choose to donate; he will take any eligible artifact or mineral you are carrying.',
+      a: 'The Museum is in Pelican Town, in the same building as the Library, just west of the town square next to the graveyard. Talk to Gunther at the counter and choose to donate; he will take any eligible artifact or mineral you are carrying.',
     },
   ],
   zh: [
@@ -63,7 +63,7 @@ const MUSEUM_FAQS: Record<'en' | 'zh', Faq[]> = {
     },
     {
       q: '星露谷的博物馆在哪里？',
-      a: '博物馆位于鹈鹕镇，就在镇广场北边，与图书馆同一栋建筑。在柜台找 Gunther 选择捐赠，他会收下你携带的任何符合条件的古物或矿物。',
+      a: '博物馆位于鹈鹕镇，与图书馆同一栋建筑，在镇广场西边、紧挨着墓地。在柜台找 Gunther 选择捐赠，他会收下你携带的任何符合条件的古物或矿物。',
     },
   ],
 }
