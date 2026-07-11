@@ -231,13 +231,17 @@ describe('buildArticleHandoff', () => {
     expect(tools.map((t) => t.href)).toContain('tools/hay-day')
   })
 
-  it('caps named games at 3', () => {
+  it('names at most 3 detected games in the prompt clause', () => {
     const many = {
-      title: 'Stardew Valley, Hay Day, Palia, Coral Island, Animal Crossing',
-      description: '', tags: [], contentHtml: '',
+      title: 'The best farming games ranked',
+      description: '', tags: [] as string[],
+      contentHtml: 'Stardew Valley, Hay Day, Palia, Coral Island and Animal Crossing are all here.',
     }
     const { prompt } = buildArticleHandoff(many, 'en')
-    // 4th/5th games not named
+    // Detection order (GAMES order) → first 3 named: Stardew, Hay Day, Palia.
+    // Games go in the body (where detection happens); title stays neutral so the
+    // prompt names games only via the clause, never by leaking through the title.
+    expect(prompt).toContain('Palia')
     expect(prompt).not.toContain('Coral Island')
     expect(prompt).not.toContain('Animal Crossing')
   })
