@@ -2,6 +2,9 @@ import { StardewVillagerFinder } from '@/components/tools/StardewVillagerFinder'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
+import { ToolReference } from '@/components/tools/seo/ToolReference'
+import { VillagerReferenceTable } from '@/components/tools/seo/VillagerReferenceTable'
+import { villagerSummary, getVillagerFaqs } from '@/lib/tools/seo/villagerSeoContent'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -65,6 +68,14 @@ export default async function StardewVillagersPage({ params }: { params: Promise
         )}
       </p>
       <StardewVillagerFinder locale={locale} />
+      <ToolReference
+        locale={locale}
+        tableTitle={getLoc(locale, '完整村民名录', 'Complete Villager Directory', '完整村民名錄', '全村人名鑑', '전체 주민 명단', 'Vollständiges Bewohnerverzeichnis')}
+        summary={villagerSummary(locale)}
+        faqs={getVillagerFaqs(locale)}
+      >
+        <VillagerReferenceTable locale={locale} />
+      </ToolReference>
       <div className="mt-12 border-t border-[#2d3d2d] pt-8">
         <h2 className="mb-4 text-lg font-semibold text-[#e8dcc8]">
           {getLoc(locale, '相关工具', 'Related Tools', '相關工具', '関連ツール', '관련 도구', 'Verwandte Tools')}
