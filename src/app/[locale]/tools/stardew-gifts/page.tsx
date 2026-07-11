@@ -2,6 +2,9 @@ import { StardewGiftFinder } from '@/components/tools/StardewGiftFinder'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
+import { ToolReference } from '@/components/tools/seo/ToolReference'
+import { GiftReferenceTable } from '@/components/tools/seo/GiftReferenceTable'
+import { giftSummary, getGiftFaqs } from '@/lib/tools/seo/giftSeoContent'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -80,6 +83,15 @@ export default async function StardewGiftsPage({
       </p>
 
       <StardewGiftFinder locale={locale} />
+
+      <ToolReference
+        locale={locale}
+        tableTitle={getLoc(locale, '完整村民送礼表', 'Complete Villager Gift Guide', '完整村民送禮表', '全村人 贈り物ガイド', '전체 주민 선물 가이드', 'Vollständiger Geschenk-Guide')}
+        summary={giftSummary(locale)}
+        faqs={getGiftFaqs(locale)}
+      >
+        <GiftReferenceTable locale={locale} />
+      </ToolReference>
 
       {/* Related links */}
       <div className="mt-12 border-t border-[#2d3d2d] pt-8">
