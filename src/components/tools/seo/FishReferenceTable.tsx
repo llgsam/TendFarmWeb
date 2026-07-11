@@ -1,16 +1,8 @@
-import { FISH, FISH_LOCATIONS, type FishLoc, type Season, type Weather } from '@/components/tools/stardewFishData'
+import { FISH, FISH_LOCATIONS, type FishLoc, type Weather } from '@/components/tools/stardewFishData'
+import { pickLoc, SEASONS } from '@/lib/tools/seo/locale'
 
 export interface FishReferenceTableProps {
   locale: string
-}
-
-function pick(loc: FishLoc, locale: string): string {
-  if (locale === 'zh') return loc.zh
-  if (locale === 'zh-TW') return loc.zhTW
-  if (locale === 'ja') return loc.ja
-  if (locale === 'ko') return loc.ko
-  if (locale === 'de') return loc.de
-  return loc.en
 }
 
 const HEADERS: Record<string, [string, string, string, string, string, string]> = {
@@ -20,13 +12,6 @@ const HEADERS: Record<string, [string, string, string, string, string, string]> 
   ja: ['魚', '季節', '場所', '時間', '天気', '売値(g)'],
   ko: ['물고기', '계절', '장소', '시간', '날씨', '판매가(g)'],
   de: ['Fisch', 'Jahreszeit', 'Ort', 'Zeit', 'Wetter', 'Preis (g)'],
-}
-
-const SEASONS: Record<Season, FishLoc> = {
-  spring: { en: 'Spring', zh: '春', zhTW: '春', ja: '春', ko: '봄', de: 'Frühling' },
-  summer: { en: 'Summer', zh: '夏', zhTW: '夏', ja: '夏', ko: '여름', de: 'Sommer' },
-  fall: { en: 'Fall', zh: '秋', zhTW: '秋', ja: '秋', ko: '가을', de: 'Herbst' },
-  winter: { en: 'Winter', zh: '冬', zhTW: '冬', ja: '冬', ko: '겨울', de: 'Winter' },
 }
 
 const WEATHER: Record<Weather, FishLoc> = {
@@ -50,7 +35,7 @@ export function FishReferenceTable({ locale }: FishReferenceTableProps) {
 
   const locName = (key: string): string => {
     const label = locMap.get(key)
-    return label ? pick(label, locale) : key
+    return label ? pickLoc(label, locale) : key
   }
 
   return (
@@ -69,12 +54,12 @@ export function FishReferenceTable({ locale }: FishReferenceTableProps) {
         {FISH.map((f) => (
           <tr key={f.key} className="border-b border-[#2d3d2d]/50 text-[#c8bca8]">
             <th scope="row" className="px-3 py-2 text-left font-medium text-[#e8dcc8]">
-              {pick(f.name, locale)}
+              {pickLoc(f.name, locale)}
             </th>
-            <td className="px-3 py-2">{f.seasons.map((s) => pick(SEASONS[s], locale)).join(', ')}</td>
+            <td className="px-3 py-2">{f.seasons.map((s) => pickLoc(SEASONS[s], locale)).join(', ')}</td>
             <td className="px-3 py-2">{f.locations.map(locName).join(', ')}</td>
             <td className="px-3 py-2">{f.time}</td>
-            <td className="px-3 py-2">{pick(WEATHER[f.weather], locale)}</td>
+            <td className="px-3 py-2">{pickLoc(WEATHER[f.weather], locale)}</td>
             <td className="px-3 py-2">{f.price}</td>
           </tr>
         ))}

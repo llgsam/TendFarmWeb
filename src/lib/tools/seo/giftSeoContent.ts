@@ -1,22 +1,14 @@
-import { GIFT_VILLAGERS, GIFT_ITEMS, UNIVERSAL_LOVES, type GiftLoc } from '@/components/tools/stardewGiftData'
+import { GIFT_VILLAGERS, GIFT_ITEMS, UNIVERSAL_LOVES } from '@/components/tools/stardewGiftData'
+import { pickLoc } from '@/lib/tools/seo/locale'
 
 export interface Faq {
   q: string
   a: string
 }
 
-function pickGiftLoc(loc: GiftLoc, locale: string): string {
-  if (locale === 'zh') return loc.zh
-  if (locale === 'zh-TW') return loc.zhTW
-  if (locale === 'ja') return loc.ja
-  if (locale === 'ko') return loc.ko
-  if (locale === 'de') return loc.de
-  return loc.en
-}
-
 function itemName(key: string, locale: string): string {
   const loc = GIFT_ITEMS[key]
-  return loc ? pickGiftLoc(loc, locale) : key.replace(/_/g, ' ')
+  return loc ? pickLoc(loc, locale) : key.replace(/_/g, ' ')
 }
 
 function joinTwo(names: string[], locale: string): string {
