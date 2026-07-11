@@ -58,11 +58,13 @@ export function giftSummary(locale: string): string {
   return fn(facts(locale))
 }
 
+// NOTE: FAQ prose enumerates the universal-love names and the +80 figure by hand.
+// If UNIVERSAL_LOVES or item friendship values change, update these answers to match the dataset.
 const GIFT_FAQS: Record<'en' | 'zh', Faq[]> = {
   en: [
     {
       q: 'What gifts does everyone love in Stardew Valley?',
-      a: "Six gifts are loved by every villager: the Prismatic Shard, Pearl, Rabbit's Foot, Magic Rock Candy, Golden Pumpkin, and Stardrop Tea. These universal loves grant +80 friendship with anyone, making them the safest premium gifts to hand out.",
+      a: "Six gifts are loved by every villager: the Prismatic Shard, Pearl, Rabbit's Foot, Magic Rock Candy, Golden Pumpkin, and Stardrop Tea. These universal loves grant +80 friendship with anyone — the one exception is Stardrop Tea, which gives +250 — making them the safest premium gifts to hand out.",
     },
     {
       q: 'What is the best gift to give any villager?',
@@ -80,7 +82,7 @@ const GIFT_FAQS: Record<'en' | 'zh', Faq[]> = {
   zh: [
     {
       q: '星露谷物语里人人都爱的礼物有哪些？',
-      a: '有六样礼物是每位村民都喜爱的：五彩碎片、珍珠、兔子的脚、魔法糖冰棍、黄金南瓜和星之果茶。这些「通用最爱」对任何人都 +80 好感度，是最稳妥的高级礼物。',
+      a: '有六样礼物是每位村民都喜爱的：五彩碎片、珍珠、兔子的脚、魔法糖冰棍、黄金南瓜和星之果茶。这些「通用最爱」对任何人都 +80 好感度（星之果茶为 +250），是最稳妥的高级礼物。',
     },
     {
       q: '送任何村民最好的礼物是什么？',
