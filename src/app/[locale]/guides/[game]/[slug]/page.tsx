@@ -5,6 +5,8 @@ import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { articleSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { getGuideCategory } from '@/lib/guide-categories'
+import { buildArticleHandoff } from '@/lib/article-ai'
+import { ArticleAskAI } from '@/components/tools/ArticleAskAI'
 
 export async function generateStaticParams() {
   const slugs = await getAllGuideSlugs()
@@ -143,6 +145,12 @@ export default async function GuideArticlePage({
         className="guide-prose prose prose-invert prose-p:text-[#c8bca8] prose-headings:text-[#e8dcc8] prose-a:text-[#f0a832] prose-strong:text-[#e8dcc8] prose-li:text-[#c8bca8] max-w-none"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
+
+      {/* Ask-AI handoff + related tools (best-games articles only) */}
+      {game === 'best-games' && (() => {
+        const { prompt, tools } = buildArticleHandoff(post, locale)
+        return <ArticleAskAI prompt={prompt} tools={tools} locale={locale} />
+      })()}
 
       {/* Calculator cross-link */}
       {(game === 'hay-day' || game === 'stardew-valley') && (
