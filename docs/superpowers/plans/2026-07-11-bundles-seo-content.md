@@ -322,17 +322,18 @@ export function BundleReferenceTable({ locale }: BundleReferenceTableProps) {
       </thead>
       <tbody>
         {rows.map(({ room, b }) => {
-          const prefix = b.required < b.items.length ? pick(b.required) : ''
-          const items =
-            prefix +
-            b.items
-              .map((it) => `${pickLoc(it.name, locale)} ×${it.qty}${it.quality ? ` (${pickLoc(QUALITY[it.quality], locale)})` : ''}`)
-              .join(s)
-          const reward = b.reward
-            ? `${pickLoc(b.reward.name, locale)} ×${b.reward.qty}`
+          // NOTE: `gold` is the bundle's COST (Vault bundles: donate N gold, items:[]),
+          // shown in Items Needed — NOT a reward. Reward is always an item (or none).
+          const prefix = b.items.length > 0 && b.required < b.items.length ? pick(b.required) : ''
+          const items = b.items.length
+            ? prefix +
+              b.items
+                .map((it) => `${pickLoc(it.name, locale)} ×${it.qty}${it.quality ? ` (${pickLoc(QUALITY[it.quality], locale)})` : ''}`)
+                .join(s)
             : b.gold
               ? `${b.gold}g`
               : '—'
+          const reward = b.reward ? `${pickLoc(b.reward.name, locale)} ×${b.reward.qty}` : '—'
           return (
             <tr key={b.key} className="border-b border-[#2d3d2d]/50 align-top text-[#c8bca8]">
               <td className="whitespace-nowrap px-3 py-2">{pickLoc(room.name, locale)}</td>
