@@ -133,12 +133,8 @@ export function buildArticleHandoff(
   const named = entries.map((g) => pickLoc(g.display, key))
   const clause = named.length ? (GAMES_CLAUSE[key] ?? GAMES_CLAUSE.en)(joinNames(named, key)) : ''
 
-  // Truncate title to only include first MAX_GAMES_NAMED comma-separated parts to avoid mentioning games beyond the cap
-  const titleParts = post.title.split(',').map(p => p.trim()).slice(0, MAX_GAMES_NAMED)
-  const displayTitle = titleParts.join(', ')
-
   // Truncate description so the whole prompt stays under the cap.
-  const buildWith = (desc: string) => TEMPLATES[key](displayTitle, desc, clause)
+  const buildWith = (desc: string) => TEMPLATES[key](post.title, desc, clause)
   let desc = post.description ?? ''
   let prompt = buildWith(desc)
   if (prompt.length > MAX_PROMPT_LEN) {
