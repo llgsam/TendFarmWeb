@@ -2,6 +2,9 @@ import { StardewMuseumFinder } from '@/components/tools/StardewMuseumFinder'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
+import { ToolReference } from '@/components/tools/seo/ToolReference'
+import { MuseumReferenceTable } from '@/components/tools/seo/MuseumReferenceTable'
+import { museumSummary, getMuseumFaqs } from '@/lib/tools/seo/museumSeoContent'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -79,6 +82,15 @@ export default async function StardewMuseumPage({
       </p>
 
       <StardewMuseumFinder locale={locale} />
+
+      <ToolReference
+        locale={locale}
+        tableTitle={getLoc(locale, '完整捐赠物品表', 'Complete Donation List', '完整捐贈物品表', '全寄贈品リスト', '전체 기증 목록', 'Vollständige Spendenliste')}
+        summary={museumSummary(locale)}
+        faqs={getMuseumFaqs(locale)}
+      >
+        <MuseumReferenceTable locale={locale} />
+      </ToolReference>
 
       <div className="mt-12 border-t border-[#2d3d2d] pt-8">
         <h2 className="mb-4 text-lg font-semibold text-[#e8dcc8]">
