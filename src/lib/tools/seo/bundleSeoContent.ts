@@ -1,9 +1,5 @@
 import { BUNDLE_ROOMS } from '@/components/tools/stardewBundleData'
-
-export interface Faq {
-  q: string
-  a: string
-}
+import { byLocale, faqsByLocale, type Faq } from '@/lib/tools/seo/content'
 
 function facts() {
   const roomCount = BUNDLE_ROOMS.length
@@ -29,8 +25,7 @@ const SUMMARIES: Record<string, SummaryFn> = {
 }
 
 export function bundleSummary(locale: string): string {
-  const fn = SUMMARIES[locale] ?? SUMMARIES.en
-  return fn(facts())
+  return byLocale(SUMMARIES, locale)(facts())
 }
 
 const BUNDLE_FAQS: Record<'en' | 'zh', Faq[]> = {
@@ -73,7 +68,5 @@ const BUNDLE_FAQS: Record<'en' | 'zh', Faq[]> = {
 }
 
 export function getBundleFaqs(locale: string): Faq[] {
-  if (locale === 'en') return BUNDLE_FAQS.en
-  if (locale === 'zh') return BUNDLE_FAQS.zh
-  return []
+  return faqsByLocale(BUNDLE_FAQS, locale)
 }

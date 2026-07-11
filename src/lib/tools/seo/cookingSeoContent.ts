@@ -1,9 +1,5 @@
 import { COOK_RECIPES } from '@/components/tools/stardewCookingData'
-
-export interface Faq {
-  q: string
-  a: string
-}
+import { byLocale, faqsByLocale, type Faq } from '@/lib/tools/seo/content'
 
 function facts() {
   const recipeCount = COOK_RECIPES.length
@@ -29,8 +25,7 @@ const SUMMARIES: Record<string, SummaryFn> = {
 }
 
 export function cookingSummary(locale: string): string {
-  const fn = SUMMARIES[locale] ?? SUMMARIES.en
-  return fn(facts())
+  return byLocale(SUMMARIES, locale)(facts())
 }
 
 const COOKING_FAQS: Record<'en' | 'zh', Faq[]> = {
@@ -73,7 +68,5 @@ const COOKING_FAQS: Record<'en' | 'zh', Faq[]> = {
 }
 
 export function getCookingFaqs(locale: string): Faq[] {
-  if (locale === 'en') return COOKING_FAQS.en
-  if (locale === 'zh') return COOKING_FAQS.zh
-  return []
+  return faqsByLocale(COOKING_FAQS, locale)
 }

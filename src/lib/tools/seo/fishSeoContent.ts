@@ -1,10 +1,6 @@
 import { FISH } from '@/components/tools/stardewFishData'
 import { pickLoc } from '@/lib/tools/seo/locale'
-
-export interface Faq {
-  q: string
-  a: string
-}
+import { byLocale, faqsByLocale, type Faq } from '@/lib/tools/seo/content'
 
 // Data-derived facts (computed at call time so they track the data).
 function facts(locale: string) {
@@ -33,8 +29,7 @@ const SUMMARIES: Record<string, SummaryFn> = {
 }
 
 export function fishSummary(locale: string): string {
-  const fn = SUMMARIES[locale] ?? SUMMARIES.en
-  return fn(facts(locale))
+  return byLocale(SUMMARIES, locale)(facts(locale))
 }
 
 const FISH_FAQS: Record<'en' | 'zh', Faq[]> = {
@@ -77,7 +72,5 @@ const FISH_FAQS: Record<'en' | 'zh', Faq[]> = {
 }
 
 export function getFishFaqs(locale: string): Faq[] {
-  if (locale === 'en') return FISH_FAQS.en
-  if (locale === 'zh') return FISH_FAQS.zh
-  return []
+  return faqsByLocale(FISH_FAQS, locale)
 }
