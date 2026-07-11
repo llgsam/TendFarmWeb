@@ -32,7 +32,7 @@ const VILLAGER_FAQS: Record<'en' | 'zh', Faq[]> = {
   en: [
     {
       q: 'Who can you marry in Stardew Valley?',
-      a: "The marriage candidates are the villagers marked 'Yes' in the Marriageable column above. Raise one to 8 hearts, give them a Bouquet to start dating, then propose with a Mermaid's Pendant (bought from the Old Mariner at the beach on rainy days).",
+      a: "The marriage candidates are the villagers marked 'Yes' in the Marriageable column above. Raise one to 8 hearts and give them a Bouquet to start dating, then — once they reach 10 hearts — propose with a Mermaid's Pendant (bought from the Old Mariner at the beach on rainy days).",
     },
     {
       q: 'How do you increase friendship with villagers in Stardew Valley?',
@@ -50,7 +50,7 @@ const VILLAGER_FAQS: Record<'en' | 'zh', Faq[]> = {
   zh: [
     {
       q: '星露谷物语里可以和谁结婚？',
-      a: '可结婚的对象就是上表「可结婚」列标「是」的村民。把好感度提到 8 颗心，送花束（Bouquet）开始约会，再送美人鱼吊坠（雨天在海滩的老水手处购买）求婚即可。',
+      a: '可结婚的对象就是上表「可结婚」列标「是」的村民。把好感度提到 8 颗心，送花束（Bouquet）开始约会，等好感度到 10 颗心后，送美人鱼吊坠（雨天在海滩的老水手处购买）求婚即可。',
     },
     {
       q: '星露谷怎么提升和村民的好感度？',
@@ -62,7 +62,7 @@ const VILLAGER_FAQS: Record<'en' | 'zh', Faq[]> = {
     },
     {
       q: '星露谷的村民都住在哪里？',
-      a: '每位村民的住处见上表「居住地」列。多数住在鹈鹕镇及周边，也有人住在北边的山区、海滩，或南边的仙尘森林。',
+      a: '每位村民的住处见上表「居住地」列。多数住在鹈鹕镇及周边，也有人住在北边的山区、海滩，或南边的煤矿森林。',
     },
   ],
 }
