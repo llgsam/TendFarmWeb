@@ -116,4 +116,23 @@ describe('buildArticleHandoff', () => {
     expect(hrefs).toContain('tools/stardew')
     expect(hrefs).toContain('tools/hay-day')
   })
+
+  it('has no double spaces even when description is empty', () => {
+    const post = { title: 'Best farming games', description: '', tags: [] as string[], contentHtml: '' }
+    const { prompt } = buildArticleHandoff(post, 'en')
+    expect(prompt).not.toMatch(/ {2,}/)
+  })
+
+  it.each(['zh', 'zh-TW', 'ja', 'ko', 'de', 'en'])('builds a non-empty localized prompt containing the title for locale %s', (locale) => {
+    const post = {
+      title: 'Hay Day vs Stardew Valley',
+      description: 'A comparison.',
+      tags: [] as string[],
+      contentHtml: 'Stardew Valley and Hay Day',
+    }
+    const { prompt } = buildArticleHandoff(post, locale)
+    expect(prompt.length).toBeGreaterThan(0)
+    expect(prompt).toContain('Hay Day vs Stardew Valley')
+    expect(prompt.length).toBeLessThanOrEqual(1000)
+  })
 })

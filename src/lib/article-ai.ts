@@ -144,6 +144,8 @@ export function buildArticleHandoff(
     if (prompt.length > MAX_PROMPT_LEN) prompt = prompt.slice(0, MAX_PROMPT_LEN)
   }
 
+  prompt = prompt.replace(/[ \t]{2,}/g, ' ').trim()
+
   const seen = new Set<string>()
   const tools: { label: string; href: string }[] = []
   for (const g of entries) {
