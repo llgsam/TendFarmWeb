@@ -45,7 +45,7 @@ const COOKING_FAQS: Record<'en' | 'zh', Faq[]> = {
     },
     {
       q: 'How do cooking buffs work in Stardew Valley?',
-      a: 'Some dishes grant a temporary buff — a boost to a skill or stat such as +2 Fishing or +1 Speed — that starts when you eat the food and lasts for the listed duration. You can only have one buff per stat active at a time; eating another food with the same stat replaces it. The Buffs column above shows each dish\'s effect and duration.',
+      a: 'Some dishes grant a temporary buff — a boost to a skill or stat such as +2 Fishing or +1 Speed — that starts when you eat the food and lasts for the listed duration. You can only have one food buff active at a time: eating another buff dish replaces the previous one entirely (drinks like coffee use a separate slot). The Buffs column above shows each dish\'s effect and duration.',
     },
     {
       q: 'What is the best food to cook for profit in Stardew Valley?',
@@ -63,7 +63,7 @@ const COOKING_FAQS: Record<'en' | 'zh', Faq[]> = {
     },
     {
       q: '星露谷的料理增益（buff）怎么运作？',
-      a: '有些菜会给一个临时增益——比如 +2 钓鱼或 +1 速度——吃下即生效，持续上表所列的时长。每种属性同时只能有一个增益生效，吃另一个同属性的食物会覆盖它。上表的「增益」列显示每道菜的效果和时长。',
+      a: '有些菜会给一个临时增益——比如 +2 钓鱼或 +1 速度——吃下即生效，持续上表所列的时长。同一时间只能有一个「食物」增益生效：再吃另一道带增益的菜会整个覆盖掉前一个（咖啡等饮料占用单独的槽位）。上表的「增益」列显示每道菜的效果和时长。',
     },
     {
       q: '星露谷做什么菜最赚钱？',
