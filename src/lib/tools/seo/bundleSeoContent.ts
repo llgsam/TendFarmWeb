@@ -15,17 +15,17 @@ type SummaryFn = (f: ReturnType<typeof facts>) => string
 
 const SUMMARIES: Record<string, SummaryFn> = {
   en: (f) =>
-    `Stardew Valley's Community Center has ${f.roomCount} rooms and ${f.bundleCount} bundles to complete. Each bundle asks for a set of items and gives a reward; finishing every bundle restores the Community Center. The table below lists every bundle with its required items and reward. Use the finder above to search, or browse the full list.`,
+    `Stardew Valley's Community Center is restored by donating bundles — sets of items given to the Junimos. This list covers all ${f.bundleCount} bundles across ${f.roomCount} areas (the Community Center's rooms plus the Abandoned JojaMart's Missing Bundle), each with its required items and reward. Use the finder above to search, or browse the full list below.`,
   zh: (f) =>
-    `星露谷物语的社区中心共有 ${f.roomCount} 个房间、${f.bundleCount} 个收集包。每个收集包需要一组物品并给予奖励，全部完成即可修复社区中心。下方的表格列出了每个收集包的所需物品和奖励。用上面的查询器搜索，或查看完整清单。`,
+    `星露谷物语的社区中心通过完成收集包来修复——把成套物品捐给森林精灵 Junimo。本清单收录全部 ${f.bundleCount} 个收集包、跨 ${f.roomCount} 个区域（社区中心各房间，外加废弃 Joja 超市的「失踪的收集包」），并列出每个收集包的所需物品和奖励。用上面的查询器搜索，或查看下方完整清单。`,
   'zh-TW': (f) =>
-    `星露谷物語的社區中心共有 ${f.roomCount} 個房間、${f.bundleCount} 個收集包。每個收集包需要一組物品並給予獎勵，全部完成即可修復社區中心。下方的表格列出了每個收集包的所需物品和獎勵。用上面的查詢器搜尋，或查看完整清單。`,
+    `星露谷物語的社區中心透過完成收集包來修復——把成套物品捐給森林精靈 Junimo。本清單收錄全部 ${f.bundleCount} 個收集包、跨 ${f.roomCount} 個區域（社區中心各房間，外加廢棄 Joja 超市的「失蹤的收集包」），並列出每個收集包的所需物品和獎勵。用上面的查詢器搜尋，或查看下方完整清單。`,
   ja: (f) =>
-    `スターデューバレーのコミュニティセンターには ${f.roomCount} 部屋、${f.bundleCount} 個のバンドルがあります。各バンドルは決まったアイテムを要求し報酬をくれます。すべて達成するとコミュニティセンターが修復されます。下の表に各バンドルの必要アイテムと報酬を掲載。上の検索もどうぞ。`,
+    `スターデューバレーのコミュニティセンターは、バンドル（アイテムのセット）をジュニモに寄付して修復します。このリストは ${f.roomCount} つのエリア（コミュニティセンターの各部屋と、寂れたJojaMartの「行方不明バンドル」）にわたる全 ${f.bundleCount} バンドルを、必要アイテムと報酬つきで掲載しています。上の検索もご利用ください。`,
   ko: (f) =>
-    `스타듀 밸리의 마을 회관에는 ${f.roomCount}개의 방과 ${f.bundleCount}개의 꾸러미가 있습니다. 각 꾸러미는 정해진 아이템을 요구하고 보상을 줍니다. 모든 꾸러미를 완성하면 마을 회관이 복구됩니다. 아래 표에 각 꾸러미의 필요 아이템과 보상을 정리했습니다.`,
+    `스타듀 밸리의 마을 회관은 꾸러미(아이템 묶음)를 주니모에게 기부해 복구합니다. 이 목록은 ${f.roomCount}개 구역(마을 회관의 방들과 버려진 조자마트의 '잊혀진 꾸러미')에 걸친 전체 ${f.bundleCount}개 꾸러미를 필요 아이템·보상과 함께 정리했습니다. 위의 검색기도 사용하세요.`,
   de: (f) =>
-    `Das Gemeinschaftszentrum in Stardew Valley hat ${f.roomCount} Räume und ${f.bundleCount} Bündel. Jedes Bündel verlangt bestimmte Gegenstände und gibt eine Belohnung; alle abzuschließen stellt das Zentrum wieder her. Die Tabelle unten listet jedes Bündel mit benötigten Gegenständen und Belohnung auf.`,
+    `Das Gemeinschaftszentrum in Stardew Valley wird durch das Abgeben von Bündeln — Gegenstands-Sets für die Junimos — wiederhergestellt. Diese Liste umfasst alle ${f.bundleCount} Bündel in ${f.roomCount} Bereichen (die Räume des Gemeinschaftszentrums plus das „Fehlende Bündel" des verlassenen JojaMart), jeweils mit benötigten Gegenständen und Belohnung.`,
 }
 
 export function bundleSummary(locale: string): string {
