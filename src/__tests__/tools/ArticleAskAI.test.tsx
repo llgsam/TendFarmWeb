@@ -31,12 +31,13 @@ describe('ArticleAskAI', () => {
     )
   })
 
-  it('copies the prompt to clipboard', async () => {
+  it('copies the prompt to clipboard and shows feedback', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined)
     Object.assign(navigator, { clipboard: { writeText } })
     render(<ArticleAskAI prompt={prompt} tools={[]} locale="en" />)
     fireEvent.click(screen.getByRole('button', { name: /copy|复制/i }))
     expect(writeText).toHaveBeenCalledWith(prompt)
+    expect(await screen.findByText(/copied/i)).toBeInTheDocument()
   })
 
   it('renders related-tool links when tools provided', () => {
