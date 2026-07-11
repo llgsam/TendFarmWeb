@@ -2,6 +2,9 @@ import { StardewCookingFinder } from '@/components/tools/StardewCookingFinder'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
+import { ToolReference } from '@/components/tools/seo/ToolReference'
+import { CookReferenceTable } from '@/components/tools/seo/CookReferenceTable'
+import { cookingSummary, getCookingFaqs } from '@/lib/tools/seo/cookingSeoContent'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -65,6 +68,14 @@ export default async function StardewCookingPage({ params }: { params: Promise<{
         )}
       </p>
       <StardewCookingFinder locale={locale} />
+      <ToolReference
+        locale={locale}
+        tableTitle={getLoc(locale, '完整料理配方表', 'Complete Cooking Recipe List', '完整料理配方表', '全料理レシピ', '전체 요리 레시피', 'Vollständige Rezeptliste')}
+        summary={cookingSummary(locale)}
+        faqs={getCookingFaqs(locale)}
+      >
+        <CookReferenceTable locale={locale} />
+      </ToolReference>
       <div className="mt-12 border-t border-[#2d3d2d] pt-8">
         <h2 className="mb-4 text-lg font-semibold text-[#e8dcc8]">
           {getLoc(locale, '相关工具', 'Related Tools', '相關工具', '関連ツール', '관련 도구', 'Verwandte Tools')}
