@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { detectGames, GAMES } from '@/lib/article-ai'
+import { detectGames, GAMES, buildArticleHandoff } from '@/lib/article-ai'
 
 const base = { title: '', description: '', tags: [] as string[], contentHtml: '' }
 
@@ -37,5 +37,64 @@ describe('detectGames', () => {
       expect(g.id).toMatch(/^[a-z-]+$/)
       expect(g.display.en.length).toBeGreaterThan(0)
     }
+  })
+})
+
+describe('buildArticleHandoff', () => {
+  const post = {
+    title: 'Hay Day vs Stardew Valley',
+    description: 'A comparison of two farming games.',
+    tags: ['comparison'],
+    contentHtml: '<p>Stardew Valley and Hay Day</p>',
+  }
+
+  it('names detected games (max 3) and includes their tools', () => {
+    const { prompt, tools } = buildArticleHandoff(post, 'en')
+    expect(prompt).toContain('Stardew Valley')
+    expect(prompt).toContain('Hay Day')
+    expect(tools.map((t) => t.href)).toContain('tools/stardew')
+    expect(tools.map((t) => t.href)).toContain('tools/hay-day')
+  })
+
+  it('caps named games at 3', () => {
+    const many = {
+      title: 'Stardew Valley, Hay Day, Palia, Coral Island, Animal Crossing',
+      description: '', tags: [], contentHtml: '',
+    }
+    const { prompt } = buildArticleHandoff(many, 'en')
+    // 4th/5th games not named
+    expect(prompt).not.toContain('Coral Island')
+    expect(prompt).not.toContain('Animal Crossing')
+  })
+
+  it('localizes the prompt to zh', () => {
+    const { prompt } = buildArticleHandoff(post, 'zh')
+    expect(prompt).toContain('帮我决定哪款最适合我')
+    expect(prompt).toContain('《Hay Day vs Stardew Valley》')
+  })
+
+  it('falls back to en for unknown locale', () => {
+    const { prompt } = buildArticleHandoff(post, 'xx')
+    expect(prompt).toContain('Help me decide')
+  })
+
+  it('omits the games clause and tools when no game detected', () => {
+    const none = { title: 'Best cozy games', description: 'Nice list.', tags: [], contentHtml: '' }
+    const { prompt, tools } = buildArticleHandoff(none, 'en')
+    expect(tools).toEqual([])
+    expect(prompt).toContain('Help me decide')
+    expect(prompt).not.toContain('It compares')
+  })
+
+  it('keeps prompt under the length cap by truncating description', () => {
+    const long = { title: 'T', description: 'x'.repeat(5000), tags: [], contentHtml: '' }
+    const { prompt } = buildArticleHandoff(long, 'en')
+    expect(prompt.length).toBeLessThanOrEqual(1000)
+  })
+
+  it('dedupes tool hrefs', () => {
+    const { tools } = buildArticleHandoff(post, 'en')
+    const hrefs = tools.map((t) => t.href)
+    expect(hrefs).toEqual([...new Set(hrefs)])
   })
 })
