@@ -2,6 +2,9 @@ import { StardewFishFinder } from '@/components/tools/StardewFishFinder'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
+import { ToolReference } from '@/components/tools/seo/ToolReference'
+import { FishReferenceTable } from '@/components/tools/seo/FishReferenceTable'
+import { fishSummary, getFishFaqs } from '@/lib/tools/seo/fishSeoContent'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -80,6 +83,15 @@ export default async function StardewFishPage({
       </p>
 
       <StardewFishFinder locale={locale} />
+
+      <ToolReference
+        locale={locale}
+        tableTitle={getLoc(locale, '完整鱼类列表', 'Complete Fish List', '完整魚類列表', '全魚リスト', '전체 물고기 목록', 'Vollständige Fischliste')}
+        summary={fishSummary(locale)}
+        faqs={getFishFaqs(locale)}
+      >
+        <FishReferenceTable locale={locale} />
+      </ToolReference>
 
       {/* Related links */}
       <div className="mt-12 border-t border-[#2d3d2d] pt-8">
