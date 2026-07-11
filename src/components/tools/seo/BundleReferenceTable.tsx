@@ -73,7 +73,7 @@ export function BundleReferenceTable({ locale }: BundleReferenceTableProps) {
               : '—'
           const reward = b.reward ? `${pickLoc(b.reward.name, locale)} ×${b.reward.qty}` : '—'
           return (
-            <tr key={b.key} className="border-b border-[#2d3d2d]/50 align-top text-[#c8bca8]">
+            <tr key={`${room.key}-${b.key}`} className="border-b border-[#2d3d2d]/50 align-top text-[#c8bca8]">
               <td className="whitespace-nowrap px-3 py-2">{pickLoc(room.name, locale)}</td>
               <th scope="row" className="px-3 py-2 text-left font-medium text-[#e8dcc8]">
                 {pickLoc(b.name, locale)}

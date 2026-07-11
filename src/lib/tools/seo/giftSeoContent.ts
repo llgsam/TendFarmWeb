@@ -1,10 +1,6 @@
 import { GIFT_VILLAGERS, GIFT_ITEMS, UNIVERSAL_LOVES } from '@/components/tools/stardewGiftData'
 import { pickLoc } from '@/lib/tools/seo/locale'
-
-export interface Faq {
-  q: string
-  a: string
-}
+import { byLocale, faqsByLocale, type Faq } from '@/lib/tools/seo/content'
 
 function itemName(key: string, locale: string): string {
   const loc = GIFT_ITEMS[key]
@@ -46,8 +42,7 @@ const SUMMARIES: Record<string, SummaryFn> = {
 }
 
 export function giftSummary(locale: string): string {
-  const fn = SUMMARIES[locale] ?? SUMMARIES.en
-  return fn(facts(locale))
+  return byLocale(SUMMARIES, locale)(facts(locale))
 }
 
 // NOTE: FAQ prose enumerates the universal-love names and the +80 figure by hand.
@@ -92,7 +87,5 @@ const GIFT_FAQS: Record<'en' | 'zh', Faq[]> = {
 }
 
 export function getGiftFaqs(locale: string): Faq[] {
-  if (locale === 'en') return GIFT_FAQS.en
-  if (locale === 'zh') return GIFT_FAQS.zh
-  return []
+  return faqsByLocale(GIFT_FAQS, locale)
 }
