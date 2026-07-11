@@ -102,4 +102,18 @@ describe('buildArticleHandoff', () => {
     const hrefs = tools.map((t) => t.href)
     expect(hrefs).toEqual([...new Set(hrefs)])
   })
+
+  it('collects tools from all detected games, not only the 3 named ones', () => {
+    const post = {
+      title: 'Farming games compared',
+      description: '',
+      tags: [] as string[],
+      // detection order: palia(no tools), coral-island(no tools), stardew(tools), hay-day(tools)
+      contentHtml: 'Palia and Coral Island and Animal Crossing, plus Stardew Valley and Hay Day.',
+    }
+    const { tools } = buildArticleHandoff(post, 'en')
+    const hrefs = tools.map((t) => t.href)
+    expect(hrefs).toContain('tools/stardew')
+    expect(hrefs).toContain('tools/hay-day')
+  })
 })

@@ -127,10 +127,10 @@ export function buildArticleHandoff(
   locale: string,
 ): Handoff {
   const key = TEMPLATES[locale] ? locale : 'en'
-  const ids = detectGames(post).slice(0, MAX_GAMES_NAMED)
+  const ids = detectGames(post)
   const entries = ids.map((id) => GAMES.find((g) => g.id === id)!).filter(Boolean)
 
-  const named = entries.map((g) => pickLoc(g.display, key))
+  const named = entries.slice(0, MAX_GAMES_NAMED).map((g) => pickLoc(g.display, key))
   const clause = named.length ? (GAMES_CLAUSE[key] ?? GAMES_CLAUSE.en)(joinNames(named, key)) : ''
 
   // Truncate description so the whole prompt stays under the cap.
