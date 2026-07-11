@@ -2,6 +2,9 @@ import { StardewBundleFinder } from '@/components/tools/StardewBundleFinder'
 import type { Metadata } from 'next'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import Link from 'next/link'
+import { ToolReference } from '@/components/tools/seo/ToolReference'
+import { BundleReferenceTable } from '@/components/tools/seo/BundleReferenceTable'
+import { bundleSummary, getBundleFaqs } from '@/lib/tools/seo/bundleSeoContent'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -80,6 +83,15 @@ export default async function StardewBundlesPage({
       </p>
 
       <StardewBundleFinder locale={locale} />
+
+      <ToolReference
+        locale={locale}
+        tableTitle={getLoc(locale, '完整收集包清单', 'Complete Bundle List', '完整收集包清單', '全バンドル一覧', '전체 꾸러미 목록', 'Vollständige Bündelliste')}
+        summary={bundleSummary(locale)}
+        faqs={getBundleFaqs(locale)}
+      >
+        <BundleReferenceTable locale={locale} />
+      </ToolReference>
 
       {/* Related links */}
       <div className="mt-12 border-t border-[#2d3d2d] pt-8">
