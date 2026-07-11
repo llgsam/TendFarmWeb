@@ -1,24 +1,16 @@
-import { FISH, type FishLoc } from '@/components/tools/stardewFishData'
+import { FISH } from '@/components/tools/stardewFishData'
+import { pickLoc } from '@/lib/tools/seo/locale'
 
 export interface Faq {
   q: string
   a: string
 }
 
-function pickFishLoc(loc: FishLoc, locale: string): string {
-  if (locale === 'zh') return loc.zh
-  if (locale === 'zh-TW') return loc.zhTW
-  if (locale === 'ja') return loc.ja
-  if (locale === 'ko') return loc.ko
-  if (locale === 'de') return loc.de
-  return loc.en
-}
-
 // Data-derived facts (computed at call time so they track the data).
 function facts(locale: string) {
   const total = FISH.length
   const top = FISH.reduce((a, b) => (b.price > a.price ? b : a))
-  const topName = pickFishLoc(top.name, locale)
+  const topName = pickLoc(top.name, locale)
   const springCount = FISH.filter((f) => f.seasons.includes('spring')).length
   return { total, topName, topPrice: top.price, springCount }
 }

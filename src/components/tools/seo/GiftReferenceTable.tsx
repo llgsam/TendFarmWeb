@@ -1,21 +1,13 @@
-import { GIFT_VILLAGERS, GIFT_ITEMS, UNIVERSAL_LOVES, type GiftLoc, type Season } from '@/components/tools/stardewGiftData'
+import { GIFT_VILLAGERS, GIFT_ITEMS, UNIVERSAL_LOVES } from '@/components/tools/stardewGiftData'
+import { pickLoc, SEASONS } from '@/lib/tools/seo/locale'
 
 export interface GiftReferenceTableProps {
   locale: string
 }
 
-function pick(loc: GiftLoc, locale: string): string {
-  if (locale === 'zh') return loc.zh
-  if (locale === 'zh-TW') return loc.zhTW
-  if (locale === 'ja') return loc.ja
-  if (locale === 'ko') return loc.ko
-  if (locale === 'de') return loc.de
-  return loc.en
-}
-
 function itemName(key: string, locale: string): string {
   const loc = GIFT_ITEMS[key]
-  return loc ? pick(loc, locale) : key.replace(/_/g, ' ')
+  return loc ? pickLoc(loc, locale) : key.replace(/_/g, ' ')
 }
 
 function sep(locale: string): string {
@@ -29,13 +21,6 @@ const HEADERS: Record<string, [string, string, string]> = {
   ja: ['村人', '誕生日', '大好きな贈り物'],
   ko: ['주민', '생일', '좋아하는 선물'],
   de: ['Bewohner', 'Geburtstag', 'Lieblingsgeschenke'],
-}
-
-const SEASONS: Record<Season, GiftLoc> = {
-  spring: { en: 'Spring', zh: '春', zhTW: '春', ja: '春', ko: '봄', de: 'Frühling' },
-  summer: { en: 'Summer', zh: '夏', zhTW: '夏', ja: '夏', ko: '여름', de: 'Sommer' },
-  fall: { en: 'Fall', zh: '秋', zhTW: '秋', ja: '秋', ko: '가을', de: 'Herbst' },
-  winter: { en: 'Winter', zh: '冬', zhTW: '冬', ja: '冬', ko: '겨울', de: 'Winter' },
 }
 
 const CALLOUT: Record<string, string> = {
@@ -83,10 +68,10 @@ export function GiftReferenceTable({ locale }: GiftReferenceTableProps) {
           {GIFT_VILLAGERS.map((v) => (
             <tr key={v.en} className="border-b border-[#2d3d2d]/50 align-top text-[#c8bca8]">
               <th scope="row" className="px-3 py-2 text-left font-medium text-[#e8dcc8]">
-                {pick(v.name, locale)}
+                {pickLoc(v.name, locale)}
               </th>
               <td className="whitespace-nowrap px-3 py-2">
-                {pick(SEASONS[v.season], locale)} {v.day}
+                {pickLoc(SEASONS[v.season], locale)} {v.day}
               </td>
               <td className="px-3 py-2">{v.loves.map((k) => itemName(k, locale)).join(s)}</td>
             </tr>
