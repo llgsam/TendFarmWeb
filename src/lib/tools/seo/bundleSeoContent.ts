@@ -49,7 +49,7 @@ const BUNDLE_FAQS: Record<'en' | 'zh', Faq[]> = {
     },
     {
       q: 'Should I complete the Community Center or join JojaMart?',
-      a: 'For most players the Community Center is the better choice: it is free (bundles cost only items you gather) and its rewards, like the Greenhouse, are iconic. The JojaMart route replaces bundles with purchases costing hundreds of thousands of gold — trading time for money, worth it only if you have gold to spare and dislike collecting. You cannot do both on the same save.',
+      a: 'For most players the Community Center is the better choice: it is free (bundles cost only items you gather) and its rewards, like the Greenhouse, are iconic. The JojaMart route replaces bundles with purchases costing well over 100,000 gold in total — trading time for money, worth it only if you have gold to spare and dislike collecting. You cannot do both on the same save.',
     },
   ],
   zh: [
@@ -67,7 +67,7 @@ const BUNDLE_FAQS: Record<'en' | 'zh', Faq[]> = {
     },
     {
       q: '该做社区中心还是加入 JojaMart？',
-      a: '对多数玩家来说社区中心是更好的选择：它免费（收集包只花你采集来的物品），奖励如温室也很经典。JojaMart 路线用花费数十万金币的付费购买取代收集包，是拿钱换时间——只有当你金币充裕又不喜欢收集时才划算。同一存档两条路线只能选一条。',
+      a: '对多数玩家来说社区中心是更好的选择：它免费（收集包只花你采集来的物品），奖励如温室也很经典。JojaMart 路线用总额超过十万金币的付费购买取代收集包，是拿钱换时间——只有当你金币充裕又不喜欢收集时才划算。同一存档两条路线只能选一条。',
     },
   ],
 }
