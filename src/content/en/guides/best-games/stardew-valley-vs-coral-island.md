@@ -52,7 +52,7 @@ The result is two games that share the same genre DNA — seasonal crops, NPC re
 
 **Coral Island**: Multiplayer was part of the design from earlier in development, and it shows. The co-op integration is smoother, with less friction around time management and shared progress. If you plan to play primarily with friends, Coral Island's multiplayer is the more polished experience.
 
-**Winner**: Coral Island — built with co-op in mind.
+**Winner**: Coral Island — built with co-op in mind. Curious how these two stack up against the rest? See our full ranking of [the best co-op and multiplayer farming games](/en/guides/best-games/farming-games-with-best-multiplayer).
 
 ---
 

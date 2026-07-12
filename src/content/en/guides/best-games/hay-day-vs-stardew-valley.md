@@ -67,7 +67,7 @@ Hay Day has a neighbor system where you can visit other players' farms, buy from
 ### Stardew Valley
 Stardew Valley supports 1-4 player co-op on PC, console, and Switch (not mobile). In co-op, multiple players share a single farm, each with their own cabin. You farm, mine, and socialize together simultaneously. Relationships with NPCs are individual per player.
 
-**Winner**: Depends. Hay Day's asynchronous neighbor system works better for mobile. Stardew's co-op is genuinely fun for players who want to farm together in real time.
+**Winner**: Depends. Hay Day's asynchronous neighbor system works better for mobile. Stardew's co-op is genuinely fun for players who want to farm together in real time. If playing with friends is your priority, see our full ranking of [the best co-op and multiplayer farming games](/en/guides/best-games/farming-games-with-best-multiplayer).
 
 ---
 
