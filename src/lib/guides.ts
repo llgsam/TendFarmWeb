@@ -212,6 +212,13 @@ function resolveGuideFile(
   return null
 }
 
+// Locales that actually serve this article (own translation or a defined fallback).
+// Drives hreflang: only these URLs may be advertised as alternates.
+export function getGuideLocales(game: string, slug: string): string[] {
+  const all = ['zh', 'en', 'zh-TW', ...TRANSLATED_LOCALES]
+  return all.filter((locale) => resolveGuideFile(locale, game, slug) !== null)
+}
+
 export async function getAllGuideSlugs(): Promise<
   Array<{ locale: string; game: string; slug: string }>
 > {

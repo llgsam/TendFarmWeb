@@ -1,4 +1,4 @@
-import { getGuideBySlug, getAllGuideSlugs } from '@/lib/guides'
+import { getGuideBySlug, getAllGuideSlugs, getGuideLocales } from '@/lib/guides'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -27,7 +27,7 @@ export async function generateMetadata({
     description: post.description,
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}/${slug}`,
-      languages: buildLanguageAlternates(`/guides/${game}/${slug}`),
+      languages: buildLanguageAlternates(`/guides/${game}/${slug}`, getGuideLocales(game, slug)),
     },
   }
 }

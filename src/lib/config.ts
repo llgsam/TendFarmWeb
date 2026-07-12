@@ -16,11 +16,21 @@ const HREFLANG_MAP: Record<string, string> = {
   de: 'de',
 }
 
-export function buildLanguageAlternates(pathSuffix = ''): Record<string, string> {
-  const result: Record<string, string> = {
-    'x-default': `${BASE_URL}/en${pathSuffix}`,
-  }
-  for (const locale of LOCALES) {
+// availableLocales limits the hreflang set to locales that actually serve content at
+// this path (partially-translated content like ja/ko/de guides 404s on missing slugs;
+// advertising those URLs sends Google to 404s and wastes crawl budget). Omit it for
+// pages that exist in every locale.
+export function buildLanguageAlternates(
+  pathSuffix = '',
+  availableLocales?: readonly string[]
+): Record<string, string> {
+  const locales = availableLocales
+    ? LOCALES.filter((l) => availableLocales.includes(l))
+    : LOCALES
+  const xDefault = locales.includes('en') ? 'en' : locales[0]
+  const result: Record<string, string> = {}
+  if (xDefault) result['x-default'] = `${BASE_URL}/${xDefault}${pathSuffix}`
+  for (const locale of locales) {
     const hreflangKey = HREFLANG_MAP[locale] ?? locale
     result[hreflangKey] = `${BASE_URL}/${locale}${pathSuffix}`
   }
