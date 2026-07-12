@@ -84,7 +84,7 @@ Players who want a gentle daily ritual gravitate toward Animal Crossing. Players
 
 **Stardew Valley**: True 1-4 player co-op where all players have equal agency. Each has their own cabin, inventory, and money contribution, but all share one farm. The co-op experience is seamlessly integrated — you can genuinely build a farm together.
 
-**Winner**: Stardew Valley — real co-op vs. a more limited visiting system.
+**Winner**: Stardew Valley — real co-op vs. a more limited visiting system. For a broader look, we rank [the best multiplayer and co-op farming games](/en/guides/best-games/farming-games-with-best-multiplayer) across the whole genre.
 
 ---
 
