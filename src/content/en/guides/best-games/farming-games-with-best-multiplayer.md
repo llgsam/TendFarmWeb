@@ -231,9 +231,9 @@ Three or four players start to create coordination overhead: who's responsible f
 If you're starting Stardew Valley co-op with a partner or friend, here's the setup that works best:
 
 1. **Agree on a schedule**: "We play Tuesday and Friday evenings" is better than ad-hoc. The host controls the calendar, so regular sessions feel more like a shared project.
-2. **Divide labor naturally**: Don't force it — let each person gravitate to what they enjoy. The farmer usually tends crops and NPC relationships; the explorer handles mining and fishing.
+2. **Divide labor naturally**: Don't force it — let each person gravitate to what they enjoy. The farmer usually tends crops and [NPC relationships](/en/guides/best-games/farming-games-romance-relationships); the explorer handles mining and fishing.
 3. **Weekly sync moment**: At the end of each play session, review the week's earnings and decide together what to build next. This joint decision-making is what makes co-op farming feel like a shared accomplishment.
 
 ---
 
-> **Ready to start farming with friends?** Our [Stardew Valley beginner's guide](/en/guides/stardew-valley/beginner) covers the first year's essential decisions — written with both solo and co-op play in mind.
+> **Ready to start farming with friends?** Our [Stardew Valley beginner's guide](/en/guides/stardew-valley/beginner) covers the first year's essential decisions — written with both solo and co-op play in mind. Farming with a partner? See which games pair co-op with the deepest [romance and relationship systems](/en/guides/best-games/farming-games-romance-relationships).
