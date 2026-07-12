@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { GAMES, getGameBySlug, getAllGameSlugs, PLATFORM_LABELS, getStyleLabels, getGameName, getGameDesc, getGameLongDesc, getGameForWhom, getGameTip, getGameFeatures } from '@/lib/games'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { videoGameSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { GameIcon } from '@/components/GameIcon'
 
 const ALL_LOCALES = ['zh', 'en', 'zh-TW', 'ja', 'ko', 'de']
 
@@ -181,7 +182,7 @@ export default async function GameDetailPage({
 
         {/* Hero */}
         <div className="mb-10 rounded-2xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-8">
-          <div className="mb-4 text-5xl">{game.emoji}</div>
+          <div className="mb-4"><GameIcon slug={game.slug} size={52} /></div>
           <h1 className="mb-2 text-3xl font-bold text-[#e8dcc8]">{name}</h1>
           <div className="mb-4 flex flex-wrap gap-2">
             {styles.map((s) => (
@@ -315,7 +316,7 @@ export default async function GameDetailPage({
                     href={`/${locale}/games/${r.slug}`}
                     className="group flex items-center gap-3 rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-4 hover:border-[#f0a832]/30 transition-colors"
                   >
-                    <span className="text-2xl">{r.emoji}</span>
+                    <GameIcon slug={r.slug} size={26} className="shrink-0" />
                     <div>
                       <p className="text-sm font-medium text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
                         {rName}

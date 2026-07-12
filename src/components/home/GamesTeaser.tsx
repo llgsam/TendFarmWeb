@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useLocale } from 'next-intl'
 import { getFeaturedGames, getStyleLabels, getGameName } from '@/lib/games'
+import { GameIcon } from '@/components/GameIcon'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -44,7 +45,7 @@ export function GamesTeaser() {
               href={`${base}/games/${game.slug}`}
               className="group rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-5 transition-all hover:border-[#f0a832]/30 hover:bg-[#1a2e1a]"
             >
-              <div className="mb-3 text-3xl">{game.emoji}</div>
+              <div className="mb-3"><GameIcon slug={game.slug} size={32} /></div>
               <h3 className="font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors text-sm">
                 {getGameName(game, locale)}
               </h3>

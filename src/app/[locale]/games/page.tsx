@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { GAMES, getFeaturedGames, PLATFORM_LABELS, getStyleLabels, getGameName, getGameDesc } from '@/lib/games'
 import { BASE_URL, buildLanguageAlternates } from '@/lib/config'
 import { itemListSchema } from '@/lib/structured-data'
+import { GameIcon } from '@/components/GameIcon'
 
 function getLoc(locale: string, zh: string, en: string, zhTW?: string, ja?: string, ko?: string, de?: string): string {
   if (locale === 'zh') return zh
@@ -108,7 +109,7 @@ export default async function GamesPage({
             >
               <div className="mb-3 flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl">{game.emoji}</span>
+                  <GameIcon slug={game.slug} size={32} className="shrink-0" />
                   <div>
                     <h3 className="font-bold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">
                       {getGameName(game, locale)}
@@ -168,7 +169,7 @@ export default async function GamesPage({
               className="group rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/30 p-4 hover:border-[#f0a832]/30 transition-colors"
             >
               <div className="mb-2 flex items-center gap-2">
-                <span className="text-xl">{game.emoji}</span>
+                <GameIcon slug={game.slug} size={22} className="shrink-0" />
                 <span className="font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors text-sm">
                   {getGameName(game, locale)}
                 </span>
