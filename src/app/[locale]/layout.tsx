@@ -1,4 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { Header } from '@/components/layout/Header'
@@ -72,6 +74,8 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
