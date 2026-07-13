@@ -22,6 +22,17 @@
 
 ## Tracking log (append each run, newest first)
 
+### 2026-07-13 — T+1(GSC 延迟 → A–E 效果尚不可见;升级到簇级模型)
+- Totals: impr **3050**(↑from 1.6k,近翻倍)/ clicks **60**(↑from 40)/ CTR 2.0% / pos 13 / 收录 **82(未变,索引报告停 6/30)**
+- **CTR 诊断(量化,修正)**:对照位置-CTR 基准,hay-day-vs(pos4.7/14.3%)、AC-vs-SDV(pos9.3/5.3%)均**优于基准 → 无标题问题**;0 点击词全是第 2 页位置问题。CTR 2.5%→2.0% 是新词涌入撑大分母的**健康摊薄**,非退化。主杠杆=位置前推,非改标题。
+- **簇天花板(KE 全球量)重排下注顺序**:泛词簇 ~28k(games-like-stardew **18,100** + farming-rpg **6,600** + free-farming 3,600)碾压 co-op(~1,500)/ **romance(仅 ~150,即便吃满也 10–20 clicks/mo,ROI 边际,不再加码)**。vs 簇(~1,400)是唯一在赚的簇(已第 1 页)。
+- **最高 ROI 单点**:`farming-rpg-games` 文章已 done 但 pos30.4、天花板 6,600、comp 0.01 → 7/19 后首选=位置前推(内链+加深),而非写新文。
+- **Vercel Analytics 首日 ✅**:27 访客 / 43 PV;来源 **google 67%** 绝对主力;地区 US48%/UK7%/DE4%;referrer **无 Naver/Yandex/Baidu → 暂无需注册其他引擎**;⚠️ OS Linux 33% 疑似 bot、85% 跳出不可信(样本 27)
+- 数据缺口:CWV 无(Speed Insights 付费未买 + PageSpeed 配额用尽);games-like-stardew 排名未知(未进 GSC top40);KE 冷词返 0 用 GSC 反推
+- 部署健康 ✅;JP `牧場物語` 30impr/pos35 列观察项
+- Actions taken:**无代码/内容改动**(克制,昨天已密集执行 A–E);取数+KE 簇量+复验+报告
+- 4 条可证伪预测已写死(见报告 C 表),7/19 验收:收录≥95 / co-op pos≤12 / romance EN 首个 click / DE romance ≥1 click
+
 ### 2026-07-12 — 90d(≈建站以来,6/26 上线)
 - Totals: impr ~1.6k / clicks ~40 / 收录 82 / 已知 875(695 已发现未抓取)
 - 市场:US 15 clicks/855 impr 绝对主力;DE romance 幻影页 3 clicks
