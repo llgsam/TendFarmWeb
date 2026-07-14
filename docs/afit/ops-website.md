@@ -27,10 +27,11 @@
 - **头号信号:索引大跳 82→401** —— 7/12 重提 sitemap + hreflang 修复触发索引波,预测 P1(≥95)远超达成、提前 4 天
 - **簇动向**:vs 簇改善(AC×SDV pos8.9↑、coral×SDV pos11.9 临界)仍是唯一在赚;co-op 裂脑(`coop`无空格 pos9.8 第1页在赚 / `co op`带空格 pos17.9 仍第2页);romance pos14 **3天零位移**(印证不加码);farming-rpg pos30 未动
 - **核心发现:孤儿页根因** —— `farming-rpg-games`(6,600)+ `games-like-stardew-valley`(9,900)**各自 0 内链**,内容已 done 却卡死深位 → 待批动作=从已第1页的 vs 簇页加内链
-- **🆕 KR 信号**:`스타듀밸리 선물` pos9.4 / `스타듀밸리 계절 일수` pos11.1 进第1页,ko 工具已在赚 → 待 Vercel referrer 确认 Naver 后评估注册
-- 线上渲染复验 broken:0;无新 commit(纯净信号);404×18 疑幻影残留列监控
-- 数据缺口:**Vercel Analytics 未登录未取**(referrer/国家/跳出);CWV 无;GSC 国家 tab 切不动(下次用顶部筛选替代)
-- Actions taken:**无代码/内容改动**;取数+内链审计+复验+报告。待批:两孤儿页内链(P3)
+- **Vercel Analytics(7d)**:Visitors **80**(from 27)/ PV 98 / 跳出 93%;referrer **google 40 / cn.bing 7 / bing 2 / chatgpt 1 → 无 Naver/Yandex/Baidu**;Top Pages = vs 簇
+- **🆕 KR 定案**:韩语工具词进第1页但 referrer 无 Naver → 走 Google-Korea,**不注册 Naver**;referrer 出现 **chatgpt.com=首个 GEO/LLM 引用信号**(观察)
+- 线上渲染复验 broken:0;404×18 疑幻影残留列监控
+- Actions taken:✅ **孤儿页内链已执行**(用户批准,commit `0cb2675` push→部署;6/6 内链线上复验上线)——games-like-stardew ← 3 第1页vs页,farming-rpg ← combat/skill/Portia;未碰 co-op/romance 预测页
+- 数据缺口:CWV 无(付费墙);GSC 国家 tab 切不动(下次用顶部筛选)
 - 新预测(7/22 验收):N1 games-like-stardew 进 top40 pos≤25 / N2 farming-rpg pos≤22 / N3 收录≥480 / N4 coral×SDV pos≤10 且首 click
 
 ### 2026-07-13 — T+1(GSC 延迟 → A–E 效果尚不可见;升级到簇级模型)
