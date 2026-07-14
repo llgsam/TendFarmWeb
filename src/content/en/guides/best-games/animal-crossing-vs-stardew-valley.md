@@ -167,4 +167,4 @@ If you can only choose one: **if you have a Switch and want pure relaxation, Ani
 
 ---
 
-> **Want a broader comparison?** Our [Which Farming Game Is Right for You guide](/en/guides/best-games/which-farming-game-for-you) covers six farming games including Palia, Hay Day, and Coral Island with the same player-type analysis.
+> **Want a broader comparison?** Our [Which Farming Game Is Right for You guide](/en/guides/best-games/which-farming-game-for-you) covers six farming games including Palia, Hay Day, and Coral Island with the same player-type analysis. Already sold on Stardew and want more like it? See our [20 best games like Stardew Valley](/en/guides/stardew-valley/games-like-stardew-valley), ranked by what you loved most.

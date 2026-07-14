@@ -191,7 +191,7 @@ The progression is purely linear — there are no build decisions to make.
 
 **Want skill choices that change your entire economic strategy**: Stardew Valley — the Artisan vs. Agriculturist decision at Farming level 10 is the clearest example of a choice that reshapes how you think about every crop you grow.
 
-**Want full RPG class depth in a farming game**: Sun Haven — six distinct classes that play differently in combat and affect farming strategy separately. If you want a game where "what class should I play?" is a real question, Sun Haven has the answer.
+**Want full RPG class depth in a farming game**: Sun Haven — six distinct classes that play differently in combat and affect farming strategy separately. If you want a game where "what class should I play?" is a real question, Sun Haven has the answer, and our [best farming RPG games](/en/guides/best-games/farming-rpg-games) guide tier-ranks every title that blends leveling and combat with crops.
 
 **Want progression without difficult choices**: Animal Crossing or Hay Day — both progress through use and time without asking you to make permanent build decisions.
 

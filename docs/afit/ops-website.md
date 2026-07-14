@@ -22,6 +22,17 @@
 
 ## Tracking log (append each run, newest first)
 
+### 2026-07-15 — T+3 / A–E 后 T+4(首次看到 A–E 效果;发现孤儿页根因)
+- Totals: impr **4790**(↑from 3050)/ clicks **82**(↑from 60)/ CTR 1.7%(健康摊薄延续)/ pos 15.4 / **收录 82 → 401 🚀(+319)**;未收录 793→608
+- **头号信号:索引大跳 82→401** —— 7/12 重提 sitemap + hreflang 修复触发索引波,预测 P1(≥95)远超达成、提前 4 天
+- **簇动向**:vs 簇改善(AC×SDV pos8.9↑、coral×SDV pos11.9 临界)仍是唯一在赚;co-op 裂脑(`coop`无空格 pos9.8 第1页在赚 / `co op`带空格 pos17.9 仍第2页);romance pos14 **3天零位移**(印证不加码);farming-rpg pos30 未动
+- **核心发现:孤儿页根因** —— `farming-rpg-games`(6,600)+ `games-like-stardew-valley`(9,900)**各自 0 内链**,内容已 done 却卡死深位 → 待批动作=从已第1页的 vs 簇页加内链
+- **🆕 KR 信号**:`스타듀밸리 선물` pos9.4 / `스타듀밸리 계절 일수` pos11.1 进第1页,ko 工具已在赚 → 待 Vercel referrer 确认 Naver 后评估注册
+- 线上渲染复验 broken:0;无新 commit(纯净信号);404×18 疑幻影残留列监控
+- 数据缺口:**Vercel Analytics 未登录未取**(referrer/国家/跳出);CWV 无;GSC 国家 tab 切不动(下次用顶部筛选替代)
+- Actions taken:**无代码/内容改动**;取数+内链审计+复验+报告。待批:两孤儿页内链(P3)
+- 新预测(7/22 验收):N1 games-like-stardew 进 top40 pos≤25 / N2 farming-rpg pos≤22 / N3 收录≥480 / N4 coral×SDV pos≤10 且首 click
+
 ### 2026-07-13 — T+1(GSC 延迟 → A–E 效果尚不可见;升级到簇级模型)
 - Totals: impr **3050**(↑from 1.6k,近翻倍)/ clicks **60**(↑from 40)/ CTR 2.0% / pos 13 / 收录 **82(未变,索引报告停 6/30)**
 - **CTR 诊断(量化,修正)**:对照位置-CTR 基准,hay-day-vs(pos4.7/14.3%)、AC-vs-SDV(pos9.3/5.3%)均**优于基准 → 无标题问题**;0 点击词全是第 2 页位置问题。CTR 2.5%→2.0% 是新词涌入撑大分母的**健康摊薄**,非退化。主杠杆=位置前推,非改标题。

@@ -141,4 +141,4 @@ You want a mobile game for your commute and a proper game for evenings — they 
 
 ---
 
-> **Not sure where to start?** Take our [Farming Game Quiz](/en/quizzes/which-farming-game) — 6 questions that match you to the right game based on your play style and schedule.
+> **Not sure where to start?** Take our [Farming Game Quiz](/en/quizzes/which-farming-game) — 6 questions that match you to the right game based on your play style and schedule. If Stardew Valley wins you over, our list of [20 games like Stardew Valley](/en/guides/stardew-valley/games-like-stardew-valley) shows where to go next.

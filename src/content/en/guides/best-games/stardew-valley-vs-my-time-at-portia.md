@@ -152,4 +152,4 @@ If you've already finished Stardew Valley and want what it lacks: **My Time at P
 
 ---
 
-> **Ready to start?** Our [Stardew Valley beginner's guide](/en/guides/stardew-valley/beginner) covers the first year's essential decisions. Or browse our [complete farming game rankings](/en/guides/best-games/top-farming-games-2025) to see where both games fit in the broader genre.
+> **Ready to start?** Our [Stardew Valley beginner's guide](/en/guides/stardew-valley/beginner) covers the first year's essential decisions. Or browse our [complete farming game rankings](/en/guides/best-games/top-farming-games-2025) to see where both games fit in the broader genre. Drawn to Portia's combat and questing? Both games rank in our [best farming RPG games](/en/guides/best-games/farming-rpg-games) tier list.

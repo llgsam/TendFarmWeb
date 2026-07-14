@@ -152,7 +152,7 @@ Coral Island has a mining and combat system similar to Stardew Valley — enemie
 
 **Want action-adventure combat serving an exploration narrative**: My Time at Portia. The ruin context gives combat a story reason, and the action timing system is more engaging than Stardew Valley's.
 
-**Want combat as a primary system within a farming game**: Sun Haven. It's the only farming game where your class choice, skill investment, and combat execution genuinely matter to the experience. If you've ever wanted to play a JRPG where you also own a farm, Sun Haven delivers.
+**Want combat as a primary system within a farming game**: Sun Haven. It's the only farming game where your class choice, skill investment, and combat execution genuinely matter to the experience. If you've ever wanted to play a JRPG where you also own a farm, Sun Haven delivers — and it tops our full ranking of the [best farming RPG games](/en/guides/best-games/farming-rpg-games) where crops meet combat.
 
 **Want farming without any combat at all**: Animal Crossing, Hay Day, or Palia. All three are zero-combat farming experiences.
 
