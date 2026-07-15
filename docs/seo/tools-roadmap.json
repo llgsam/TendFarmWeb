@@ -59,7 +59,7 @@
       "candidates": [
         { "tool": "stardew-sprinkler-planner", "primary_kw": "stardew valley sprinklers", "vol": 12100, "with": ["stardew valley scarecrow=1600"], "effort": "L", "status": "done", "notes": "洒水器/稻草人覆盖范围可视化网格。" },
         { "tool": "stardew-farm-planner", "primary_kw": "stardew valley planner", "vol": 9900, "with": ["stardew planner=9900", "stardew valley farm planner=5400", "stardew farm layout=5400"], "effort": "XL", "notes": "拖拽式农场布局规划器（网格编辑器），最大工程。" },
-        { "tool": "stardew-greenhouse-layout", "primary_kw": "stardew valley greenhouse", "vol": 14800, "effort": "M", "notes": "温室布局意图为主；可做温室专属网格或并入 planner / 或先做温室指南文章截流。" }
+        { "tool": "stardew-greenhouse", "route": "tools/stardew-greenhouse", "primary_kw": "stardew valley greenhouse", "vol": 14800, "effort": "M", "status": "done", "notes": "SHIPPED 2026-07-16. 固定 10×12(120格)温室网格,复用 gridCoverage 引擎;专属最优预设=6 铱金(列2/7×行2/7/11)覆盖全部 114 作物格(测试验证 0 漏浇),首访默认铺满已种满温室;无稻草人(室内);localStorage+share。可爬取信息块:解锁(Pantry/Joja 35kg)+全年种植+最赚作物(远古果/星之果)。情境互链:sprinklers⇄greenhouse、crops→greenhouse、bundles→greenhouse。⚠️果树位精确数量未核实(wiki 被墙),用『用户自行放置』规避,未声称数字。" }
       ]
     }
   ],

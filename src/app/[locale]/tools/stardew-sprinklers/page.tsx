@@ -73,6 +73,9 @@ export default async function StardewSprinklersPage({ params }: { params: Promis
           <Link href={`/${locale}/tools/stardew`} className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {getLoc(locale, '作物利润计算器 →', 'Crop Calculator →', '作物利潤計算器 →', '作物計算機 →', '작물 계산기 →', 'Feldfrucht-Rechner →')}
           </Link>
+          <Link href={`/${locale}/tools/stardew-greenhouse`} className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
+            {getLoc(locale, '温室规划器（固定 10×12）→', 'Greenhouse Planner (fixed 10×12) →', '溫室規劃器（固定 10×12）→', '温室プランナー →', '온실 플래너 →', 'Gewächshaus-Planer →')}
+          </Link>
           <Link href={`/${locale}/tools/stardew-fish`} className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {getLoc(locale, '鱼类查询 →', 'Fish Finder →', '魚類查詢 →', '魚検索 →', '물고기 찾기 →', 'Fisch-Finder →')}
           </Link>

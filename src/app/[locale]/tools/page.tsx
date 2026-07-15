@@ -206,6 +206,24 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-greenhouse',
+    href: 'tools/stardew-greenhouse',
+    titles: {
+      zh: '星露谷物语温室布局规划器', 'zh-TW': '星露谷物語溫室佈局規劃器',
+      ja: 'スターデューバレー 温室プランナー', ko: '스타듀밸리 온실 플래너',
+      de: 'Stardew Valley Gewächshaus-Planer', en: 'Stardew Valley Greenhouse Planner',
+    },
+    descs: {
+      zh: '在固定 10×12（120 格）温室耕地上放作物和洒水器，一键铺最优铱金阵，看全覆盖，附解锁与最赚作物。',
+      'zh-TW': '在固定 10×12（120 格）溫室耕地上放作物和灑水器，一鍵鋪最優銥金陣，看全覆蓋，附解鎖與最賺作物。',
+      ja: '10×12（120マス）固定の温室区画に作物とスプリンクラーを配置、最適イリジウム配置をワンクリック。解放条件と儲かる作物付き。',
+      ko: '10×12(120칸) 고정 온실 경작지에 작물·스프링클러 배치, 최적 이리듐 배치 원클릭. 잠금 해제와 수익 작물 포함.',
+      de: 'Feldfrüchte und Sprinkler auf dem festen 10×12-Beet (120 Felder) platzieren, optimales Iridium-Raster per Klick, mit Freischaltung und Gewinn-Feldfrüchten.',
+      en: 'Place crops and sprinklers on the fixed 10×12 (120-tile) greenhouse plot, fill the optimal Iridium grid in one click, with unlock steps and best-profit crops.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {

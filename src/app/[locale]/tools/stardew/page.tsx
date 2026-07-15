@@ -92,6 +92,12 @@ export default async function StardewToolPage({
             {getLoc(locale, '星露谷攻略中心 →', 'Stardew Valley Guides →', '星露谷攻略中心 →', 'スターデュー攻略 →', '스타듀밸리 공략 →', 'Stardew Valley Guides →')}
           </Link>
           <Link
+            href={`/${locale}/tools/stardew-greenhouse`}
+            className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors"
+          >
+            {getLoc(locale, '温室布局规划器 →', 'Greenhouse Planner →', '溫室佈局規劃器 →', '温室プランナー →', '온실 플래너 →', 'Gewächshaus-Planer →')}
+          </Link>
+          <Link
             href={`/${locale}/tools/hay-day`}
             className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors"
           >
