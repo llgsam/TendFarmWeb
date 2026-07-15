@@ -90,12 +90,12 @@ export default async function StardewCompanionPage({
           <p className="text-sm leading-relaxed">
             {getLoc(
               locale,
-              '每日助手把当天最值得关心的四件事拼在一屏：谁过生日、TA 最爱的礼物是什么、今天有没有节日、以及本季还能钓的鱼和还来得及种的作物。数据直接复用送礼、鱼类、日历与作物工具，不需要重新查。天气因随机性强、无法预测，本工具不涉及。',
-              "The companion pulls together the four things worth checking each day: who's having a birthday and their loved gift, whether a festival is on today, and this season's remaining fish and still-plantable crops. It reuses the gift, fish, calendar, and crop tools directly — no need to look them up separately. Weather is left out since it's randomized and can't be predicted.",
-              '每日助手把當天最值得關心的四件事拼在一屏：誰過生日、TA 最愛的禮物是什麼、今天有沒有節日、以及本季還能釣的魚和還來得及種的作物。資料直接複用送禮、魚類、日曆與作物工具，不需要重新查。天氣因隨機性強、無法預測，本工具不涉及。',
-              'デイリーコンパニオンは毎日確認すべき4つの情報をまとめます：誕生日の村人と好きな贈り物、今日のフェスの有無、今季まだ釣れる魚とまだ間に合う作物。データは贈り物・魚・カレンダー・作物ツールをそのまま再利用し、個別に調べる必要はありません。天気はランダム性が高く予測できないため対象外です。',
-              '데일리 도우미는 매일 확인할 가치가 있는 네 가지를 한 화면에 모읍니다: 오늘 생일인 주민과 좋아하는 선물, 오늘 축제 여부, 이번 계절에 아직 잡을 수 있는 물고기와 아직 심을 수 있는 작물. 데이터는 선물·물고기·달력·작물 도구를 그대로 재사용해 따로 찾아볼 필요가 없습니다. 날씨는 무작위성이 커서 예측할 수 없으므로 다루지 않습니다.',
-              'Der Tagesbegleiter fasst die vier Dinge zusammen, die jeden Tag zählen: wer Geburtstag hat und sein Lieblingsgeschenk, ob heute ein Fest stattfindet, sowie die noch fangbaren Fische und pflanzbaren Feldfrüchte der Saison. Die Daten stammen direkt aus den Geschenk-, Fisch-, Kalender- und Feldfrucht-Tools — kein separates Nachschlagen nötig. Das Wetter ist ausgenommen, da es zufällig und nicht vorhersagbar ist.',
+              '每日助手把当天最值得关心的四件事拼在一屏：谁过生日、TA 最爱的礼物是什么、今天有没有节日、以及本季还能钓的鱼和还来得及种的作物。数据直接复用送礼、鱼类、日历与作物工具，不需要重新查。',
+              "The companion pulls together the four things worth checking each day: who's having a birthday and their loved gift, whether a festival is on today, and this season's remaining fish and still-plantable crops. It reuses the gift, fish, calendar, and crop tools directly — no need to look them up separately.",
+              '每日助手把當天最值得關心的四件事拼在一屏：誰過生日、TA 最愛的禮物是什麼、今天有沒有節日、以及本季還能釣的魚和還來得及種的作物。資料直接複用送禮、魚類、日曆與作物工具，不需要重新查。',
+              'デイリーコンパニオンは毎日確認すべき4つの情報をまとめます：誕生日の村人と好きな贈り物、今日のフェスの有無、今季まだ釣れる魚とまだ間に合う作物。データは贈り物・魚・カレンダー・作物ツールをそのまま再利用し、個別に調べる必要はありません。',
+              '데일리 도우미는 매일 확인할 가치가 있는 네 가지를 한 화면에 모읍니다: 오늘 생일인 주민과 좋아하는 선물, 오늘 축제 여부, 이번 계절에 아직 잡을 수 있는 물고기와 아직 심을 수 있는 작물. 데이터는 선물·물고기·달력·작물 도구를 그대로 재사용해 따로 찾아볼 필요가 없습니다.',
+              'Der Tagesbegleiter fasst die vier Dinge zusammen, die jeden Tag zählen: wer Geburtstag hat und sein Lieblingsgeschenk, ob heute ein Fest stattfindet, sowie die noch fangbaren Fische und pflanzbaren Feldfrüchte der Saison. Die Daten stammen direkt aus den Geschenk-, Fisch-, Kalender- und Feldfrucht-Tools — kein separates Nachschlagen nötig.',
             )}
           </p>
         </section>
