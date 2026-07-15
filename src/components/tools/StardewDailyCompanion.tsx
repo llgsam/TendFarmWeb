@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { daySummary, seasonWindow, nextDay } from '@/lib/tools/stardewDay'
+import { daySummary, seasonWindow, nextDay, prevDay } from '@/lib/tools/stardewDay'
 import type { Season } from '@/lib/tools/stardewCalendarData'
 import type { Crop } from '@/lib/tools/stardewCropData'
 import { openPiPWindow, supportsDocumentPiP } from '@/lib/tools/pipOverlay'
@@ -65,6 +65,7 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
   const window_ = useMemo(() => seasonWindow(season, day), [season, day])
 
   const advance = () => { const t = nextDay(season, day); setSeason(t.season); setDay(t.day) }
+  const retreat = () => { const t = prevDay(season, day); setSeason(t.season); setDay(t.day) }
   const setDayClamped = (v: number) => {
     if (Number.isNaN(v)) return
     setDay(Math.min(28, Math.max(1, Math.round(v))))
@@ -90,31 +91,51 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
           '📅 Stelle dein aktuelles Datum im Spiel ein. Klicke „Nächster Tag“, wenn im Spiel ein Tag vergeht, damit dieses Panel synchron bleibt.',
         )}
       </p>
-      <div className="flex flex-wrap items-center gap-2">
-        <select
-          value={season}
-          onChange={(e) => setSeason(e.target.value as Season)}
-          className={inputCls}
-        >
-          {SEASONS.map((s) => (
-            <option key={s.key} value={s.key}>{pick(s.label, locale)}</option>
-          ))}
-        </select>
-        <input
-          type="number"
-          min={1}
-          max={28}
-          value={day}
-          onChange={(e) => setDayClamped(Number(e.target.value))}
-          className={`${inputCls} w-16`}
-        />
-        <button
-          type="button"
-          onClick={advance}
-          className="rounded-lg border border-[#2d3d2d] px-3 py-1.5 text-sm text-[#8a9a7a] hover:text-[#e8dcc8]"
-        >
-          {L('Next Day', '下一天', '下一天', '翌日へ', '다음 날', 'Nächster Tag')}
-        </button>
+      <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-3">
+        <div className="mb-2 text-xs font-semibold text-[#f0a832]">
+          {L('📅 In-game date', '📅 游戏日期', '📅 遊戲日期', '📅 ゲーム内の日付', '📅 게임 속 날짜', '📅 Datum im Spiel')}
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={retreat}
+            aria-label={L('Previous day', '上一天', '上一天', '前日', '이전 날', 'Vorheriger Tag')}
+            className="rounded-lg border border-[#2d3d2d] px-3 py-1.5 text-sm text-[#8a9a7a] hover:text-[#e8dcc8]"
+          >
+            ◀ {L('Prev', '上一天', '上一天', '前日', '이전', 'Zurück')}
+          </button>
+          <select
+            value={season}
+            onChange={(e) => setSeason(e.target.value as Season)}
+            aria-label={L('Season', '季节', '季節', '季節', '계절', 'Jahreszeit')}
+            className={inputCls}
+          >
+            {SEASONS.map((s) => (
+              <option key={s.key} value={s.key}>{pick(s.label, locale)}</option>
+            ))}
+          </select>
+          <span className="flex items-center gap-1 text-sm text-[#8a9a7a]">
+            {L('Day', '第', '第', '', '', 'Tag')}
+            <input
+              type="number"
+              min={1}
+              max={28}
+              value={day}
+              onChange={(e) => setDayClamped(Number(e.target.value))}
+              aria-label={L('Day of season (1-28)', '日期（1-28）', '日期（1-28）', '日（1-28）', '날짜(1-28)', 'Tag (1-28)')}
+              className={`${inputCls} w-16`}
+            />
+            {L('/ 28', '天 / 28', '天 / 28', '日 / 28', '일 / 28', '/ 28')}
+          </span>
+          <button
+            type="button"
+            onClick={advance}
+            aria-label={L('Next day', '下一天', '下一天', '翌日', '다음 날', 'Nächster Tag')}
+            className="rounded-lg border border-[#2d3d2d] px-3 py-1.5 text-sm text-[#8a9a7a] hover:text-[#e8dcc8]"
+          >
+            {L('Next', '下一天', '下一天', '翌日', '다음', 'Weiter')} ▶
+          </button>
+        </div>
       </div>
 
       {/* Today */}

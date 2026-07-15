@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { daySummary, seasonWindow, nextDay } from '@/lib/tools/stardewDay'
+import { daySummary, seasonWindow, nextDay, prevDay } from '@/lib/tools/stardewDay'
 
 describe('stardewDay.daySummary', () => {
   it("returns Abigail with her loved gifts on fall 13", () => {
@@ -41,5 +41,21 @@ describe('stardewDay.nextDay', () => {
   })
   it('wraps 28 to the next season day 1', () => {
     expect(nextDay('winter', 28)).toEqual({ season: 'spring', day: 1 })
+  })
+})
+
+describe('stardewDay.prevDay', () => {
+  it('goes back within a season', () => {
+    expect(prevDay('summer', 5)).toEqual({ season: 'summer', day: 4 })
+  })
+  it('wraps day 1 to the previous season day 28', () => {
+    expect(prevDay('summer', 1)).toEqual({ season: 'spring', day: 28 })
+  })
+  it('wraps spring 1 back to winter 28', () => {
+    expect(prevDay('spring', 1)).toEqual({ season: 'winter', day: 28 })
+  })
+  it('is the inverse of nextDay across a boundary', () => {
+    const t = nextDay('spring', 28)      // -> summer 1
+    expect(prevDay(t.season, t.day)).toEqual({ season: 'spring', day: 28 })
   })
 })

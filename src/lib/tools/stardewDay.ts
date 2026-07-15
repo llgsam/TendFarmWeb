@@ -15,6 +15,12 @@ export function nextDay(season: Season, day: number): { season: Season; day: num
   return { season: SEASON_ORDER[(i + 1) % 4], day: 1 }
 }
 
+export function prevDay(season: Season, day: number): { season: Season; day: number } {
+  if (day > 1) return { season, day: day - 1 }
+  const i = SEASON_ORDER.indexOf(season)
+  return { season: SEASON_ORDER[(i + 3) % 4], day: 28 } // (i-1) mod 4; wraps spring 1 -> winter 28
+}
+
 function birthdaysOn(season: Season, day: number): BirthdayEntry[] {
   return GIFT_VILLAGERS
     .filter((v) => v.season === season && v.day === day)
