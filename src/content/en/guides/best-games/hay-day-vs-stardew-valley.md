@@ -142,3 +142,5 @@ You want a mobile game for your commute and a proper game for evenings — they 
 ---
 
 > **Not sure where to start?** Take our [Farming Game Quiz](/en/quizzes/which-farming-game) — 6 questions that match you to the right game based on your play style and schedule. If Stardew Valley wins you over, our list of [20 games like Stardew Valley](/en/guides/stardew-valley/games-like-stardew-valley) shows where to go next.
+
+> **🛠️ Playing Stardew Valley?** Our free tools make everyday play easier: the [Daily Companion](/en/tools/stardew-companion) pins today's birthdays, festivals, and in-season fish on your screen while you play; the [Gift Guide](/en/tools/stardew-gifts) shows what every villager loves; and the [Crop Calculator](/en/tools/stardew) finds the most profitable crop for the days you have left.

@@ -152,3 +152,5 @@ If you've never played either: **start with Stardew Valley**. More content, lowe
 ---
 
 > **Ready to start Coral Island?** Check our [Coral Island beginner's guide](/en/guides/coral-island/beginner) for everything you need to know about the first season — what to prioritize, how the reef restoration works, and how to build relationships with the island's diverse cast. Still hunting for your next farm after Stardew? Our [20 best games like Stardew Valley](/en/guides/stardew-valley/games-like-stardew-valley) covers the closest alternatives across every vibe.
+
+> **🛠️ Playing Stardew Valley?** Our free tools make everyday play easier: the [Daily Companion](/en/tools/stardew-companion) pins today's birthdays, festivals, and in-season fish on your screen while you play; the [Gift Guide](/en/tools/stardew-gifts) shows what every villager loves; and the [Crop Calculator](/en/tools/stardew) finds the most profitable crop for the days you have left.

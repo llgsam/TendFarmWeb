@@ -159,3 +159,5 @@ Coral Island has a mining and combat system similar to Stardew Valley — enemie
 ---
 
 > **Ready to go deeper in Stardew Valley's combat?** Our [Stardew Valley mining guide](/en/guides/stardew-valley/mining) covers weapon selection, how to optimize Skull Cavern runs, and the fastest strategy for reaching the bottom of the Mines.
+
+> **🛠️ Also playing Stardew Valley?** We build free Stardew tools — a [Daily Companion](/en/tools/stardew-companion) you can pin on-screen while you play, plus [gift](/en/tools/stardew-gifts), [calendar](/en/tools/stardew-calendar), and [crop](/en/tools/stardew) helpers.

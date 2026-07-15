@@ -237,3 +237,5 @@ If you're starting Stardew Valley co-op with a partner or friend, here's the set
 ---
 
 > **Ready to start farming with friends?** Our [Stardew Valley beginner's guide](/en/guides/stardew-valley/beginner) covers the first year's essential decisions — written with both solo and co-op play in mind. Farming with a partner? See which games pair co-op with the deepest [romance and relationship systems](/en/guides/best-games/farming-games-romance-relationships).
+
+> **🛠️ Farming Stardew with a friend?** Keep our free [Daily Companion](/en/tools/stardew-companion) pinned while you play — today's birthdays, festivals, and in-season fish at a glance — plus the [Gift Guide](/en/tools/stardew-gifts) and [Calendar](/en/tools/stardew-calendar) so you both stay on the same day.
