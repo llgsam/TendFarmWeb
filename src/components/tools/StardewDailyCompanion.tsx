@@ -80,6 +80,16 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
   const Panel = (
     <div className="space-y-4 bg-[#0f1a0f] p-4 text-[#e8dcc8]">
       {/* date controls */}
+      <p className="text-xs text-[#8a9a7a]">
+        {L(
+          '📅 Set your current in-game date. Each time a day passes in your game, tap “Next Day” to keep this panel in sync.',
+          '📅 设定你游戏里的当前日期。游戏里每过一天（睡一觉），点「下一天」，面板就同步到那天。',
+          '📅 設定你遊戲裡的當前日期。遊戲裡每過一天（睡一覺），點「下一天」，面板就同步到那天。',
+          '📅 ゲーム内の今日の日付を設定します。1日経つごとに「翌日へ」を押すと、パネルがその日に同期します。',
+          '📅 게임 속 현재 날짜를 설정하세요. 하루가 지날 때마다 ‘다음 날’을 누르면 패널이 그날로 동기화됩니다.',
+          '📅 Stelle dein aktuelles Datum im Spiel ein. Klicke „Nächster Tag“, wenn im Spiel ein Tag vergeht, damit dieses Panel synchron bleibt.',
+        )}
+      </p>
       <div className="flex flex-wrap items-center gap-2">
         <select
           value={season}
