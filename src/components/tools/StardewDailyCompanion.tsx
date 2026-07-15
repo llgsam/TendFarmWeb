@@ -36,7 +36,11 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
   const [season, setSeason] = useState<Season>('spring')
   const [day, setDay] = useState(1)
   const [pipWin, setPipWin] = useState<Window | null>(null)
+  const [mounted, setMounted] = useState(false)
   const L = (en: string, zh: string, zhTW: string, ja: string, ko: string, de: string) => pick({ en, zh, zhTW, ja, ko, de }, locale)
+
+  // mark client mount (used to defer client-only reads until after hydration)
+  useEffect(() => { setMounted(true) }, [])
 
   // restore
   useEffect(() => {
@@ -44,7 +48,9 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
       const raw = localStorage.getItem(STORAGE_KEY)
       if (raw) {
         const s = JSON.parse(raw)
-        if (s?.season && s?.day) { setSeason(s.season); setDay(s.day) }
+        const validSeason = SEASONS.some((entry) => entry.key === s?.season)
+        const validDay = Number.isInteger(s?.day) && s.day >= 1 && s.day <= 28
+        if (validSeason && validDay) { setSeason(s.season); setDay(s.day) }
       }
     } catch { /* ignore */ }
   }, [])
@@ -177,7 +183,7 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
             <a href={`/${locale}/tools/stardew-greenhouse`} className="text-[#f0a832] underline">
               {L('greenhouse', '温室', '溫室', '温室を試してみましょう', '온실', 'Gewächshaus')}
             </a>
-            {locale === 'de' ? ' aus.' : locale === 'ja' ? '。' : locale === 'ko' ? ' 이용해보세요.' : '.'}
+            {locale === 'de' ? ' aus.' : locale === 'ja' ? '。' : locale === 'ko' ? ' 이용해보세요.' : locale === 'zh' || locale === 'zh-TW' ? '。' : '.'}
           </p>
         )}
       </div>
@@ -194,7 +200,7 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
         >
           📌 {L('Pin as overlay', '钉在游戏上', '釘在遊戲上', 'オーバーレイ固定', '게임 위에 고정', 'Als Overlay anheften')}
         </button>
-        {!supportsDocumentPiP() && (
+        {mounted && !supportsDocumentPiP() && (
           <span className="text-xs text-[#8a9a7a]">
             {L('Opens a floating window. For a true always-on-top overlay, use Chrome and run Stardew in windowed mode.',
                '会打开一个浮窗。要真正置顶叠在游戏上，请用 Chrome 并让星露谷以窗口模式运行。',
