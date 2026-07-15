@@ -94,6 +94,12 @@ export default async function StardewCalendarPage({
             {getLoc(locale, '星露谷作物计算器 →', 'Stardew Crop Calculator →', '星露谷作物計算器 →', 'スターデュー作物計算機 →', '스타듀밸리 작물 계산기 →', 'Stardew Ernterechner →')}
           </Link>
           <Link
+            href={`/${locale}/tools/stardew-companion`}
+            className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors"
+          >
+            {getLoc(locale, '每日助手（边玩边钉住）→', 'Daily Companion (pin while playing) →', '每日助手（邊玩邊釘住）→', 'デイリーコンパニオン（プレイ中に固定）→', '데일리 도우미(플레이 중 고정) →', 'Tagesbegleiter (beim Spielen anheften) →')}
+          </Link>
+          <Link
             href={`/${locale}/tools`}
             className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors"
           >
