@@ -224,6 +224,20 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
+  {
+    key: 'stardew-companion',
+    href: 'tools/stardew-companion',
+    titles: { en: 'Stardew Valley Daily Companion', zh: '星露谷物语每日助手', 'zh-TW': '星露谷物語每日助手', ja: 'スターデューバレー デイリーコンパニオン', ko: '스타듀밸리 데일리 도우미', de: 'Stardew Valley Tagesbegleiter' },
+    descs: {
+      en: "Pin a floating overlay while you play: today's birthdays + loved gifts, festivals, and this season's fish and still-plantable crops.",
+      zh: '边玩边钉一个浮窗：今日生日+爱的礼物、节日，以及本季能钓的鱼和还来得及种的作物。',
+      'zh-TW': '邊玩邊釘一個浮窗：今日生日+愛的禮物、節日，以及本季能釣的魚和還來得及種的作物。',
+      ja: 'プレイ中に固定できるオーバーレイ：今日の誕生日＋好きな贈り物、フェス、今季の魚と間に合う作物。',
+      ko: '플레이 중 고정하는 오버레이: 오늘의 생일+좋아하는 선물, 축제, 이번 계절 물고기와 아직 심을 수 있는 작물.',
+      de: 'Schwebendes Overlay beim Spielen: heutige Geburtstage + Lieblingsgeschenke, Feste sowie Fische und noch pflanzbare Feldfrüchte der Saison.',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
 ]
 
 export default function ToolsPage() {
