@@ -6,10 +6,17 @@
 - **Vercel**: team `jsamgogos-projects` / project `tend-farm-web`(repo llgsam/TendFarmWeb,push main 自动部署)
   - Web Analytics:未启用(2026-07-12);Speed Insights:后台开、代码未埋
 - **Locales**: zh(默认/无前缀重定向到 /zh)、en、zh-TW(opencc 自 zh 转)、ja、ko、de;内容量 EN/ZH 57 篇,ja/ko/de 各 11 篇
-- **Market priority**(GSC 数据):US ≫ 其他英语区(CA)> DE(romance 意外信号)> JP/KR/TW
+- **Market priority**(2026-07-17 按国家维度重写,旧版"US ≫ 其他"已被推翻):**按每曝光价值**排 —— 🇯🇵JP(pos10.1/CTR4.0%)≈ 🇫🇷FR(9.7/5.8%,**尚无 fr locale**)> 🇰🇷KR(9.7/2.1%)> 小市场 SE/FI/BE/NZ(7.3–10.6 / 4–7%)≫ 🇺🇸US(**1737 曝光但 pos17.0/1.2%**)≈ 🇩🇪DE(636 曝光 / pos18.2 / **0.3%**)。**US/DE 是最大曝光池,也是维基/Reddit 墙最厚处**;小语种在第 1 页且高 CTR。US 仍占 21/99 点击(最大单一来源),但增量在非英语侧
+- **🔴 内容下注铁律(2026-07-17 SERP 实证)**:**站点赢在维基不在的地方,输在维基在的地方。** 发现/推荐簇(天花板 ~154k,SERP 无维基,对手=reddit+中腰博客)= 加码方向,已吃 2/3 点击;Stardew 工具/参考簇英文头部词(名义 60k,SERP = wiki×3+fandom+reddit+steam+论坛)= **短期不可赢**,1,682 曝光仅 3 点击。**工具不是没价值**(非英语/长尾工具词 pos 6–9 能排上,且有留存/分享/GEO 价值),但**别指望它赢英文头部词**
 - **Keyword library**: `docs/seo/keyword-candidates-2026-06.csv`、`docs/seo/article-queue.json`(文章队列)、`docs/seo/tools-roadmap.json`(工具队列,自带 KE vol)
 - **自主程度**: 改动默认待批(propose-only);报告/日志文件可直接写
 - **已知坑**: `buildLanguageAlternates()`(src/lib/config.ts)曾对全 locale 无条件广播 hreflang → 幻影 404 URL(2026-07-12 发现并修复:guide 页现在传入 `getGuideLocales()` 过滤;新增内容类型时注意同样处理)
+- **取数坑(2026-07-17 实测)**:
+  - **GSC 国家/网页维度**:用 URL 参数 `&breakdown=country|page|query&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION` 直接开(7/15 点 tab 失败的问题就此解决);表格**默认每页 10 行**且"每页行数"下拉点不动 → **翻页用 DOM 点「下一页」**(`aria-label` 含"下一页")最稳,每次 sleep 3.5s 再抽 `document.body.innerText`
+  - **`document.querySelector('table').innerText` 只返回前 10 行** → 改抽 `document.body.innerText`,截 `热门查询`/`排名靠前的网页` 到 `每页行数` 之间
+  - **⚠️ daemon 当前标签会漂到别的 GSC 属性**(实测抓到了 moodji 数据)→ **`new_tab` + 抽取必须在同一次 browser-harness 调用里完成**,并校验属性
+  - **`http_get` 现被 Vercel 机器人墙 403**(以前能过 sitemap.xml)→ 改用 `new_tab` 读;**XML 文档下 `document.body` 为 null**,用 `new XMLSerializer().serializeToString(document)`
+  - **Google SERP 实搜可用**(`/search?q=…&gl=us&hl=en&num=20`,无验证码)→ **判断"能不能赢"的决定性工具,别只靠位置-CTR 基准推断**
 - **GSC 请求收录操作方法**(browser-harness):inspect 深链会 404,要用顶部检查框——`focus()` 输入框 → `type_text(url)` → `press_key("Enter")` → 等"网址已/未收录" → 点"请求编入索引"文本节点向上找 button 祖先;页面过渡时 `document.body` 会短暂为 null,js 调用要 try/except
 
 ## Target clusters (what to track)
@@ -18,9 +25,33 @@
 | co-op/multiplayer | /en/guides/best-games/farming-games-with-best-multiplayer | co op farming games (720), coop farming games (720), best coop farming games (90) | 7/12 已做 page-1 push 增强,基线 pos 18.9/12.3 |
 | romance | /en + /de …/farming-games-romance-relationships | farming games with romance (110) | EN pos 14;DE 幻影页曾排 11.8/169impr(404) |
 | vs 对比文 | animal-crossing-vs-stardew-valley 等 | animal crossing vs stardew valley (880) | pos 9.3,已第 1 页 |
-| Stardew 工具簇 | /en/tools/stardew-*(10 个) | stardew valley fish (22.2k) / gifts (12.1k) / sprinklers (12.1k) / bundles (8.1k) / calendar (8.1k) / museum (8.1k) | 7/8–7/11 上线,等收录 |
+| **🥇 发现/推荐簇**(2026-07-17 新增,主战场) | /en/guides/best-games/*(40+)、/en/games/*、games-like-stardew-valley、farming-rpg-games | **天花板 ~154k**:farming games (49.5k) / farm games (49.5k) / games like stardew valley (18.1k) / farming simulator games (12.1k) / farming rpg games (6.6k) / games similar to stardew (4.4k) / best cozy games (4.4k) / free farming games (3.6k) | **SERP 无维基,对手=reddit+中腰博客 → 可赢**;已吃 ~65/99 点击。基线 7/17:`farming games` pos 27.1 / `farm games` 21.8 / `best farming games` 34.2 / games-like-stardew **10.9** / farming-rpg **18.4** / `/en/games/farming-simulator` **8.1 @ CTR 20.8%** |
+| ~~Stardew 工具簇~~ ❌ **降级**(维基墙) | /en/tools/stardew-*(12 个,含 7/16 新增 companion + greenhouse) | stardew valley fish (22.2k) / gifts (12.1k) / sprinklers (12.1k) / bundles (8.1k) / calendar (8.1k) / museum (8.1k) —— **名义 60k,实际拿不到** | **2026-07-17 SERP 实证:英文头部词前 20 = wiki×3+fandom+reddit+steam+论坛,我们不在榜**。1,682 曝光 → **3 点击(0.18%)**,基线 pos 27–46。**不再加码英文头部词**;非英语/长尾工具词可排上(`스타듀밸리 주민 선물` 6.6、`고급 스프링클러 배치` 7.0、`farm rpg quizzes` 8.8)→ 保留但改走非英语/长尾。⚠️ **greenhouse 不在 sitemap(P0 待批)** |
 
 ## Tracking log (append each run, newest first)
+
+### 2026-07-17(晚)— 执行记录(非取数运行):P0 sitemap 已修 + companion 入口漏斗
+- **✅ P0 已修(7/17 日志里的待批①)**:`sitemap.ts` 硬编码工具数组 → **改读目录**(`toolSlugs()`,仿 `quizSlugs()` 先例)。**线上复验:`/tools/stardew-greenhouse` 从 0 → 48 条 sitemap 条目**(与 companion 持平)。⚠️**注意坑**:直接"读目录"会把 `tools/quiz`(它只是 redirect 到 `/quizzes/farm-personality`)扫进 sitemap → 制造"网页会自动重定向"未收录项;故实现里**跳过含 `redirect(` 的 page**,已复验 quiz 条目=0。4 个测试锁住两条行为
+- **companion 入口漏斗(承认它搜不来流量 → 站内是唯一渠道)**:入口此前几乎关闭(工具中心排第10、8/10 工具页无入口、10/10 Stardew 攻略页 0 入口)。已做:①工具中心**置顶+特色卡**(强调边框/「📌 边玩边钉」徽章/跨列)②**8 个 Stardew 工具页**加入口 ③**8 篇 Stardew 攻略页**加**按主题定制**的 callout(钓鱼→当季鱼、best-crops→还来得及种、社区中心/mining→物品速查、relationships→今日生日);**farm-layout / games-like 故意跳过**(意图不符,games-like 的读者是要离开 Stardew)
+- **定位说明(守 7/17 铁律)**:以上是**把已投产能的留存价值榨出来**,**不是**新获客下注;获客加码方向仍是发现簇
+- 另:companion 新增**万能物品速查**(输物品→谁爱送/哪个 bundle/博物馆/料理/售价),复用四库现有数据零新抓;跨库 join = 归一化英文名
+- commits: `4389c9a`(sitemap+hub置顶) `9f66ffc`(工具页入口) `6539a18`(攻略页入口) `33325c9`(物品速查+修复);测试 198 绿
+
+### 2026-07-17 — T+5(SERP 实搜复核 → 确诊"维基墙";孤儿页内链假设被证实)
+- Totals: impr **6960**(↑from 4790)/ clicks **99**(↑from 82)/ CTR 1.4% / pos 16.7 / **收录 401 → 401(纹丝不动,索引波已停)**;未收录 608 持平
+- **🔴 头号发现:维基墙(SERP 实证)** —— 实搜 US SERP:`stardew valley gifts`(12.1k)/`sprinklers`(12.1k)前 20 = **wiki×3 + fandom + reddit + steam + 官方论坛**,我们不在榜。→ **Stardew 工具英文头部词短期不可赢**;工具簇 1,682 曝光换来 **3 点击(0.18%)**,名义天花板 60k 是假的
+- **对照组**:`games like stardew valley`(18.1k)/`co op farming games` 的 SERP **无维基**,对手是 reddit + 中腰博客(gamespew/pcgamer/dualshockers/popgeeks)→ **可打**
+- **簇分水岭**:发现簇天花板 **~154k**(farming games 49.5k + farm games 49.5k + games like stardew 18.1k + farming simulator games 12.1k + farming rpg 6.6k …),已吃到 **~65/99 点击(2/3)**,`/en/games/farming-simulator` **pos 8.1 / CTR 20.8%** 证明打得赢 → **加码方向**。最近一周产能(companion+greenhouse)全投在输的那侧
+- **"第1页0点击"结案(第三次确认无标题问题,本次是实证)**:first-year 269impr/pos10.0/0click —— SERP 被 reddit+steam+YouTube 轮播吃满,pos10 已在视野外。标题本身很好,**无 title 改动可做**
+- **🆕 国家维度首次取到**(用 `breakdown=country` 参数,别点 tab):US 21c/**1737impr**/1.2%/**pos17.0**(最大池=最厚的墙);DE 2c/636impr/**0.3%**/18.2;**JP 5c/125/4.0%/pos10.1**(JA switch 页 CTR 12.9%);KR 4c/188/2.1%/9.7;**FR 3c/52/5.8%/9.7(站上还没 fr locale)**;SE/FI/BE/NZ 各 2c、CTR 4–7%、pos 7–10 → **"US ≫ 其他"已被推翻**(见下方 Market priority)
+- **✅ 孤儿页内链假设证实(7/15 打法,2 天见效)**:`games-like-stardew-valley` 无排名 → **pos 10.9**(N1 提前 5 天远超);`farming-rpg-games` 30.1 → **18.4**、曝光 24 → **156(6.5×)**(N2 页面级达成,但查询级头部词仍 29.7)。**6 条内链、零新内容 = 迄今 ROI 最高动作,可复用到发现簇枢纽词**
+- **7/13 预测终局**:P1 收录 ✅ / **P2 `co op farming games` 17.4 ❌**(5天挪0.5位;无空格变体已 pos9.8 在赚 → 增强只喂到了一侧)/ **P3 EN romance 14.0 零位移 ❌**(7天小数点没动,确认放弃)/ **P4 DE romance ✅ 3clicks/230impr/pos11.6**(幻影排名完整承接,romance 簇唯一收入)
+- **🔴 P0 新 bug**:`/tools/stardew-greenhouse` **不在 sitemap**(0 次;companion 48 次)。根因 `src/app/sitemap.ts:61` **硬编码工具数组**漏加 → 新工具页对 Google 隐形。**根治建议:改成读目录,文件里已有 `quizSlugs()` 先例**
+- 排查结论(非 bug):`/tools/stardew-bundles` 无前缀 URL 280impr/pos44.8 → 实测 301+canonical 正确,GSC 报重定向前 URL,自然衰减
+- Actions taken:**零代码改动**(纯取数+分析+SERP 复核+报告)
+- 待批:①修 sitemap 漏页(建议读目录根治)②发现簇枢纽内链(复用已验证打法)③评估加 fr locale
+- **数据缺口:Vercel Analytics 未取到(掉登录)** → referrer/GEO/跳出断档一次;CWV 仍无(付费墙);`http_get` 现被 Vercel 403,改用浏览器+XMLSerializer 读 XML
+- 新预测(7/24 验收):M1 greenhouse 收录 / **M2 收录≥450(索引波是否复活)** / M3 `farming games`|`farm games` 任一 pos≤18 / **M4 反向预测:工具簇 EN 点击仍≤6(用来证伪"维基墙")** / M5 JP ≥8 clicks
 
 ### 2026-07-15 — T+3 / A–E 后 T+4(首次看到 A–E 效果;发现孤儿页根因)
 - Totals: impr **4790**(↑from 3050)/ clicks **82**(↑from 60)/ CTR 1.7%(健康摊薄延续)/ pos 15.4 / **收录 82 → 401 🚀(+319)**;未收录 793→608
