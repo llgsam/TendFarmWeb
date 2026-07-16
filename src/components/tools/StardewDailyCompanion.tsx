@@ -6,6 +6,7 @@ import { daySummary, seasonWindow, nextDay, prevDay } from '@/lib/tools/stardewD
 import type { Season } from '@/lib/tools/stardewCalendarData'
 import type { Crop } from '@/lib/tools/stardewCropData'
 import { openPiPWindow, supportsDocumentPiP } from '@/lib/tools/pipOverlay'
+import { searchItems, type ItemFacts } from '@/lib/tools/stardewItemLookup'
 
 type Loc = { en: string; zh: string; zhTW: string; ja: string; ko: string; de: string }
 function pick(l: Loc, locale: string): string {
@@ -36,6 +37,8 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
   const [season, setSeason] = useState<Season>('spring')
   const [day, setDay] = useState(1)
   const [pipWin, setPipWin] = useState<Window | null>(null)
+  const [q, setQ] = useState('')
+  const [picked, setPicked] = useState<ItemFacts | null>(null)
   const [mounted, setMounted] = useState(false)
   const L = (en: string, zh: string, zhTW: string, ja: string, ko: string, de: string) => pick({ en, zh, zhTW, ja, ko, de }, locale)
 
@@ -66,6 +69,7 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
 
   const advance = () => { const t = nextDay(season, day); setSeason(t.season); setDay(t.day) }
   const retreat = () => { const t = prevDay(season, day); setSeason(t.season); setDay(t.day) }
+  const hits = useMemo(() => (q.trim() ? searchItems(q, locale) : []), [q, locale])
   const setDayClamped = (v: number) => {
     if (Number.isNaN(v)) return
     setDay(Math.min(28, Math.max(1, Math.round(v))))
@@ -216,6 +220,94 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
             </a>
             {locale === 'de' ? ' aus.' : locale === 'ja' ? '。' : locale === 'ko' ? ' 이용해보세요.' : locale === 'zh' || locale === 'zh-TW' ? '。' : '.'}
           </p>
+        )}
+      </div>
+
+      {/* item lookup — "I have item X, what do I do with it?" */}
+      <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-3">
+        <h3 className="mb-2 text-xs font-semibold text-[#f0a832]">
+          🔎 {L('Item lookup', '物品速查', '物品速查', 'アイテム検索', '아이템 조회', 'Gegenstand nachschlagen')}
+        </h3>
+        <input
+          type="search"
+          value={q}
+          onChange={(e) => { setQ(e.target.value); setPicked(null) }}
+          placeholder={L(
+            'Type an item — who loves it, bundles, museum, recipes',
+            '输入物品名——谁爱送、收集包、博物馆、料理',
+            '輸入物品名——誰愛送、收集包、博物館、料理',
+            'アイテム名を入力 — 贈り物・バンドル・博物館・料理',
+            '아이템 이름 입력 — 선물·꾸러미·박물관·요리',
+            'Gegenstand eingeben — Geschenke, Bündel, Museum, Rezepte',
+          )}
+          aria-label={L('Item lookup', '物品速查', '物品速查', 'アイテム検索', '아이템 조회', 'Gegenstand nachschlagen')}
+          className={`${inputCls} w-full`}
+        />
+
+        {!picked && q.trim() && (
+          hits.length > 0 ? (
+            <div className="mt-2 flex flex-wrap gap-1">
+              {hits.map((h) => (
+                <button
+                  key={h.key}
+                  type="button"
+                  onClick={() => setPicked(h)}
+                  className="rounded border border-[#2d3d2d] px-2 py-1 text-xs text-[#8a9a7a] hover:text-[#e8dcc8]"
+                >
+                  {pick(h.name, locale)}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-2 text-xs text-[#8a9a7a]">
+              {L(
+                'No match. This covers gift, bundle, museum and cooking items — not weapons, furniture or building materials.',
+                '没找到。这里收录的是送礼／收集包／博物馆／料理相关物品，不含武器、家具和建材。',
+                '沒找到。這裡收錄的是送禮／收集包／博物館／料理相關物品，不含武器、家具和建材。',
+                '見つかりません。対象は贈り物・バンドル・博物館・料理のアイテムで、武器・家具・建材は含みません。',
+                '찾을 수 없습니다. 선물·꾸러미·박물관·요리 아이템만 다루며, 무기·가구·건축 자재는 포함되지 않습니다.',
+                'Kein Treffer. Abgedeckt sind Geschenk-, Bündel-, Museums- und Kochgegenstände — keine Waffen, Möbel oder Baumaterialien.',
+              )}
+            </p>
+          )
+        )}
+
+        {picked && (
+          <div className="mt-3 space-y-1 text-sm text-[#e8dcc8]">
+            <div className="font-semibold">
+              {pick(picked.name, locale)}
+              {picked.sellPrice !== null && <span className="ml-2 text-xs font-normal text-[#8a9a7a]">{picked.sellPrice}g</span>}
+            </div>
+            {picked.universalLove && (
+              <div className="text-xs text-[#f0a832]">
+                💛 {L('Universal love — every villager loves this', '通用最爱——所有村民都爱', '通用最愛——所有村民都愛', 'みんなが大好き（全村人）', '모두가 좋아하는 선물', 'Von allen geliebt')}
+              </div>
+            )}
+            {picked.lovedBy.length > 0 && (
+              <div>🎁 {L('Loved by', '谁爱送', '誰愛送', '好きな人', '좋아하는 주민', 'Geliebt von')}: {picked.lovedBy.map((v) => pick(v, locale)).join(', ')}</div>
+            )}
+            {picked.bundles.length > 0 && (
+              <div>📦 {L('Bundles', '收集包', '收集包', 'バンドル', '꾸러미', 'Bündel')}: {picked.bundles.map((b) => `${pick(b.bundle, locale)}${b.qty > 1 ? ` ×${b.qty}` : ''}`).join(', ')}</div>
+            )}
+            {picked.museum && (
+              <div>🏛️ {L('Museum: donatable', '博物馆：可捐赠', '博物館：可捐贈', '博物館：寄贈可', '박물관: 기증 가능', 'Museum: spendbar')}</div>
+            )}
+            {picked.recipes.length > 0 && (
+              <div>🍳 {L('Used in', '用于料理', '用於料理', '料理に使う', '요리에 사용', 'Verwendet in')}: {picked.recipes.map((r) => pick(r, locale)).join(', ')}</div>
+            )}
+            {picked.lovedBy.length === 0 && !picked.universalLove && picked.bundles.length === 0 && !picked.museum && picked.recipes.length === 0 && (
+              <div className="text-xs text-[#8a9a7a]">
+                {L('No gift, bundle, museum or recipe use — just sell it.', '没有送礼／收集包／博物馆／料理用途——卖掉即可。', '沒有送禮／收集包／博物館／料理用途——賣掉即可。', '贈り物・バンドル・博物館・料理の用途なし — 売却推奨。', '선물·꾸러미·박물관·요리 용도 없음 — 판매 추천.', 'Kein Geschenk-, Bündel-, Museums- oder Rezeptnutzen — einfach verkaufen.')}
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => { setPicked(null); setQ('') }}
+              className="mt-1 rounded border border-[#2d3d2d] px-2 py-1 text-xs text-[#8a9a7a] hover:text-[#e8dcc8]"
+            >
+              {L('Clear', '清空', '清空', 'クリア', '지우기', 'Leeren')}
+            </button>
+          </div>
         )}
       </div>
     </div>
