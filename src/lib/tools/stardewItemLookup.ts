@@ -34,9 +34,13 @@ export interface ItemFacts {
 // Drop annotation parentheses — "Stardrop Tea (+250)" is the same item as
 // "Stardrop Tea". Descriptive parentheses are KEPT, because "Strange Doll
 // (green)" and "Strange Doll (yellow)" are two different items.
+// Accents are folded (ñ -> n) so a player typing the plain-ASCII "Pina Colada"
+// still finds "Piña Colada".
 export function normalizeItemName(s: string): string {
   return s
     .replace(/\(\s*[+-][^)]*\)/g, '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '') // strip combining diacritical marks
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '')
 }
@@ -76,11 +80,19 @@ function buildIndex(): Map<string, ItemFacts> {
     if (item) ensure(item).universalLove = true
   }
 
-  // bundles: room -> bundle -> items
+  // bundles: room -> bundle -> items.
+  // One bundle can list the same display name twice — either two distinct
+  // source items that share a name (Animal Bundle has both a brown and a white
+  // "Large Egg"), or a genuine duplicate row in the source data (Construction
+  // Bundle lists Wood x99 twice). Either way the player only needs to be told
+  // the bundle once, so refs are deduped per (room, bundle).
   for (const room of BUNDLE_ROOMS)
     for (const bundle of room.bundles)
-      for (const item of bundle.items)
-        ensure(item.name).bundles.push({ bundle: bundle.name, room: room.name, qty: item.qty })
+      for (const item of bundle.items) {
+        const f = ensure(item.name)
+        const seen = f.bundles.some((b) => b.bundle.en === bundle.name.en && b.room.en === room.name.en)
+        if (!seen) f.bundles.push({ bundle: bundle.name, room: room.name, qty: item.qty })
+      }
 
   // museum: donatable artifacts/minerals
   for (const m of MUSEUM_ITEMS) ensure(m.name).museum = { category: m.category }
