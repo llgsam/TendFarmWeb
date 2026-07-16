@@ -196,3 +196,7 @@ By Winter 28, a strong Year 1 looks like:
 - [ ] Silo built and Chickens or Ducks producing
 
 Year 2 is when the farm really takes off. Everything you do in Year 1 is foundation.
+
+---
+
+> **📌 Keep the [Daily Companion](/en/tools/stardew-companion) open while you play Year 1** — set your in-game date and it surfaces today's birthdays, a tomorrow's-birthday heads-up, and which crops still have enough days left to mature this season.

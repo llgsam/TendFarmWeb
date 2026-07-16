@@ -194,3 +194,5 @@ At Level 10:
 ---
 
 > **Looking to maximize your mining income alongside farming?** Our [Best Crops guide](/en/guides/stardew-valley/best-crops) shows which artisan goods to make from your extra resources, and our [First Year guide](/en/guides/stardew-valley/first-year) maps out the optimal week-by-week balance of farming and mining.
+
+> **🛠️ Not sure if that gem is worth keeping?** Type it into the [Daily Companion](/en/tools/stardew-companion)'s item lookup to check whether it's museum-donatable, needed for a bundle, or just better sold.

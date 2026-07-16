@@ -166,3 +166,5 @@ Without Artisan these are already profitable. With Artisan they become some of t
 ---
 
 > **Want to calculate your exact farm income?** Our [Stardew Valley crop calculator](/en/tools/stardew) lets you enter your farm setup and see projected gold per season.
+
+> **🛠️ Deciding what to plant right now?** The [Daily Companion](/en/tools/stardew-companion) takes your in-game date and shows exactly which crops still have enough days left to mature before the season ends — no math required.

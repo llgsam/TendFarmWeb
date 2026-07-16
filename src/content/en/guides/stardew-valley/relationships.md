@@ -186,3 +186,5 @@ You can't max all relationships in Year 1 — there's not enough time and gift c
 ---
 
 > **Want to know when heart events trigger?** Our [Year 1 Guide](/en/guides/stardew-valley/first-year) covers which seasons to trigger key relationship milestones alongside your farming plan.
+
+> **📌 Never miss a birthday again.** Set your in-game date in the [Daily Companion](/en/tools/stardew-companion) and it shows today's birthdays with each villager's loved gifts, plus a heads-up for tomorrow's.

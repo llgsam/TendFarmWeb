@@ -113,3 +113,5 @@ You don't need to max out everyone's relationship. Focus on the people who matte
 ---
 
 > **What kind of farmer are you?** Take our quiz to find out which farming game fits your personality — and maybe discover your next obsession. [Take the Farm Personality Quiz →](/en/quizzes/farm-personality)
+
+> **🛠️ Want a daily assist while you play?** Our [Daily Companion](/en/tools/stardew-companion) tracks today's birthdays (with loved gifts) and flags which crops are still worth planting for the days you have left — pin it next to the game.

@@ -300,3 +300,5 @@ Most players complete the Community Center mid-Year 2. The main benefits of not 
 ---
 
 > **Struggling with a specific bundle item?** Our [Stardew Valley Fishing Guide](/en/guides/stardew-valley/fishing) covers every fish location and season in detail, and our [First Year Guide](/en/guides/stardew-valley/first-year) has a week-by-week plan that incorporates Community Center priorities.
+
+> **🛠️ Forget which bundle needs what?** Type any item into the [Daily Companion](/en/tools/stardew-companion)'s item lookup and it tells you the bundle it belongs to, whether the museum wants it, and who'd love it as a gift instead.

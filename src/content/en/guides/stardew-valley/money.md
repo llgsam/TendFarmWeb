@@ -179,3 +179,5 @@ When Flick or C.J. appear on your island, drop everything and fish or catch bugs
 ---
 
 > **Want to know which crops give the best per-season returns with exact numbers?** Our [Stardew Valley Best Crops guide](/en/guides/stardew-valley/best-crops) has season-by-season rankings with profitability breakdowns.
+
+> **📌 Deciding what to plant, fish for, or sell next?** The [Daily Companion](/en/tools/stardew-companion) shows which crops are still worth planting, what's in season to fish, and looks up any item's sell price on demand.

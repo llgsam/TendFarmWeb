@@ -219,3 +219,5 @@ The Fishing Bundle in the Community Center requires:
 ---
 
 > **Want to maximize your fishing income alongside farming?** Our [Stardew Valley First Year Guide](/en/guides/stardew-valley/first-year) shows when to fish vs. farm across all four seasons for optimal income.
+
+> **🛠️ Not sure what's biting today?** Set your in-game date in the [Daily Companion](/en/tools/stardew-companion) and it lists every fish catchable in your current season — handy for filling out that Fishing Bundle.
