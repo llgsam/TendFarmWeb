@@ -34,6 +34,24 @@ function quizSlugs(): string[] {
   }
 }
 
+// Tool routes are read from disk so a newly added tool can never be forgotten
+// here (a hardcoded list once left /tools/stardew-greenhouse out of the sitemap
+// entirely, making it invisible to Google). Redirect-only routes are skipped:
+// tools/quiz just redirects to /quizzes/farm-personality, and a redirect URL in
+// a sitemap gets reported by Google as "page with redirect", not indexed.
+export function toolSlugs(): string[] {
+  const dir = path.join(process.cwd(), 'src', 'app', '[locale]', 'tools')
+  try {
+    return fs.readdirSync(dir).filter((d) => {
+      const page = path.join(dir, d, 'page.tsx')
+      if (!fs.existsSync(page)) return false
+      return !/\bredirect\(/.test(fs.readFileSync(page, 'utf8'))
+    })
+  } catch {
+    return []
+  }
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = []
 
@@ -58,9 +76,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static, fully-localized pages. ('/guides' is a redirect to /guides/best-games,
   // so it's omitted; the comparison hub is listed via the guide categories below.)
   add('', LOCALES, 1.0, 'daily')
-  for (const p of ['/games', '/tools', '/tools/hay-day', '/tools/stardew', '/tools/stardew-calendar', '/tools/stardew-gifts', '/tools/stardew-fish', '/tools/stardew-bundles', '/tools/stardew-museum', '/tools/stardew-villagers', '/tools/stardew-cooking', '/tools/stardew-sprinklers', '/tools/stardew-companion', '/quizzes']) {
+  for (const p of ['/games', '/tools', '/quizzes']) {
     add(p)
   }
+
+  // Tools (read from disk — see toolSlugs)
+  for (const slug of toolSlugs()) add(`/tools/${slug}`)
 
   // Game directory
   for (const slug of getAllGameSlugs()) add(`/games/${slug}`, LOCALES, 0.8)

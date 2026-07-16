@@ -63,6 +63,21 @@ const LIVE_TOOLS = [
 
 const DATA_TOOLS = [
   {
+    key: 'stardew-companion',
+    href: 'tools/stardew-companion',
+    featured: true,
+    titles: { en: 'Stardew Valley Daily Companion', zh: '星露谷物语每日助手', 'zh-TW': '星露谷物語每日助手', ja: 'スターデューバレー デイリーコンパニオン', ko: '스타듀밸리 데일리 도우미', de: 'Stardew Valley Tagesbegleiter' },
+    descs: {
+      en: "Pin it on top of the game while you play: today's birthdays + loved gifts, festivals, this season's fish and still-plantable crops — plus an item lookup that tells you who loves it, which bundle needs it, and whether the museum takes it.",
+      zh: '边玩边钉在游戏上：今日生日+爱的礼物、节日、本季能钓的鱼和还来得及种的作物，还能速查任意物品——谁爱送、哪个收集包要、博物馆能不能捐。',
+      'zh-TW': '邊玩邊釘在遊戲上：今日生日+愛的禮物、節日、本季能釣的魚和還來得及種的作物，還能速查任意物品——誰愛送、哪個收集包要、博物館能不能捐。',
+      ja: 'プレイ中にゲームの上へ固定：今日の誕生日＋好きな贈り物、フェス、今季の魚と間に合う作物。アイテム検索で「誰が好きか・どのバンドルか・博物館に出せるか」も即座に。',
+      ko: '플레이 중 게임 위에 고정: 오늘의 생일+좋아하는 선물, 축제, 이번 계절 물고기와 아직 심을 수 있는 작물. 아이템 조회로 누가 좋아하는지·어느 꾸러미인지·박물관 기증 여부까지.',
+      de: 'Beim Spielen über dem Spiel anheften: heutige Geburtstage + Lieblingsgeschenke, Feste, Fische und noch pflanzbare Feldfrüchte der Saison — plus Gegenstandssuche (wer liebt ihn, welches Bündel, Museum?).',
+    },
+    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
+  },
+  {
     key: 'stardew-calendar',
     href: 'tools/stardew-calendar',
     titles: {
@@ -224,20 +239,6 @@ const DATA_TOOLS = [
     },
     tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
   },
-  {
-    key: 'stardew-companion',
-    href: 'tools/stardew-companion',
-    titles: { en: 'Stardew Valley Daily Companion', zh: '星露谷物语每日助手', 'zh-TW': '星露谷物語每日助手', ja: 'スターデューバレー デイリーコンパニオン', ko: '스타듀밸리 데일리 도우미', de: 'Stardew Valley Tagesbegleiter' },
-    descs: {
-      en: "Pin a floating overlay while you play: today's birthdays + loved gifts, festivals, and this season's fish and still-plantable crops.",
-      zh: '边玩边钉一个浮窗：今日生日+爱的礼物、节日，以及本季能钓的鱼和还来得及种的作物。',
-      'zh-TW': '邊玩邊釘一個浮窗：今日生日+愛的禮物、節日，以及本季能釣的魚和還來得及種的作物。',
-      ja: 'プレイ中に固定できるオーバーレイ：今日の誕生日＋好きな贈り物、フェス、今季の魚と間に合う作物。',
-      ko: '플레이 중 고정하는 오버레이: 오늘의 생일+좋아하는 선물, 축제, 이번 계절 물고기와 아직 심을 수 있는 작물.',
-      de: 'Schwebendes Overlay beim Spielen: heutige Geburtstage + Lieblingsgeschenke, Feste sowie Fische und noch pflanzbare Feldfrüchte der Saison.',
-    },
-    tags: { zh: 'Stardew Valley', 'zh-TW': 'Stardew Valley', ja: 'Stardew Valley', ko: 'Stardew Valley', de: 'Stardew Valley', en: 'Stardew Valley' },
-  },
 ]
 
 export default function ToolsPage() {
@@ -264,6 +265,7 @@ export default function ToolsPage() {
         dataTools={DATA_TOOLS}
         allLabel={getLoc('全部游戏', 'All Games', '全部遊戲', '全ゲーム', '전체 게임', 'Alle Spiele')}
         liveLabel={getLoc('可用', 'Live', '可用', 'ライブ', '라이브', 'Live')}
+        featuredLabel={getLoc('📌 边玩边钉', '📌 Pin while playing', '📌 邊玩邊釘', '📌 プレイ中に固定', '📌 플레이 중 고정', '📌 Beim Spielen anheften')}
         calcLabel={getLoc('游戏数值计算器', 'Game Calculators', '遊戲數值計算器', 'ゲーム計算ツール', '게임 계산기', 'Spiel-Rechner')}
         dataLabel={getLoc('游戏数据查询', 'Game Database', '遊戲數據查詢', 'ゲームデータ検索', '게임 데이터 조회', 'Spiel-Datenbank')}
         dataSubtitle={getLoc(

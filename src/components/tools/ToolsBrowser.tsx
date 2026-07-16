@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 
 type LocMap = { zh: string; 'zh-TW': string; ja: string; ko: string; de: string; en: string }
-type Tool = { key: string; href: string; titles: LocMap; descs: LocMap; tags: LocMap }
+type Tool = { key: string; href: string; titles: LocMap; descs: LocMap; tags: LocMap; featured?: boolean }
 
 export function ToolsBrowser({
   locale,
@@ -14,6 +14,7 @@ export function ToolsBrowser({
   dataLabel,
   dataSubtitle,
   liveLabel,
+  featuredLabel,
   allLabel,
 }: {
   locale: string
@@ -23,6 +24,7 @@ export function ToolsBrowser({
   dataLabel: string
   dataSubtitle: string
   liveLabel: string
+  featuredLabel: string
   allLabel: string
 }) {
   const [game, setGame] = useState<string>('all')
@@ -47,14 +49,22 @@ export function ToolsBrowser({
   const live = liveTools.filter(match)
   const data = dataTools.filter(match)
 
+  // A featured tool gets the accent frame and spans the grid, because its only
+  // discovery path is this hub (it can't win search on its own).
   const Card = ({ t }: { t: Tool }) => (
     <Link
       href={`/${locale}/${t.href}`}
-      className="group rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-5 transition-colors hover:border-[#f0a832]/40 hover:bg-[#1a2e1a]"
+      className={`group rounded-xl border p-5 transition-colors ${
+        t.featured
+          ? 'border-[#f0a832]/60 bg-[#f0a832]/5 hover:border-[#f0a832] hover:bg-[#f0a832]/10 md:col-span-2'
+          : 'border-[#2d3d2d] bg-[#1a2e1a]/50 hover:border-[#f0a832]/40 hover:bg-[#1a2e1a]'
+      }`}
     >
       <div className="mb-3 flex items-center justify-between">
         <span className="rounded-full bg-[#2d5a27] px-2 py-0.5 text-xs text-[#8a9a7a]">{loc(t.tags)}</span>
-        <span className="rounded-full bg-[#f0a832]/10 px-2 py-0.5 text-xs font-semibold text-[#f0a832]">{liveLabel}</span>
+        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${t.featured ? 'bg-[#f0a832] text-[#0f1a0f]' : 'bg-[#f0a832]/10 text-[#f0a832]'}`}>
+          {t.featured ? featuredLabel : liveLabel}
+        </span>
       </div>
       <h3 className="mb-2 font-semibold text-[#e8dcc8] group-hover:text-[#f0a832] transition-colors">{loc(t.titles)}</h3>
       <p className="text-sm text-[#8a9a7a]">{loc(t.descs)}</p>
