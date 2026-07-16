@@ -100,6 +100,12 @@ export default async function StardewBundlesPage({
         </h2>
         <div className="flex flex-wrap gap-3">
           <Link
+            href={`/${locale}/tools/stardew-companion`}
+            className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors"
+          >
+            {getLoc(locale, '每日助手（边玩边钉住）→', 'Daily Companion (pin while playing) →', '每日助手（邊玩邊釘住）→', 'デイリーコンパニオン（プレイ中に固定）→', '데일리 도우미(플레이 중 고정) →', 'Tagesbegleiter (beim Spielen anheften) →')}
+          </Link>
+          <Link
             href={`/${locale}/tools/stardew-fish`}
             className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors"
           >

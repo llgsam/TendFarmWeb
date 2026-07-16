@@ -81,6 +81,9 @@ export default async function StardewVillagersPage({ params }: { params: Promise
           {getLoc(locale, '相关工具', 'Related Tools', '相關工具', '関連ツール', '관련 도구', 'Verwandte Tools')}
         </h2>
         <div className="flex flex-wrap gap-3">
+          <Link href={`/${locale}/tools/stardew-companion`} className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
+            {getLoc(locale, '每日助手（边玩边钉住）→', 'Daily Companion (pin while playing) →', '每日助手（邊玩邊釘住）→', 'デイリーコンパニオン（プレイ中に固定）→', '데일리 도우미(플레이 중 고정) →', 'Tagesbegleiter (beim Spielen anheften) →')}
+          </Link>
           <Link href={`/${locale}/tools/stardew-gifts`} className="rounded-lg border border-[#2d3d2d] px-4 py-2 text-sm text-[#8a9a7a] hover:text-[#e8dcc8] transition-colors">
             {getLoc(locale, '送礼喜好查询 →', 'Gift Guide →', '送禮喜好查詢 →', '贈り物ガイド →', '선물 가이드 →', 'Geschenk-Guide →')}
           </Link>
