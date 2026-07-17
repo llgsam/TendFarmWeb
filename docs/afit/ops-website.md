@@ -40,7 +40,10 @@
 - **反证**:`/en/games/farming-simulator` pos7.7 → **CTR 22.8%**(全站冠军);ja switch pos9 → 10.8% → **排得上时 CTR 极好,CTR 从不是问题**
 - **❌ 助手决策:不是现在(时序错)**。34 访客/天做留存=过早优化;获客缺口差 1–2 个数量级(farming games 单词 49.5k 捕获≈0)。**正确时序:获客→激活→留存**。漏斗已建好,流量来了留存层就位。**读存档方向冻结,不投产能**
 - ⚠️ **待验证假设(别想当然)**:助手服务 **Stardew 参考人群**,发现簇带来 **"还在挑游戏"人群** —— **不是同一批人**,"发现簇引流→助手留存"存在**人群错配**
-- Actions taken:**零代码改动**(取数+分段+SERP+报告)。待批:**P3 发现簇枢纽内链**(唯一建议动作,复用 7/15 已验证最高 ROI 打法)
+- Actions taken(取数+分段+SERP 后,**用户批准并当场执行了 A+B**):
+  - **✅ A 承接页正名 + 消除三方蚕食**(commit `b9f6929`):**发现簇三个头部资产全部盖着 2025 的戳(2026年7月读到=死页信号,且在打将死的年份词而非常青 49.5k)**。且**三个页在抢同一个词**:`/games`(pos18.0 "All Farming Games 2025")· `/guides/best-games`(pos21.1 "**Best Games & Comparisons**"=内部分类名,什么词都不打)· `top-farming-games-2025`(**pos14.9 最好,且是榜单文=SERP 可打的第6/7位形态**)。→ 各归各位:**top-farming-games=`farming games` 承接页**(常青标题,**slug 保留**——改URL要301且重置信号,收益不抵成本)、`/games`=目录/浏览意图、hub=对比索引(新增 `GuideCategory.headline` 给 title/H1,`name` 继续当短标签,否则面包屑会塞进SEO长句)。年份戳 en/zh/ja/ko/de 全清(**JP 是高价值市场,它两篇都是"2025年版"**)。线上4个URL复验✅
+  - **✅ B 内链集中**(commit `1749a85`):承接页此前**只有 1 条内链=近乎孤儿**(与 7/15 那两个孤儿页同病,故卡 pos14.9)。从 8 个**未被动过、排名好**的页(pos 6.8–10.8)加内链,**8 个锚文本全不相同**(best farming games ranked / our full farming games ranking / 15 farming games ranked… / every farming game we've ranked / the definitive farming games list / which farm game to play next / our farming game rankings / see all farm games ranked)——**刻意不做 57 篇全链**:同锚文本×57 = 精确匹配堆砌足迹,Google 打击;7/15 的成功是 **6 条上下文链推 12 位**,权重来自源页质量非数量。锚文本自然覆盖 `farming games`+`farm games` 两个 49.5k 词。线上抽查 4/4 ✅
+- **⚠️ 仍未做 = D 外链(唯一能解权重的)**:`farming games` SERP 第1名就是 reddit;60 个测验是天然分享物([[project_reddit_ops]])。**A+B 是上膛,D 才是扣扳机——没有外链,A+B 的天花板就是第 2 页**
 - 新预测(7/24):**Q1** `farming games` pos≤20(若执行内链)/ **Q2** 收录≥450 / **Q3 反向** 工具簇 EN 点击仍≤6 / **Q4** 发现簇点击占比≥70%
 
 ### 2026-07-17(晚)— 执行记录(非取数运行):P0 sitemap 已修 + companion 入口漏斗
