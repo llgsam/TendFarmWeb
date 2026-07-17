@@ -32,6 +32,17 @@ const SEASONS: { key: Season; label: Loc }[] = [
   { key: 'winter', label: { en: 'Winter', zh: '冬', zhTW: '冬', ja: '冬', ko: '겨울', de: 'Winter' } },
 ]
 const STORAGE_KEY = 'stardew-companion-date-v1'
+const HINT_KEY = 'stardew-companion-hint-dismissed-v1'
+
+// Pinned in a ~360px overlay, stacking every section makes a long scroll and
+// kills the whole point of a glanceable panel. The date stays put (everything
+// else is relative to it) and the three jobs become tabs.
+type Tab = 'today' | 'season' | 'lookup'
+const TABS: { key: Tab; label: Loc }[] = [
+  { key: 'today', label: { en: 'Today', zh: '今天', zhTW: '今天', ja: '今日', ko: '오늘', de: 'Heute' } },
+  { key: 'season', label: { en: 'Season', zh: '当季', zhTW: '當季', ja: '今季', ko: '이번 계절', de: 'Saison' } },
+  { key: 'lookup', label: { en: 'Lookup', zh: '速查', zhTW: '速查', ja: '検索', ko: '조회', de: 'Suche' } },
+]
 
 export function StardewDailyCompanion({ locale }: { locale: string }) {
   const [season, setSeason] = useState<Season>('spring')
@@ -40,10 +51,20 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
   const [q, setQ] = useState('')
   const [picked, setPicked] = useState<ItemFacts | null>(null)
   const [mounted, setMounted] = useState(false)
+  const [tab, setTab] = useState<Tab>('today')
+  const [hintDismissed, setHintDismissed] = useState(false)
   const L = (en: string, zh: string, zhTW: string, ja: string, ko: string, de: string) => pick({ en, zh, zhTW, ja, ko, de }, locale)
 
   // mark client mount (used to defer client-only reads until after hydration)
-  useEffect(() => { setMounted(true) }, [])
+  useEffect(() => {
+    setMounted(true)
+    try { if (localStorage.getItem(HINT_KEY) === '1') setHintDismissed(true) } catch { /* ignore */ }
+  }, [])
+
+  const dismissHint = () => {
+    setHintDismissed(true)
+    try { localStorage.setItem(HINT_KEY, '1') } catch { /* ignore */ }
+  }
 
   // restore
   useEffect(() => {
@@ -84,17 +105,30 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
   // The panel body is a function so it can render both inline and (via portal) in the PiP window.
   const Panel = (
     <div className="space-y-4 bg-[#0f1a0f] p-4 text-[#e8dcc8]">
-      {/* date controls */}
-      <p className="text-xs text-[#8a9a7a]">
-        {L(
-          '📅 Set your current in-game date. Each time a day passes in your game, tap “Next Day” to keep this panel in sync.',
-          '📅 设定你游戏里的当前日期。游戏里每过一天（睡一觉），点「下一天」，面板就同步到那天。',
-          '📅 設定你遊戲裡的當前日期。遊戲裡每過一天（睡一覺），點「下一天」，面板就同步到那天。',
-          '📅 ゲーム内の今日の日付を設定します。1日経つごとに「翌日へ」を押すと、パネルがその日に同期します。',
-          '📅 게임 속 현재 날짜를 설정하세요. 하루가 지날 때마다 ‘다음 날’을 누르면 패널이 그날로 동기화됩니다.',
-          '📅 Stelle dein aktuelles Datum im Spiel ein. Klicke „Nächster Tag“, wenn im Spiel ein Tag vergeht, damit dieses Panel synchron bleibt.',
-        )}
-      </p>
+      {/* One-time hint. Mount-gated so the server and first client render agree
+          (reading localStorage during render would desync hydration). */}
+      {mounted && !hintDismissed && (
+        <div className="flex items-start gap-2 rounded-lg border border-[#2d3d2d] bg-[#1a2e1a]/50 p-2 text-xs text-[#8a9a7a]">
+          <span className="flex-1">
+            {L(
+              '📅 Set your current in-game date. Each time a day passes in your game, tap “Next Day” to keep this panel in sync.',
+              '📅 设定你游戏里的当前日期。游戏里每过一天（睡一觉），点「下一天」，面板就同步到那天。',
+              '📅 設定你遊戲裡的當前日期。遊戲裡每過一天（睡一覺），點「下一天」，面板就同步到那天。',
+              '📅 ゲーム内の今日の日付を設定します。1日経つごとに「翌日へ」を押すと、パネルがその日に同期します。',
+              '📅 게임 속 현재 날짜를 설정하세요. 하루가 지날 때마다 ‘다음 날’을 누르면 패널이 그날로 동기화됩니다.',
+              '📅 Stelle dein aktuelles Datum im Spiel ein. Klicke „Nächster Tag“, wenn im Spiel ein Tag vergeht, damit dieses Panel synchron bleibt.',
+            )}
+          </span>
+          <button
+            type="button"
+            onClick={dismissHint}
+            aria-label={L('Dismiss', '不再显示', '不再顯示', '閉じる', '닫기', 'Ausblenden')}
+            className="shrink-0 rounded px-1 text-[#8a9a7a] hover:text-[#e8dcc8]"
+          >
+            ✕
+          </button>
+        </div>
+      )}
       <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-3">
         <div className="mb-2 text-xs font-semibold text-[#f0a832]">
           {L('📅 In-game date', '📅 游戏日期', '📅 遊戲日期', '📅 ゲーム内の日付', '📅 게임 속 날짜', '📅 Datum im Spiel')}
@@ -142,7 +176,28 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
         </div>
       </div>
 
+      {/* Tabs — one job at a time, so the pinned overlay stays a glance */}
+      <div className="flex gap-1 border-b border-[#2d3d2d]" role="tablist">
+        {TABS.map((t) => (
+          <button
+            key={t.key}
+            type="button"
+            role="tab"
+            aria-selected={tab === t.key}
+            onClick={() => setTab(t.key)}
+            className={`-mb-px rounded-t-lg border-b-2 px-3 py-1.5 text-sm transition-colors ${
+              tab === t.key
+                ? 'border-[#f0a832] font-semibold text-[#f0a832]'
+                : 'border-transparent text-[#8a9a7a] hover:text-[#e8dcc8]'
+            }`}
+          >
+            {pick(t.label, locale)}
+          </button>
+        ))}
+      </div>
+
       {/* Today */}
+      {tab === 'today' && (
       <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-4">
         <h3 className="mb-2 text-sm font-semibold text-[#f0a832]">
           🎂 {L('Today', '今天', '今天', '今日', '오늘', 'Heute')}
@@ -188,8 +243,10 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
           )}
         </p>
       </div>
+      )}
 
       {/* Season window */}
+      {tab === 'season' && (
       <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-4">
         <h3 className="mb-2 text-sm font-semibold text-[#f0a832]">
           🎣 {L('Fish in season', '当季鱼类', '當季魚類', '今の季節の魚', '이번 시즌 물고기', 'Fische dieser Saison')}
@@ -222,8 +279,10 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
           </p>
         )}
       </div>
+      )}
 
       {/* item lookup — "I have item X, what do I do with it?" */}
+      {tab === 'lookup' && (
       <div className="rounded-xl border border-[#2d3d2d] bg-[#1a2e1a]/50 p-3">
         <h3 className="mb-2 text-xs font-semibold text-[#f0a832]">
           🔎 {L('Item lookup', '物品速查', '物品速查', 'アイテム検索', '아이템 조회', 'Gegenstand nachschlagen')}
@@ -310,6 +369,7 @@ export function StardewDailyCompanion({ locale }: { locale: string }) {
           </div>
         )}
       </div>
+      )}
     </div>
   )
 
