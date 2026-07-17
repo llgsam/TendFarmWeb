@@ -29,10 +29,10 @@
     }
   },
   "nav": {
-    "games": "遊戲大全",
+    "games": "遊戲庫",
     "tools": "工具集",
-    "quizzes": "測評",
-    "guides": "遊戲評測"
+    "quizzes": "互動測驗",
+    "guides": "遊戲測評"
   },
   "footer": {
     "tagline": "農場遊戲愛好者的集結地",
