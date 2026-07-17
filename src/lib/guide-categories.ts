@@ -23,7 +23,14 @@ export interface GuideCategory {
   key: string
   emoji: string
   featured?: boolean
+  /** Short label — breadcrumbs, cards, nav. Keep it terse. */
   name: (locale: string) => string
+  /**
+   * Page <title>/<h1>. Falls back to `name`. Exists because the short label a
+   * breadcrumb needs ("Best Games & Comparisons") is an internal taxonomy name
+   * that names no search term — the heading has to carry the actual subject.
+   */
+  headline?: (locale: string) => string
   desc: (locale: string) => string
 }
 
@@ -33,6 +40,10 @@ export const GUIDE_CATEGORIES: GuideCategory[] = [
     emoji: '🏆',
     featured: true,
     name: (l) => guideLoc(l, '最佳农场游戏与横向评测', 'Best Games & Comparisons', '最佳農場遊戲與橫向評測', 'おすすめ＆比較ガイド', '베스트 게임 & 비교', 'Beste Spiele & Vergleiche'),
+    // The hub indexes the comparison/ranking articles; the flagship ranked
+    // listicle owns the plain "farming games" intent, so this heading leans
+    // comparison-side to keep the two from splitting the same query.
+    headline: (l) => guideLoc(l, '农场游戏横向对比与榜单', 'Farming Game Comparisons & Rankings', '農場遊戲橫向對比與榜單', '農場ゲームの比較＆ランキング', '농장 게임 비교 & 랭킹', 'Farmspiele im Vergleich & Rankings'),
     desc: (l) => guideLoc(l, '横向对比、年度榜单、按平台/预算/心情选游戏——帮你找到下一款农场游戏。', 'Head-to-head comparisons, yearly rankings, and picks by platform, budget, and mood — find your next farming game.', '橫向對比、年度榜單、按平台/預算/心情選遊戲——幫你找到下一款農場遊戲。', '徹底比較、年間ランキング、プラットフォーム・予算・気分別のおすすめで、次の農場ゲームを見つけよう。', '정면 비교, 연간 순위, 플랫폼·예산·기분별 추천으로 다음 농장 게임을 찾아보세요.', 'Direkte Vergleiche, Jahres-Rankings und Empfehlungen nach Plattform, Budget und Stimmung – finde dein nächstes Farmspiel.'),
   },
   {

@@ -20,14 +20,20 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  // Evergreen, no year stamp: a stale year ("2025" read in 2026) signals an
+  // outdated page and chases a dying year-term instead of the evergreen head
+  // term. This page owns the *browse the directory* intent; the flagship
+  // ranked listicle (guides/best-games/top-farming-games-2025) owns the
+  // "farming games" ranking intent — keeping them apart stops the two from
+  // splitting the same query.
   const title = getLoc(
     locale,
-    '农场游戏大全 2025 — Farming Game Hub',
-    'All Farming Games 2025 — Farming Game Hub',
-    '農場遊戲大全 2025 — Farming Game Hub',
-    '農場ゲーム一覧 2025 — Farming Game Hub',
-    '모든 농장 게임 2025 — Farming Game Hub',
-    'Alle Farmspiele 2025 — Farming Game Hub',
+    '农场游戏库 — 全部农场游戏一览 | Farming Game Hub',
+    'All Farming Games — The Full Farm Game Directory | Farming Game Hub',
+    '農場遊戲庫 — 全部農場遊戲一覽 | Farming Game Hub',
+    '農場ゲーム一覧 — 全タイトル | Farming Game Hub',
+    '모든 농장 게임 — 전체 farm game 목록 | Farming Game Hub',
+    'Alle Farmspiele — Das komplette Verzeichnis | Farming Game Hub',
   )
   const description = getLoc(
     locale,

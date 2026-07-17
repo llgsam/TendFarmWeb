@@ -1,5 +1,5 @@
 ---
-title: "2025年版・癒し系farmingゲームおすすめランキング：のんびり遊べる名作はこれだ"
+title: "癒し系farmingゲームおすすめランキング：のんびり遊べる名作はこれだ"
 description: "心からくつろげるfarmingゲームをランキングで紹介。スターデューバレー、あつまれ どうぶつの森、Palia、Coral Islandなど、戦闘なし・低ストレスで魅力たっぷりの一本がきっと見つかる。"
 game: "best-games"
 slug: "cozy-farming-games"

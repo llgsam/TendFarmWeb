@@ -1,5 +1,5 @@
 ---
-title: "2025년 베스트 코지 농장 게임: 힐링과 매력으로 줄 세운 추천 순위"
+title: "베스트 코지 농장 게임: 힐링과 매력으로 줄 세운 추천 순위"
 description: "최고의 코지 농장 게임 순위 정리 — 스타듀밸리, 모여봐요 동물의 숲, Palia, Coral Island 등. 전투 없이 매력만 가득한, 나에게 딱 맞는 저스트레스 농장 게임을 찾아보세요."
 game: "best-games"
 slug: "cozy-farming-games"

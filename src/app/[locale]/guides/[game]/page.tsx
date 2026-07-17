@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!category) return {}
   const t = await getTranslations({ locale, namespace: 'guides' })
   return {
-    title: `${category.name(locale)} — Farming Game Hub`,
+    title: `${(category.headline ?? category.name)(locale)} — Farming Game Hub`,
     description: category.desc(locale),
     alternates: {
       canonical: `${BASE_URL}/${locale}/guides/${game}`,
@@ -46,6 +46,7 @@ export default async function GameGuidesPage({
   const guides = await getGuides(locale, game)
   const t = await getTranslations({ locale, namespace: 'guides' })
   const gameName = category.name(locale)
+  const heading = (category.headline ?? category.name)(locale)
 
   // Per-game guides belong to the game: link back to its profile.
   // The best-games hub links back to the game directory.
@@ -80,7 +81,7 @@ export default async function GameGuidesPage({
       >
         {backLabel}
       </Link>
-      <h1 className="mb-10 text-3xl font-bold text-[#e8dcc8]">{gameName}</h1>
+      <h1 className="mb-10 text-3xl font-bold text-[#e8dcc8]">{heading}</h1>
       {/* Calculator cross-link for supported games */}
       {(game === 'hay-day' || game === 'stardew-valley') && (
         <div className="mb-8 flex items-center justify-between rounded-xl border border-[#f0a832]/20 bg-[#1a2e1a] px-5 py-4">

@@ -1,6 +1,6 @@
 ---
-title: "Die besten Farming-Spiele 2025: 15 Spiele im Ranking für jeden Spielertyp"
-description: "Das ultimative Ranking der besten Farming-Spiele 2025 — von Stardew Valley über Hay Day bis Animal Crossing. Finde das passende Farming-Spiel für deinen Spielstil, deine Plattform und dein Zeitbudget."
+title: "Die besten Farming-Spiele: 15 Spiele im Ranking für jeden Spielertyp"
+description: "Das ultimative Ranking der besten Farming-Spiele — von Stardew Valley über Hay Day bis Animal Crossing. Finde das passende Farming-Spiel für deinen Spielstil, deine Plattform und dein Zeitbudget."
 game: "best-games"
 slug: "top-farming-games-2025"
 publishedAt: "2026-06-27"

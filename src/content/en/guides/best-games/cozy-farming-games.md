@@ -1,5 +1,5 @@
 ---
-title: "Best Cozy Farming Games in 2025: Ranked for Relaxation and Charm"
+title: "Best Cozy Farming Games: Ranked for Relaxation and Charm"
 description: "The best cozy farming games ranked — Stardew Valley, Animal Crossing, Palia, Coral Island, and more. Find your perfect low-stress farming game with no combat and maximum charm."
 game: "best-games"
 slug: "cozy-farming-games"
