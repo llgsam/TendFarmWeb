@@ -197,3 +197,5 @@ Hay Day treats animals as production facilities rather than care-based systems:
 ---
 
 > **Building your first Stardew Valley barn?** Our [Stardew Valley animal guide](/en/guides/stardew-valley/animals) covers which animals to prioritize, how to maximize friendship for quality products, the full artisan processing chain for each animal type, and whether pigs or cows are more profitable for your farm setup.
+
+> **Want the full picture beyond animal care?** [The definitive farming games list](/en/guides/best-games/top-farming-games-2025) ranks every major title across platform, time commitment, and player fit.

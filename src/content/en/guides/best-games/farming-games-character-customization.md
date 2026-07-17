@@ -228,3 +228,5 @@ Hay Day has a fixed farmer character with no appearance customization:
 ---
 
 > **Want to build the perfect island look in Animal Crossing?** Our [Animal Crossing island design guide](/en/guides/animal-crossing/island-design) covers how to use Custom Designs for island paths and walls, the most useful clothing categories for island aesthetics, and how to find community-created designs through the Nintendo Online app.
+
+> **Want the bigger picture beyond character creation?** See [best farming games, ranked](/en/guides/best-games/top-farming-games-2025) for how these titles stack up across every category — not just fashion and customization.

@@ -145,3 +145,5 @@ If you specifically want fantasy farming with combat from the start: **Sun Haven
 ---
 
 > **Not sure which game to start with?** Our [which farming game is right for you](/en/guides/best-games/which-farming-game-for-you) quiz walks through your priorities and gives a personalized recommendation across the full genre.
+
+> **Still weighing your options beyond these two?** Check [our full farming games ranking](/en/guides/best-games/top-farming-games-2025) to see how Sun Haven and Coral Island stack up against the rest of the genre.

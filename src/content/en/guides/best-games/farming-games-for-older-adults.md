@@ -163,3 +163,5 @@ This isn't trivial. Engagement with enjoyable activities, planning-oriented thin
 ---
 
 > **Buying as a gift?** See our [Farming Games for Kids guide](/en/guides/best-games/farming-games-for-kids) for age-appropriate recommendations if you're buying for a grandchild at the same time, or our [Farming Games for Couples guide](/en/guides/best-games/farming-games-for-couples) if you'd like to play alongside a partner.
+
+> **Want to compare more options first?** [See all farm games ranked](/en/guides/best-games/top-farming-games-2025) for a full breakdown of platform, pacing, and difficulty across every major title.

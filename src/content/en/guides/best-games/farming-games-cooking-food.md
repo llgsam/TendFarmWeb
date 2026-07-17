@@ -182,3 +182,5 @@ Hay Day treats food as a production category rather than a cooking system:
 ---
 
 > **Want to cook more efficiently in Stardew Valley?** Our [Stardew Valley cooking guide](/en/guides/stardew-valley/cooking) covers every recipe, the optimal food for each activity, and how to set up a kitchen that produces the buffs you need every season.
+
+> **Not sure what to play after mastering the kitchen?** See [which farm game to play next](/en/guides/best-games/top-farming-games-2025) in our full ranking, broken down by platform, time commitment, and player type.

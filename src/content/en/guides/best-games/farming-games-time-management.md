@@ -178,3 +178,5 @@ Coral Island uses a season/crop system similar to Stardew Valley with comparable
 ---
 
 > **Struggling with time in Stardew Valley?** Our [Stardew Valley beginner's guide](/en/guides/stardew-valley/beginner) includes a full first-year schedule — when to plant what, when to prioritize the mines, and how to make the most of every in-game day without feeling rushed.
+
+> **Want the bigger picture beyond scheduling systems?** Browse [our farming game rankings](/en/guides/best-games/top-farming-games-2025) to see how these titles compare on platform, depth, and time commitment overall.

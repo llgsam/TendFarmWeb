@@ -202,3 +202,5 @@ The progression is purely linear — there are no build decisions to make.
 ---
 
 > **Choosing your Stardew Valley professions?** Our [Stardew Valley profession guide](/en/guides/stardew-valley/professions) covers every profession choice, which are best for income, which are best for specific playstyles, and how to change professions using the Statue of Uncertainty if you want to try a different build.
+
+> **Want to see how these games compare beyond skill systems?** Our [15 farming games ranked for every player type](/en/guides/best-games/top-farming-games-2025) covers the full picture — platform, time commitment, and who each game is really for.

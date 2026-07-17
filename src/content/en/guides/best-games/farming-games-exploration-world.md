@@ -238,3 +238,5 @@ Hay Day's "exploration" is the progressive expansion of your own farm — unlock
 ---
 
 > **Ready to tackle Stardew Valley's mine?** Our [Stardew Valley mine guide](/en/guides/stardew-valley/mining) covers optimal mining strategies by floor zone, how to survive Skull Cavern runs with bombs and food prep, the fastest routes to iridium, and which mine floors have the best resource density for specific upgrade needs.
+
+> **Curious how these games stack up overall, not just on exploration?** [Every farming game we've ranked](/en/guides/best-games/top-farming-games-2025) breaks down platform, time commitment, and who each one is really for.
