@@ -30,6 +30,19 @@
 
 ## Tracking log (append each run, newest first)
 
+### 2026-07-17(晚场·取数)— CTR 结案:是曝光池构成问题,不是标题;助手决策=不做
+- Totals: impr **7850**(↑890)/ clicks **110**(↑11)/ CTR 1.4% / pos 16.7 / **收录 401 连续冻结**;**边际 CTR 仅 1.2%**(新曝光和存量一样差)
+- **Vercel(7d,补上早场缺口)**:访客 **239≈34/天** / PV 321 / **PV·访客=1.34(来了就走)** / 跳出 92% / referrer google 160
+- **🔴 分段模型(核心)**:**Stardew 参考(工具+攻略)~2,800 曝光 → 2 点击 = 0.07%**(结构性死区)‖ 发现/推荐 ~2,400 → ~63 = **2.6%** ‖ HayDay ~430→7 ‖ 非英语 ~600→~11。**~40% 曝光来自死区,把 2.6% 拖成 1.4% → 站点均值 CTR 无意义,只能看分段**
+- **比排得低更糟**:`stardew valley bundles`(22.2k)只给 **12 曝光**/pos47.6;`stardew valley calendar`(22.2k)**11 曝光**/pos23。**维基墙=在钱词上不存在**;工具页 1,739 曝光全是长尾碎词 → **0 点击**
+- **标题问题第 4 次证伪(用统计)**:`stardew valley vs hay day` pos3.7/18曝光/0点击,**P(观测到0)≈22% = 正常噪声**。**CTR 永久结案,不再复查**;CTR 是位置与赛道的滞后指标
+- **🔴 SERP 实搜决定性证据**:`farming games`(**49.5k**,我们 pos27.1)前8 = eneba/reddit/play.google/crazygames/steam/**cozygamereviews**/**ladiesgamers**/nintendo → **无维基 + 中腰博客在 6/7 位 = 头部词可赢**。全站最大单点缺口
+- **反证**:`/en/games/farming-simulator` pos7.7 → **CTR 22.8%**(全站冠军);ja switch pos9 → 10.8% → **排得上时 CTR 极好,CTR 从不是问题**
+- **❌ 助手决策:不是现在(时序错)**。34 访客/天做留存=过早优化;获客缺口差 1–2 个数量级(farming games 单词 49.5k 捕获≈0)。**正确时序:获客→激活→留存**。漏斗已建好,流量来了留存层就位。**读存档方向冻结,不投产能**
+- ⚠️ **待验证假设(别想当然)**:助手服务 **Stardew 参考人群**,发现簇带来 **"还在挑游戏"人群** —— **不是同一批人**,"发现簇引流→助手留存"存在**人群错配**
+- Actions taken:**零代码改动**(取数+分段+SERP+报告)。待批:**P3 发现簇枢纽内链**(唯一建议动作,复用 7/15 已验证最高 ROI 打法)
+- 新预测(7/24):**Q1** `farming games` pos≤20(若执行内链)/ **Q2** 收录≥450 / **Q3 反向** 工具簇 EN 点击仍≤6 / **Q4** 发现簇点击占比≥70%
+
 ### 2026-07-17(晚)— 执行记录(非取数运行):P0 sitemap 已修 + companion 入口漏斗
 - **✅ P0 已修(7/17 日志里的待批①)**:`sitemap.ts` 硬编码工具数组 → **改读目录**(`toolSlugs()`,仿 `quizSlugs()` 先例)。**线上复验:`/tools/stardew-greenhouse` 从 0 → 48 条 sitemap 条目**(与 companion 持平)。⚠️**注意坑**:直接"读目录"会把 `tools/quiz`(它只是 redirect 到 `/quizzes/farm-personality`)扫进 sitemap → 制造"网页会自动重定向"未收录项;故实现里**跳过含 `redirect(` 的 page**,已复验 quiz 条目=0。4 个测试锁住两条行为
 - **companion 入口漏斗(承认它搜不来流量 → 站内是唯一渠道)**:入口此前几乎关闭(工具中心排第10、8/10 工具页无入口、10/10 Stardew 攻略页 0 入口)。已做:①工具中心**置顶+特色卡**(强调边框/「📌 边玩边钉」徽章/跨列)②**8 个 Stardew 工具页**加入口 ③**8 篇 Stardew 攻略页**加**按主题定制**的 callout(钓鱼→当季鱼、best-crops→还来得及种、社区中心/mining→物品速查、relationships→今日生日);**farm-layout / games-like 故意跳过**(意图不符,games-like 的读者是要离开 Stardew)
